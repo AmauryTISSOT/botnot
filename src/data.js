@@ -6,6 +6,7 @@ const plusValues = [
       id: "plusValuesResidencePrincipale",
       type: "binary",
       logic: "root",
+      pointer: [1,2,3],
       question: "Le bien vendu constitue-t-il votre résidence principale ?",
     },
 
@@ -13,6 +14,7 @@ const plusValues = [
       id: "plusValuesRemploiPrix",
       type: "binary",
       logic: "tree",
+      pointer: [NaN],
       question:
         "Le vendez-vous pour remployer le prix dans l'achat de votre résidence principale ?",
     },
@@ -21,6 +23,7 @@ const plusValues = [
       id: "plusValuesInvalide",
       type: "binary",
       logic: "tree",
+      pointer: [NaN],
       question: "Etes-vous retraité ou invalide ?",
     },
 
@@ -28,6 +31,7 @@ const plusValues = [
       id: "plusValuesAmelioration",
       type: "binary",
       logic: "tree",
+      pointer: [NaN],
       question:
         "Avez-vous effectué des travaux de surélévation, construction ou d'amélioration ?",
     },
