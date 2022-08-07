@@ -3,20 +3,18 @@ import React, { useState } from "react";
 import CheckBoxRendering from "./CheckBoxRendering";
 
 const Checklist = () => {
-  const [checked, setChecked] = useState([]);
+//   const [checked, setChecked] = useState([]);
 
-  // Add/Remove checked item from list
-  const handleCheck = (event) => {
-    let updatedList = [...checked];
-    if (event.target.checked) {
-      updatedList = [...checked, event.target.value];
-    } else {
-      updatedList.splice(checked.indexOf(event.target.value), 1);
-    }
-    setChecked(updatedList);
-  };
-
-
+//   // Add/Remove checked item from list
+//   const handleCheck = (event) => {
+//     let updatedList = [...checked];
+//     if (event.target.checked) {
+//       updatedList = [...checked, event.target.value];
+//     } else {
+//       updatedList.splice(checked.indexOf(event.target.value), 1);
+//     }
+//     setChecked(updatedList);
+//   };
 
   return (
     <div className="App">
@@ -26,19 +24,3 @@ const Checklist = () => {
 };
 
 export default Checklist;
-
-  /* {plusValues.map((item, index) => (
-    <div key={index}>
-      <h2>{item.question}</h2>
-      <div>
-        {item.answer.map((item, index) => (
-          <label key={index}>
-            <input type="checkbox" value={item} onChange={handleCheck} />
-            {item}
-          </label>
-        ))}
-      </div>
-    </div>
-  ))}
-  <br />
-  <div>{`Items checked are : ${checked}`}</div> */
