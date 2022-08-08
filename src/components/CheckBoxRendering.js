@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import plusValues from "../data";
 
 const mockData = [
@@ -8,12 +8,27 @@ const mockData = [
 ];
 
 const CheckBoxRendering = () => {
-  const [checked, setChecked] = useState("");
+  // const [checked, setChecked] = useState("");
   const [data, setData] = useState([]);
 
+  // useEffect(() => {
+  //   const mockState = [
+  //     { plusValuesRemploiPrix: false },
+  //     { plusValuesInvalide: false },
+  //     { plusValuesAmelioration: false },
+  //   ];
+
+  //   setChecked(mockState);
+  // }, []);
+
   const handleCheck = (event) => {
-    setChecked(event.target.value);
-    // setData([...data, { [event.target.id]: event.target.value }]);
+    // setChecked(event.target.value);
+    setData([...data, { [event.target.id]: event.target.value }]);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("data", data);
   };
 
   const Title = () => {
@@ -59,10 +74,17 @@ const CheckBoxRendering = () => {
   };
 
   const RenderTree = () => {
+    const [check, setCheck] = useState(false);
+
+    const handleCheck = (event) => {
+      setCheck(!check)
+      //setData([...data, { [event.target.id]: event.target.value }]);
+    };
+
     return (
       <div>
         {plusValues.map((item, index) => (
-          <div key={index}>
+          <form key={index} onSubmit={handleSubmit}>
             {item.tree.map((tree, index) => (
               <div key={index}>
                 <h3>{tree.question}</h3>
@@ -70,6 +92,7 @@ const CheckBoxRendering = () => {
                   <label>
                     <input
                       onChange={handleCheck}
+                      checked={check}
                       type="checkbox"
                       value={true}
                       id={tree.id}
@@ -79,6 +102,7 @@ const CheckBoxRendering = () => {
                   <label>
                     <input
                       onChange={handleCheck}
+                      checked={check}
                       type="checkbox"
                       value={false}
                       id={tree.id}
@@ -88,7 +112,9 @@ const CheckBoxRendering = () => {
                 </div>
               </div>
             ))}
-          </div>
+            <br />
+            <input type="submit" />
+          </form>
         ))}
       </div>
     );
@@ -97,7 +123,7 @@ const CheckBoxRendering = () => {
   return (
     <div>
       <Title />
-      <RenderRoot />
+      {/* <RenderRoot /> */}
       <RenderTree />
     </div>
   );
