@@ -1,40 +1,11 @@
 import React, { useState } from "react";
 import plusValues from "../data";
 
-const Title = () => {
-  return (
-    <div>
-      {plusValues.map((item, index) => (
-        <h1 key={index}>{item.title}</h1>
-      ))}
-    </div>
-  );
-};
-
-const RenderTree = () => {
-  return (
-    <div>
-      {plusValues[0][0].map((item, index) => (
-        <h3 key={index}>{item.question}</h3>
-      ))}
-    </div>
-  );
-};
-
-const BinaryCheckbox = () => {
-  return (
-    <div>
-      <label>
-        <input type="checkbox" value={true} />
-        oui
-      </label>
-      <label>
-        <input type="checkbox" value={false} />
-        non
-      </label>
-    </div>
-  );
-};
+const mockData = [
+  { id: 1, name: "Alice", pets: ["dog", "cat"] },
+  { id: 2, name: "Bob", pets: ["turtle", "rabbit"] },
+  { id: 3, name: "Carl", pets: ["hamster", "parrot"] },
+];
 
 const CheckBoxRendering = () => {
   const [checked, setChecked] = useState("");
@@ -42,32 +13,94 @@ const CheckBoxRendering = () => {
 
   const handleCheck = (event) => {
     setChecked(event.target.value);
-    setData([...data, plusValues[0].data[event.target.value]]);
+    // setData([...data, { [event.target.id]: event.target.value }]);
+  };
+
+  const Title = () => {
+    return (
+      <div>
+        {plusValues.map((item, index) => (
+          <h1 key={index}>{item.title}</h1>
+        ))}
+      </div>
+    );
+  };
+
+  const RenderRoot = () => {
+    return (
+      <div>
+        {plusValues.map((item, index) => (
+          <div key={index}>
+            <h3>{item.root.question}</h3>
+            <div>
+              <label>
+                <input
+                  onChange={handleCheck}
+                  type="checkbox"
+                  value={true}
+                  id={item.root.id}
+                />
+                oui
+              </label>
+              <label>
+                <input
+                  onChange={handleCheck}
+                  type="checkbox"
+                  value={false}
+                  id={item.root.id}
+                />
+                non
+              </label>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  const RenderTree = () => {
+    return (
+      <div>
+        {plusValues.map((item, index) => (
+          <div key={index}>
+            {item.tree.map((tree, index) => (
+              <div key={index}>
+                <h3>{tree.question}</h3>
+                <div>
+                  <label>
+                    <input
+                      onChange={handleCheck}
+                      type="checkbox"
+                      value={true}
+                      id={tree.id}
+                    />
+                    oui
+                  </label>
+                  <label>
+                    <input
+                      onChange={handleCheck}
+                      type="checkbox"
+                      value={false}
+                      id={tree.id}
+                    />
+                    non
+                  </label>
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    );
   };
 
   return (
     <div>
       <Title />
+      <RenderRoot />
       <RenderTree />
-      <BinaryCheckbox />
     </div>
   );
 };
 
 export default CheckBoxRendering;
-
-{
-  /* {plusValues.map((item, index) => (
-  <div key={index}>
-    <h1>{item.title}</h1>
-    <h2>{item.question}</h2>
-    {item.binaryAnswer.map((NestItem, index) => (
-      <label key={index}>
-        {NestItem}
-        <input type="checkbox" value={NestItem} onChange={handleCheck}/>
-      </label>
-    ))}
-  </div>
-))}
-<p>Debug checked hook : {checked}</p> */
-}
