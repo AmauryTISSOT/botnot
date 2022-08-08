@@ -21,16 +21,12 @@ const CheckBoxRendering = () => {
   //   setChecked(mockState);
   // }, []);
 
-  const handleCheck = (event) => {
-    // setChecked(event.target.value);
-    setData([...data, { [event.target.id]: event.target.value }]);
-  };
+  // const handleCheck = (event) => {
+  //   // setChecked(event.target.value);
+  //   setData([...data, { [event.target.id]: event.target.value }]);
+  // };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("data", data);
-  };
-
+  
   const Title = () => {
     return (
       <div>
@@ -40,7 +36,7 @@ const CheckBoxRendering = () => {
       </div>
     );
   };
-
+  
   const RenderRoot = () => {
     return (
       <div>
@@ -50,7 +46,7 @@ const CheckBoxRendering = () => {
             <div>
               <label>
                 <input
-                  onChange={handleCheck}
+                  // onChange={handleCheck}
                   type="checkbox"
                   value={true}
                   id={item.root.id}
@@ -59,7 +55,7 @@ const CheckBoxRendering = () => {
               </label>
               <label>
                 <input
-                  onChange={handleCheck}
+                  // onChange={handleCheck}
                   type="checkbox"
                   value={false}
                   id={item.root.id}
@@ -74,11 +70,29 @@ const CheckBoxRendering = () => {
   };
 
   const RenderTree = () => {
-    const [check, setCheck] = useState(false);
+    const [checkedState, setCheckedState] = useState(
+      new Array(plusValues[0].tree.length).fill(false)
+    );
 
-    const handleCheck = (event) => {
-      setCheck(!check)
-      //setData([...data, { [event.target.id]: event.target.value }]);
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      console.log("data", data);
+      console.log("checked", checkedState);
+    };
+
+    const handleCheck = (position) => {
+      setData([
+        ...data,
+        { [plusValues[0].tree[position].id]: checkedState[position] },
+      ]);
+      console.log(data);
+      const updatedCheckedState = checkedState.map((item, index) =>
+        index === position ? !item : item
+      );
+
+      setCheckedState(updatedCheckedState);
+
+      // setData([...data, { [event.target.id]: event.target.value }]);
     };
 
     return (
@@ -91,24 +105,22 @@ const CheckBoxRendering = () => {
                 <div>
                   <label>
                     <input
-                      onChange={handleCheck}
-                      checked={check}
+                      onChange={() => handleCheck(index)}
                       type="checkbox"
-                      value={true}
+                      checked={checkedState[index]}
                       id={tree.id}
                     />
                     oui
                   </label>
-                  <label>
+                  {/* <label>
                     <input
-                      onChange={handleCheck}
-                      checked={check}
+                      // onChange={handleCheck}
                       type="checkbox"
                       value={false}
                       id={tree.id}
                     />
                     non
-                  </label>
+                  </label> */}
                 </div>
               </div>
             ))}
