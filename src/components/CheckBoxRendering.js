@@ -4,21 +4,33 @@ import RenderTree from "./checkboxComponents/RenderTree";
 import QuizTitle from "./QuizTitle";
 
 const CheckBoxRendering = () => {
-  const [data, setData] = useState([]);
-  const [submit, setSubmit] = useState(false);
+  const [dataState, setDataState] = useState([]);
+  const [rootSubmit, setRootSubmit] = useState(false);
+  const [treeSubmit, setTreeSubmit] = useState(false);
 
   return (
     <div>
       <QuizTitle />
-      <RenderRoot setDataState={setData} dataState={data} />
-      {submit ? (
-        <div>submit = true</div>
+
+      {rootSubmit ? (
+        <div>rootSubmit true</div>
+      ) : (
+        <RenderRoot
+          setDataState={setDataState}
+          dataState={dataState}
+          rootSubmit={rootSubmit}
+          setRootSubmit={setRootSubmit}
+        />
+      )}
+
+      {treeSubmit ? (
+        <div>treeSubmit true</div>
       ) : (
         <RenderTree
-          dataState={data}
-          setDataState={setData}
-          submitState={submit}
-          setSubmitState={setSubmit}
+          dataState={dataState}
+          setDataState={setDataState}
+          treeSubmit={treeSubmit}
+          setTreeSubmit={setTreeSubmit}
         />
       )}
     </div>

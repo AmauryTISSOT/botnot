@@ -4,8 +4,8 @@ import plusValues from "../../data";
 const RenderTree = ({
   dataState,
   setDataState,
-  submitState,
-  setSubmitState,
+  treeSubmit,
+  setTreeSubmit,
 }) => {
   const [ouiCheckedState, setOuiCheckedState] = useState(
     new Array(plusValues[0].tree.length).fill(false)
@@ -17,7 +17,7 @@ const RenderTree = ({
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log("data", dataState);
-    setSubmitState(!submitState);
+    setTreeSubmit(!treeSubmit);
   };
 
   const handleOuiCheck = (position) => {
