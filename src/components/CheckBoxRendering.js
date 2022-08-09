@@ -1,32 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import plusValues from "../data";
 
-const mockData = [
-  { id: 1, name: "Alice", pets: ["dog", "cat"] },
-  { id: 2, name: "Bob", pets: ["turtle", "rabbit"] },
-  { id: 3, name: "Carl", pets: ["hamster", "parrot"] },
-];
-
 const CheckBoxRendering = () => {
-  // const [checked, setChecked] = useState("");
   const [data, setData] = useState([]);
+  const [ouiCheckedState, setOuiCheckedState] = useState(
+    new Array(plusValues[0].tree.length).fill(false)
+  );
+  const [nonCheckedState, setNonCheckedState] = useState(
+    new Array(plusValues[0].tree.length).fill(false)
+  );
 
-  // useEffect(() => {
-  //   const mockState = [
-  //     { plusValuesRemploiPrix: false },
-  //     { plusValuesInvalide: false },
-  //     { plusValuesAmelioration: false },
-  //   ];
+  const [submit, setSubmit] = useState(false);
 
-  //   setChecked(mockState);
-  // }, []);
-
-  // const handleCheck = (event) => {
-  //   // setChecked(event.target.value);
-  //   setData([...data, { [event.target.id]: event.target.value }]);
-  // };
-
-  
   const Title = () => {
     return (
       <div>
@@ -36,7 +21,7 @@ const CheckBoxRendering = () => {
       </div>
     );
   };
-  
+
   const RenderRoot = () => {
     return (
       <div>
@@ -70,29 +55,31 @@ const CheckBoxRendering = () => {
   };
 
   const RenderTree = () => {
-    const [checkedState, setCheckedState] = useState(
-      new Array(plusValues[0].tree.length).fill(false)
-    );
-
     const handleSubmit = (event) => {
       event.preventDefault();
       console.log("data", data);
-      console.log("checked", checkedState);
+      console.log(submit);
+      setSubmit(!submit);
     };
 
-    const handleCheck = (position) => {
-      setData([
-        ...data,
-        { [plusValues[0].tree[position].id]: checkedState[position] },
-      ]);
-      console.log(data);
-      const updatedCheckedState = checkedState.map((item, index) =>
+    const handleOuiCheck = (position) => {
+      const updatedCheckedState = ouiCheckedState.map((item, index) =>
         index === position ? !item : item
       );
 
-      setCheckedState(updatedCheckedState);
+      setOuiCheckedState(updatedCheckedState);
+    };
 
-      // setData([...data, { [event.target.id]: event.target.value }]);
+    const handleNonCheck = (position) => {
+      const updatedCheckedState = nonCheckedState.map((item, index) =>
+        index === position ? !item : item
+      );
+
+      setNonCheckedState(updatedCheckedState);
+    };
+
+    const sendData = (event) => {
+      setData([...data, { [event.target.id]: event.target.value }]);
     };
 
     return (
@@ -105,22 +92,30 @@ const CheckBoxRendering = () => {
                 <div>
                   <label>
                     <input
-                      onChange={() => handleCheck(index)}
+                      onChange={(e) => {
+                        handleOuiCheck(index);
+                        sendData(e);
+                      }}
                       type="checkbox"
-                      checked={checkedState[index]}
+                      checked={ouiCheckedState[index]}
                       id={tree.id}
+                      value={true}
                     />
                     oui
                   </label>
-                  {/* <label>
+                  <label>
                     <input
-                      // onChange={handleCheck}
+                      onChange={(e) => {
+                        handleNonCheck(index);
+                        sendData(e);
+                      }}
                       type="checkbox"
-                      value={false}
+                      checked={nonCheckedState[index]}
                       id={tree.id}
+                      value={false}
                     />
                     non
-                  </label> */}
+                  </label>
                 </div>
               </div>
             ))}
@@ -136,7 +131,7 @@ const CheckBoxRendering = () => {
     <div>
       <Title />
       {/* <RenderRoot /> */}
-      <RenderTree />
+      {submit ? <div>submit = true</div> : <RenderTree />}
     </div>
   );
 };
