@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import plusValues from "../data";
 import RenderRoot from "./checkboxComponents/RenderRoot";
+import RenderTree from "./checkboxComponents/RenderTree";
 
 const CheckBoxRendering = () => {
   const [data, setData] = useState([]);
-  const [ouiCheckedState, setOuiCheckedState] = useState(
-    new Array(plusValues[0].tree.length).fill(false)
-  );
-  const [nonCheckedState, setNonCheckedState] = useState(
-    new Array(plusValues[0].tree.length).fill(false)
-  );
   const [submit, setSubmit] = useState(false);
 
   const Title = () => {
@@ -22,85 +17,20 @@ const CheckBoxRendering = () => {
     );
   };
 
-
-  const RenderTree = () => {
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      console.log("data", data);
-      console.log(submit);
-      setSubmit(!submit);
-    };
-
-    const handleOuiCheck = (position) => {
-      const updatedCheckedState = ouiCheckedState.map((item, index) =>
-        index === position ? !item : item
-      );
-
-      setOuiCheckedState(updatedCheckedState);
-    };
-
-    const handleNonCheck = (position) => {
-      const updatedCheckedState = nonCheckedState.map((item, index) =>
-        index === position ? !item : item
-      );
-
-      setNonCheckedState(updatedCheckedState);
-    };
-
-    const sendData = (event) => {
-      setData([...data, { [event.target.id]: event.target.value }]);
-    };
-
-    return (
-      <div>
-        {plusValues.map((item, index) => (
-          <form key={index} onSubmit={handleSubmit}>
-            {item.tree.map((tree, index) => (
-              <div key={index}>
-                <h3>{tree.question}</h3>
-                <div>
-                  <label>
-                    <input
-                      onChange={(e) => {
-                        handleOuiCheck(index);
-                        sendData(e);
-                      }}
-                      type="checkbox"
-                      checked={ouiCheckedState[index]}
-                      id={tree.id}
-                      value={true}
-                    />
-                    oui
-                  </label>
-                  <label>
-                    <input
-                      onChange={(e) => {
-                        handleNonCheck(index);
-                        sendData(e);
-                      }}
-                      type="checkbox"
-                      checked={nonCheckedState[index]}
-                      id={tree.id}
-                      value={false}
-                    />
-                    non
-                  </label>
-                </div>
-              </div>
-            ))}
-            <br />
-            <input type="submit" />
-          </form>
-        ))}
-      </div>
-    );
-  };
-
   return (
     <div>
       <Title />
-      <RenderRoot setDataState={setData} dataState ={data}/>
-      {/* {submit ? <div>submit = true</div> : <RenderTree />} */}
+      <RenderRoot setDataState={setData} dataState={data} />
+      {submit ? (
+        <div>submit = true</div>
+      ) : (
+        <RenderTree
+          dataState={data}
+          setDataState={setData}
+          submitState={submit}
+          setSubmitState={setSubmit}
+        />
+      )}
     </div>
   );
 };
