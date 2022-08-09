@@ -1,5 +1,5 @@
 import React from "react";
-import plusValues from "../data";
+import plusValues from "../../data";
 
 const QuizTitle = () => {
   return (

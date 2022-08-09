@@ -39,11 +39,3 @@ const plusValues = [
 ];
 
 export default plusValues;
-
-// title = titre du questionnaire à afficher en h1 {type = string}
-// id = id permettant d'identifier la question {type = string}
-// question = une question à laquelle on ne peut répondre que par oui ou non {type = string}
-// binaryAnswer = la réponse : oui / non {type = array}
-// binaryLogic = un object qui a pour key oui / non  {type = object}
-// multipleQuestions = plusieurs questions qui non pas de choix binaire : qcm à cocher {type : array}
-// data = les données du QCM qui seront stockés {type : object}

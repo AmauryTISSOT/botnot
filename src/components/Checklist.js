@@ -1,5 +1,5 @@
 import React from "react";
-import CheckBoxRendering from "./CheckBoxRendering";
+import CheckBoxRendering from "./checkboxComponents/CheckBoxRendering";
 
 const Checklist = () => {
 

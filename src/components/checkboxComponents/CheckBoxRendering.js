@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import RenderRoot from "./checkboxComponents/RenderRoot";
-import RenderTree from "./checkboxComponents/RenderTree";
+import RenderRoot from "./RenderRoot";
+import RenderTree from "./RenderTree";
 import QuizTitle from "./QuizTitle";
 
 const CheckBoxRendering = () => {
@@ -13,24 +13,22 @@ const CheckBoxRendering = () => {
       <QuizTitle />
 
       {rootSubmit ? (
-        <div>rootSubmit true</div>
+        treeSubmit ? (
+          <div>treeSubmit true</div>
+        ) : (
+          <RenderTree
+            dataState={dataState}
+            setDataState={setDataState}
+            treeSubmit={treeSubmit}
+            setTreeSubmit={setTreeSubmit}
+          />
+        )
       ) : (
         <RenderRoot
           setDataState={setDataState}
           dataState={dataState}
           rootSubmit={rootSubmit}
           setRootSubmit={setRootSubmit}
-        />
-      )}
-
-      {treeSubmit ? (
-        <div>treeSubmit true</div>
-      ) : (
-        <RenderTree
-          dataState={dataState}
-          setDataState={setDataState}
-          treeSubmit={treeSubmit}
-          setTreeSubmit={setTreeSubmit}
         />
       )}
     </div>
