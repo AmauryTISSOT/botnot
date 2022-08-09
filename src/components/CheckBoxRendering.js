@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import plusValues from "../data";
+import RenderRoot from "./checkboxComponents/RenderRoot";
 
 const CheckBoxRendering = () => {
   const [data, setData] = useState([]);
@@ -9,7 +10,6 @@ const CheckBoxRendering = () => {
   const [nonCheckedState, setNonCheckedState] = useState(
     new Array(plusValues[0].tree.length).fill(false)
   );
-
   const [submit, setSubmit] = useState(false);
 
   const Title = () => {
@@ -22,37 +22,6 @@ const CheckBoxRendering = () => {
     );
   };
 
-  const RenderRoot = () => {
-    return (
-      <div>
-        {plusValues.map((item, index) => (
-          <div key={index}>
-            <h3>{item.root.question}</h3>
-            <div>
-              <label>
-                <input
-                  // onChange={handleCheck}
-                  type="checkbox"
-                  value={true}
-                  id={item.root.id}
-                />
-                oui
-              </label>
-              <label>
-                <input
-                  // onChange={handleCheck}
-                  type="checkbox"
-                  value={false}
-                  id={item.root.id}
-                />
-                non
-              </label>
-            </div>
-          </div>
-        ))}
-      </div>
-    );
-  };
 
   const RenderTree = () => {
     const handleSubmit = (event) => {
@@ -130,8 +99,8 @@ const CheckBoxRendering = () => {
   return (
     <div>
       <Title />
-      {/* <RenderRoot /> */}
-      {submit ? <div>submit = true</div> : <RenderTree />}
+      <RenderRoot setDataState={setData} dataState ={data}/>
+      {/* {submit ? <div>submit = true</div> : <RenderTree />} */}
     </div>
   );
 };
