@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import RenderRoot from "./RenderRoot";
 import RenderTree from "./RenderTree";
 import QuizTitle from "./QuizTitle";
+import MockRender from "./MockRender";
 
 const CheckBoxRendering = () => {
   const [dataState, setDataState] = useState([]);
@@ -10,7 +11,7 @@ const CheckBoxRendering = () => {
 
   return (
     <div>
-      <QuizTitle />
+      {/* <QuizTitle />
 
       {rootSubmit ? (
         treeSubmit ? (
@@ -30,7 +31,11 @@ const CheckBoxRendering = () => {
           rootSubmit={rootSubmit}
           setRootSubmit={setRootSubmit}
         />
-      )}
+      )} */}
+
+
+      <MockRender/>
+      
     </div>
   );
 };
