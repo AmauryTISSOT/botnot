@@ -40,7 +40,7 @@ const mockData = [
         id: "MockTreeId2",
         type: "binary",
         logic: "tree",
-        access: [],
+        access: ["MockRootId2"],
         pointer: "tree",
         question: "Tree question 2 ?",
       },
@@ -48,40 +48,59 @@ const mockData = [
   },
 ];
 
-
-
 const MockRender = () => {
-
-  const mockDataState = [{
-    MockRootId1 : true,
-    MockRootId2 : true,
-    MockRootId3 : false,
-  }];
+  const mockDataState = [
+    {
+      MockRootId1: true,
+      MockRootId2: true,
+      MockRootId3: false,
+    },
+  ];
 
   const trueArray = [];
 
-  const allAreTrue = arr =>arr.every(element => element === true);
+  const allAreTrue = (arr) => arr.every((element) => element === true);
 
+  const pushArray = (accessItem) => {
+    trueArray.push(mockDataState[0][accessItem]);
+  };
 
-  return <div>
-  {mockData.map((item,index) => (
-    <div key={index}>
-        {item.quiz.map((quizItem, index) => (
+  return (
+    <div>
+      {mockData.map((item, index) => (
+        <div key={index}>
+          {item.quiz.map((quizItem, index) => (
             <div key={index}>
-                {quizItem.access.map((accessItem, index) => (
-                    <div key={index}>{
-                        trueArray.push(mockDataState[0][accessItem])}
-                        {
-                        allAreTrue(trueArray) && (quizItem.logic === "tree" && <div>{quizItem.question}</div>)
-                    }</div>
-                ))}
+              {quizItem.access.map((accessItem, index) => (
+                <div key={index}>
+                  {pushArray(accessItem)}
+                  {console.log("trueArray", index, trueArray)}
+                  {console.log("Access array length", quizItem.access.length)}
+
+                  {trueArray.length === quizItem.access.length &&
+                    (allAreTrue(trueArray) ? (
+                      quizItem.logic === "tree" && (
+                        <div>
+                          {quizItem.question}
+                          {trueArray.splice(0, trueArray.length)}
+                          {console.log("TRUE trueArray has been clean")}
+                        </div>
+                      )
+                    ) : (
+                      <div>
+                        {trueArray.splice(0, trueArray.length)}
+                        {console.log("FALSE trueArray has been clean")}
+                      </div>
+                    ))}
+                </div>
+              ))}
             </div>
-        ))}
-        {console.log(trueArray)}
+          ))}
+          {console.log(trueArray)}
+        </div>
+      ))}
     </div>
-  ))
-  }
-  </div>;
+  );
 };
 
 export default MockRender;
