@@ -34,7 +34,8 @@ const CheckBoxRendering = () => {
       )} */}
 
 
-      <MockRender/>
+      <MockRender setDataState={setDataState}
+          dataState={dataState}/>
       
     </div>
   );
