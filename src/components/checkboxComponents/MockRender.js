@@ -14,7 +14,7 @@ const mockData = [
         question: "Root question 1 ?",
       },
       {
-        id: "MockRootId3",
+        id: "MockRootId2",
         type: "binary",
         logic: "root",
         access: ["keystone"],
@@ -22,7 +22,7 @@ const mockData = [
         question: "Root question 2 ?",
       },
       {
-        id: "MockRootId2",
+        id: "MockRootId3",
         type: "binary",
         logic: "root",
         access: ["MockRootId1"],
@@ -56,6 +56,9 @@ const mockData = [
     ],
   },
 ];
+
+//Display array
+const displayArray = {};
 
 const MockRender = ({ dataState, setDataState }) => {
   // Mock data state for development
@@ -93,8 +96,20 @@ const MockRender = ({ dataState, setDataState }) => {
     const updatedCheckedState = ouiCheckedState.map((item, index) =>
       index === position ? !item : item
     );
-
     setOuiCheckedState(updatedCheckedState);
+  };
+
+
+  // Function to find if all the value of a object are true. If yes : return true
+  const allObjValueAreTrue = (object) => Object.values(object).every(value => value === true);
+
+
+  // Function who remove specific element from an array
+  const removeElemFromArray = (array, element) => {
+    const index = array.indexOf(element);
+    if (index > -1) {
+      array.splice(index, 1);
+    }
   };
 
   // Handle "oui" checkbox : update the state based on the index of the current question
@@ -102,14 +117,18 @@ const MockRender = ({ dataState, setDataState }) => {
     const updatedCheckedState = nonCheckedState.map((item, index) =>
       index === position ? !item : item
     );
-
     setNonCheckedState(updatedCheckedState);
   };
 
+  // Function who send on dataState clicked ID : clicked value
   const sendDataOnClick = (event) => {
     setDataState([...dataState, { [event.target.id]: event.target.value }]);
+    displayArray[event.target.id] = true;
+    console.log(event.target.id, "has been switch to true");
+    console.log("Check if all the value of display array are true : ", allObjValueAreTrue(displayArray))
   };
 
+  // Function who return true if the key exist in object
   const keyExists = (obj, key) => {
     if (!obj || (typeof obj !== "object" && !Array.isArray(obj))) {
       return false;
@@ -134,17 +153,35 @@ const MockRender = ({ dataState, setDataState }) => {
     return false;
   };
 
-  // Function who detect if the id exist in the dataState
-  const verifyIfIdExist = (state) => {
-    console.log(keyExists(state, "MockRootId1"));
-  };
-
   //Buffer array
   const bufferArray = [];
 
-  //Function who send all the object id into a buffer array
-  const sendIdToBuffer = () => {
-    mockData.
+  // Function who populate the array with question ID when the question is display
+  const populateDisplayArray = (quizItem) => {
+    if (keyExists(displayArray, quizItem.id) === false) {
+      displayArray[quizItem.id] = false;
+      console.log(quizItem.id, "has been had to displayArray");
+    } else console.log(quizItem.id, "already exist in displayArray");
+  };
+
+  //Function who send all the object id into a buffer array with value : false
+  const sendIdToBuffer = (object) => {
+    object[0].quiz.map((item) => bufferArray.push({ [item.id]: "false" }));
+  };
+
+  //Function who verify if the value in bufferArray are in dataState, if no : send the missing data
+  const verifyIfIdExistInState = (state) => {
+    bufferArray.forEach((item) => {
+      const keyObject = Object.keys(item).toString();
+      console.log(
+        `The ${keyObject} exist in dataState :`,
+        keyExists(state, keyObject)
+      );
+      if (!keyExists(state, keyObject)) {
+        console.log(item, "has been send to state");
+        setDataState((current) => [...current, item]);
+      }
+    });
   };
 
   // Checkbox who display function and send value to dataState
@@ -223,6 +260,7 @@ const MockRender = ({ dataState, setDataState }) => {
 
   return (
     <div>
+      {sendIdToBuffer(mockData)}
       {mockData.map((item, index) => (
         <div key={index}>
           {item.quiz.map((quizItem, index) => (
@@ -237,6 +275,7 @@ const MockRender = ({ dataState, setDataState }) => {
                     <div>
                       <h3>Keystone : {quizItem.question}</h3>
                       <p>id : {quizItem.id}</p>
+                      {populateDisplayArray(quizItem)}
                       {/* {console.log("ouiCheckedState", ouiCheckedState)}
                       {console.log("nonCheckedState", nonCheckedState)} */}
                       {checkboxJSX(index, quizItem)}
@@ -249,8 +288,8 @@ const MockRender = ({ dataState, setDataState }) => {
                         <div>
                           <h3>Root : {quizItem.question}</h3>
                           <p>id : {quizItem.id}</p>
+                          {populateDisplayArray(quizItem)}
                           {checkboxJSX(index, quizItem)}
-
                           {trueArray.splice(0, trueArray.length)}
                           {/* {console.log("TRUE trueArray has been clean")} */}
                         </div>
@@ -271,38 +310,15 @@ const MockRender = ({ dataState, setDataState }) => {
           ))}
         </div>
       ))}
-      {console.log(dataState)}
-      <button onClick={() => verifyIfIdExist(dataState)}>
+      {/* {console.log("Buffer array : ", bufferArray)} */}
+      <button onClick={() => verifyIfIdExistInState(mockDataState)}>
         CHECK IF THE KEY EXIST
       </button>
+      {console.log("dataSate :", dataState)}
+      {console.log("displayArray :", displayArray)}
     </div>
   );
 };
 
 export default MockRender;
 
-/* {mockData.map((item,index) => (
-    <div key={index}>
-        {item.array.map((array,index) => (
-            <div key={index}>
-                {array.access.forEach((i) => console.log(i))}
-
-
-
-                {
-                    array.logic ==="root" && <div>{array.question}</div>
-                    }
-                {
-                
-                    // mockDataState[0][state] && <div>
-                    //         {
-                    //         item.logic ==="tree" && <div>{item.question}</div>
-                    //         }
-                    //         </div>
-                
-                }
-
-            </div>
-        ))}
-    </div>
-))} */
