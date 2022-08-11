@@ -64,7 +64,7 @@ const MockRender = ({ dataState, setDataState }) => {
   // Mock data state for development
   const mockDataState = [
     {
-      MockRootId1: false,
+      MockRootId1: true,
       MockRootId2: true,
       MockRootId3: true,
     },
@@ -78,7 +78,9 @@ const MockRender = ({ dataState, setDataState }) => {
 
   // Push the value of the state into the "trueArray" array by using the key stored inside "access"
   const pushArray = (accessItem) => {
-    trueArray.push(mockDataState[0][accessItem]);
+    let boolOutput = (dataState[accessItem] ==="true")
+    trueArray.push(boolOutput);
+    // trueArray.push(dataState[accessItem]);
   };
 
   // Hook state for "oui" checkbox : generate an array base on quiz length
@@ -122,10 +124,14 @@ const MockRender = ({ dataState, setDataState }) => {
 
   // Function who send on dataState clicked ID : clicked value
   const sendDataOnClick = (event) => {
-    setDataState([...dataState, { [event.target.id]: event.target.value }]);
+    setDataState( (prev) => ({...prev, [event.target.id]: event.target.value} ))
     displayArray[event.target.id] = true;
     console.log(event.target.id, "has been switch to true");
     console.log("Check if all the value of display array are true : ", allObjValueAreTrue(displayArray))
+    console.log("dataSate : ", dataState)
+    allObjValueAreTrue(displayArray) && alert("CHANGEMENT DE PAGE")
+
+    // TODO CODER LE CHANGEMENT DE PAGE : prévoir un hook ? ou une constance pour procéder au changement de page
   };
 
   // Function who return true if the key exist in object
@@ -179,7 +185,7 @@ const MockRender = ({ dataState, setDataState }) => {
       );
       if (!keyExists(state, keyObject)) {
         console.log(item, "has been send to state");
-        setDataState((current) => [...current, item]);
+        setDataState((current) => ({ ...current, [keyObject] : false}));
       }
     });
   };
@@ -268,6 +274,7 @@ const MockRender = ({ dataState, setDataState }) => {
               {quizItem.access.map((accessItem, accessIndex) => (
                 <div key={accessIndex}>
                   {pushArray(accessItem)}
+                  {console.log("access item", accessItem)}
                   {/* {console.log("trueArray", index, trueArray)}
                   {console.log("Access array length", quizItem.access.length)} */}
 
@@ -311,11 +318,12 @@ const MockRender = ({ dataState, setDataState }) => {
         </div>
       ))}
       {/* {console.log("Buffer array : ", bufferArray)} */}
-      <button onClick={() => verifyIfIdExistInState(mockDataState)}>
+      <button onClick={() => verifyIfIdExistInState(dataState)}>
         CHECK IF THE KEY EXIST
       </button>
       {console.log("dataSate :", dataState)}
       {console.log("displayArray :", displayArray)}
+      {console.log("true array:", trueArray)}
     </div>
   );
 };
