@@ -5,7 +5,7 @@ import QuizTitle from "./QuizTitle";
 import MockRender from "./MockRender";
 
 const CheckBoxRendering = () => {
-  const [dataState, setDataState] = useState([]);
+  const [dataState, setDataState] = useState({});
   const [rootSubmit, setRootSubmit] = useState(false);
   const [treeSubmit, setTreeSubmit] = useState(false);
 
