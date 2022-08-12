@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import plusValues from "../../data";
 
 // Mock data for development
-const mockData = [
+const MockData = [
   {
     title: "MockData",
     quiz: [
@@ -18,7 +19,6 @@ const mockData = [
         type: "binary",
         logic: "root",
         access: ["keystone"],
-        pointer: "tree",
         question: "Root question 2 ?",
       },
       {
@@ -26,7 +26,6 @@ const mockData = [
         type: "binary",
         logic: "root",
         access: ["MockRootId1"],
-        pointer: "tree",
         question: "Root question 3 ?",
       },
       {
@@ -34,7 +33,6 @@ const mockData = [
         type: "binary",
         logic: "tree",
         access: ["MockRootId1", "MockRootId3"],
-        pointer: "tree",
         question: "Tree question 1 ?",
       },
       {
@@ -42,7 +40,6 @@ const mockData = [
         type: "binary",
         logic: "tree",
         access: ["MockRootId2"],
-        pointer: "tree",
         question: "Tree question 2 ?",
       },
       {
@@ -50,7 +47,6 @@ const mockData = [
         type: "binary",
         logic: "tree",
         access: ["MockRootId1"],
-        pointer: "tree",
         question: "Tree question 3 ?",
       },
     ],
@@ -64,7 +60,7 @@ const displayArray = {};
 // So even for the questions who are not rendered, the data is send to dataState with the value : questionID : false
 const bufferArray = [];
 
-const MockRender = ({ dataState, setDataState }) => {
+const MockRender = ({ dataState, setDataState, QCMObject }) => {
   // Mock data state for development
   // const mockDataState = [
   //   {
@@ -74,12 +70,14 @@ const MockRender = ({ dataState, setDataState }) => {
   //   },
   // ];
 
+  const DataObject = QCMObject;
+
   // Function who return true if all the element in a given array are true
   const allAreTrue = (arr) => arr.every((element) => element === true);
 
   // Hook state for "oui" checkbox : generate an array base on quiz length
   const [ouiCheckedState, setOuiCheckedState] = useState(
-    new Array(mockData[0].quiz.length).fill(false)
+    new Array(DataObject[0].quiz.length).fill(false)
   );
 
   // Hook state who handle the next slide script
@@ -87,7 +85,7 @@ const MockRender = ({ dataState, setDataState }) => {
 
   // Hook state for "non" checkbox : generate an array base on quiz length
   const [nonCheckedState, setNonCheckedState] = useState(
-    new Array(mockData[0].quiz.length).fill(false)
+    new Array(DataObject[0].quiz.length).fill(false)
   );
 
   // Handle "oui" checkbox : update the state based on the index of the current question
@@ -231,15 +229,15 @@ const MockRender = ({ dataState, setDataState }) => {
     <div>
       {togglePage === false && (
         <div>
-          {sendIdToBuffer(mockData)}
-          {mockData.map((item, index) => (
+          {sendIdToBuffer(DataObject)}
+          {DataObject.map((item, index) => (
             <div key={index}>
               {item.quiz.map((quizItem, index) => (
                 <div key={index}>
                   {quizItem.access[0] === "keystone" && (
                     <div>
-                      <h3>Keystone : {quizItem.question}</h3>
-                      <p>id : {quizItem.id}</p>
+                      <h3>{quizItem.question}</h3>
+                      <p>id keystone : {quizItem.id}</p>
                       {populateDisplayArray(quizItem)}
                       {checkboxJSX(index, quizItem)}
                     </div>
@@ -248,8 +246,8 @@ const MockRender = ({ dataState, setDataState }) => {
                   {qcmLogicHandler(quizItem.access) &&
                     quizItem.logic === "root" && (
                       <div>
-                        <h3>Root : {quizItem.question}</h3>
-                        <p>id : {quizItem.id}</p>
+                        <h3>{quizItem.question}</h3>
+                        <p>id root : {quizItem.id}</p>
                         {populateDisplayArray(quizItem)}
                         {checkboxJSX(index, quizItem)}
                       </div>
@@ -264,15 +262,15 @@ const MockRender = ({ dataState, setDataState }) => {
 
       {togglePage && (
         <div>
-          {mockData.map((item, index) => (
+          {DataObject.map((item, index) => (
             <div key={index}>
               {item.quiz.map((quizItem, index) => (
                 <div key={index}>
                   {qcmLogicHandler(quizItem.access) &&
                     quizItem.logic === "tree" && (
                       <div>
-                        <h3>Tree : {quizItem.question}</h3>
-                        <p>id : {quizItem.id}</p>
+                        <h3>{quizItem.question}</h3>
+                        <p>id tree : {quizItem.id}</p>
                         {populateDisplayArray(quizItem)}
                         {checkboxJSX(index, quizItem)}
                       </div>
