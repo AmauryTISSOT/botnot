@@ -106,9 +106,7 @@ const MockRender = ({ dataState, setDataState }) => {
     );
 
     setOuiCheckedState(updatedOuiCheckedState);
-    console.log("Oui updatedCheckState", updatedOuiCheckedState);
     setNonCheckedState(updatedNonCheckedState);
-    console.log("Non updatedCheckState", updatedNonCheckedState);
   };
 
   // Handle "non" checkbox : update the state based on the index of the current question
@@ -121,9 +119,7 @@ const MockRender = ({ dataState, setDataState }) => {
       index === position ? (item = false) : item
     );
     setNonCheckedState(updatedNonCheckedState);
-    console.log("Oui updatedCheckState", updatedOuiCheckedState);
     setOuiCheckedState(updatedOuiCheckedState);
-    console.log("Non updatedCheckState", updatedNonCheckedState);
   };
 
   // Function to find if all the value of a object are true. If yes : return true
@@ -193,7 +189,10 @@ const MockRender = ({ dataState, setDataState }) => {
 
   //Function who send all the object id into a buffer array with value : false
   const sendIdToBuffer = (object) => {
-    object[0].quiz.map((item) => bufferArray.push({ [item.id]: "false" }));
+    object[0].quiz.map(
+      (item) =>
+        item.logic === "root" && bufferArray.push({ [item.id]: "false" })
+    );
   };
 
   //Function who verify if the value in bufferArray are in dataState, if no : send the missing data
@@ -201,6 +200,7 @@ const MockRender = ({ dataState, setDataState }) => {
   const verifyIfIdExistInState = (state) => {
     bufferArray.forEach((item) => {
       const keyObject = Object.keys(item).toString();
+      console.log("BufferArray", bufferArray)
       // console.log(
       //   `The ${keyObject} exist in dataState :`,
       //   keyExists(state, keyObject)
@@ -348,7 +348,7 @@ const MockRender = ({ dataState, setDataState }) => {
       {/* {console.log("dataSate :", dataState)}
       {console.log("displayArray :", displayArray)}
       {console.log("true array:", trueArray)} */}
-      {togglePage && <h1>NEXT PAGE</h1>}
+      {togglePage && <h1>NEXT PAGE {verifyIfIdExistInState(dataState)}</h1>}
     </div>
   );
 };
