@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-
-
 // Mock data state for development
 // const mockDataState = [
 //   {
@@ -17,6 +15,10 @@ const displayArray = {};
 //Buffer array : this array handle all the questions data until the QCM is finish
 // So even for the questions who are not rendered, the data is send to dataState with the value : questionID : false
 const bufferArray = [];
+
+// Variable who switch to true if tree questions are not rendered
+let treeHasBeenRender = false;
+
 
 const MockRender = ({ dataState, setDataState, QCMObject }) => {
   const DataObject = QCMObject;
@@ -221,15 +223,17 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
             <div key={index}>
               {item.quiz.map((quizItem, index) => (
                 <div key={index}>
-                  {qcmLogicHandler(quizItem.access) && 
+                  {qcmLogicHandler(quizItem.access) &&
                     quizItem.logic === "tree" && (
                       <div>
                         <h3>{quizItem.question}</h3>
                         <p>id tree : {quizItem.id}</p>
                         {populateDisplayArray(quizItem)}
                         {checkboxJSX(index, quizItem)}
+                        {treeHasBeenRender = true}
                       </div>
                     )}
+                  {treeHasBeenRender === false && setTogglePage("next")}
                 </div>
               ))}
             </div>
