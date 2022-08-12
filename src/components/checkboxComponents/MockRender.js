@@ -60,15 +60,19 @@ const mockData = [
 //Display array
 const displayArray = {};
 
+//Buffer array : this array handle all the questions data until the QCM is finish
+// So even for the questions who are not rendered, the data is send to dataState with the value : questionID : false
+const bufferArray = [];
+
 const MockRender = ({ dataState, setDataState }) => {
   // Mock data state for development
-  const mockDataState = [
-    {
-      MockRootId1: true,
-      MockRootId2: true,
-      MockRootId3: true,
-    },
-  ];
+  // const mockDataState = [
+  //   {
+  //     MockRootId1: true,
+  //     MockRootId2: true,
+  //     MockRootId3: true,
+  //   },
+  // ];
 
   // Function who return true if all the element in a given array are true
   const allAreTrue = (arr) => arr.every((element) => element === true);
@@ -116,14 +120,6 @@ const MockRender = ({ dataState, setDataState }) => {
   const allObjValueAreTrue = (object) =>
     Object.values(object).every((value) => value === true);
 
-  // Function who remove specific element from an array
-  const removeElemFromArray = (array, element) => {
-    const index = array.indexOf(element);
-    if (index > -1) {
-      array.splice(index, 1);
-    }
-  };
-
   // Function who send on dataState clicked ID : clicked value
   const sendDataOnClick = (event) => {
     setDataState((prev) => ({
@@ -131,12 +127,7 @@ const MockRender = ({ dataState, setDataState }) => {
       [event.target.id]: event.target.value,
     }));
     displayArray[event.target.id] = true;
-    // console.log(event.target.id, "has been switch to true");
-    // console.log(
-    //   "Check if all the value of display array are true : ",
-    //   allObjValueAreTrue(displayArray)
-    // );
-    // console.log("dataSate : ", dataState);
+
     allObjValueAreTrue(displayArray) && setTogglePage(!togglePage);
   };
 
@@ -165,9 +156,6 @@ const MockRender = ({ dataState, setDataState }) => {
     return false;
   };
 
-  //Buffer array
-  const bufferArray = [];
-
   // Function who populate the array with question ID when the question is display
   const populateDisplayArray = (quizItem) => {
     if (keyExists(displayArray, quizItem.id) === false) {
@@ -178,30 +166,17 @@ const MockRender = ({ dataState, setDataState }) => {
   };
 
   //Function who send all the object id into a buffer array with value : false
-  // TODO: send tree to buffer when toogle is true
   const sendIdToBuffer = (object) => {
     object[0].quiz.forEach((item) => {
-      togglePage === false &&
-        item.logic === "root" &&
-        bufferArray.push({ [item.id]: "false" });
-      togglePage &&
-        item.logic === "tree" &&
-        bufferArray.push({ [item.id]: "false" });
+      bufferArray.push(item.id);
     });
   };
 
   //Function who verify if the value in bufferArray are in dataState, if no : send the missing data
   const verifyIfIdExistInState = (state) => {
     bufferArray.forEach((item) => {
-      const keyObject = Object.keys(item).toString();
-      console.log("BufferArray", bufferArray);
-      // console.log(
-      //   `The ${keyObject} exist in dataState :`,
-      //   keyExists(state, keyObject)
-      // );
-      if (!keyExists(state, keyObject)) {
-        // console.log(item, "has been send to state");
-        setDataState((current) => ({ ...current, [keyObject]: false }));
+      if (!keyExists(state, item)) {
+        setDataState((current) => ({ ...current, [item]: "false" }));
       }
     });
   };
@@ -244,13 +219,11 @@ const MockRender = ({ dataState, setDataState }) => {
   // Function who handle access item array with state. Ex : access : [Root1] if Root1 = true exist in dataState
   // this function return true, work with access array.
   const qcmLogicHandler = (accessArray) => {
-    // console.log("Access array", accessArray)
     const internalArray = [];
     accessArray.forEach((item) => {
       let boolOutput = dataState[item] === "true";
       internalArray.push(boolOutput);
     });
-    // console.log("internalArray", internalArray)
     return allAreTrue(internalArray);
   };
 
@@ -285,13 +258,12 @@ const MockRender = ({ dataState, setDataState }) => {
               ))}
             </div>
           ))}
-          {togglePage && verifyIfIdExistInState(dataState)}
+          {verifyIfIdExistInState(dataState)}
         </div>
       )}
 
       {togglePage && (
         <div>
-          {sendIdToBuffer(mockData)}
           {mockData.map((item, index) => (
             <div key={index}>
               {item.quiz.map((quizItem, index) => (
@@ -311,6 +283,7 @@ const MockRender = ({ dataState, setDataState }) => {
           ))}
         </div>
       )}
+      {console.log(dataState)}
     </div>
   );
 };
