@@ -78,7 +78,7 @@ const MockRender = ({ dataState, setDataState }) => {
 
   // Push the value of the state into the "trueArray" array by using the key stored inside "access"
   const pushArray = (accessItem) => {
-    let boolOutput = (dataState[accessItem] ==="true")
+    let boolOutput = dataState[accessItem] === "true";
     trueArray.push(boolOutput);
     // trueArray.push(dataState[accessItem]);
   };
@@ -88,6 +88,9 @@ const MockRender = ({ dataState, setDataState }) => {
     new Array(mockData[0].quiz.length).fill(false)
   );
 
+  // Hook state who handle the next slide script
+  const [togglePage, setTogglePage] = useState(false);
+
   // Hook state for "non" checkbox : generate an array base on quiz length
   const [nonCheckedState, setNonCheckedState] = useState(
     new Array(mockData[0].quiz.length).fill(false)
@@ -95,16 +98,37 @@ const MockRender = ({ dataState, setDataState }) => {
 
   // Handle "oui" checkbox : update the state based on the index of the current question
   const handleOuiCheck = (position) => {
-    const updatedCheckedState = ouiCheckedState.map((item, index) =>
+    const updatedOuiCheckedState = ouiCheckedState.map((item, index) =>
       index === position ? !item : item
     );
-    setOuiCheckedState(updatedCheckedState);
+    const updatedNonCheckedState = nonCheckedState.map((item, index) =>
+      index === position ? (item = false) : item
+    );
+
+    setOuiCheckedState(updatedOuiCheckedState);
+    console.log("Oui updatedCheckState", updatedOuiCheckedState);
+    setNonCheckedState(updatedNonCheckedState);
+    console.log("Non updatedCheckState", updatedNonCheckedState);
   };
 
+  // Handle "non" checkbox : update the state based on the index of the current question
+  const handleNonCheck = (position) => {
+    const updatedNonCheckedState = nonCheckedState.map((item, index) =>
+      index === position ? !item : item
+    );
+
+    const updatedOuiCheckedState = ouiCheckedState.map((item, index) =>
+      index === position ? (item = false) : item
+    );
+    setNonCheckedState(updatedNonCheckedState);
+    console.log("Oui updatedCheckState", updatedOuiCheckedState);
+    setOuiCheckedState(updatedOuiCheckedState);
+    console.log("Non updatedCheckState", updatedNonCheckedState);
+  };
 
   // Function to find if all the value of a object are true. If yes : return true
-  const allObjValueAreTrue = (object) => Object.values(object).every(value => value === true);
-
+  const allObjValueAreTrue = (object) =>
+    Object.values(object).every((value) => value === true);
 
   // Function who remove specific element from an array
   const removeElemFromArray = (array, element) => {
@@ -114,24 +138,20 @@ const MockRender = ({ dataState, setDataState }) => {
     }
   };
 
-  // Handle "oui" checkbox : update the state based on the index of the current question
-  const handleNonCheck = (position) => {
-    const updatedCheckedState = nonCheckedState.map((item, index) =>
-      index === position ? !item : item
-    );
-    setNonCheckedState(updatedCheckedState);
-  };
-
   // Function who send on dataState clicked ID : clicked value
   const sendDataOnClick = (event) => {
-    setDataState( (prev) => ({...prev, [event.target.id]: event.target.value} ))
+    setDataState((prev) => ({
+      ...prev,
+      [event.target.id]: event.target.value,
+    }));
     displayArray[event.target.id] = true;
-    console.log(event.target.id, "has been switch to true");
-    console.log("Check if all the value of display array are true : ", allObjValueAreTrue(displayArray))
-    console.log("dataSate : ", dataState)
-    allObjValueAreTrue(displayArray) && alert("CHANGEMENT DE PAGE")
-
-    // TODO CODER LE CHANGEMENT DE PAGE : prévoir un hook ? ou une constance pour procéder au changement de page
+    // console.log(event.target.id, "has been switch to true");
+    // console.log(
+    //   "Check if all the value of display array are true : ",
+    //   allObjValueAreTrue(displayArray)
+    // );
+    // console.log("dataSate : ", dataState);
+    allObjValueAreTrue(displayArray) && setTogglePage(!togglePage);
   };
 
   // Function who return true if the key exist in object
@@ -166,8 +186,9 @@ const MockRender = ({ dataState, setDataState }) => {
   const populateDisplayArray = (quizItem) => {
     if (keyExists(displayArray, quizItem.id) === false) {
       displayArray[quizItem.id] = false;
-      console.log(quizItem.id, "has been had to displayArray");
-    } else console.log(quizItem.id, "already exist in displayArray");
+      // console.log(quizItem.id, "has been had to displayArray");
+    }
+    // else console.log(quizItem.id, "already exist in displayArray");
   };
 
   //Function who send all the object id into a buffer array with value : false
@@ -176,21 +197,23 @@ const MockRender = ({ dataState, setDataState }) => {
   };
 
   //Function who verify if the value in bufferArray are in dataState, if no : send the missing data
+  // TODO: only send to state "root" data
   const verifyIfIdExistInState = (state) => {
     bufferArray.forEach((item) => {
       const keyObject = Object.keys(item).toString();
-      console.log(
-        `The ${keyObject} exist in dataState :`,
-        keyExists(state, keyObject)
-      );
+      // console.log(
+      //   `The ${keyObject} exist in dataState :`,
+      //   keyExists(state, keyObject)
+      // );
       if (!keyExists(state, keyObject)) {
-        console.log(item, "has been send to state");
-        setDataState((current) => ({ ...current, [keyObject] : false}));
+        // console.log(item, "has been send to state");
+        setDataState((current) => ({ ...current, [keyObject]: false }));
       }
     });
   };
 
   // Checkbox who display function and send value to dataState
+
   const checkboxJSX = (index, quizItem) => {
     return (
       <div>
@@ -225,6 +248,7 @@ const MockRender = ({ dataState, setDataState }) => {
   };
 
   // Display the tree element when the state is true
+  // TODO: refresh this code
   const treeAlgo = () => {
     return (
       <div>
@@ -274,7 +298,7 @@ const MockRender = ({ dataState, setDataState }) => {
               {quizItem.access.map((accessItem, accessIndex) => (
                 <div key={accessIndex}>
                   {pushArray(accessItem)}
-                  {console.log("access item", accessItem)}
+                  {/* {console.log("access item", accessItem)} */}
                   {/* {console.log("trueArray", index, trueArray)}
                   {console.log("Access array length", quizItem.access.length)} */}
 
@@ -318,15 +342,15 @@ const MockRender = ({ dataState, setDataState }) => {
         </div>
       ))}
       {/* {console.log("Buffer array : ", bufferArray)} */}
-      <button onClick={() => verifyIfIdExistInState(dataState)}>
+      {/* <button onClick={() => verifyIfIdExistInState(dataState)}>
         CHECK IF THE KEY EXIST
-      </button>
-      {console.log("dataSate :", dataState)}
+      </button> */}
+      {/* {console.log("dataSate :", dataState)}
       {console.log("displayArray :", displayArray)}
-      {console.log("true array:", trueArray)}
+      {console.log("true array:", trueArray)} */}
+      {togglePage && <h1>NEXT PAGE</h1>}
     </div>
   );
 };
 
 export default MockRender;
-
