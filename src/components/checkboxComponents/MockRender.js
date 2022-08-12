@@ -199,7 +199,7 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
                   )}
 
                   {qcmLogicHandler(quizItem.access) &&
-                    quizItem.logic === "tree" && (
+                    quizItem.logic === "root" && (
                       <div>
                         <h3>{quizItem.question}</h3>
                         <p>id root : {quizItem.id}</p>
