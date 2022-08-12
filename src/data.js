@@ -1,58 +1,19 @@
 const plusValues = [
   {
-  title: "Plus-values immobilières",
-  quiz: [
-    {
-      id: "plusValuesResidencePrincipale",
-      type: "binary",
-      logic: "root",
-      access: ["keystone"],
-      question: "Le bien vendu constitue-t-il votre résidence principale ?",
-    },
-    {
-      id: "plusValuesRemploiPrix",
-      type: "binary",
-      logic: "tree",
-      access: ["plusValuesResidencePrincipale"],
-      question:
-        "Le vendez-vous pour remployer le prix dans l'achat de votre résidence principale ?",
-    },
-
-    {
-      id: "plusValuesInvalide",
-      type: "binary",
-      logic: "tree",
-      access: ["plusValuesResidencePrincipale"],
-      question: "Etes-vous retraité ou invalide ?",
-    },
-
-    {
-      id: "plusValuesAmelioration",
-      type: "binary",
-      logic: "tree",
-      access: ["plusValuesResidencePrincipale"],
-      question:
-        "Avez-vous effectué des travaux de surélévation, construction ou d'amélioration ?",
-    },
-  ]
-
-}
-
-
-
-
-
-
-
-
-
-  {
-    tree: [
+    title: "Plus-values immobilières",
+    quiz: [
+      {
+        id: "plusValuesResidencePrincipale",
+        type: "binary",
+        logic: "root",
+        access: ["keystone"],
+        question: "Le bien vendu constitue-t-il votre résidence principale ?",
+      },
       {
         id: "plusValuesRemploiPrix",
         type: "binary",
         logic: "tree",
-        pointer: [NaN],
+        access: ["plusValuesResidencePrincipale"],
         question:
           "Le vendez-vous pour remployer le prix dans l'achat de votre résidence principale ?",
       },
@@ -61,7 +22,7 @@ const plusValues = [
         id: "plusValuesInvalide",
         type: "binary",
         logic: "tree",
-        pointer: [NaN],
+        access: ["plusValuesResidencePrincipale"],
         question: "Etes-vous retraité ou invalide ?",
       },
 
@@ -69,7 +30,7 @@ const plusValues = [
         id: "plusValuesAmelioration",
         type: "binary",
         logic: "tree",
-        pointer: [NaN],
+        access: ["plusValuesResidencePrincipale"],
         question:
           "Avez-vous effectué des travaux de surélévation, construction ou d'amélioration ?",
       },
