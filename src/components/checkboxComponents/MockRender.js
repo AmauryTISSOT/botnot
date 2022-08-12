@@ -70,18 +70,8 @@ const MockRender = ({ dataState, setDataState }) => {
     },
   ];
 
-  // Array use to store the value of the state by using the key stored in "access"
-  const trueArray = [];
-
   // Function who return true if all the element in a given array are true
   const allAreTrue = (arr) => arr.every((element) => element === true);
-
-  // Push the value of the state into the "trueArray" array by using the key stored inside "access"
-  const pushArray = (accessItem) => {
-    let boolOutput = dataState[accessItem] === "true";
-    trueArray.push(boolOutput);
-    // trueArray.push(dataState[accessItem]);
-  };
 
   // Hook state for "oui" checkbox : generate an array base on quiz length
   const [ouiCheckedState, setOuiCheckedState] = useState(
@@ -188,19 +178,23 @@ const MockRender = ({ dataState, setDataState }) => {
   };
 
   //Function who send all the object id into a buffer array with value : false
+  // TODO: send tree to buffer when toogle is true
   const sendIdToBuffer = (object) => {
-    object[0].quiz.map(
-      (item) =>
-        item.logic === "root" && bufferArray.push({ [item.id]: "false" })
-    );
+    object[0].quiz.forEach((item) => {
+      togglePage === false &&
+        item.logic === "root" &&
+        bufferArray.push({ [item.id]: "false" });
+      togglePage &&
+        item.logic === "tree" &&
+        bufferArray.push({ [item.id]: "false" });
+    });
   };
 
   //Function who verify if the value in bufferArray are in dataState, if no : send the missing data
-  // TODO: only send to state "root" data
   const verifyIfIdExistInState = (state) => {
     bufferArray.forEach((item) => {
       const keyObject = Object.keys(item).toString();
-      console.log("BufferArray", bufferArray)
+      console.log("BufferArray", bufferArray);
       // console.log(
       //   `The ${keyObject} exist in dataState :`,
       //   keyExists(state, keyObject)
@@ -247,108 +241,76 @@ const MockRender = ({ dataState, setDataState }) => {
     );
   };
 
-  // Display the tree element when the state is true
-  // TODO: refresh this code
-  const treeAlgo = () => {
-    return (
-      <div>
-        {mockData.map((item, index) => (
-          <div key={index}>
-            {item.quiz.map((quizItem, index) => (
-              <div key={index}>
-                {quizItem.access.map((accessItem, index) => (
-                  <div key={index}>
-                    {pushArray(accessItem)}
-                    {console.log("trueArray", index, trueArray)}
-                    {console.log("Access array length", quizItem.access.length)}
-
-                    {trueArray.length === quizItem.access.length &&
-                      (allAreTrue(trueArray) ? (
-                        quizItem.logic === "tree" && (
-                          <div>
-                            {quizItem.question}
-                            {trueArray.splice(0, trueArray.length)}
-                            {console.log("TRUE trueArray has been clean")}
-                          </div>
-                        )
-                      ) : (
-                        <div>
-                          {trueArray.splice(0, trueArray.length)}
-                          {console.log("FALSE trueArray has been clean")}
-                        </div>
-                      ))}
-                  </div>
-                ))}
-              </div>
-            ))}
-            {console.log(trueArray)}
-          </div>
-        ))}
-      </div>
-    );
+  // Function who handle access item array with state. Ex : access : [Root1] if Root1 = true exist in dataState
+  // this function return true, work with access array.
+  const qcmLogicHandler = (accessArray) => {
+    // console.log("Access array", accessArray)
+    const internalArray = [];
+    accessArray.forEach((item) => {
+      let boolOutput = dataState[item] === "true";
+      internalArray.push(boolOutput);
+    });
+    // console.log("internalArray", internalArray)
+    return allAreTrue(internalArray);
   };
 
   return (
     <div>
-      {sendIdToBuffer(mockData)}
-      {mockData.map((item, index) => (
-        <div key={index}>
-          {item.quiz.map((quizItem, index) => (
+      {togglePage === false && (
+        <div>
+          {sendIdToBuffer(mockData)}
+          {mockData.map((item, index) => (
             <div key={index}>
-              {quizItem.access.map((accessItem, accessIndex) => (
-                <div key={accessIndex}>
-                  {pushArray(accessItem)}
-                  {/* {console.log("access item", accessItem)} */}
-                  {/* {console.log("trueArray", index, trueArray)}
-                  {console.log("Access array length", quizItem.access.length)} */}
-
+              {item.quiz.map((quizItem, index) => (
+                <div key={index}>
                   {quizItem.access[0] === "keystone" && (
                     <div>
                       <h3>Keystone : {quizItem.question}</h3>
                       <p>id : {quizItem.id}</p>
                       {populateDisplayArray(quizItem)}
-                      {/* {console.log("ouiCheckedState", ouiCheckedState)}
-                      {console.log("nonCheckedState", nonCheckedState)} */}
                       {checkboxJSX(index, quizItem)}
                     </div>
                   )}
 
-                  {trueArray.length === quizItem.access.length &&
-                    (allAreTrue(trueArray) ? (
-                      quizItem.logic === "root" && (
-                        <div>
-                          <h3>Root : {quizItem.question}</h3>
-                          <p>id : {quizItem.id}</p>
-                          {populateDisplayArray(quizItem)}
-                          {checkboxJSX(index, quizItem)}
-                          {trueArray.splice(0, trueArray.length)}
-                          {/* {console.log("TRUE trueArray has been clean")} */}
-                        </div>
-                      )
-                    ) : (
+                  {qcmLogicHandler(quizItem.access) &&
+                    quizItem.logic === "root" && (
                       <div>
-                        {trueArray.splice(0, trueArray.length)}
-                        {quizItem.access[0] !== "keystone" &&
-                          quizItem.logic === "root" &&
-                          console.log("")}
-                        {/* TODO = send value to state */}
-                        {/* {console.log("FALSE trueArray has been clean")} */}
+                        <h3>Root : {quizItem.question}</h3>
+                        <p>id : {quizItem.id}</p>
+                        {populateDisplayArray(quizItem)}
+                        {checkboxJSX(index, quizItem)}
                       </div>
-                    ))}
+                    )}
+                </div>
+              ))}
+            </div>
+          ))}
+          {togglePage && verifyIfIdExistInState(dataState)}
+        </div>
+      )}
+
+      {togglePage && (
+        <div>
+          {sendIdToBuffer(mockData)}
+          {mockData.map((item, index) => (
+            <div key={index}>
+              {item.quiz.map((quizItem, index) => (
+                <div key={index}>
+                  {qcmLogicHandler(quizItem.access) &&
+                    quizItem.logic === "tree" && (
+                      <div>
+                        <h3>Tree : {quizItem.question}</h3>
+                        <p>id : {quizItem.id}</p>
+                        {populateDisplayArray(quizItem)}
+                        {checkboxJSX(index, quizItem)}
+                      </div>
+                    )}
                 </div>
               ))}
             </div>
           ))}
         </div>
-      ))}
-      {/* {console.log("Buffer array : ", bufferArray)} */}
-      {/* <button onClick={() => verifyIfIdExistInState(dataState)}>
-        CHECK IF THE KEY EXIST
-      </button> */}
-      {/* {console.log("dataSate :", dataState)}
-      {console.log("displayArray :", displayArray)}
-      {console.log("true array:", trueArray)} */}
-      {togglePage && <h1>NEXT PAGE {verifyIfIdExistInState(dataState)}</h1>}
+      )}
     </div>
   );
 };
