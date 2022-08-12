@@ -1,54 +1,13 @@
 import React, { useState } from "react";
 
-// // Mock data for development
-// const MockData = [
+
+
+// Mock data state for development
+// const mockDataState = [
 //   {
-//     title: "MockData",
-//     quiz: [
-//       {
-//         id: "MockRootId1",
-//         type: "binary",
-//         logic: "root",
-//         access: ["keystone"],
-//         pointer: "tree",
-//         question: "Root question 1 ?",
-//       },
-//       {
-//         id: "MockRootId2",
-//         type: "binary",
-//         logic: "root",
-//         access: ["keystone"],
-//         question: "Root question 2 ?",
-//       },
-//       {
-//         id: "MockRootId3",
-//         type: "binary",
-//         logic: "root",
-//         access: ["MockRootId1"],
-//         question: "Root question 3 ?",
-//       },
-//       {
-//         id: "MockTreeId1",
-//         type: "binary",
-//         logic: "tree",
-//         access: ["MockRootId1", "MockRootId3"],
-//         question: "Tree question 1 ?",
-//       },
-//       {
-//         id: "MockTreeId2",
-//         type: "binary",
-//         logic: "tree",
-//         access: ["MockRootId2"],
-//         question: "Tree question 2 ?",
-//       },
-//       {
-//         id: "MockTreeId3",
-//         type: "binary",
-//         logic: "tree",
-//         access: ["MockRootId1"],
-//         question: "Tree question 3 ?",
-//       },
-//     ],
+//     MockRootId1: true,
+//     MockRootId2: true,
+//     MockRootId3: true,
 //   },
 // ];
 
@@ -60,15 +19,6 @@ const displayArray = {};
 const bufferArray = [];
 
 const MockRender = ({ dataState, setDataState, QCMObject }) => {
-  // Mock data state for development
-  // const mockDataState = [
-  //   {
-  //     MockRootId1: true,
-  //     MockRootId2: true,
-  //     MockRootId3: true,
-  //   },
-  // ];
-
   const DataObject = QCMObject;
 
   // Function who return true if all the element in a given array are true
@@ -80,7 +30,7 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
   );
 
   // Hook state who handle the next slide script
-  const [togglePage, setTogglePage] = useState(false);
+  const [togglePage, setTogglePage] = useState("root");
 
   // Hook state for "non" checkbox : generate an array base on quiz length
   const [nonCheckedState, setNonCheckedState] = useState(
@@ -125,7 +75,12 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
     }));
     displayArray[event.target.id] = true;
 
-    allObjValueAreTrue(displayArray) && setTogglePage(!togglePage);
+    allObjValueAreTrue(displayArray) &&
+      togglePage === "root" &&
+      setTogglePage("tree");
+    allObjValueAreTrue(displayArray) &&
+      togglePage === "tree" &&
+      setTogglePage("next");
   };
 
   // Function who return true if the key exist in object
@@ -224,9 +179,10 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
     return allAreTrue(internalArray);
   };
 
+  // Main function return
   return (
     <div>
-      {togglePage === false && (
+      {togglePage === "root" && (
         <div>
           {sendIdToBuffer(DataObject)}
           {DataObject.map((item, index) => (
@@ -243,7 +199,7 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
                   )}
 
                   {qcmLogicHandler(quizItem.access) &&
-                    quizItem.logic === "root" && (
+                    quizItem.logic === "tree" && (
                       <div>
                         <h3>{quizItem.question}</h3>
                         <p>id root : {quizItem.id}</p>
@@ -259,13 +215,13 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
         </div>
       )}
 
-      {togglePage && (
+      {togglePage === "tree" && (
         <div>
           {DataObject.map((item, index) => (
             <div key={index}>
               {item.quiz.map((quizItem, index) => (
                 <div key={index}>
-                  {qcmLogicHandler(quizItem.access) &&
+                  {qcmLogicHandler(quizItem.access) && 
                     quizItem.logic === "tree" && (
                       <div>
                         <h3>{quizItem.question}</h3>
@@ -280,7 +236,8 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
           ))}
         </div>
       )}
-      {console.log(dataState)}
+      {console.log(togglePage)}
+      {togglePage === "next" && <h1>NEXT PAGE</h1>}
     </div>
   );
 };
