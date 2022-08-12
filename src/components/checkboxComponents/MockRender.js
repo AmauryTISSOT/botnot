@@ -1,57 +1,56 @@
 import React, { useState } from "react";
-import plusValues from "../../data";
 
-// Mock data for development
-const MockData = [
-  {
-    title: "MockData",
-    quiz: [
-      {
-        id: "MockRootId1",
-        type: "binary",
-        logic: "root",
-        access: ["keystone"],
-        pointer: "tree",
-        question: "Root question 1 ?",
-      },
-      {
-        id: "MockRootId2",
-        type: "binary",
-        logic: "root",
-        access: ["keystone"],
-        question: "Root question 2 ?",
-      },
-      {
-        id: "MockRootId3",
-        type: "binary",
-        logic: "root",
-        access: ["MockRootId1"],
-        question: "Root question 3 ?",
-      },
-      {
-        id: "MockTreeId1",
-        type: "binary",
-        logic: "tree",
-        access: ["MockRootId1", "MockRootId3"],
-        question: "Tree question 1 ?",
-      },
-      {
-        id: "MockTreeId2",
-        type: "binary",
-        logic: "tree",
-        access: ["MockRootId2"],
-        question: "Tree question 2 ?",
-      },
-      {
-        id: "MockTreeId3",
-        type: "binary",
-        logic: "tree",
-        access: ["MockRootId1"],
-        question: "Tree question 3 ?",
-      },
-    ],
-  },
-];
+// // Mock data for development
+// const MockData = [
+//   {
+//     title: "MockData",
+//     quiz: [
+//       {
+//         id: "MockRootId1",
+//         type: "binary",
+//         logic: "root",
+//         access: ["keystone"],
+//         pointer: "tree",
+//         question: "Root question 1 ?",
+//       },
+//       {
+//         id: "MockRootId2",
+//         type: "binary",
+//         logic: "root",
+//         access: ["keystone"],
+//         question: "Root question 2 ?",
+//       },
+//       {
+//         id: "MockRootId3",
+//         type: "binary",
+//         logic: "root",
+//         access: ["MockRootId1"],
+//         question: "Root question 3 ?",
+//       },
+//       {
+//         id: "MockTreeId1",
+//         type: "binary",
+//         logic: "tree",
+//         access: ["MockRootId1", "MockRootId3"],
+//         question: "Tree question 1 ?",
+//       },
+//       {
+//         id: "MockTreeId2",
+//         type: "binary",
+//         logic: "tree",
+//         access: ["MockRootId2"],
+//         question: "Tree question 2 ?",
+//       },
+//       {
+//         id: "MockTreeId3",
+//         type: "binary",
+//         logic: "tree",
+//         access: ["MockRootId1"],
+//         question: "Tree question 3 ?",
+//       },
+//     ],
+//   },
+// ];
 
 //Display array
 const displayArray = {};
