@@ -3,6 +3,7 @@ import RenderRoot from "./RenderRoot";
 import RenderTree from "./RenderTree";
 import QuizTitle from "./QuizTitle";
 import MockRender from "./MockRender";
+import plusValues from "../../data";
 
 const CheckBoxRendering = () => {
   const [dataState, setDataState] = useState({});
@@ -35,7 +36,7 @@ const CheckBoxRendering = () => {
 
 
       <MockRender setDataState={setDataState}
-          dataState={dataState}/>
+          dataState={dataState} QCMObject={plusValues}/>
       
     </div>
   );
