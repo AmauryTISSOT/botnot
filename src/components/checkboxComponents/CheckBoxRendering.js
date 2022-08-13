@@ -3,8 +3,7 @@ import React, { useState } from "react";
 // import RenderTree from "./RenderTree";
 // import QuizTitle from "./QuizTitle";
 import MockRender from "./MockRender";
-import {plusValues} from "../../data";
-import { MockData } from "../../data";
+import { maison } from "../../data";
 
 const CheckBoxRendering = () => {
   const [dataState, setDataState] = useState({});
@@ -16,7 +15,7 @@ const CheckBoxRendering = () => {
       <MockRender
         setDataState={setDataState}
         dataState={dataState}
-        QCMObject={plusValues}
+        QCMObject={maison}
       />
     </div>
   );
