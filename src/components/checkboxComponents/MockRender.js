@@ -10,7 +10,6 @@ import React, { useState } from "react";
 // ];
 
 //Variable who switch to true if tree questions are not rendered
-
 let renderTree = false;
 
 //Display array
@@ -47,10 +46,12 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
   const [togglePage, setTogglePage] = useState("root");
 
   // Function who increment quizIndex by one, and reset other hook when togglePage = next
-  // TODO: prévoir que l'incrementation du state ne soit pas supérieur à la taille de quizList
   const changeQuizIndexOnNext = () => {
-    if (togglePage === "next") {
+    const quizListLength = QCMObject[0].quizList.length;
+
+    if (togglePage === "next" && quizIndex < (quizListLength - 1)) {
       setQuizIndex((current) => current + 1);
+
       setOuiCheckedState(new Array(DataObject[0].quiz.length).fill(false));
       setNonCheckedState(new Array(DataObject[0].quiz.length).fill(false));
       setTogglePage("root");
