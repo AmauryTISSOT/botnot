@@ -9,19 +9,26 @@ import React, { useState } from "react";
 //   },
 // ];
 
+//Variable who switch to true if tree questions are not rendered
+
+let renderTree = false;
+
 //Display array
-const displayArray = {};
+let displayArray = {};
 
 //Buffer array : this array handle all the questions data until the QCM is finish
 // So even for the questions who are not rendered, the data is send to dataState with the value : questionID : false
 const bufferArray = [];
 
-// Variable who switch to true if tree questions are not rendered
-let treeHasBeenRender = false;
-
-
 const MockRender = ({ dataState, setDataState, QCMObject }) => {
-  const DataObject = QCMObject;
+  //Hook state for quiz name index
+  const [quizIndex, setQuizIndex] = useState(0);
+
+  // Function who return quiz name when given an index
+  const returnQuizName = (index) => QCMObject[0].quizList[index];
+
+  // Variable of the current quiz
+  const DataObject = QCMObject[0][returnQuizName(quizIndex)];
 
   // Function who return true if all the element in a given array are true
   const allAreTrue = (arr) => arr.every((element) => element === true);
@@ -31,13 +38,27 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
     new Array(DataObject[0].quiz.length).fill(false)
   );
 
-  // Hook state who handle the next slide script
-  const [togglePage, setTogglePage] = useState("root");
-
   // Hook state for "non" checkbox : generate an array base on quiz length
   const [nonCheckedState, setNonCheckedState] = useState(
     new Array(DataObject[0].quiz.length).fill(false)
   );
+
+  // Hook state who handle the next slide script
+  const [togglePage, setTogglePage] = useState("root");
+
+  // Function who increment quizIndex by one, and reset other hook when togglePage = next
+  // TODO: prévoir que l'incrementation du state ne soit pas supérieur à la taille de quizList
+  const changeQuizIndexOnNext = () => {
+    if (togglePage === "next") {
+      setQuizIndex((current) => current + 1);
+      setOuiCheckedState(new Array(DataObject[0].quiz.length).fill(false));
+      setNonCheckedState(new Array(DataObject[0].quiz.length).fill(false));
+      setTogglePage("root");
+      displayArray = {};
+      renderTree = false;
+      console.log("NEXT");
+    }
+  };
 
   // Handle "oui" checkbox : update the state based on the index of the current question
   const handleOuiCheck = (position) => {
@@ -231,18 +252,18 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
                         <p>id tree : {quizItem.id}</p>
                         {populateDisplayArray(quizItem)}
                         {checkboxJSX(index, quizItem)}
-                        {treeHasBeenRender = true}
+                        {(renderTree = true)}
                       </div>
                     )}
-                  {treeHasBeenRender === false && setTogglePage("next")}
                 </div>
               ))}
             </div>
           ))}
+          {renderTree === false && setTogglePage("next")}
         </div>
       )}
-      {console.log(togglePage)}
-      {togglePage === "next" && <h1>NEXT PAGE</h1>}
+      {/* {console.log(togglePage)} */}
+      {changeQuizIndexOnNext()}
     </div>
   );
 };
