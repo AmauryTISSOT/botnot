@@ -172,6 +172,7 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
 
   // Function who handle access item array with state. Ex : access : [Root1] if Root1 = true exist in dataState
   // this function return true, work with access array.
+  // TODO: clone this function to work when Root1 = false;
   const qcmLogicHandler = (accessArray) => {
     const internalArray = [];
     accessArray.forEach((item) => {
