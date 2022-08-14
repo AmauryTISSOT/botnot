@@ -21,7 +21,7 @@ const bufferArray = [];
 
 const MockRender = ({ dataState, setDataState, QCMObject }) => {
   //Hook state for quiz name index
-  const [quizIndex, setQuizIndex] = useState(1);
+  const [quizIndex, setQuizIndex] = useState(0);
 
   // Function who return quiz name when given an index
   const returnQuizName = (index) => QCMObject[0].quizList[index];
@@ -49,6 +49,7 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
   const [togglePage, setTogglePage] = useState("root");
 
   // Function who increment quizIndex by one, and reset other hook when togglePage = next
+  //TODO: prévoir que les valeurs avec la value "pending" dans le dataState pass en "false" lors du changement de quizz
   const changeQuizIndexOnNext = () => {
     const quizListLength = QCMObject[0].quizList.length;
 
@@ -254,10 +255,6 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
                       </div>
                     )}
 
-                  {console.log(
-                    "ICI",
-                    falseQcmLogicHandler(quizItem.falseAccess)
-                  )}
                   {falseQcmLogicHandler(quizItem.falseAccess) &&
                     quizItem.logic === "root" && (
                       <div>
@@ -285,7 +282,17 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
                     quizItem.logic === "tree" && (
                       <div>
                         <h3>{quizItem.question}</h3>
-                        <p>id tree : {quizItem.id}</p>
+                        <p>id tree true : {quizItem.id}</p>
+                        {populateDisplayArray(quizItem)}
+                        {checkboxJSX(index, quizItem)}
+                        {(renderTree = true)}
+                      </div>
+                    )}
+                  {falseQcmLogicHandler(quizItem.falseAccess) &&
+                    quizItem.logic === "tree" && (
+                      <div>
+                        <h3>{quizItem.question}</h3>
+                        <p>id tree false: {quizItem.id}</p>
                         {populateDisplayArray(quizItem)}
                         {checkboxJSX(index, quizItem)}
                         {(renderTree = true)}
