@@ -21,7 +21,7 @@ const bufferArray = [];
 
 const MockRender = ({ dataState, setDataState, QCMObject }) => {
   //Hook state for quiz name index
-  const [quizIndex, setQuizIndex] = useState(0);
+  const [quizIndex, setQuizIndex] = useState(1);
 
   // Function who return quiz name when given an index
   const returnQuizName = (index) => QCMObject[0].quizList[index];
@@ -30,7 +30,10 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
   const DataObject = QCMObject[0][returnQuizName(quizIndex)];
 
   // Function who return true if all the element in a given array are true
-  const allAreTrue = (arr) => arr.every((element) => element === true);
+  const allAreTrue = (arr) => arr.every((element) => element === "true");
+
+  // Function who return true if all the element in a given array are false
+  const allAreFalse = (arr) => arr.every((element) => element === "false");
 
   // Hook state for "oui" checkbox : generate an array base on quiz length
   const [ouiCheckedState, setOuiCheckedState] = useState(
@@ -49,9 +52,8 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
   const changeQuizIndexOnNext = () => {
     const quizListLength = QCMObject[0].quizList.length;
 
-    if (togglePage === "next" && quizIndex < (quizListLength - 1)) {
+    if (togglePage === "next" && quizIndex < quizListLength - 1) {
       setQuizIndex((current) => current + 1);
-
       setOuiCheckedState(new Array(DataObject[0].quiz.length).fill(false));
       setNonCheckedState(new Array(DataObject[0].quiz.length).fill(false));
       setTogglePage("root");
@@ -152,13 +154,12 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
   const verifyIfIdExistInState = (state) => {
     bufferArray.forEach((item) => {
       if (!keyExists(state, item)) {
-        setDataState((current) => ({ ...current, [item]: "false" }));
+        setDataState((current) => ({ ...current, [item]: "pending" }));
       }
     });
   };
 
   // Checkbox who display function and send value to dataState
-
   const checkboxJSX = (index, quizItem) => {
     return (
       <div>
@@ -194,14 +195,34 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
 
   // Function who handle access item array with state. Ex : access : [Root1] if Root1 = true exist in dataState
   // this function return true, work with access array.
-  // TODO: clone this function to work when Root1 = false;
-  const qcmLogicHandler = (accessArray) => {
+  const trueQcmLogicHandler = (accessArray) => {
     const internalArray = [];
     accessArray.forEach((item) => {
-      let boolOutput = dataState[item] === "true";
-      internalArray.push(boolOutput);
+      if (item !== "keystone") {
+        let itemValue = dataState[item];
+        internalArray.push(itemValue);
+      }
     });
+    if (internalArray.length === 0) {
+      return false;
+    }
     return allAreTrue(internalArray);
+  };
+
+  // Function who handle access item array with state. Ex : access : [Root1] if Root1 = false exist in dataState
+  // this function return true, work with access array.
+  const falseQcmLogicHandler = (accessArray) => {
+    const internalArray = [];
+    accessArray.forEach((item) => {
+      if (item !== "keystone") {
+        let itemValue = dataState[item];
+        internalArray.push(itemValue);
+      }
+    });
+    if (internalArray.length === 0) {
+      return false;
+    }
+    return allAreFalse(internalArray);
   };
 
   // Main function return
@@ -214,7 +235,7 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
             <div key={index}>
               {item.quiz.map((quizItem, index) => (
                 <div key={index}>
-                  {quizItem.access[0] === "keystone" && (
+                  {quizItem.trueAccess[0] === "keystone" && (
                     <div>
                       <h3>{quizItem.question}</h3>
                       <p>id keystone : {quizItem.id}</p>
@@ -223,11 +244,25 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
                     </div>
                   )}
 
-                  {qcmLogicHandler(quizItem.access) &&
+                  {trueQcmLogicHandler(quizItem.trueAccess) &&
                     quizItem.logic === "root" && (
                       <div>
                         <h3>{quizItem.question}</h3>
-                        <p>id root : {quizItem.id}</p>
+                        <p>id root-true : {quizItem.id}</p>
+                        {populateDisplayArray(quizItem)}
+                        {checkboxJSX(index, quizItem)}
+                      </div>
+                    )}
+
+                  {console.log(
+                    "ICI",
+                    falseQcmLogicHandler(quizItem.falseAccess)
+                  )}
+                  {falseQcmLogicHandler(quizItem.falseAccess) &&
+                    quizItem.logic === "root" && (
+                      <div>
+                        <h3>{quizItem.question}</h3>
+                        <p>id root-false: {quizItem.id}</p>
                         {populateDisplayArray(quizItem)}
                         {checkboxJSX(index, quizItem)}
                       </div>
@@ -246,7 +281,7 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
             <div key={index}>
               {item.quiz.map((quizItem, index) => (
                 <div key={index}>
-                  {qcmLogicHandler(quizItem.access) &&
+                  {trueQcmLogicHandler(quizItem.trueAccess) &&
                     quizItem.logic === "tree" && (
                       <div>
                         <h3>{quizItem.question}</h3>
@@ -263,7 +298,7 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
           {renderTree === false && setTogglePage("next")}
         </div>
       )}
-      {/* {console.log(togglePage)} */}
+      {console.log(dataState)}
       {changeQuizIndexOnNext()}
     </div>
   );
