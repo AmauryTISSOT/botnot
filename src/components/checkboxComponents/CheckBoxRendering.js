@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import RenderRoot from "./RenderRoot";
 // import RenderTree from "./RenderTree";
 // import QuizTitle from "./QuizTitle";
-import MockRender from "./MockRender";
+import QCMDisplay from "./QCMDisplay";
 import { maison } from "../../data";
 
 const CheckBoxRendering = () => {
@@ -12,7 +12,7 @@ const CheckBoxRendering = () => {
 
   return (
     <div>
-      <MockRender
+      <QCMDisplay
         setDataState={setDataState}
         dataState={dataState}
         QCMObject={maison}

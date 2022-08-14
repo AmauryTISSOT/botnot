@@ -19,7 +19,7 @@ let displayArray = {};
 // So even for the questions who are not rendered, the data is send to dataState with the value : questionID : false
 const bufferArray = [];
 
-const MockRender = ({ dataState, setDataState, QCMObject }) => {
+const QCMDisplay = ({ dataState, setDataState, QCMObject }) => {
   //Hook state for quiz name index
   const [quizIndex, setQuizIndex] = useState(0);
 
@@ -155,7 +155,7 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
   const verifyIfIdExistInState = (state) => {
     bufferArray.forEach((item) => {
       if (!keyExists(state, item)) {
-        setDataState((current) => ({ ...current, [item]: "pending" }));
+        setDataState((current) => ({...current, [item]: "pending" }));
       }
     });
   };
@@ -311,4 +311,4 @@ const MockRender = ({ dataState, setDataState, QCMObject }) => {
   );
 };
 
-export default MockRender;
+export default QCMDisplay;
