@@ -14,7 +14,8 @@ export const maison = [
             id: "servitude",
             type: "binary",
             logic: "root",
-            access: ["keystone"],
+            trueAccess: ["keystone"],
+            falseAccess: [],
             question:
               "Avez-vous connaissance de servitudes particulières sur votre propriété ? (servitude de passage, d'alignement, etc.)",
           },
@@ -22,14 +23,16 @@ export const maison = [
             id: "murSeparatif",
             type: "binary",
             logic: "root",
-            access: ["keystone"],
+            trueAccess: ["keystone"],
+            falseAccess: [],
             question: "Avez-vous un mur séparatif avec vos voisins ?",
           },
           {
             id: "terrainEnPente",
             type: "binary",
             logic: "root",
-            access: ["keystone"],
+            trueAccess: ["keystone"],
+            falseAccess: [],
             question: "Votre terrain est-il en pente ?",
           },
         ],
@@ -43,23 +46,25 @@ export const maison = [
             id: "assainissementIndividuel",
             type: "binary",
             logic: "root",
-            access: ["keystone"],
+            trueAccess: ["keystone"],
+            falseAccess: [],
             question:
               "L'assainissement de votre bien s'effectue-t-il par un système individuel ( ex: fosse septique ) ?",
           },
-          //TODO: prévoir un switch si la keystone est = false
           {
             id: "assainissementToutAEgout",
             type: "binary",
             logic: "root",
-            access: ["keystone"],
+            trueAccess: [],
+            falseAccess: ["assainissementIndividuel"],
             question: "Votre bien est-il raccordé au tout à l'égout ?",
           },
           {
             id: "assainissementMiseEnDemeure",
             type: "binary",
             logic: "root",
-            access: ["keystone"],
+            trueAccess: ["keystone"],
+            falseAccess: [],
             question:
               "Avez-vous reçu une mise en demeure de faire des travaux sur votre installation ?",
           },
@@ -67,7 +72,8 @@ export const maison = [
             id: "assainissementVidange",
             type: "binary",
             logic: "tree",
-            access: ["assainissementIndividuel"],
+            trueAccess: ["assainissementIndividuel"],
+            falseAccess: [],
             question:
               "La dernière vidange de votre fosse septique a-t-elle était effectuée recemment ?",
           },
@@ -75,7 +81,8 @@ export const maison = [
             id: "assainissementInstallation",
             type: "binary",
             logic: "tree",
-            access: ["assainissementToutAEgout"],
+            trueAccess: ["assainissementToutAEgout"],
+            falseAccess: [],
             question: "Votre installation est-elle en bon état ?",
           },
         ],
@@ -89,7 +96,8 @@ export const maison = [
             id: "activitesPolluantes",
             type: "binary",
             logic: "root",
-            access: ["keystone"],
+            trueAccess: ["keystone"],
+            falseAccess: [],
             question:
               "Avez-vous exploité des activités polluantes sur le terrain ?",
           },
@@ -97,7 +105,8 @@ export const maison = [
             id: "activitesPolluantesPasse",
             type: "binary",
             logic: "root",
-            access: ["keystone"],
+            trueAccess: ["keystone"],
+            falseAccess: [],
             question:
               "A votre connaissance, des activités polluantes ont-elles été effectuées sur le terrain dans le passé ou des déchets ont-ils pu être entreposés ?",
           },
@@ -105,7 +114,8 @@ export const maison = [
             id: "activitesPolluantesVoisin",
             type: "binary",
             logic: "root",
-            access: ["keystone"],
+            trueAccess: ["keystone"],
+            falseAccess: [],
             question:
               "Avez-vous connaissance d'activités polluantes dans le voisinage ?",
           },
@@ -113,7 +123,8 @@ export const maison = [
             id: "carrieres",
             type: "binary",
             logic: "root",
-            access: ["keystone"],
+            trueAccess: ["keystone"],
+            falseAccess: [],
             question:
               "Avez-vous connaissance de carrières souterraines dans le voisinage ?",
           },
@@ -121,7 +132,8 @@ export const maison = [
             id: "zoneInondable",
             type: "binary",
             logic: "root",
-            access: ["keystone"],
+            trueAccess: ["keystone"],
+            falseAccess: [],
             question: "Le bien est-il situé en zone inondable ?",
           },
         ],
@@ -135,7 +147,8 @@ export const maison = [
             id: "plusValuesResidencePrincipale",
             type: "binary",
             logic: "root",
-            access: ["keystone"],
+            trueAccess: ["keystone"],
+            falseAccess: [],
             question:
               "Le bien vendu constitue-t-il votre résidence principale ?",
           },
@@ -143,7 +156,8 @@ export const maison = [
             id: "plusValuesRemploiPrix",
             type: "binary",
             logic: "tree",
-            access: ["plusValuesResidencePrincipale"],
+            trueAccess: [],
+            falseAccess: ["plusValuesResidencePrincipale"],
             question:
               "Le vendez-vous pour remployer le prix dans l'achat de votre résidence principale ?",
           },
@@ -152,7 +166,8 @@ export const maison = [
             id: "plusValuesInvalide",
             type: "binary",
             logic: "tree",
-            access: ["plusValuesResidencePrincipale"],
+            trueAccess: [],
+            falseAccess: ["plusValuesResidencePrincipale"],
             question: "Etes-vous retraité ou invalide ?",
           },
 
@@ -160,7 +175,8 @@ export const maison = [
             id: "plusValuesAmelioration",
             type: "binary",
             logic: "tree",
-            access: ["plusValuesResidencePrincipale"],
+            trueAccess: [],
+            falseAccess: ["plusValuesResidencePrincipale"],
             question:
               "Avez-vous effectué des travaux de surélévation, construction ou d'amélioration ?",
           },
@@ -169,7 +185,6 @@ export const maison = [
     ],
   },
 ];
-
 
 // Mock data for development
 export const MockData = [
