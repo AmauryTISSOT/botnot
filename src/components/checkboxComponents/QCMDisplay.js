@@ -235,6 +235,11 @@ const QCMDisplay = ({ dataState, setDataState, QCMObject }) => {
   // Main function return
   return (
     <div>
+    <div>
+      {DataObject.map((item, index) => (
+        <h1 key={index}>{item.title}</h1>
+      ))}
+    </div>
       {togglePage === "root" && (
         <div>
           {/* {sendIdToBuffer(DataObject)} */}
