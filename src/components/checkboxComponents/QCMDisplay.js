@@ -166,6 +166,10 @@ const QCMDisplay = ({ dataState, setDataState, QCMObject }) => {
     verifyIfIdExistInState(dataState)
   },[quizIndex])
 
+  //TODO: find a logic to fire a question when : accessTrue = ["keystoneId1"] AND accessFalse = ["keystoneId1"]
+  // display a question when q1 = true AND q2 = false;
+  //FIXME: bug : rootTrue / rootFalse question doesn't display when there is only one keystone, it switch to tree
+
   // Checkbox who display function and send value to dataState
   const checkboxJSX = (index, quizItem) => {
     return (
@@ -318,7 +322,9 @@ const QCMDisplay = ({ dataState, setDataState, QCMObject }) => {
           {renderTree === false && setTogglePage("next")}
         </div>
       )}
-      {/* {console.log(dataState)} */}
+      {/* {console.log("end",dataState)} */}
+      {/* {console.log(togglePage)} */}
+      {/* {console.log("displayArray",displayArray)} */}
       {changeQuizIndexOnNext()}
     </div>
   );
