@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // Mock data state for development
 // const mockDataState = [
@@ -160,6 +160,12 @@ const QCMDisplay = ({ dataState, setDataState, QCMObject }) => {
     });
   };
 
+  //Use effect to fix update error component
+  useEffect(() => {
+    sendIdToBuffer(DataObject)
+    verifyIfIdExistInState(dataState)
+  },[quizIndex])
+
   // Checkbox who display function and send value to dataState
   const checkboxJSX = (index, quizItem) => {
     return (
@@ -231,7 +237,7 @@ const QCMDisplay = ({ dataState, setDataState, QCMObject }) => {
     <div>
       {togglePage === "root" && (
         <div>
-          {sendIdToBuffer(DataObject)}
+          {/* {sendIdToBuffer(DataObject)} */}
           {DataObject.map((item, index) => (
             <div key={index}>
               {item.quiz.map((quizItem, index) => (
@@ -268,7 +274,7 @@ const QCMDisplay = ({ dataState, setDataState, QCMObject }) => {
               ))}
             </div>
           ))}
-          {verifyIfIdExistInState(dataState)}
+          {/* {verifyIfIdExistInState(dataState)} */}
         </div>
       )}
 
