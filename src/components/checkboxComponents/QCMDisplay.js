@@ -177,6 +177,7 @@ const QCMDisplay = ({ dataState, setDataState, QCMObject }) => {
               sendDataOnClick(e);
             }}
             type="checkbox"
+            data-testid = {`oui-checkbox-${quizItem.id}`}
             checked={ouiCheckedState[index]}
             id={quizItem.id}
             value={true}
@@ -190,6 +191,7 @@ const QCMDisplay = ({ dataState, setDataState, QCMObject }) => {
               sendDataOnClick(e);
             }}
             type="checkbox"
+            data-testid = {`non-checkbox-${quizItem.id}`}
             checked={nonCheckedState[index]}
             id={quizItem.id}
             value={false}
@@ -316,7 +318,7 @@ const QCMDisplay = ({ dataState, setDataState, QCMObject }) => {
           {renderTree === false && setTogglePage("next")}
         </div>
       )}
-      {console.log(dataState)}
+      {/* {console.log(dataState)} */}
       {changeQuizIndexOnNext()}
     </div>
   );
