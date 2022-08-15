@@ -3,7 +3,8 @@ import React, { useState } from "react";
 // import RenderTree from "./RenderTree";
 // import QuizTitle from "./QuizTitle";
 import QCMDisplay from "./QCMDisplay";
-import { maison } from "../../data";
+import { maison, MockData } from "../../data";
+
 
 const CheckBoxRendering = () => {
   const [dataState, setDataState] = useState({});
