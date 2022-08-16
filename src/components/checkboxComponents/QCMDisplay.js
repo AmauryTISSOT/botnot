@@ -240,93 +240,93 @@ const QCMDisplay = ({ dataState, setDataState, QCMObject }) => {
 
   // Main function return
   return (
-    <div>
-    <div>
+    <>
+    <>
       {DataObject.map((item, index) => (
         <h1 key={index}>{item.title}</h1>
       ))}
-    </div>
+    </>
       {togglePage === "root" && (
-        <div>
+        <>
           {/* {sendIdToBuffer(DataObject)} */}
           {DataObject.map((item, index) => (
-            <div key={index}>
+            < div key={index}>
               {item.quiz.map((quizItem, index) => (
                 <div key={index}>
                   {quizItem.trueAccess[0] === "keystone" && (
-                    <div>
+                    <>
                       <h3>{quizItem.question}</h3>
                       <p>id keystone : {quizItem.id}</p>
                       {populateDisplayArray(quizItem)}
                       {checkboxJSX(index, quizItem)}
-                    </div>
+                    </>
                   )}
 
                   {trueQcmLogicHandler(quizItem.trueAccess) &&
                     quizItem.logic === "root" && (
-                      <div>
+                      <>
                         <h3>{quizItem.question}</h3>
                         <p>id root-true : {quizItem.id}</p>
                         {populateDisplayArray(quizItem)}
                         {checkboxJSX(index, quizItem)}
-                      </div>
+                      </>
                     )}
 
                   {falseQcmLogicHandler(quizItem.falseAccess) &&
                     quizItem.logic === "root" && (
-                      <div>
+                      <>
                         <h3>{quizItem.question}</h3>
                         <p>id root-false: {quizItem.id}</p>
                         {populateDisplayArray(quizItem)}
                         {checkboxJSX(index, quizItem)}
-                      </div>
+                      </>
                     )}
                 </div>
               ))}
             </div>
           ))}
           {/* {verifyIfIdExistInState(dataState)} */}
-        </div>
+        </>
       )}
 
       {togglePage === "tree" && (
-        <div>
+        <>
           {DataObject.map((item, index) => (
             <div key={index}>
               {item.quiz.map((quizItem, index) => (
                 <div key={index}>
                   {trueQcmLogicHandler(quizItem.trueAccess) &&
                     quizItem.logic === "tree" && (
-                      <div>
+                      <>
                         <h3>{quizItem.question}</h3>
                         <p>id tree true : {quizItem.id}</p>
                         {populateDisplayArray(quizItem)}
                         {checkboxJSX(index, quizItem)}
                         {(renderTree = true)}
-                      </div>
+                      </>
                     )}
                   {falseQcmLogicHandler(quizItem.falseAccess) &&
                     quizItem.logic === "tree" && (
-                      <div>
+                      <>
                         <h3>{quizItem.question}</h3>
                         <p>id tree false: {quizItem.id}</p>
                         {populateDisplayArray(quizItem)}
                         {checkboxJSX(index, quizItem)}
                         {(renderTree = true)}
-                      </div>
+                      </>
                     )}
                 </div>
               ))}
             </div>
           ))}
           {renderTree === false && setTogglePage("next")}
-        </div>
+        </>
       )}
       {/* {console.log("end",dataState)} */}
       {/* {console.log(togglePage)} */}
       {/* {console.log("displayArray",displayArray)} */}
       {changeQuizIndexOnNext()}
-    </div>
+    </>
   );
 };
 

@@ -12,13 +12,13 @@ const CheckBoxRendering = () => {
   // const [treeSubmit, setTreeSubmit] = useState(false);
 
   return (
-    <div>
+    <>
       <QCMDisplay
         setDataState={setDataState}
         dataState={dataState}
         QCMObject={maison}
       />
-    </div>
+    </>
   );
 };
 
