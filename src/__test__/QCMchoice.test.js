@@ -22,10 +22,10 @@ describe("QCMchoice component unit testing", () => {
     expect(titleElement).toBeInTheDocument();
   });
 
-  test("The component should render 3 buttons", () => {
+  test("The component should render 4 buttons", () => {
     render(<MockQCMChoice />);
     const buttonsElements = screen.getAllByRole("button");
-    expect(buttonsElements.length).toBe(3);
+    expect(buttonsElements.length).toBe(4);
   });
 
   test("Clicking on maison button should change choiceState", () => {
@@ -49,6 +49,14 @@ describe("QCMchoice component unit testing", () => {
     const buttonTerrain = screen.getByRole("button", {name: /terrain/i});
     fireEvent.click(buttonTerrain)
     const mockDiv = screen.getByText(/test : terrain/i)
+    expect(mockDiv).toBeInTheDocument();
+  });
+
+  test("Clicking on autres button should change choiceState", () => {
+    render(<MockQCMChoice />);
+    const buttonAutres = screen.getByRole("button", {name: /autres/i});
+    fireEvent.click(buttonAutres)
+    const mockDiv = screen.getByText(/test : autres/i)
     expect(mockDiv).toBeInTheDocument();
   });
 

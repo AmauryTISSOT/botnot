@@ -17,6 +17,9 @@ const QCMChoice = ({ setChoiceState }) => {
       <button value={"terrain"} onClick={onButtonClick}>
         Terrain
       </button>
+      <button value={"autres"} onClick={onButtonClick}>
+        Autres
+      </button>
     </>
   );
 };
