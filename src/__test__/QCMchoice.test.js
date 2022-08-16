@@ -60,4 +60,23 @@ describe("QCMchoice component unit testing", () => {
     expect(mockDiv).toBeInTheDocument();
   });
 
+  test("Clicking on autres button should render a new DOM with 2 buttons", () => {
+    render(<MockQCMChoice />);
+    const buttonAutres = screen.getByRole("button", {name: /autres/i});
+    fireEvent.click(buttonAutres)
+    const buttonsElements = screen.getAllByRole("button");
+    expect(buttonsElements.length).toBe(2);
+  });
+
+  test("Clicking on autres button should render a new DOM with 2 buttons named : cave & garages", () => {
+    render(<MockQCMChoice />);
+    const buttonAutres = screen.getByRole("button", {name: /autres/i});
+    fireEvent.click(buttonAutres)
+    const buttonCave = screen.getByText(/cave/i)
+    const buttonGarage = screen.getByText(/garage/i)
+    expect(buttonCave).toBeInTheDocument();
+    expect(buttonGarage).toBeInTheDocument();
+  });
+
+
 });
