@@ -4,20 +4,32 @@ import React, { useState } from "react";
 // import QuizTitle from "./QuizTitle";
 import QCMDisplay from "./QCMDisplay";
 import { maison, MockData } from "../../data";
-
+import QCMChoice from "./QCMChoice";
 
 const CheckBoxRendering = () => {
   const [dataState, setDataState] = useState({});
+  const [choiceState, setChoiceState] = useState("");
+
   // const [rootSubmit, setRootSubmit] = useState(false);
   // const [treeSubmit, setTreeSubmit] = useState(false);
 
+ //TODO: change QCMDisplay props to QCMObject={choiceState} when all the objects will be create
+
   return (
     <>
-      <QCMDisplay
-        setDataState={setDataState}
-        dataState={dataState}
-        QCMObject={maison}
-      />
+      {choiceState === "" && 
+      <QCMChoice setChoiceState={setChoiceState} />
+      }
+      {choiceState !== "" && (
+        <>
+          <h1>Questionnaire vente {choiceState}</h1>
+          <QCMDisplay
+            setDataState={setDataState}
+            dataState={dataState}
+            QCMObject={maison}
+          />
+        </>
+      )}
     </>
   );
 };
