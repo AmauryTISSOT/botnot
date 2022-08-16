@@ -72,8 +72,8 @@ describe("QCMchoice component unit testing", () => {
     render(<MockQCMChoice />);
     const buttonAutres = screen.getByRole("button", {name: /autres/i});
     fireEvent.click(buttonAutres)
-    const buttonCave = screen.getByText(/cave/i)
-    const buttonGarage = screen.getByText(/garage/i)
+    const buttonCave = screen.getByRole("button", {name: /cave/i});
+    const buttonGarage = screen.getByRole("button", {name: /garage/i});
     expect(buttonCave).toBeInTheDocument();
     expect(buttonGarage).toBeInTheDocument();
   });
