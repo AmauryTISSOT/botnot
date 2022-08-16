@@ -1,11 +1,216 @@
 export const maison = [
   {
     quizList: [
+      "situation",
+      "batiment",
+      "contrat",
+      "chauffage",
       "servitude",
       "assainissement",
       "etatSousSolPollution",
       "plusValues",
     ],
+
+    situation: [
+      {
+        title: "Situation du bien",
+        quiz: [
+          {
+            id: "lotissement",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["keystone"],
+            falseAccess: [],
+            question: "Votre maison dépend-elle d'un lotissement ?", 
+          },
+          {
+            id: "coproHorizontale",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["keystone"],
+            falseAccess: [],
+            question: "Votre maison dépend-elle d'une copropriété horizontale ?",
+          },
+          {
+            id: "bornage",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["keystone"],
+            falseAccess: [],
+            question: "Votre terrain a-t-il fait l'objet d'un procès-verbal de bornage ?",
+          },
+          {
+            id: "associationSyndicale",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["lotissement"],
+            falseAccess: [],
+            question: "Existe-t-il une association syndicale ?",
+          }
+        ]
+      },
+    ],
+
+    batiment: [
+      {
+        title: "Situation du bâtiment",
+        quiz: [
+          {
+            id: "travauxConstruction",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["keystone"],
+            falseAccess: [],
+            question: "Avez-vous fait construire le bâtiment vendu ?"
+          },
+          {
+            id: "travauxConstruction10ans",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["travauxConstruction"],
+            falseAccess: [],
+            question: "Ces travaux sont-ils achevés depuis moins de 10 ans ?"
+          },
+          {
+            id: "travauxConstructionAssurance",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["travauxConstruction10ans"],
+            falseAccess: [],
+            question: "Avez-vous souscrit une assurance dommage-ouvrage couvrant la garantie décennale ?"
+          },
+          {
+            id: "travauxPosterieur",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["travauxConstruction10ans"],
+            falseAccess: [],
+            question: "Avez-vous effectué des travaux postérieurs à la construction ?"
+          },
+          {
+            id: "travauxPosterieurAutorisation",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["travauxPosterieur"],
+            falseAccess: [],
+            question: "Ces travaux ont-ils fait l'objet d'un permis de construire ou d'une déclaration de travaux ?"
+          },
+        ]
+      },
+    ],
+
+    contrat: [
+      {
+        title: "Contrats existant sur le bien",
+        quiz: [
+          {
+            id: "libreOccupation",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["keystone"],
+            falseAccess: [],
+            question: "La maison sera-t-elle libre le jour de la vente ?",
+          },
+          {
+            id: "location",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["keystone"],
+            falseAccess: [],
+            question: "A-t-elle été louée précédemment ?",
+          },
+          {
+            id: "affichage",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["keystone"],
+            falseAccess: [],
+            question: "La maison supporte-t-elle un contrat d'affichage ?",
+          },
+          {
+            id: "detecteurFumee",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["keystone"],
+            falseAccess: [],
+            question: "Le bien est-il équipé d'un détecteur de fumée ?",
+          },
+          {
+            id: "autresContrat",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["keystone"],
+            falseAccess: [],
+            question: "La maison fait-elle l'objet de contrat d'entretien (chaudière, ramonage,etc.) ?",
+          },
+          {
+            id: "garantieEquipement",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["keystone"],
+            falseAccess: [],
+            question: "Certains équipement font-ils encore l'objet de garanties ?",
+          },
+          {
+            id: "procedure",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["keystone"],
+            falseAccess: [],
+            question: "Le bien fait-il l'objet d'une procédure judiciaire ?",
+          },
+          {
+            id: "avantageFiscal",
+            type: "binary",
+            logic: "tree",
+            trueAccess: ["location"],
+            falseAccess: [],
+            question: "Le bien a-t-il fait l'objet d'un engagement de location lié à un avantage fiscal (lois Besson, Malraux, Robien, Duflot, Pinel, etc.) ?",
+          },
+        ]
+      },
+    ],
+
+    chauffage: [
+      {
+        title: "Chauffage",
+        quiz: [
+          {
+            id: "cuveMazout",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["keystone"],
+            falseAccess: [],
+            question: "Le bien possède-t-il une cuve à mazout ?",
+          },
+          {
+            id: "gazDeVille",
+            type: "binary",
+            logic: "root",
+            trueAccess: [],
+            falseAccess: ["cuveMazout"],
+            question: "Le bien est-il raccordé au gaz de ville ?",
+          },
+          {
+            id: "gazCiterne",
+            type: "binary",
+            logic: "root",
+            trueAccess: [],
+            falseAccess: ["gazDeVille"],
+            question: "Le bien est-il raccordé à une citerne à gaz ?",
+          },
+          {
+            id: "gazCiternePropriétaire",
+            type: "binary",
+            logic: "root",
+            trueAccess: ["gazCiterne"],
+            falseAccess: [],
+            question: "Etes-vous propriétaire de cette citerne ?",
+          },
+        ]
+      }
+    ],
+
     servitude: [
       {
         title: "Servitudes",
