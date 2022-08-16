@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"; // optional
 import CheckBoxRendering from "../components/checkboxComponents/CheckBoxRendering";
 
 describe("CheckBoxRendering component testing", () => {
-    
+
   test("The component should not render the heading by default", () => {
     render(<CheckBoxRendering />);
     const titleElement = screen.queryByText(/questionnaire vente/i);
