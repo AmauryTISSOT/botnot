@@ -1,6 +1,6 @@
 import React from "react";
 
-const EtatSolPollution = () => {
+const EtatSolPollution = ({customerState, setCustomerState}) => {
   return (
     <>
       <h1>ETAT DU SOUS-SOL - POLLUTION</h1>

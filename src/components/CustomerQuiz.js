@@ -17,17 +17,16 @@ const CustomerQuiz = () => {
 
   return (
     <div className="App">
-      <TextArea/>
-      <SituationTerrain />
-      <EtatSolPollution />
-      <Servitude />
-      <Assainissement />
-      <SituationBatiment />
-      <ContratSurBien />
-      <AvantageFiscal />
-      <Chauffage />
-      <Pret />
-      <PlusValues />
+      <SituationTerrain customerState={customerQuizState} setCustomerState={setCustomerQuizState} />
+      <EtatSolPollution customerState={customerQuizState} setCustomerState={setCustomerQuizState}/>
+      <Servitude customerState={customerQuizState} setCustomerState={setCustomerQuizState}/>
+      <Assainissement customerState={customerQuizState} setCustomerState={setCustomerQuizState}/>
+      <SituationBatiment customerState={customerQuizState} setCustomerState={setCustomerQuizState}/>
+      <ContratSurBien customerState={customerQuizState} setCustomerState={setCustomerQuizState}/>
+      <AvantageFiscal customerState={customerQuizState} setCustomerState={setCustomerQuizState}/>
+      <Chauffage customerState={customerQuizState} setCustomerState={setCustomerQuizState}/>
+      <Pret customerState={customerQuizState} setCustomerState={setCustomerQuizState}/>
+      <PlusValues customerState={customerQuizState} setCustomerState={setCustomerQuizState}/>
     </div>
   );
 };

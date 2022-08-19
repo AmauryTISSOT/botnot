@@ -1,6 +1,6 @@
 import React from "react";
 
-const Pret = () => {
+const Pret = ({customerState, setCustomerState}) => {
   return (
     <>
       <h1>PRETS-HYPOTHEQUES</h1>

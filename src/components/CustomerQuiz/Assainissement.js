@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Assainissement = () => {
+const Assainissement = ({customerState, setCustomerState}) => {
   return (
     <>
     <h1>ASSAINISSEMENT</h1>

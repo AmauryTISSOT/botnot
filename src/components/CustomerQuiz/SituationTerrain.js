@@ -1,10 +1,12 @@
 import React from "react";
+import Checkbox from "./Checkbox"
 
-const SituationTerrain = () => {
+const SituationTerrain = ({customerState, setCustomerState}) => {
   return (
     <>
       <h1>SITUATION DU TERRAIN</h1>
       <div>Votre maison dépend-elle d'un lotissement ?</div>
+      <Checkbox/>
       <div>Si oui, existe-t-il une association syndicale qui fonctionne ?</div>
       <p>
         Si tel est le cas, précisé ici les noms et coordonnées du président de

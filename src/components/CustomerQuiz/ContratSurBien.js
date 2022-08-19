@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContratSurBien = () => {
+const ContratSurBien = ({customerState, setCustomerState}) => {
   return (
     <>
       <h1>CONTRATS EXISTANT SUR LE BIEN</h1>

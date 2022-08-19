@@ -1,6 +1,6 @@
 import React from "react";
 
-const Chauffage = () => {
+const Chauffage = ({customerState, setCustomerState}) => {
   return (
     <>
       <h1>CHAUFFAGE</h1>

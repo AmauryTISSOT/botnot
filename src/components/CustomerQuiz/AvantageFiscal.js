@@ -1,6 +1,6 @@
 import React from "react";
 
-const AvantageFiscal = () => {
+const AvantageFiscal = ({customerState, setCustomerState}) => {
   return (
     <>
       <h1>AVANTAGE FISCAL</h1>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Sinistre = () => {
+const Sinistre = ({customerState, setCustomerState}) => {
   return (
     <>
       <h1>SINISTRE INDEMNISE</h1>

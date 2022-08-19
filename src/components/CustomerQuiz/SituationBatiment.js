@@ -1,6 +1,6 @@
 import React from "react";
 
-const SituationBatiment = () => {
+const SituationBatiment = ({customerState, setCustomerState}) => {
   return (
     <>
       <h1>SITUATION DU BATIMENT</h1>

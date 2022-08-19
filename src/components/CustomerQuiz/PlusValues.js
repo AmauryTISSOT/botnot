@@ -1,6 +1,6 @@
 import React from "react";
 
-const PlusValues = () => {
+const PlusValues = ({customerState, setCustomerState}) => {
   return (
     <>
       <h1>PLUS-VALUES</h1>

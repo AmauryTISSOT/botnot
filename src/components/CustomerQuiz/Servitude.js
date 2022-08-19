@@ -1,6 +1,6 @@
 import React from "react";
 
-const Servitude = () => {
+const Servitude = ({customerState, setCustomerState}) => {
   return (
     <>
       <h1>SERVITUDES</h1>
