@@ -18,10 +18,10 @@ const SituationTerrain = ({ customerState, setCustomerState }) => {
         customerQuizState={customerState}
         setCustomerQuizState={setCustomerState}
       />
-      <p>
+      <p><i>
         Si tel est le cas, précisé ici les noms et coordonnées du président de
         l'association
-      </p>
+      </i></p>
       <TextArea
         questionID="situationTerrainCoordonneeAssociation"
         customerQuiz={customerState}
@@ -34,7 +34,7 @@ const SituationTerrain = ({ customerState, setCustomerState }) => {
         customerQuizState={customerState}
         setCustomerQuizState={setCustomerState}
       />
-      <p>Si oui, il convient de nous indiquer les noms et adresses du syndic</p>
+      <p><i>Si oui, il convient de nous indiquer les noms et adresses du syndic</i></p>
       <TextArea
         questionID="situationTerrainCoproHorizontaleNomSyndic"
         customerQuiz={customerState}

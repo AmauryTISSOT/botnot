@@ -43,7 +43,7 @@ const ContratSurBien = ({ customerState, setCustomerState }) => {
         customerQuizState={customerState}
         setCustomerQuizState={setCustomerState}
       />
-      <p>Lesquels ?</p>
+      <p><i>Lesquels ?</i></p>
       <TextArea
         questionID="contratAutresNom"
         customerQuiz={customerState}
@@ -55,7 +55,7 @@ const ContratSurBien = ({ customerState, setCustomerState }) => {
         customerQuizState={customerState}
         setCustomerQuizState={setCustomerState}
       />
-      <p>Lesquels ?</p>
+      <p><i>Lesquels ?</i></p>
       <TextArea
         questionID="contratEquipementNom"
         customerQuiz={customerState}

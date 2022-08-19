@@ -16,7 +16,7 @@ const AvantageFiscal = ({ customerState, setCustomerState }) => {
         customerQuizState={customerState}
         setCustomerQuizState={setCustomerState}
       />
-      <p>Si oui, lequel :</p>
+      <p><i>Si oui, lequel :</i></p>
       <TextArea
         questionID="avantageFiscalNom"
         customerQuiz={customerState}

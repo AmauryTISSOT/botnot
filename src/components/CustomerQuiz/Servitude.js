@@ -14,7 +14,7 @@ const Servitude = ({ customerState, setCustomerState }) => {
         customerQuizState={customerState}
         setCustomerQuizState={setCustomerState}
       />
-      <p>Si oui, savez-vous qui a la charge de son entretien ?</p>
+      <p><i>Si oui, savez-vous qui a la charge de son entretien ?</i></p>
       <TextArea
         questionID="servitudeNom"
         customerQuiz={customerState}

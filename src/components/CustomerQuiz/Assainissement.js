@@ -13,7 +13,7 @@ const Assainissement = ({ customerState, setCustomerState }) => {
         customerQuizState={customerState}
         setCustomerQuizState={setCustomerState}
       />
-      <p>Indiquez la date de la dernière vidange</p>
+      <p><i>Indiquez la date de la dernière vidange</i></p>
       <TextArea
         questionID="assainissementDateVidange"
         customerQuiz={customerState}

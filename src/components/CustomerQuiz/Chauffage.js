@@ -37,7 +37,7 @@ const Chauffage = ({ customerState, setCustomerState }) => {
         customerQuizState={customerState}
         setCustomerQuizState={setCustomerState}
       />
-      <p>Le cas échéant, indiquez les coordonnées de la société :</p>
+      <p><i>Le cas échéant, indiquez les coordonnées de la société :</i></p>
       <TextArea
         questionID="chauffageCiterneCoordonnee"
         customerQuiz={customerState}
