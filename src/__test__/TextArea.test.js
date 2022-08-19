@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"; // optional
-import "@testing-library/user-event"
 import TextArea from "../components/CustomerQuiz/TextArea";
-import userEvent from "@testing-library/user-event";
+import user from "@testing-library/user-event";
 
 const MockTextArea = () => {
   const [customerQuizState, setCustomerQuizState] = useState("");
@@ -33,11 +32,24 @@ describe("Textarea component testing", () => {
         expect(element.id).toBe("mockID")
     })
     test("The textarea should correctly display the input value", () => {
-        const user = userEvent.setup()
         render(<MockTextArea/>)
         const element = screen.getByRole("textbox")
         user.type(element,"test123")
-        const textAreaValue = screen.getByText("test123")
-        expect(textAreaValue).toBeInTheDocument()
+        expect(element.value).toBe("test123")
+    })
+    test("Input value should change customerQuiz state", () => {
+        render(<MockTextArea/>)
+        const element = screen.getByRole("textbox")
+        user.type(element,"test123")
+        const state = screen.getByText("test123")
+        expect(state).toBeInTheDocument();
+    })
+    test("Input value should change when input is added", () => {
+        render(<MockTextArea/>)
+        const element = screen.getByRole("textbox")
+        user.type(element,"first sentence ")
+        user.type(element,"second sentence")
+        const state = screen.getByText("first sentence second sentence")
+        expect(state).toBeInTheDocument();
     })
 })
