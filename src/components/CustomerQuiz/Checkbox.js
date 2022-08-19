@@ -1,51 +1,66 @@
 import React, { useState } from "react";
 
 const Checkbox = ({ questionID, customerQuizState, setCustomerQuizState }) => {
-  // Hook state for "oui" checkbox : generate an array base on quiz length
+  // Hook state for "oui" checkbox
   const [ouiCheckedState, setOuiCheckedState] = useState(false);
 
-  // Hook state for "non" checkbox : generate an array base on quiz length
+  // Hook state for "non" checkbox
   const [nonCheckedState, setNonCheckedState] = useState(false);
 
-  // Handle "oui" checkbox : update the state based on the index of the current question
+  // Handle "oui" checkbox logic
   const handleOuiCheck = (position) => {
-    const updatedOuiCheckedState = ouiCheckedState.map((item, index) =>
-      index === position ? !item : item
-    );
-    const updatedNonCheckedState = nonCheckedState.map((item, index) =>
-      index === position ? (item = false) : item
-    );
-
-    setOuiCheckedState(updatedOuiCheckedState);
-    setNonCheckedState(updatedNonCheckedState);
+    setOuiCheckedState(!ouiCheckedState);
+    setNonCheckedState(false);
   };
 
-  // Handle "non" checkbox : update the state based on the index of the current question
+  // Handle "non" checkbox logic
   const handleNonCheck = (position) => {
-    const updatedNonCheckedState = nonCheckedState.map((item, index) =>
-      index === position ? !item : item
-    );
-
-    const updatedOuiCheckedState = ouiCheckedState.map((item, index) =>
-      index === position ? (item = false) : item
-    );
-    setNonCheckedState(updatedNonCheckedState);
-    setOuiCheckedState(updatedOuiCheckedState);
+    setNonCheckedState(!nonCheckedState);
+    setOuiCheckedState(false);
   };
 
-  // Function who send on dataState clicked ID : clicked value
-  //   const sendDataOnClick = (event) => {
-  //     setDataState((prev) => ({
-  //       ...prev,
-  //       [event.target.id]: event.target.value,
-  //     }));
-  //     displayArray[event.target.id] = true;
+  // Function who return true if the key exist in object
+  const keyExists = (obj, key) => {
+    if (!obj || (typeof obj !== "object" && !Array.isArray(obj))) {
+      return false;
+    } else if (obj.hasOwnProperty(key)) {
+      return true;
+    } else if (Array.isArray(obj)) {
+      for (let i = 0; i < obj.length; i++) {
+        const result = keyExists(obj[i], key);
+        if (result) {
+          return result;
+        }
+      }
+    } else {
+      for (const k in obj) {
+        const result = keyExists(obj[k], key);
+        if (result) {
+          return result;
+        }
+      }
+    }
+
+    return false;
+  };
+
+  //Function who send on dataState clicked ID : clicked value
+  const sendDataOnClick = (event) => {
+    if (!keyExists(customerQuizState, event.target.id)) {
+      setCustomerQuizState((prev) => ({
+        ...prev,
+        [event.target.id]: event.target.value,
+      }));
+    }
+  };
 
   return (
     <div>
       <label>
         <input
           onChange={(e) => {
+            handleOuiCheck();
+            sendDataOnClick(e);
           }}
           type="checkbox"
           data-testid="oui-checkbox"
@@ -58,6 +73,8 @@ const Checkbox = ({ questionID, customerQuizState, setCustomerQuizState }) => {
       <label>
         <input
           onChange={(e) => {
+            handleNonCheck();
+            sendDataOnClick(e);
           }}
           type="checkbox"
           data-testid="non-checkbox"
