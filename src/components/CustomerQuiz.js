@@ -9,6 +9,7 @@ import Pret from "./CustomerQuiz/Pret";
 import Servitude from "./CustomerQuiz/Servitude";
 import SituationBatiment from "./CustomerQuiz/SituationBatiment";
 import SituationTerrain from "./CustomerQuiz/SituationTerrain";
+import TextArea from "./CustomerQuiz/TextArea";
 
 const CustomerQuiz = () => {
 
@@ -16,6 +17,7 @@ const CustomerQuiz = () => {
 
   return (
     <div className="App">
+      <TextArea/>
       <SituationTerrain />
       <EtatSolPollution />
       <Servitude />
