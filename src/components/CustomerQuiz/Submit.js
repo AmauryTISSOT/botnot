@@ -1,11 +1,15 @@
-import React from 'react'
+import React from "react";
 
-const Submit = () => {
+const Submit = ({ valueName, setState }) => {
+  const handleClick = () => {
+    setState(valueName);
+  };
+
   return (
     <>
-    <button>Submit</button>
+      <button onClick={handleClick}>Submit</button>
     </>
-  )
-}
+  );
+};
 
-export default Submit
+export default Submit;
