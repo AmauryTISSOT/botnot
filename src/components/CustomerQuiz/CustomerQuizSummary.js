@@ -81,7 +81,18 @@ const CustomerQuizSummary = () => {
 
   return (
     <>
-      <div>{data.length}</div>
+      <h1>Situation du terrain</h1>
+      <h1>Etat du sous-sol - pollutions</h1>
+      <h1>Servitudes</h1>
+      <h1>Assainissement</h1>
+      <h1>Situation du bâtiment</h1>
+      <h1>Contrats existant sur le bien</h1>
+      <h1>Avantage fiscal</h1>
+      <h1>Chauffage</h1>
+      <h1>Récupération des eaux de pluie</h1>
+      <h1>Prêts - hypothèques</h1>
+      <h1>Plus-values</h1>
+      <h1>Sinistre</h1>
     </>
   );
 };
