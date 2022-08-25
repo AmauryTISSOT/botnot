@@ -6,8 +6,8 @@ const Sinistre = ({ customerState, setCustomerState }) => {
     <>
       <h1>SINISTRE INDEMNISE</h1>
       <div>
-        Y'a t-il eu une indemnisation d'assurance d'un sinistre survenue suite à
-        un evenement reconnu comme catastrophe naturelle ?
+        Y'a t-il eu une indemnisation d'assurance d'un sinistre survenu suite à
+        un évènement reconnu comme catastrophe naturelle ?
       </div>
       <Checkbox
         questionID="sinistreCatastropheNaturelle"
