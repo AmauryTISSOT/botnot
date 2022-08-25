@@ -1,6 +1,6 @@
 import React from "react";
 
-const CustomerQuizSummary = () => {
+const CustomerQuizSummary = ({ dataState }) => {
   const data = [
     "situationTerrainLotissement",
 
@@ -79,9 +79,39 @@ const CustomerQuizSummary = () => {
     "plusValueTravaux",
   ];
 
+  const situationTerrainAnswer = {
+    situationTerrainLotissement: "Le bien dépend d'un lotissement",
+    situationTerrainAssociationSyndicale: "Il existe une association syndicale",
+    situationTerrainCoordonneeAssociation: "textArea",
+    situationTerrainCoproHorizontale:
+      "Le bien dépend d'une copropriété horizontale",
+    situationTerrainCoproHorizontaleNomSyndic: "textArea",
+    situationTerrainBornage:
+      "Le terrain a fait l'objet d'un procès-verbal de bornage",
+  };
+
+  const displayAnswer = (answerObject) => {
+    let displayArray = [];
+    for (const key in answerObject) {
+      if (dataState[key] === "true" || dataState[key] === true) {
+        displayArray.push(answerObject[key]);
+      }
+      if (
+        dataState[key] !== "true" ||
+        dataState[key] !== true ||
+        dataState[key] !== "false" ||
+        dataState[key] !== false
+      ) {
+        displayArray.push(dataState[key]);
+      }
+    }
+    return displayArray.map((item, keys) => <div key={keys}>{item}</div>);
+  };
+
   return (
     <>
       <h1>Situation du terrain</h1>
+      <>{displayAnswer(situationTerrainAnswer)}</>
       <h1>Etat du sous-sol - pollutions</h1>
       <h1>Servitudes</h1>
       <h1>Assainissement</h1>
