@@ -8,7 +8,7 @@ const CustomerQuizSummary = ({ dataState }) => {
     situationTerrainCoordonneeAssociation: "textArea",
     situationTerrainCoproHorizontale:
       "Le bien dépend d'une copropriété horizontale",
-    situationTerrainCoproHorizontaleNomSyndic: "textArea",
+    situationTerrainCoproHorizontaleNomSyndic: "Nom et adresse du syndic :",
     situationTerrainBornage:
       "Le terrain a fait l'objet d'un procès-verbal de bornage",
   };
@@ -94,9 +94,11 @@ const CustomerQuizSummary = ({ dataState }) => {
         dataState[key] !== "true" ||
         dataState[key] !== true ||
         dataState[key] !== "false" ||
-        dataState[key] !== false
+        dataState[key] !== false ||
+        dataState[key] !== undefined
+        //FIXME: this piece of code doesn't work : must change the conditions
       ) {
-        displayArray.push(dataState[key]);
+        displayArray.push(answerObject[key] + dataState[key]);
       }
     }
     return displayArray.map((item, keys) => <div key={keys}>{item}</div>);
