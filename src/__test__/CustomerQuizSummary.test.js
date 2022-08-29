@@ -36,10 +36,14 @@ describe("CustomerQuizSummary component test", () => {
     expect(answerElement3).not.toBeInTheDocument();
   });
   test("Should correctly render the text area", () => {
-    const mockDataState = { situationTerrainCoproHorizontaleNomSyndic: "mockTextArea" };
+    const mockDataState = {
+      situationTerrainLotissement: "false",
+      situationTerrainAssociationSyndicale: "false",
+      situationTerrainCoproHorizontale: "false",
+      situationTerrainCoproHorizontaleNomSyndic: "mockTextArea",
+    };
     render(<CustomerQuizSummary dataState={mockDataState} />);
-    const answerElement = screen.queryByText("mockTextArea");
+    const answerElement = screen.getByText(/mockTextArea/i);
     expect(answerElement).toBeInTheDocument();
-    screen.debug()
   });
 });
