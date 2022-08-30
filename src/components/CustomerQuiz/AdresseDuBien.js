@@ -15,6 +15,7 @@ const AdresseDuBien = ({ setState }) => {
         <input
           type="text"
           id="bienAdresse"
+          data-testid="bienAdresse"
           placeholder="Adresse"
           onChange={(e) => onFillHandler(e)}
         />
@@ -22,6 +23,7 @@ const AdresseDuBien = ({ setState }) => {
         <input
           type="text"
           id="bienCodePostal"
+          data-testid="bienCodePostal"
           placeholder="Code postal"
           onChange={(e) => onFillHandler(e)}
         />
@@ -29,6 +31,7 @@ const AdresseDuBien = ({ setState }) => {
         <input
           type="text"
           id="bienCommune"
+          data-testid="bienCommune"
           placeholder="Commune"
           onChange={(e) => onFillHandler(e)}
         />

@@ -15,6 +15,7 @@ const DossierName = ({ setState }) => {
           type="text"
           id="dossierNom"
           placeholder="Nom"
+          data-testid="dossierNom"
           onChange={(e) => onFillHandler(e)}
         />
         <label>Référence du dossier</label>
@@ -22,6 +23,7 @@ const DossierName = ({ setState }) => {
           type="text"
           id="dossierReference"
           placeholder="Référence"
+          data-testid="dossierReference"
           onChange={(e) => onFillHandler(e)}
         />
       </form>

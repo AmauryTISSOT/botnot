@@ -16,12 +16,14 @@ const ClientName = ({ setState }) => {
           type="text"
           id="clientNom"
           placeholder="Nom"
+          data-testid="clientNom"
           onChange={(e) => onFillHandler(e)}
         />
         <label>Prénom(s) du client</label>
         <input
           type="text"
           id="clientPrenom"
+          data-testid="clientPrenom"
           placeholder="Prénom(s)"
           onChange={(e) => onFillHandler(e)}
         />
