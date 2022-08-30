@@ -1,7 +1,6 @@
 import React from "react";
 import keyExists from "../KeysExists";
 
-
 // This component render a summary of the CustomerQuiz state.
 const CustomerQuizSummary = ({ dataState }) => {
   const situationTerrainAnswer = {
@@ -136,27 +135,38 @@ const CustomerQuizSummary = ({ dataState }) => {
 
   return (
     <>
-      <h1>Situation du terrain</h1>
+      <h1>Nom du dossier : {dataState.dossierNom}</h1>
+      <div>Référence du dossier : {dataState.dossierReference}</div>
+      <h2>Nom du client :</h2>
+      <div>
+        {dataState.clientNom} {dataState.clientPrenom}
+      </div>
+      <h2>Adresse du bien :</h2>
+      <div>
+        {dataState.bienAdresse} <br /> {dataState.bienCodePostal} -{" "}
+        {dataState.bienCommune}
+      </div>
+      <h2>Situation du terrain</h2>
       <>{displayAnswer(situationTerrainAnswer)}</>
-      <h1>Etat du sous-sol - pollutions</h1>
+      <h2>Etat du sous-sol - pollutions</h2>
       <>{displayAnswer(EtatSolPollutionAnswer)}</>
-      <h1>Servitudes</h1>
+      <h2>Servitudes</h2>
       <>{displayAnswer(servitudeAnswer)}</>
-      <h1>Assainissement</h1>
+      <h2>Assainissement</h2>
       <>{displayAnswer(assainissementAnswer)}</>
-      <h1>Situation du bâtiment</h1>
+      <h2>Situation du bâtiment</h2>
       <>{displayAnswer(situationBatimentAnswer)}</>
-      <h1>Contrats existant sur le bien</h1>
+      <h2>Contrats existant sur le bien</h2>
       <>{displayAnswer(contratSurBienAnswer)}</>
-      <h1>Avantage fiscal</h1>
+      <h2>Avantage fiscal</h2>
       <>{displayAnswer(avantageFiscalAnswer)}</>
-      <h1>Chauffage</h1>
+      <h2>Chauffage</h2>
       <>{displayAnswer(chauffageAnswer)}</>
-      <h1>Prêts - hypothèques</h1>
+      <h2>Prêts - hypothèques</h2>
       <>{displayAnswer(pretAnswer)}</>
-      <h1>Plus-values</h1>
+      <h2>Plus-values</h2>
       <>{displayAnswer(plusValuesAnswer)}</>
-      <h1>Sinistre</h1>
+      <h2>Sinistre</h2>
       <>{displayAnswer(sinistreAnswer)}</>
     </>
   );

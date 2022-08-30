@@ -11,6 +11,9 @@ import SituationBatiment from "./CustomerQuiz/SituationBatiment";
 import SituationTerrain from "./CustomerQuiz/SituationTerrain";
 import Submit from "./CustomerQuiz/Submit";
 import CustomerQuizSummary from "./CustomerQuiz/CustomerQuizSummary";
+import DossierName from "./CustomerQuiz/DossierName";
+import ClientName from "./CustomerQuiz/ClientName";
+import AdresseDuBien from "./CustomerQuiz/AdresseDuBien";
 
 const CustomerQuiz = () => {
   // Customer quiz state hook
@@ -23,6 +26,10 @@ const CustomerQuiz = () => {
     <>
       {!showSummary ? (
         <div className="App">
+          <DossierName setState={setCustomerQuizState} />
+          <ClientName setState={setCustomerQuizState} />
+          <AdresseDuBien setState={setCustomerQuizState} />
+
           <SituationTerrain
             customerState={customerQuizState}
             setCustomerState={setCustomerQuizState}
