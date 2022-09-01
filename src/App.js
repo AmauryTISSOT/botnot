@@ -1,9 +1,9 @@
 import './App.css';
-import CustomerQuiz from './components/CustomerQuiz';
+import AutoCompleteAdresse from './components/API/AutoCompleteAdresse';
 
 function App() {
   return (
-    <CustomerQuiz/>
+    <AutoCompleteAdresse/>
   );
 }
 
