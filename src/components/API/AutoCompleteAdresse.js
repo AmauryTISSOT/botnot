@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react";
 const AutoCompleteAdresse = () => {
   const [data, setData] = useState([]);
   const [input, setInput] = useState("");
-  const [addressSelection, setAddressSelection] = useState([]);
+  const [addressSelection, setAddressSelection] = useState([""]);
   const arrayIndex = data.length - 5;
   let sliceArray = data.slice(arrayIndex - 5, arrayIndex);
 
   const onFillHandler = (event) => {
     setInput((prev) => ({
       ...prev,
-      input: event.target.value,
+      [event.target.id]: event.target.value,
     }));
   };
 
@@ -18,7 +18,7 @@ const AutoCompleteAdresse = () => {
     // console.log("arrayIndex", arrayIndex);
     // console.log("sliceArray", sliceArray);
     return sliceArray.map((item, index) => (
-      <div key={index} id={index} onClick={(e) => getValue(e)}> 
+      <div key={index} id={index} onClick={(e) => getValue(e)}>
         {item.properties.label}
       </div>
     ));
@@ -26,25 +26,21 @@ const AutoCompleteAdresse = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      fetchAPI(input.input);
+      fetchAPI(input.adresse);
     }, 500);
-  }, [input.input]);
+  }, [input.adresse]);
 
   const getValue = (event) => {
-    const indexValue = event.target.id
-    setAddressSelection(
-        {
-          name: sliceArray[indexValue].properties.name,
-          postecode: sliceArray[indexValue].properties.postcode,
-          city: sliceArray[indexValue].properties.city,
-        },
-      );
-      console.log("indexValue", indexValue)
-      console.log("sliceArray", sliceArray)
-      console.log("addressSelection", addressSelection)
-    
-  }
-
+    const indexValue = event.target.id;
+    setAddressSelection({
+      name: sliceArray[indexValue].properties.name,
+      postcode: sliceArray[indexValue].properties.postcode,
+      city: sliceArray[indexValue].properties.city,
+    });
+    console.log("indexValue", indexValue);
+    console.log("sliceArray", sliceArray);
+    console.log("addressSelection", addressSelection);
+  };
 
   async function fetchAPI(value) {
     const url = new URL("http://api-adresse.data.gouv.fr/search");
@@ -95,12 +91,23 @@ const AutoCompleteAdresse = () => {
         <div>
           <div>
             <label>Code Postal</label>
-            {/* FIXME: display value on click */}
-            <input type="text" id="cp" name="cp" value={addressSelection.postcode} />
+            <input
+              type="number"
+              id="postcode"
+              name="cp"
+              value={addressSelection.postcode || input.postcode || ''}
+              onChange={onFillHandler}
+            />
           </div>
           <div>
             <label>Ville</label>
-            <input type="text" id="ville" name="ville" required />
+            <input
+              type="text"
+              id="city"
+              name="ville"
+              value={addressSelection.city || input.city || ''}
+              onChange={onFillHandler}
+            />
           </div>
         </div>
       </form>
