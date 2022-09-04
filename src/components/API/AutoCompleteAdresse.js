@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const AutoCompleteAdresse = () => {
+const AutoCompleteAdresse = ({setState}) => {
   const [data, setData] = useState([]);
   const [input, setInput] = useState("");
   const [addressSelection, setAddressSelection] = useState([""]);
@@ -11,6 +11,15 @@ const AutoCompleteAdresse = () => {
     setInput((prev) => ({
       ...prev,
       [event.target.id]: event.target.value,
+    }));
+  };
+
+  const sendDataToPropsState = () => {
+    setState((prev) => ({
+      ...prev,
+      adresseName: addressSelection.name,
+      adressePostcode: addressSelection.postcode,
+      adresseCity: addressSelection.city,
     }));
   };
 
@@ -37,9 +46,9 @@ const AutoCompleteAdresse = () => {
       postcode: sliceArray[indexValue].properties.postcode,
       city: sliceArray[indexValue].properties.city,
     });
-    console.log("indexValue", indexValue);
-    console.log("sliceArray", sliceArray);
-    console.log("addressSelection", addressSelection);
+    // console.log("indexValue", indexValue);
+    // console.log("sliceArray", sliceArray);
+    // console.log("addressSelection", addressSelection);
   };
 
   async function fetchAPI(value) {
@@ -83,6 +92,7 @@ const AutoCompleteAdresse = () => {
               data-placement="top"
               title=""
               placeholder="Indiquer l'adresse ici..."
+              value={addressSelection.name || input.adresse || ''}
               onChange={onFillHandler}
             />
             <div className="address-feedback">{displayLabel()}</div>
@@ -111,6 +121,7 @@ const AutoCompleteAdresse = () => {
           </div>
         </div>
       </form>
+      <button onClick={sendDataToPropsState}>Submit</button>
     </>
   );
 };
