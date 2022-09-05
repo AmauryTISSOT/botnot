@@ -1,9 +1,9 @@
 import './App.css';
-import AutoCompleteAdresse from './components/API/AutoCompleteAdresse';
+import CodeInsee from './components/API/CodeInsee';
 
 function App() {
   return (
-    <AutoCompleteAdresse/>
+    <CodeInsee codePostal={30430}/>
   );
 }
 
