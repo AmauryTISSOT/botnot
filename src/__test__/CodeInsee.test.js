@@ -11,7 +11,9 @@ const MockComponent = () => {
 
     return (
         <>
-        <CodeInsee codePostal={30430}/>
+        <CodeInsee setState={setMockState}/>
+        <div>mockState.codeCommune</div>
+        <div>mockState.nomCommune</div>
         </>
     )
 }
@@ -20,9 +22,20 @@ const MockComponent = () => {
 describe("CodeInsee component unit testing", () => {
     test("The component should correctly return the dataAPI", async () =>{
       render(<MockComponent/>)
+      const inputElement = screen.getByTestId("input")
+      user.type(inputElement,"30100", {delay: 50})
       await waitFor(()=> {
-        screen.getByText(/BRJAC/i)
+        screen.getByText(/alès/i)
       })
+    })
+    test("The component should correctly change the props state on click", async () =>{
+      render(<MockComponent/>)
+      const inputElement = screen.getByTestId("input")
+      user.type(inputElement,"30100", {delay: 50})
+      const alesElement = await screen.findByText(/alès/i)
+      fireEvent.click(alesElement)
+      const codeInseeElement = screen.findByText("30007")
+      expect(codeInseeElement).toBeInTheDocument()
     })
     
 })
