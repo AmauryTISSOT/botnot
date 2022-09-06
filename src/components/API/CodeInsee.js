@@ -1,28 +1,32 @@
 import React, { useEffect, useState } from "react";
 
-const CodeInsee = () => {
+const CodeInsee = ({setState}) => {
   const [listeCommune, setListeCommune] = useState();
   const [input, setInput] = useState("");
+  const [matchResponse, setMatchResponse] = useState(false);
 
   useEffect(() => {
-
-    //FIXME: need to copy the fetch function on autocomplete address
     setTimeout(() => {
-      fetch(`https://apicarto.ign.fr/api/codes-postaux/communes/${input.postcode}`)
+      fetch(
+        `https://apicarto.ign.fr/api/codes-postaux/communes/${input.postcode}`
+      )
         .then((response) => {
           if (response.status === 200) return response.json();
           else throw new Error("Invalid response");
         })
         .then((data) => {
-          // console.log(data)
           setListeCommune([data]);
+          setMatchResponse(true);
         })
-        .catch((error) => setListeCommune(["invalid"]));
+        .catch((error) => {
+          setListeCommune(["invalid"]);
+          setMatchResponse(false);
+        });
     }, 200);
   }, [input.postcode]);
 
-  console.log("input", input.postcode);
-  console.log(listeCommune)
+//   console.log("input", input.postcode);
+//   console.log(listeCommune);
 
   const onFillHandler = (event) => {
     setInput((prev) => ({
@@ -31,27 +35,42 @@ const CodeInsee = () => {
     }));
   };
 
+  const handleChange = (e) => {
+    // console.log("object:", listeCommune[0][e.target.value])
+
+    setState((prev) => ({
+        ...prev,
+        communeInfo: listeCommune[0][e.target.value],
+      }));
+  }
+
+
+  //TODO: form validation with CSS
   return (
     <>
       <div>
+        <form>
         <label>Code postal :</label>
         <input
           type="number"
+          required
           data-testid="input"
           id="postcode"
           onChange={onFillHandler}
         />
+        </form>
       </div>
 
       <label>Commune :</label>
-      <select>
+      <select onClick={handleChange}>
         <option value="">--Selectionner une commune--</option>
-        {/* {listeCommune !== undefined &&
+        {/* {console.log(matchResponse)} */}
+        {matchResponse &&
           listeCommune[0].map((item, keys) => (
-            <option key={keys} value={item.nomCommune}>
-              {item.nomCommune}
+            <option key={keys} value={keys} >
+              {item.nomCommune.toUpperCase()}
             </option>
-          ))} */}
+          ))}
       </select>
     </>
   );
