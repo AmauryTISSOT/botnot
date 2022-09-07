@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CodeInsee from "../API/CodeInsee";
+import OrganismeApi from "../API/OrganismeApi";
 
 const Annuaire = () => {
   const [annuaireState, setAnnuaireState] = useState(undefined);
@@ -15,6 +16,9 @@ const Annuaire = () => {
           {annuaireState.communeInfo.nomCommune.toUpperCase()}
         </div>
       )}
+
+      <h3>Liste des adresses pour cette commune :</h3>
+      <OrganismeApi state={annuaireState}/>
     </>
   );
 };
