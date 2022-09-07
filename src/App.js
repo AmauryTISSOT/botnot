@@ -1,13 +1,11 @@
 import { useState } from 'react';
 import './App.css';
-import CodeInsee from './components/API/CodeInsee';
+import Annuaire from './components/Annuaire/Annuaire';
 
 function App() {
 
-  const [mockState, setMockState] = useState("")
-  console.log(mockState)
   return (
-    <CodeInsee setState={setMockState}/>
+    <Annuaire/>
   );
 }
 
