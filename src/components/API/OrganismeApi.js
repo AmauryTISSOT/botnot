@@ -58,7 +58,7 @@ const OrganismeApi = ({ state }) => {
   }
 
   //   console.log("type",typeof internalState);
-    console.log(internalState)
+    // console.log(internalState)
   //   const abc = []
   //   console.log("true?", Boolean(abc))
 
