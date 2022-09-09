@@ -1,5 +1,5 @@
 import React from "react";
-import {render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"; // optional
 // import user from "@testing-library/user-event";
 import OrganismeApi from "../components/API/OrganismeApi";
@@ -35,7 +35,17 @@ describe("OrganismeApi unit testing", () => {
     const tribunalJudiciaireElement = await screen.findAllByText(/judiciaire/i);
     expect(tribunalJudiciaireElement).toHaveLength(1);
 
-    const prefectureElement = await screen.findAllByText(/préfecture/i);
+    const prefectureElement = await screen.findAllByText(/préfecture/i, {
+      duration: 200,
+    });
     expect(prefectureElement).toHaveLength(2);
+  });
+  test("should not render mailto:", async () => {
+    render(<OrganismeApi state={mockState} />);
+
+    const emailElement = await screen.findAllByText(/email/i)
+    expect(emailElement).toHaveLength(1)
+    const mailtoElement = screen.queryByText(/mailto:/i);
+    expect(mailtoElement).not.toBeInTheDocument();
   });
 });
