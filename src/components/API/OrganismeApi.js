@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 const OrganismeApi = ({ state }) => {
-  const [internalState, setInternalSaste] = useState(undefined);
-  const [service, setService] = useState([
+  const [internalState, setInternalState] = useState(undefined);
+
+  // List of "organisme" :
+  const [service] = useState([
     "cour_appel",
     "hypotheque",
     "mairie",
@@ -32,6 +34,7 @@ const OrganismeApi = ({ state }) => {
     }
   }, [state, service]);
 
+  // API fetching function
   async function fetchAPI(value, organisme) {
     const url = new URL(
       `https://etablissements-publics.api.gouv.fr/v3/communes/${value}/${organisme}`
@@ -48,8 +51,8 @@ const OrganismeApi = ({ state }) => {
       })
       .then((response) => response.json())
       .then((apiData) => {
-        // console.log("request succeeded with JSON response", apiData);
-        setInternalSaste((prev) => ({
+        console.log("request succeeded with JSON response", apiData);
+        setInternalState((prev) => ({
           ...prev,
           [organisme]: apiData,
         }));
@@ -57,15 +60,14 @@ const OrganismeApi = ({ state }) => {
       .catch((error) => console.log("request failed", error));
   }
 
-  //   console.log("type",typeof internalState);
-    // console.log(internalState)
-  //   const abc = []
-  //   console.log("true?", Boolean(abc))
+  // Function who clean the given string and add <a> tag
+  const cleanEmailString = (string) => {
+    if (string !== undefined) {
+      const cleanString = string.replace("mailto:", "");
+      return <a href={`mailto:${cleanString}`}>{cleanString}</a>;
+    }
+  };
 
-  //TODO: loop through lists address
-  //TODO: features array can have multiples elements
-  //TODO: html for email + remove mailto:
-  //TODO: when email, tel or site internet is empty -> change display
   const displayStateObject = () => {
     return (
       <>
@@ -75,94 +77,47 @@ const OrganismeApi = ({ state }) => {
               item !== undefined &&
               item.features.length !== 0 && (
                 <div key={keys}>
-                  <h4>{item.features[0].properties.nom}</h4>
-                  <div>{item.features[0].properties.adresses[0].lignes[0]}</div>
-                  <div>
-                    {item.features[0].properties.adresses[0].codePostal} - {item.features[0].properties.adresses[0].commune.toUpperCase()}</div>
-                  <div>email : {item.features[0].properties.email}</div>
-                  <div>tel : {item.features[0].properties.telephone}</div>
-                  <div>site internet : <a href={item.features[0].properties.url}>{item.features[0].properties.url}</a></div>
-                  <br/>
+                  {item.features.map((item1, keys1) => (
+                    <div key={keys1}>
+                      <h4>{item1.properties.nom}</h4>
+                      <div>
+                        {item1.properties.adresses.map((item2, keys2) => (
+                          <div key={keys2}>
+                            {item2.lignes.map((item3, keys3) => (
+                              <div key={keys3}>{item3}</div>
+                            ))}
+                            <div>
+                              {item2.codePostal} - {item2.commune.toUpperCase()}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      { "email" in item1.properties && (
+                        <div>
+                          email : {cleanEmailString(item1.properties.email)}
+                        </div>
+                      )}
+                      { "telephone" in item1.properties && (
+                        <div>tel : {item1.properties.telephone}</div>
+                      )}
+                      { "url" in item1.properties && (
+                        <div>
+                          site internet :{" "}
+                          <a href={item1.properties.url}>
+                            {item1.properties.url}
+                          </a>
+                        </div>
+                      )}
+
+                      <br />
+                    </div>
+                  ))}
                 </div>
               )
           )}
       </>
     );
   };
-
-  //     Object.values(internalState).map((item, keys) =>{
-  //       if (item !== undefined && item.features.length !== 0) {
-  //       }
-
-  //       }
-
-  //   }
-  // Object.values(internalState).map((item, keys) => <div>aze</div>)
-
-  // (item, keys) =>
-
-  //   if (item !== undefined && item.features.length !== 0) {
-  //     // console.log(item.features[0].properties.nom);
-  //   }
-  // );
-
-  // <>
-
-  // </>
-
-  const mockArray = {
-    type: "FeatureCollection",
-    features: [
-      {
-        type: "Feature",
-        geometry: {
-          type: "Point",
-          coordinates: [4.20533895493, 44.0040245056],
-        },
-        properties: {
-          id: "mairie-30100-01",
-          codeInsee: "30100",
-          pivotLocal: "mairie",
-          nom: "Mairie - Cruviers-Lascours",
-          adresses: [
-            {
-              type: "géopostale",
-              lignes: ["Place Albert-Chapelier"],
-              codePostal: "30360",
-              commune: "Cruviers-Lascours",
-              coordonnees: [4.20533895493, 44.0040245056],
-            },
-          ],
-          horaires: [
-            {
-              du: "lundi",
-              au: "vendredi",
-              heures: [
-                {
-                  de: "09:00:00",
-                  a: "12:00:00",
-                },
-              ],
-            },
-          ],
-          email: "mairie.cruvierslascours@gmail.com",
-          telephone: "04 66 83 21 55",
-          url: "http://www.cruviers-lascours.fr",
-          zonage: {
-            communes: ["30100 Cruviers-Lascours"],
-          },
-        },
-      },
-    ],
-  };
-
-  const nom = mockArray.features[0].properties.nom;
-  const adresse = mockArray.features[0].properties.adresses[0].lignes[0]; // array
-  const codePostal = mockArray.features[0].properties.adresses[0].codePostal;
-  const commune = mockArray.features[0].properties.adresses[0].commune;
-  const email = mockArray.features[0].properties.email;
-  const telephone = mockArray.features[0].properties.telephone;
-  const siteInternet = mockArray.features[0].properties.url;
 
   return <>{displayStateObject()}</>;
 };
