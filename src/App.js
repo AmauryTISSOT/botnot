@@ -1,16 +1,14 @@
 import { useState } from "react";
 import "./App.css";
-import DateInput from "./components/PlusValues/DateInput";
+import CalculPlusValuesBrute from "./components/PlusValues/CalculPlusValuesBrute";
 
 function App() {
   const [mockState, setMockState] = useState("");
 
   return (
-    <>
-      <DateInput setState={setMockState} />
-      <div>{mockState.dateAcquisition}</div>
-      <div>{mockState.dateVente}</div>
-    </>
+    <div className="App">
+      <CalculPlusValuesBrute state={mockState} setState={setMockState}/>
+    </div>
   );
 }
 
