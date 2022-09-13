@@ -76,7 +76,7 @@ const CalculPlusValuesBrute = ({ state, setState }) => {
           data-testid="acquisitionTitreGratuit"
         />
         <label htmlFor="acquisitionTitreGratuit">
-          acquisition à titre onereux (7.5 % ou au réel)
+        acquisition à titre gratuit (succession, donation)
         </label>
       </fieldset>
 
