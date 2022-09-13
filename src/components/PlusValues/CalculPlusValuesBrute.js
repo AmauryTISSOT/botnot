@@ -1,8 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const CalculPlusValuesBrute = ({ state, setState }) => {
+  // Internal hook state
   const [internalState, setInternalState] = useState("");
 
+  // Hook state for "forfait 7.5%" radio button
+  const [forfaitRadio, setForfaitRadio] = useState(true);
+
+  // Hook state for "acquisition titre gratuit" radio button
+  const [titreGratuitRadio, setTitreGratuitRadio] = useState(false);
+
+  const handleForfaitRadio = () => {
+    setForfaitRadio(true);
+    setTitreGratuitRadio(false);
+  };
+
+  const handleTitreGratuitRadio = () => {
+    setForfaitRadio(false);
+    setTitreGratuitRadio(true);
+  };
+
+  const plusValueBrute = () => {
+    const prixDeVenteCorrige = Number(
+      internalState.prixVente - internalState.fraisVendeur
+    );
+
+    const forfaitFrais = Math.floor(
+      internalState.prixAcquisition * (7.5 / 100)
+    );
+    const forfaitTravaux = Math.floor(
+      internalState.prixAcquisition * (15 / 100)
+    );
+    const prixAcquisition = Number(internalState.prixAcquisition);
+
+    const prixAcquisitionCorrige =
+      prixAcquisition + forfaitFrais + forfaitTravaux;
+      
+    const PVIbrute = prixDeVenteCorrige - prixAcquisitionCorrige;
+
+    if (!isNaN(PVIbrute)) {
+      return PVIbrute;
+    }
+  };
+
+  // Function who send target element value to internal state
   const sendValueToState = (event) => {
     setInternalState((prev) => ({
       ...prev,
@@ -10,8 +51,6 @@ const CalculPlusValuesBrute = ({ state, setState }) => {
     }));
   };
 
-  //TODO: add onChange for radio buttons
-  //TODO: add checked logic (see checkbox component)
   return (
     <>
       <label htmlFor="prixVente">
@@ -48,6 +87,7 @@ const CalculPlusValuesBrute = ({ state, setState }) => {
       <label htmlFor="fraisAcquisition">
         <strong>A déduire :</strong> Frais d'acquisition :
       </label>
+      {/* {TODO: value of this input = state} */}
       <input
         type="text"
         id="fraisAcquisition"
@@ -60,10 +100,14 @@ const CalculPlusValuesBrute = ({ state, setState }) => {
         <input
           type="radio"
           id="forfait7.5"
-          name="forfait7"
-          value="forfait7"
-          data-testid="forfait7"
-          checked
+          name="forfait7.5"
+          data-testid="forfait7.5"
+          value={forfaitRadio}
+          checked={forfaitRadio}
+          onChange={(e) => {
+            handleForfaitRadio();
+            sendValueToState(e);
+          }}
         />
         <label htmlFor="forfait7.5">
           acquisition à titre onereux (7.5 % ou au réel)
@@ -72,11 +116,16 @@ const CalculPlusValuesBrute = ({ state, setState }) => {
           type="radio"
           id="acquisitionTitreGratuit"
           name="acquisitionTitreGratuit"
-          value="acquisitionTitreGratuit"
           data-testid="acquisitionTitreGratuit"
+          value={titreGratuitRadio}
+          checked={titreGratuitRadio}
+          onChange={(e) => {
+            handleTitreGratuitRadio();
+            sendValueToState(e);
+          }}
         />
         <label htmlFor="acquisitionTitreGratuit">
-        acquisition à titre gratuit (succession, donation)
+          acquisition à titre gratuit (succession, donation)
         </label>
       </fieldset>
 
@@ -109,7 +158,7 @@ const CalculPlusValuesBrute = ({ state, setState }) => {
         data-testid="voirie"
         onChange={(e) => sendValueToState(e)}
       />
-      <div data-test-id="plusValueBrute">{}</div>
+      <div data-testid="plusValueBrute">{plusValueBrute()}</div>
     </>
   );
 };
