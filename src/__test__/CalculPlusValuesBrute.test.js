@@ -90,4 +90,26 @@ describe("CalculPlusValues unit test", () => {
     const plusValueBruteElement = screen.getByTestId(/plusValueBrute/i);
     expect(plusValueBruteElement).toHaveTextContent("30750");
   });
+
+  test("the component should display the right value with frais réel", async () => {
+    render(<CalculPlusValuesBrute />);
+
+    const prixDeVenteInput = screen.getByTestId("prixVente");
+    await user.type(prixDeVenteInput, "100000");
+
+    const fraisVendeurInput = screen.getByTestId("fraisVendeur");
+    await user.type(fraisVendeurInput, "8000");
+
+    const prixAcquisitionInput = screen.getByTestId("prixAcquisition");
+    await user.type(prixAcquisitionInput, "50000");
+
+    const fraisReelInput = screen.getByTestId("fraisReel");
+    await user.type(fraisReelInput, "5000");
+
+    const travauxInput = screen.getByTestId("travaux");
+    await user.type(travauxInput, "10000");
+
+    const plusValueBruteElement = screen.getByTestId(/plusValueBrute/i);
+    expect(plusValueBruteElement).toHaveTextContent("27000");
+  });
 });
