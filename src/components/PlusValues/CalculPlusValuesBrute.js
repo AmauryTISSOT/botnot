@@ -35,7 +35,7 @@ const CalculPlusValuesBrute = ({ state, setState }) => {
 
     const prixAcquisitionCorrige =
       prixAcquisition + forfaitFrais + forfaitTravaux;
-      
+
     const PVIbrute = prixDeVenteCorrige - prixAcquisitionCorrige;
 
     if (!isNaN(PVIbrute)) {
@@ -127,6 +127,13 @@ const CalculPlusValuesBrute = ({ state, setState }) => {
         <label htmlFor="acquisitionTitreGratuit">
           acquisition à titre gratuit (succession, donation)
         </label>
+        <input
+          type="text"
+          id="fraisReel"
+          name="fraisReel"
+          data-testid="fraisReel"
+          onChange={(e) => sendValueToState(e)}
+        />
       </fieldset>
 
       <label htmlFor="travaux">
