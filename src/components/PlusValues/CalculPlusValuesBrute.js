@@ -20,6 +20,7 @@ const CalculPlusValuesBrute = ({ state, setState }) => {
     setTitreGratuitRadio(true);
   };
 
+  //TODO: add logic : if travaux reel exist don't apply 15%, same for frais and 7.5%
   const plusValueBrute = () => {
     const prixDeVenteCorrige = Number(
       internalState.prixVente - internalState.fraisVendeur
