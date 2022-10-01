@@ -1,0 +1,25 @@
+.header {
+  height: 60px;
+  background-color: #282c34;
+  padding: 0 1rem;
+  border-bottom: 1px solid #474a4d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #dadce1;
+  text-decoration: none;
+}
+
+.logo {
+  font-size: xx-large;
+}
