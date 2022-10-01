@@ -1,13 +1,10 @@
-import { useState } from "react";
 import "./App.css";
-import CalculPlusValuesBrute from "./components/PlusValues/CalculPlusValuesBrute";
+import Header from "./components/Header/Header";
 
 function App() {
-  const [mockState, setMockState] = useState("");
-
   return (
     <div className="App">
-      <CalculPlusValuesBrute state={mockState} setState={setMockState}/>
+      <Header />
     </div>
   );
 }
