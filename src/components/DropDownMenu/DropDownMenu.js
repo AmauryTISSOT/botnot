@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
+import DropDownItem from "../DropDownItem/DropDownItem";
 import "./DropDownMenu.css";
 
-function DropDownMenu() {
+const DropDownMenu = (props) => {
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
@@ -11,20 +12,9 @@ function DropDownMenu() {
     setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
   }, []);
 
-  const calcHeight = (el) => {
-    const height = el.offsetHeight;
+  const calcHeight = (element) => {
+    const height = element.offsetHeight;
     setMenuHeight(height);
-  };
-
-  const DropdownItem = (props) => {
-    return (
-      <div
-        className="menu-item"
-        onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)}
-      >
-        {props.children}
-      </div>
-    );
   };
 
   return (
@@ -36,10 +26,13 @@ function DropDownMenu() {
         unmountOnExit
         onEnter={calcHeight}
       >
-        <div className="menu">
-          <DropdownItem>My Profile</DropdownItem>
-          <DropdownItem goToMenu="menu1">Menu1</DropdownItem>
-          <DropdownItem goToMenu="menu2">Menu2</DropdownItem>
+        <div className="menu" data-testid="main">
+          <DropDownItem setActiveMenu={setActiveMenu} goToMenu="menu1">
+            menu1
+          </DropDownItem>
+          <DropDownItem setActiveMenu={setActiveMenu} goToMenu="menu2">
+            menu2
+          </DropDownItem>
         </div>
       </CSSTransition>
 
@@ -50,14 +43,10 @@ function DropDownMenu() {
         unmountOnExit
         onEnter={calcHeight}
       >
-        <div className="menu">
-          <DropdownItem goToMenu="main">
-            <h2>Retour</h2>
-          </DropdownItem>
-          <DropdownItem>1</DropdownItem>
-          <DropdownItem>2</DropdownItem>
-          <DropdownItem>3</DropdownItem>
-          <DropdownItem>4</DropdownItem>
+        <div className="menu" data-testid="menu1">
+          <DropDownItem setActiveMenu={setActiveMenu} goToMenu="main">
+            retour
+          </DropDownItem>
         </div>
       </CSSTransition>
 
@@ -69,17 +58,15 @@ function DropDownMenu() {
         onEnter={calcHeight}
       >
         <div className="menu">
-          <DropdownItem goToMenu="main">
-            <h2>Retour</h2>
-          </DropdownItem>
-          <DropdownItem>A</DropdownItem>
-          <DropdownItem>B</DropdownItem>
-          <DropdownItem>C</DropdownItem>
-          <DropdownItem>D</DropdownItem>
+          <div className="menu" data-testid="menu2">
+            <DropDownItem setActiveMenu={setActiveMenu} goToMenu="main">
+              retour
+            </DropDownItem>
+          </div>
         </div>
       </CSSTransition>
     </div>
   );
-}
+};
 
 export default DropDownMenu;
