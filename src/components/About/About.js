@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import Header from "../Header/Header";
 
 const About = () => {
   return (
-    <div>About Page</div>
-  )
-}
+    <>
+      <Header />
+      <div>About Page</div>
+    </>
+  );
+};
 
-export default About
+export default About;
