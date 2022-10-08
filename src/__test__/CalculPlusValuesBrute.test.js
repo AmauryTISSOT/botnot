@@ -91,7 +91,7 @@ describe("CalculPlusValues unit test", () => {
     expect(plusValueBruteElement).toHaveTextContent("30750");
   });
 
-  test("the component should display the right value with frais réel", async () => {
+  test.skip("the component should display the right value with frais réel", async () => {
     render(<CalculPlusValuesBrute />);
 
     const prixDeVenteInput = screen.getByTestId("prixVente");
