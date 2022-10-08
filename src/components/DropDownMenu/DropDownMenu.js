@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import DropDownItem from "../DropDownItem/DropDownItem";
 import "./DropDownMenu.css";
@@ -28,10 +29,10 @@ const DropDownMenu = (props) => {
       >
         <div className="menu" data-testid="main">
           <DropDownItem setActiveMenu={setActiveMenu} goToMenu="menu1">
-            menu1
+            Check-list
           </DropDownItem>
           <DropDownItem setActiveMenu={setActiveMenu} goToMenu="menu2">
-            menu2
+            Annuaire
           </DropDownItem>
         </div>
       </CSSTransition>
@@ -45,7 +46,10 @@ const DropDownMenu = (props) => {
       >
         <div className="menu" data-testid="menu1">
           <DropDownItem setActiveMenu={setActiveMenu} goToMenu="main">
-            retour
+            Retour
+          </DropDownItem>
+          <DropDownItem>
+            <Link to="outils/customerquiz">Questionnaire client</Link>
           </DropDownItem>
         </div>
       </CSSTransition>
@@ -60,7 +64,10 @@ const DropDownMenu = (props) => {
         <div className="menu">
           <div className="menu" data-testid="menu2">
             <DropDownItem setActiveMenu={setActiveMenu} goToMenu="main">
-              retour
+              Retour
+            </DropDownItem>
+            <DropDownItem>
+              <Link to="outils/annuaire">Service public</Link>
             </DropDownItem>
           </div>
         </div>
