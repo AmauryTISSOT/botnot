@@ -3,12 +3,16 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import user from "@testing-library/user-event";
 import Header from "./Header";
+import { MemoryRouter } from "react-router-dom";
 
-//TODO: rewrite this test
 
 describe("Header unit testing", () => {
-  test.skip("should render correctly", () => {
-    render(<Header />);
+  test("should render correctly", () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
     const accueilElement = screen.getByText(/accueil/i);
     expect(accueilElement).toBeInTheDocument();
 
@@ -18,7 +22,7 @@ describe("Header unit testing", () => {
     const aproposElement = screen.getByText(/a propos/i);
     expect(aproposElement).toBeInTheDocument();
 
-    const logoElement = screen.getByText(/logo/i);
+    const logoElement = screen.getByText(/botnot/i);
     expect(logoElement).toBeInTheDocument()
   });
 });

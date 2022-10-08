@@ -3,10 +3,15 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import user from "@testing-library/user-event";
 import NavItem from "./NavItem";
+import { MemoryRouter } from "react-router-dom";
 
 describe("NavItem unit testing", () => {
   test("should render correctly", () => {
-    render(<NavItem name={"test"} />);
+    render(
+      <MemoryRouter>
+        <NavItem name={"test"} />
+      </MemoryRouter>
+    );
     const linkElement = screen.getByRole("link");
     expect(linkElement).toBeInTheDocument();
 
