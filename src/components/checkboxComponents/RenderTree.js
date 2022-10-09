@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import plusValues from "../../data";
+import plusValues from "../../data/data";
 
 const RenderTree = ({
   dataState,

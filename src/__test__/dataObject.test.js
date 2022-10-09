@@ -1,4 +1,4 @@
-import { maison, MockData } from "../data";
+import { maison, MockData } from "../data/data";
 
 // Select the object you want to test
 const dataObject = maison;

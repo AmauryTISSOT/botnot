@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import CodeInsee from "../API/CodeInsee";
-import OrganismeApi from "../API/OrganismeApi";
+import CodeInsee from "../API/CodeInsee/CodeInsee";
+import OrganismeApi from "../API/Organismes/OrganismeApi";
 
 const Annuaire = () => {
   const [annuaireState, setAnnuaireState] = useState(undefined);
