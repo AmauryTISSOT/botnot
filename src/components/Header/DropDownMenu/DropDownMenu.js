@@ -9,6 +9,7 @@ const DropDownMenu = (props) => {
   const [menuHeight, setMenuHeight] = useState(null);
   const dropdownRef = useRef(null);
 
+
   useEffect(() => {
     setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
   }, []);
@@ -49,7 +50,7 @@ const DropDownMenu = (props) => {
             Retour
           </DropDownItem>
           <DropDownItem>
-            <Link to="outils/customerquiz">Questionnaire client</Link>
+            <Link to="/outils/customerquiz">Questionnaire client</Link>
           </DropDownItem>
         </div>
       </CSSTransition>
@@ -67,7 +68,8 @@ const DropDownMenu = (props) => {
               Retour
             </DropDownItem>
             <DropDownItem>
-              <Link to="outils/annuaire">Service public</Link>
+              <Link to="/outils/annuaire">Service public</Link>
+              
             </DropDownItem>
           </div>
         </div>
