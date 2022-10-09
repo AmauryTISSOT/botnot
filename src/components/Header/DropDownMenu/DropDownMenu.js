@@ -51,6 +51,9 @@ const DropDownMenu = (props) => {
           <DropDownItem>
             <Link to="/outils/customerquiz">Questionnaire client</Link>
           </DropDownItem>
+          <DropDownItem>
+            <Link to="/outils/venteAppartement">Vente appartement</Link>
+          </DropDownItem>
         </div>
       </CSSTransition>
 

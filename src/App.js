@@ -6,6 +6,7 @@ import NoMatch from "./pages/NoMatch/NoMatch";
 import Annuaire from "./components/Annuaire/Annuaire";
 import CustomerQuiz from "./components/checkboxComponents/CustomerQuiz/CustomerQuiz";
 import Outils from "./pages/Outils/Outils";
+import VenteAppartement from "./components/checkboxComponents/VenteAppartement/VenteAppartement";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="outils" element={<Outils />}>
           <Route path="annuaire" element={<Annuaire />} />
           <Route path="customerquiz" element={<CustomerQuiz />} />
+          <Route path="venteAppartement" element={<VenteAppartement/>}/>
         </Route>
       </Routes>
     </div>
