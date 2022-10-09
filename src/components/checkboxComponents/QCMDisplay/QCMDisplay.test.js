@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"; // optional
 import QCMDisplay from "./QCMDisplay";
-import { MockData } from "../../../data";
+import { MockData } from "../../../data/data";
 
 const MockQCMDisplay = () => {
   const mockData = MockData;

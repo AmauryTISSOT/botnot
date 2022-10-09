@@ -2,7 +2,7 @@ import React, { useState } from "react";
 // import RenderRoot from "./RenderRoot";
 // import RenderTree from "./RenderTree";
 // import QuizTitle from "./QuizTitle";
-import QCMDisplay from "./QCMDisplay";
+import QCMDisplay from "../QCMDisplay/QCMDisplay";
 import { maison, MockData } from "../../../data/data";
 import QCMChoice from "./QCMChoice";
 
