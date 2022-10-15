@@ -1,3 +1,66 @@
-li {
+
+
+.container {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    gap: 2px;
+    margin: 50px;
+    background-color: lightgrey;
+    border: 2px solid lightgray;
+}
+
+.check-label {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    padding-left: 5px;
+    height: 25px;
+}
+
+.check-label-li {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background-color: white;
+    text-align: start;
+    vertical-align: middle;
+    padding-left: 100px;
     font-style: italic;
+    height: 25px;
+}
+
+.li-title {
+    padding-left: 50px;
+    font-style: normal;
+    list-style-type: "- ";
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.check-label a {
+    color: blue;
+}
+
+.check-box {
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+}
+
+.check-box-container{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 25px;
+}
+
+.title {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-self: center;
 }
