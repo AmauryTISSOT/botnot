@@ -1,25 +1,24 @@
 .organismeapi-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 400px);
-    justify-content: stretch;
-    align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  justify-content: stretch;
+  align-items: stretch;
 }
 
-
 .organismeapi-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 5px;
-    margin: 5px;
-    background-color: blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid darkgray;
 }
 
 .organismeapi-container a {
-    color: lightblue;
+  color: lightblue;
 }
 
 .organismeapi-wrap {
-    padding: 0px;
-    margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
