@@ -5,7 +5,7 @@
     grid-template-columns: 5fr 1fr;
     gap: 2px;
     margin: 50px;
-    background-color: lightgrey;
+    background-color: darkgray;
     border: 2px solid lightgray;
 }
 
@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: white;
+    background-color: black;
     padding-left: 5px;
     height: 25px;
 }
@@ -23,7 +23,7 @@
 .check-label-li {
     grid-column-start: 1;
     grid-column-end: 2;
-    background-color: white;
+    background-color: black;
     text-align: start;
     vertical-align: middle;
     padding-left: 100px;
@@ -55,7 +55,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
+    background-color: black;
     height: 25px;
 }
 
@@ -63,4 +63,5 @@
     grid-column-start: 1;
     grid-column-end: 3;
     justify-self: center;
+    color: black;
 }
