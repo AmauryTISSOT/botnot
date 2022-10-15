@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./CodeInsee.css";
 
 const CodeInsee = ({ setState }) => {
   const [listeCommune, setListeCommune] = useState();
@@ -38,41 +39,41 @@ const CodeInsee = ({ setState }) => {
 
   const handleChange = (e) => {
     // console.log("object:", listeCommune[0][e.target.value])
-
-    setState((prev) => ({
-      ...prev,
-      communeInfo: listeCommune[0][e.target.value],
-    }));
+    if (e.target.value !== "") {
+      setState((prev) => ({
+        ...prev,
+        communeInfo: listeCommune[0][e.target.value],
+      }));
+    }
   };
 
   //TODO: form validation with CSS
-  return (
-    <>
-      <div>
-        <form>
-          <label>Code postal :</label>
-          <input
-            type="number"
-            required
-            data-testid="input"
-            id="postcode"
-            onChange={onFillHandler}
-          />
-        </form>
-      </div>
 
-      <label>Commune :</label>
-      <select onClick={handleChange}>
-        <option value="">--Selectionner une commune--</option>
-        {/* {console.log(matchResponse)} */}
-        {matchResponse &&
-          listeCommune[0].map((item, keys) => (
-            <option key={keys} value={keys}>
-              {item.nomCommune.toUpperCase()}
-            </option>
-          ))}
-      </select>
-    </>
+  return (
+    <div className="codeinsee-container">
+      <form className="codeinsee-form">
+        <label>Code postal : </label>
+        <input
+          type="number"
+          required
+          data-testid="input"
+          id="postcode"
+          onChange={onFillHandler}
+        />
+      </form>
+      <div className="codeinsee-form">
+        <label>Commune : </label>
+        <select onClick={handleChange}>
+          <option value="">--Selectionner une commune--</option>
+          {matchResponse &&
+            listeCommune[0].map((item, keys) => (
+              <option key={keys} value={keys}>
+                {item.nomCommune.toUpperCase()}
+              </option>
+            ))}
+        </select>
+      </div>
+    </div>
   );
 };
 

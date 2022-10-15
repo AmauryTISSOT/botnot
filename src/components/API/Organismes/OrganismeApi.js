@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "./OrganismeApi.css"
 
 const OrganismeApi = ({ state }) => {
   const [internalState, setInternalState] = useState(undefined);
@@ -70,15 +71,15 @@ const OrganismeApi = ({ state }) => {
 
   const displayStateObject = () => {
     return (
-      <>
+      <div >
         {internalState !== undefined &&
           Object.values(internalState).map(
             (item, keys) =>
               item !== undefined &&
               item.features.length !== 0 && (
-                <div key={keys}>
+                <div key={keys} className="organismeapi-grid">
                   {item.features.map((item1, keys1) => (
-                    <div key={keys1}>
+                    <div key={keys1} className="organismeapi-container">
                       <h4>{item1.properties.nom}</h4>
                       <div>
                         {item1.properties.adresses.map((item2, keys2) => (
@@ -115,7 +116,7 @@ const OrganismeApi = ({ state }) => {
                 </div>
               )
           )}
-      </>
+      </div>
     );
   };
 
