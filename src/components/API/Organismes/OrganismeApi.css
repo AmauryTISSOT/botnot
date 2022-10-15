@@ -1,0 +1,25 @@
+.organismeapi-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 400px);
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+
+.organismeapi-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 5px;
+    margin: 5px;
+    background-color: blue;
+}
+
+.organismeapi-container a {
+    color: lightblue;
+}
+
+.organismeapi-wrap {
+    padding: 0px;
+    margin: 0px;
+}
