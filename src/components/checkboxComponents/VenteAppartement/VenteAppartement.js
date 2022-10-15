@@ -1,170 +1,417 @@
 import React from "react";
-import "./VenteAppartement.css"
+import "./VenteAppartement.css";
 
 const VenteAppartement = () => {
   return (
-    <div>
-      <h1>ELEMENTS A OBTENIR : VENTE APPARTEMENT</h1>
-      <div>Titre de propriété<input type="checkbox"/></div>
-      <div>Etat hypothécaire à jour<input type="checkbox"/></div>
-      <div>
+    <div className="container">
+      <h1 className="title">ELEMENTS A OBTENIR : VENTE APPARTEMENT</h1>
+      <div className="check-label">Titre de propriété</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">Etat hypothécaire à jour</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
         Etat descriptif de division - Règlement de copropriété et tous les
-        modificatifs<input type="checkbox"/>
+        modificatifs
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>Plan cadastral<input type="checkbox"/></div>
-      <div>
+      <div className="check-label">Plan cadastral</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
         Plan des lots / mails du confrère détenteur de l'EDD-RCP confirmant
-        l'absence de plans<input type="checkbox"/>
+        l'absence de plans
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>Modèle 1<input type="checkbox"/></div>
-      <div>Titulaires des droits au cadastre<input type="checkbox"/></div>
-      <div>Matrice cadastrale<input type="checkbox"/></div>
-      <div>
+      <div className="check-label">Modèle 1</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">Titulaires des droits au cadastre</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">Matrice cadastrale</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
         Dossier de location si le bien est toujours loué :
-        <li>Contrat de bail<input type="checkbox"/></li>
-        <li>Etat des lieux d'entrée des locataires<input type="checkbox"/></li>
-        <li>Dernière quittance de loyer<input type="checkbox"/></li>
-        <li>Montant du dépôt de garantie et qui en est le dépositaire<input type="checkbox"/></li>
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>
+      <li className="check-label-li">Contrat de bail</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Etat des lieux d'entrée des locataires</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Dernière quittance de loyer</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Montant du dépôt de garantie et qui en est le dépositaire
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
         Si le bien est libre, dossier de l'ancienne location :
-        <li>Contrat de bail<input type="checkbox"/></li>
-        <li>Congés des locatiares ou du propriétaires<input type="checkbox"/></li>
-        <li>Etat des lieux de sortie des locataires<input type="checkbox"/></li>
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>
+      <li className="check-label-li">Contrat de bail</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Congés des locatiares ou du propriétaires
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Etat des lieux de sortie des locataires
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
         En cas de travaux (uniquement si travaux de gros oeuvre et de second
         oeuvre) :
-        <li>
-          Si les travaux ont moins de 10 ans :
-          <li>Autorisation d'urbanisme si nécessaire<input type="checkbox"/></li>
-          <li>Autorisation de la copropréité si nécessaire (PV d'AG)<input type="checkbox"/></li>
-          <li>Facture des travaux<input type="checkbox"/></li>
-          <li>
-            Attestation d'assurance responsabilité décennale des entreprises
-            ayant réalisé les travaux<input type="checkbox"/>
-          </li>
-        </li>
-        <li>
-          Si les travaux ont plus de 10 ans :
-          <li>Autorisation d'urbanisme si nécessaire<input type="checkbox"/></li>
-          <li>Autorisation de la copropriété si nécessaire<input type="checkbox"/></li>
-        </li>
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>
-        En cas d'immeuble construit récemment (moins de 10 ans ou{" "}
-        <b>entre 10 et 15 ans</b>:
-        <li>
-          Copie de l'arrêté de permis de construire et éventuels modificatifs<input type="checkbox"/>
-        </li>
-        <li>Copie du contrat d'affichage pour chaque autorisation<input type="checkbox"/></li>
-        <li>Copie de la DAACT<input type="checkbox"/></li>
-        <li>Copie de la non-contestation de la mairie<input type="checkbox"/></li>
-        <li>Copie du dossier d'intervention ultérieur sur l'ouvrage<input type="checkbox"/></li>
-        <li>
-          Attestation d'assurance dommage-ouvrage / ou attestations d'assurance
-          responsabilité décennale des entreprises avec leurs factures<input type="checkbox"/>
-        </li>
+      <li className="check-label-li li-title">Si les travaux ont moins de 10 ans :</li>{" "}
+      <li className="check-label-li">Autorisation d'urbanisme si nécessaire</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>
+      <li className="check-label-li">
+        Autorisation de la copropréité si nécessaire (PV d'AG)
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Facture des travaux</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Attestation d'assurance responsabilité décennale des entreprises ayant
+        réalisé les travaux
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li li-title">Si les travaux ont plus de 10 ans :</li>{" "}
+      <li className="check-label-li">Autorisation d'urbanisme si nécessaire</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Autorisation de la copropriété si nécessaire
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
+        En cas d'immeuble construit récemment (moins de 10 ans ou entre 10 et 15
+        ans) :
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Copie de l'arrêté de permis de construire et éventuels modificatifs
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Copie du contrat d'affichage pour chaque autorisation
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Copie de la DAACT</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Copie de la non-contestation de la mairie
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Copie du dossier d'intervention ultérieur sur l'ouvrage
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Attestation d'assurance dommage-ouvrage / ou attestations d'assurance
+        responsabilité décennale des entreprises avec leurs factures
+      </li>
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
         Dossier de diagnostics parties privatives à jour :
-        <li>Diagnostic électrique<input type="checkbox"/></li>
-        <li>Diagnostic gaz<input type="checkbox"/></li>
-        <li>Diagnostic plomb<input type="checkbox"/></li>
-        <li>Diagnostic termites<input type="checkbox"/></li>
-        <li>Diagnostic amiante<input type="checkbox"/></li>
-        <li>
-          Diagnostic de performances énergétiques (
-          <i>
-            Les diagnostics réalisés entre le 1er janvier 2013 et le 31 décembre
-            2017 seront valables jusqu'au 31 décembre 2022 -- Les diagnostics
-            réalisés entre le 1er janvier 2018 et le 30 juin 2021 seront
-            valables jusqu'au 31 décembre 2024
-          </i>
-          )<input type="checkbox"/>
-        </li>
-        <li>Diagnostic assainissement<input type="checkbox"/></li>
-        <li>Etat des risques et pollutions (ERP)<input type="checkbox"/></li>
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>
-        Diagnostics parties communes :<li>Diagnostic plomb<input type="checkbox"/></li>
-        <li>Diagnostic termites<input type="checkbox"/></li>
-        <li>Diagnostic amiante</li>
-        <li>
-          <b>OU </b>mail du syndic confirmant leur non réalisation<input type="checkbox"/>
-        </li>
+      <li className="check-label-li">Diagnostic électrique</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>Certifcat d'entretien de la chaudière / cheminée<input type="checkbox"/></div>
-      <div>Diagnostic géorisques<input type="checkbox"/></div>
-      <div>
-        Installations classées en préfectures pour la ville ou l'arrondissement<input type="checkbox"/>
+      <li className="check-label-li">Diagnostic gaz</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>
+      <li className="check-label-li">Diagnostic plomb</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Diagnostic termites</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Diagnostic amiante</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Diagnostic de performances énergétiques{" "}
+        <i>( Vérifier la date de validité )</i>
+      </li>
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Diagnostic assainissement</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Etat des risques et pollutions (ERP)</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">Diagnostics parties communes :</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Diagnostic plomb</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Diagnostic termites</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Diagnostic amiante</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        <b>OU </b>mail du syndic confirmant leur non réalisation
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
+        Certifcat d'entretien de la chaudière / cheminée
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">Diagnostic géorisques</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
+        Installations classées en préfectures pour la ville ou l'arrondissement
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
         <u>Si immeuble à PARIS :</u>
-        <li>Note d'urbanisme délivrée par la commune<input type="checkbox"/></li>
-        <li>Liste des immeubles sous arrêté de péril ou insécurité à jour<input type="checkbox"/></li>
-        <li>Note de renseignements carrières<input type="checkbox"/></li>
-        <li>
-          Courrier des services de la direction de l'habitat de Paris (pour la
-          vente)<input type="checkbox"/>
-        </li>
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>
+      <li className="check-label-li">
+        Note d'urbanisme délivrée par la commune
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Liste des immeubles sous arrêté de péril ou insécurité à jour
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Note de renseignements carrières</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Courrier des services de la direction de l'habitat de Paris (pour la
+        vente)
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
         Procès-verbaux des assemblées générales des trois dernières années, ou
-        mail du syndic indiquant leur absence<input type="checkbox"/>
+        mail du syndic indiquant leur absence
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>
-        Si AG entre la promesse et la vente :<li>Copie du PV</li>
-        <li>
-          Justificatif de communication de la convocation du pouvoir à
-          l'acquéreur par LRAR<input type="checkbox"/>
-        </li>
+      <div className="check-label">Si AG entre la promesse et la vente :</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>Dernier appel de charges de copropriété<input type="checkbox"/></div>
-      <div>Pré-état daté / Etat daté<input type="checkbox"/></div>
-      <div>
+      <li className="check-label-li">Copie du PV</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">
+        Justificatif de communication de la convocation du pouvoir à l'acquéreur
+        par LRAR
+      </li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">Dernier appel de charges de copropriété</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">Pré-état daté / Etat daté</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
         Carnet d'entretien de l'immeuble ou mail du syndic confirmant son
-        absence<input type="checkbox"/>
+        absence
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>Fiche synthétique de copropréité<input type="checkbox"/></div>
-      <div>
+      <div className="check-label">Fiche synthétique de copropréité</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
         Attestation d'immatriculation de la copropriété + attestation de mise à
-        jour annuelle<input type="checkbox"/>
+        jour annuelle
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>
-        Diagnostic technique global ou mail du syndic confirmant son absence<input type="checkbox"/>
+      <div className="check-label">
+        Diagnostic technique global ou mail du syndic confirmant son absence
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>
+      <div className="check-label">
         Certificat art 20-II confirmant que l'acquéreur n'est pas déja
         copropriétaire au sein de l'immeuble ou débiteur de sommes envers la
-        copropriété<input type="checkbox"/>
+        copropriété
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>
-        Identité des parties :<li>Pièce d'identité de chaque comparant<input type="checkbox"/></li>
-        <li>
-          Si personne morale :<li>Kbis<input type="checkbox"/></li>
-          <li>Statuts<input type="checkbox"/></li>
-          <li>Décision collective signée<input type="checkbox"/></li>
-        </li>
+      <div className="check-label">Identité des parties :</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>
-        BODACC de chaque comparant vendeur ou de la société et des associés<input type="checkbox"/>
+      <li className="check-label-li">Pièce d'identité de chaque comparant</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>RIB des clients<input type="checkbox"/></div>
-      <div>Note d'honoraires promesse validée par les BENEFICIAIRES<input type="checkbox"/></div>
-      <div>
-        Preuve de consultation de la lsite du gel des avoirs :{" "}
+      <li className="check-label-li li-title">Si personne morale :</li>{" "}
+      <li className="check-label-li">Kbis</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Statuts</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <li className="check-label-li">Décision collective signée</li>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
+        BODACC de chaque comparant vendeur ou de la société et des associés
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">RIB des clients</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
+        Note d'honoraires promesse validée par les BENEFICIAIRES
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
+        Preuve de consultation de la lsite du gel des avoirs :&nbsp;{" "}
         <a href="https://gels-avoirs.dgtresor.gouv.fr/">
+          {" "}
           https://gels-avoirs.dgtresor.gouv.fr/
-        </a><input type="checkbox"/>
+        </a>
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>Questionnaire TRACFIN<input type="checkbox"/></div>
-      <div>
-        Liste du mobilier détaillée article par article avec valorisation<input type="checkbox"/>
+      <div className="check-label">Questionnaire TRACFIN</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
       </div>
-      <div>Taxe foncière de l'année passée<input type="checkbox"/></div>
-      <div>Plus-value<input type="checkbox"/></div>
-      <div>Courrier + AR notification SRU (pour vente)<input type="checkbox"/></div>
+      <div className="check-label">
+        Liste du mobilier détaillée article par article avec valorisation
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">Taxe foncière de l'année passée</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">Plus-value</div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
+      <div className="check-label">
+        Courrier + AR notification SRU (pour vente)
+      </div>{" "}
+      <div className="check-box-container">
+        <input className="check-box" type="checkbox" />
+      </div>
     </div>
   );
 };
