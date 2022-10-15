@@ -22,8 +22,7 @@ const Annuaire = () => {
 
       <h3>Liste des adresses pour cette commune :</h3>
       <div className="annuaire-grid">
-
-      <OrganismeApi state={annuaireState}/>
+        <OrganismeApi state={annuaireState} />
       </div>
     </div>
   );
