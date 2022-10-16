@@ -1,0 +1,33 @@
+.customerquizsummary-container {
+    border: 2px solid white;
+    margin: 50px 100px;
+    background-color: white;
+    color: black;
+}
+
+.customerquizsummary-dossier {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.customerquizsummary-dossier > * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    height: 14px;
+}
+
+.customerquizsummary-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(260px, 1fr));
+    padding: 2rem;
+    gap: 2rem;
+    align-items: flex-start;
+    justify-items: flex-start;
+}
