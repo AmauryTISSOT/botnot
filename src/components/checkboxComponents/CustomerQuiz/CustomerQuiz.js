@@ -14,6 +14,7 @@ import CustomerQuizSummary from "./CustomerQuizSummary/CustomerQuizSummary";
 import DossierName from "./DossierName/DossierName";
 import ClientName from "./ClientName/ClientName";
 import AdresseDuBien from "./AdresseDuBien/AdresseDuBien";
+import "./CustomerQuiz.css";
 
 const CustomerQuiz = () => {
   // Customer quiz state hook
@@ -25,55 +26,87 @@ const CustomerQuiz = () => {
   return (
     <>
       {!showSummary ? (
-        <div className="App">
-          <DossierName setState={setCustomerQuizState} />
-          <ClientName setState={setCustomerQuizState} />
-          <AdresseDuBien setState={setCustomerQuizState} />
-
-          <SituationTerrain
-            customerState={customerQuizState}
-            setCustomerState={setCustomerQuizState}
-          />
-          <EtatSolPollution
-            customerState={customerQuizState}
-            setCustomerState={setCustomerQuizState}
-          />
-          <Servitude
-            customerState={customerQuizState}
-            setCustomerState={setCustomerQuizState}
-          />
-          <Assainissement
-            customerState={customerQuizState}
-            setCustomerState={setCustomerQuizState}
-          />
-          <SituationBatiment
-            customerState={customerQuizState}
-            setCustomerState={setCustomerQuizState}
-          />
-          <ContratSurBien
-            customerState={customerQuizState}
-            setCustomerState={setCustomerQuizState}
-          />
-          <AvantageFiscal
-            customerState={customerQuizState}
-            setCustomerState={setCustomerQuizState}
-          />
-          <Chauffage
-            customerState={customerQuizState}
-            setCustomerState={setCustomerQuizState}
-          />
-          <Pret
-            customerState={customerQuizState}
-            setCustomerState={setCustomerQuizState}
-          />
-          <PlusValues
-            customerState={customerQuizState}
-            setCustomerState={setCustomerQuizState}
-          />
-          <Submit valueName={true} setState={setShowSummary} />
+        <div className="customerquiz-container">
+          <div className="customerquiz-form">
+            <div className="customerquiz-form-left">
+              <DossierName setState={setCustomerQuizState} />
+              <div>
+                <br></br>
+              </div>
+              <ClientName setState={setCustomerQuizState} />
+            </div>
+            <div className="customerquiz-form-right">
+              <AdresseDuBien setState={setCustomerQuizState} />
+            </div>
+          </div>
+          <div className="customerquiz-grid">
+            <div>
+              <SituationTerrain
+                customerState={customerQuizState}
+                setCustomerState={setCustomerQuizState}
+              />
+            </div>
+            <div>
+              <EtatSolPollution
+                customerState={customerQuizState}
+                setCustomerState={setCustomerQuizState}
+              />
+            </div>
+            <div>
+              <Servitude
+                customerState={customerQuizState}
+                setCustomerState={setCustomerQuizState}
+              />
+            </div>
+            <div>
+              <Assainissement
+                customerState={customerQuizState}
+                setCustomerState={setCustomerQuizState}
+              />
+            </div>
+            <div>
+              <SituationBatiment
+                customerState={customerQuizState}
+                setCustomerState={setCustomerQuizState}
+              />
+            </div>
+            <div>
+              <ContratSurBien
+                customerState={customerQuizState}
+                setCustomerState={setCustomerQuizState}
+              />
+            </div>
+            <div>
+              <AvantageFiscal
+                customerState={customerQuizState}
+                setCustomerState={setCustomerQuizState}
+              />
+            </div>
+            <div>
+              <Chauffage
+                customerState={customerQuizState}
+                setCustomerState={setCustomerQuizState}
+              />
+            </div>
+            <div>
+              <Pret
+                customerState={customerQuizState}
+                setCustomerState={setCustomerQuizState}
+              />
+            </div>
+            <div>
+              <PlusValues
+                customerState={customerQuizState}
+                setCustomerState={setCustomerQuizState}
+              />
+            </div>
+          </div>
+          <div className="customerquiz-submit-wrap">
+            <Submit valueName={true} setState={setShowSummary} />
+          </div>
         </div>
       ) : (
-        <div className="App">
+        <div>
           <CustomerQuizSummary dataState={customerQuizState} />
         </div>
       )}

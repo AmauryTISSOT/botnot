@@ -1,5 +1,6 @@
 import React from "react";
 import keyExists from "../../../../utils/KeyExists/KeysExists";
+import "./CustomerQuizSummary.css";
 
 // This component render a summary of the CustomerQuiz state.
 const CustomerQuizSummary = ({ dataState }) => {
@@ -133,42 +134,47 @@ const CustomerQuizSummary = ({ dataState }) => {
     return displayArray.map((item, keys) => <div key={keys}>{item}</div>);
   };
 
+
+  //FIXME: CSS grid 
   return (
-    <>
+    <div className="customerquizsummary-container">
       <h1>Nom du dossier : {dataState.dossierNom}</h1>
-      <div>Référence du dossier : {dataState.dossierReference}</div>
-      <h2>Nom du client :</h2>
-      <div>
-        {dataState.clientNom} {dataState.clientPrenom}
+      <div className="customerquizsummary-dossier">
+        <div>Référence du dossier : {dataState.dossierReference}</div>
+        <div>
+          Nom du client : {dataState.clientPrenom} {dataState.clientNom}
+        </div>
+
+        <div>
+          Adresse du bien : {dataState.bienAdresse}
+          {dataState.bienCodePostal} - {dataState.bienCommune}
+        </div>
       </div>
-      <h2>Adresse du bien :</h2>
-      <div>
-        {dataState.bienAdresse} <br /> {dataState.bienCodePostal} -{" "}
-        {dataState.bienCommune}
+      <div className="customerquizsummary-info">
+        <h2>Situation du terrain</h2>
+        <>{displayAnswer(situationTerrainAnswer)}</>
+        <h2>Etat du sous-sol - pollutions</h2>
+        <>{displayAnswer(EtatSolPollutionAnswer)}</>
+        <h2>Servitudes</h2>
+        <>{displayAnswer(servitudeAnswer)}</>
+        <h2>Assainissement</h2>
+        <>{displayAnswer(assainissementAnswer)}</>
+        <h2>Situation du bâtiment</h2>
+        <>{displayAnswer(situationBatimentAnswer)}</>
+        <h2>Contrats existant sur le bien</h2>
+        <>{displayAnswer(contratSurBienAnswer)}</>
+        <h2>Avantage fiscal</h2>
+        <>{displayAnswer(avantageFiscalAnswer)}</>
+        <h2>Chauffage</h2>
+        <>{displayAnswer(chauffageAnswer)}</>
+        <h2>Prêts - hypothèques</h2>
+        <>{displayAnswer(pretAnswer)}</>
+        <h2>Plus-values</h2>
+        <>{displayAnswer(plusValuesAnswer)}</>
+        <h2>Sinistre</h2>
+        <>{displayAnswer(sinistreAnswer)}</>
       </div>
-      <h2>Situation du terrain</h2>
-      <>{displayAnswer(situationTerrainAnswer)}</>
-      <h2>Etat du sous-sol - pollutions</h2>
-      <>{displayAnswer(EtatSolPollutionAnswer)}</>
-      <h2>Servitudes</h2>
-      <>{displayAnswer(servitudeAnswer)}</>
-      <h2>Assainissement</h2>
-      <>{displayAnswer(assainissementAnswer)}</>
-      <h2>Situation du bâtiment</h2>
-      <>{displayAnswer(situationBatimentAnswer)}</>
-      <h2>Contrats existant sur le bien</h2>
-      <>{displayAnswer(contratSurBienAnswer)}</>
-      <h2>Avantage fiscal</h2>
-      <>{displayAnswer(avantageFiscalAnswer)}</>
-      <h2>Chauffage</h2>
-      <>{displayAnswer(chauffageAnswer)}</>
-      <h2>Prêts - hypothèques</h2>
-      <>{displayAnswer(pretAnswer)}</>
-      <h2>Plus-values</h2>
-      <>{displayAnswer(plusValuesAnswer)}</>
-      <h2>Sinistre</h2>
-      <>{displayAnswer(sinistreAnswer)}</>
-    </>
+    </div>
   );
 };
 

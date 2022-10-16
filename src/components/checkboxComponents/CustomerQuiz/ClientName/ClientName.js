@@ -11,22 +11,26 @@ const ClientName = ({ setState }) => {
   return (
     <>
       <form>
-        <label>Nom du client</label>
-        <input
-          type="text"
-          id="clientNom"
-          placeholder="Nom"
-          data-testid="clientNom"
-          onChange={(e) => onFillHandler(e)}
-        />
-        <label>Prénom(s) du client</label>
-        <input
-          type="text"
-          id="clientPrenom"
-          data-testid="clientPrenom"
-          placeholder="Prénom(s)"
-          onChange={(e) => onFillHandler(e)}
-        />
+        <div>
+          <label>Nom du client</label>
+          <input
+            type="text"
+            id="clientNom"
+            placeholder="Nom"
+            data-testid="clientNom"
+            onChange={(e) => onFillHandler(e)}
+          />
+        </div>
+        <div>
+          <label>Prénom(s) du client</label>
+          <input
+            type="text"
+            id="clientPrenom"
+            data-testid="clientPrenom"
+            placeholder="Prénom(s)"
+            onChange={(e) => onFillHandler(e)}
+          />
+        </div>
       </form>
     </>
   );
