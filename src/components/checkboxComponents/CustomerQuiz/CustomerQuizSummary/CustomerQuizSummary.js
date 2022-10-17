@@ -7,7 +7,7 @@ const CustomerQuizSummary = ({ dataState }) => {
   const situationTerrainAnswer = {
     situationTerrainLotissement: "Le bien dépend d'un lotissement",
     situationTerrainAssociationSyndicale: "Il existe une association syndicale",
-    situationTerrainCoordonneeAssociation: "textArea",
+    situationTerrainCoordonneeAssociation: "",
     situationTerrainCoproHorizontale:
       "Le bien dépend d'une copropriété horizontale",
     situationTerrainCoproHorizontaleNomSyndic: "Nom et adresse du syndic :",
@@ -28,13 +28,13 @@ const CustomerQuizSummary = ({ dataState }) => {
 
   const servitudeAnswer = {
     servitude: "Une servitude grève le bien",
-    servitudeNom: "textArea",
+    servitudeNom: "",
   };
 
   const assainissementAnswer = {
     assainissementSytemeIndividuel:
       "L'assainissement du bien s'effectue par un système individuel (fosse septique)",
-    assainissementDateVidange: "textArea",
+    assainissementDateVidange: "",
     assainissementRaccordementEgout: "Le bien est raccordé au tout à l'égout",
     assainissementMiseDemeure:
       "Le vendeur a reçu une mise en demeure d'effectuer des travaux sur son installation",
@@ -60,17 +60,17 @@ const CustomerQuizSummary = ({ dataState }) => {
       "Il existe un contrat d'affichage publicitaire sur le bien",
     contratDetecteurFumee: "Le bien est équipé d'un détecteur de fumée",
     contratAutres: "Il existe d'autres contrats sur le bien",
-    contratAutresNom: "textArea",
+    contratAutresNom: "",
     contratEquipementGarantie:
       "Certains équipements font encore l'object de garanties",
-    contratEquipementNom: "textArea",
+    contratEquipementNom: "",
     contratProcedure:
       "Le vendeur est partie à une procédure judicaire sur le bien vendu",
   };
 
   const avantageFiscalAnswer = {
     avantageFiscal: "Le bien fait l'objet d'un avantage fiscal",
-    avantageFiscalNom: "textArea",
+    avantageFiscalNom: "",
   };
 
   const chauffageAnswer = {
@@ -80,7 +80,7 @@ const CustomerQuizSummary = ({ dataState }) => {
     chauffageCiterneProprietaire:
       "Le vendeur est propriétaire de la citerne à gaz",
     chauffageCiterneLocataire: "Le vendeur est locataire de la citerne à gaz",
-    chauffageCiterneCoordonnee: "textArea",
+    chauffageCiterneCoordonnee: "",
   };
 
   const pretAnswer = {
@@ -134,8 +134,6 @@ const CustomerQuizSummary = ({ dataState }) => {
     return displayArray.map((item, keys) => <div key={keys}>{item}</div>);
   };
 
-
-  //FIXME: CSS grid 
   return (
     <div className="customerquizsummary-container">
       <h1>Nom du dossier : {dataState.dossierNom}</h1>
@@ -151,28 +149,50 @@ const CustomerQuizSummary = ({ dataState }) => {
         </div>
       </div>
       <div className="customerquizsummary-info">
-        <h2>Situation du terrain</h2>
-        <>{displayAnswer(situationTerrainAnswer)}</>
-        <h2>Etat du sous-sol - pollutions</h2>
-        <>{displayAnswer(EtatSolPollutionAnswer)}</>
-        <h2>Servitudes</h2>
-        <>{displayAnswer(servitudeAnswer)}</>
-        <h2>Assainissement</h2>
-        <>{displayAnswer(assainissementAnswer)}</>
-        <h2>Situation du bâtiment</h2>
-        <>{displayAnswer(situationBatimentAnswer)}</>
-        <h2>Contrats existant sur le bien</h2>
-        <>{displayAnswer(contratSurBienAnswer)}</>
-        <h2>Avantage fiscal</h2>
-        <>{displayAnswer(avantageFiscalAnswer)}</>
-        <h2>Chauffage</h2>
-        <>{displayAnswer(chauffageAnswer)}</>
-        <h2>Prêts - hypothèques</h2>
-        <>{displayAnswer(pretAnswer)}</>
-        <h2>Plus-values</h2>
-        <>{displayAnswer(plusValuesAnswer)}</>
-        <h2>Sinistre</h2>
-        <>{displayAnswer(sinistreAnswer)}</>
+        <div>
+          <h2>Situation du terrain</h2>
+          <>{displayAnswer(situationTerrainAnswer)}</>
+        </div>
+        <div>
+          <h2>Etat du sous-sol - pollutions</h2>
+          <>{displayAnswer(EtatSolPollutionAnswer)}</>
+        </div>
+        <div>
+          <h2>Servitudes</h2>
+          <>{displayAnswer(servitudeAnswer)}</>
+        </div>
+        <div>
+          <h2>Assainissement</h2>
+          <>{displayAnswer(assainissementAnswer)}</>
+        </div>
+        <div>
+          <h2>Situation du bâtiment</h2>
+          <>{displayAnswer(situationBatimentAnswer)}</>
+        </div>
+        <div>
+          <h2>Contrats existant sur le bien</h2>
+          <>{displayAnswer(contratSurBienAnswer)}</>
+        </div>
+        <div>
+          <h2>Avantage fiscal</h2>
+          <>{displayAnswer(avantageFiscalAnswer)}</>
+        </div>
+        <div>
+          <h2>Chauffage</h2>
+          <>{displayAnswer(chauffageAnswer)}</>
+        </div>
+        <div>
+          <h2>Prêts - hypothèques</h2>
+          <>{displayAnswer(pretAnswer)}</>
+        </div>
+        <div>
+          <h2>Plus-values</h2>
+          <>{displayAnswer(plusValuesAnswer)}</>
+        </div>
+        <div>
+          <h2>Sinistre</h2>
+          <>{displayAnswer(sinistreAnswer)}</>
+        </div>
       </div>
     </div>
   );
