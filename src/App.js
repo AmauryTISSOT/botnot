@@ -7,6 +7,7 @@ import Annuaire from "./components/Annuaire/Annuaire";
 import CustomerQuiz from "./components/checkboxComponents/CustomerQuiz/CustomerQuiz";
 import Outils from "./pages/Outils/Outils";
 import VenteAppartement from "./components/checkboxComponents/VenteAppartement/VenteAppartement";
+import GenerateDocs from "./components/CourrierGenerator/GenerateDocs/GenerateDocs";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="annuaire" element={<Annuaire />} />
           <Route path="customerquiz" element={<CustomerQuiz />} />
           <Route path="venteAppartement" element={<VenteAppartement/>}/>
+          <Route path="courrierGenerator" element={<GenerateDocs/>}/>
         </Route>
       </Routes>
     </div>
