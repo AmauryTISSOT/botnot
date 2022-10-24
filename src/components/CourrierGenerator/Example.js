@@ -1,35 +1,52 @@
-import { Document, Paragraph, TextRun } from "docx";
+import { Document, Paragraph, TextRun, Header, Footer } from "docx";
 import CourrierAdresse from "./CourrierComponent/CourrierAdresse";
-import CourrierDate from "./CourrierComponent/CourrierDate"
+import CourrierDate from "./CourrierComponent/CourrierDate";
+import { convertMillimetersToTwip } from "docx";
 
 const doc = new Document({
   sections: [
     {
-      properties: {},
-      children: [
-        new Paragraph({
-          text: "Paragraph with spacing before",
-          spacing: {
-            before: 200,
+      properties: {
+        page: {
+          margin: {
+            header: convertMillimetersToTwip(50),
+            footer: convertMillimetersToTwip(30),
+            left:convertMillimetersToTwip(5),
+            right: convertMillimetersToTwip(5),
           },
-        }),
-        new Paragraph({
-          text: CourrierDate(),
-          spacing: {
-            before: 400,
-          },
-        }),
-
-        new Paragraph({
+        },
+      },
+      headers: {
+        default: new Header({
           children: [
-            new TextRun({
-              text: "break",
-              break: 2,
+            new Paragraph({
+              text: "Header text",
+              indent: {
+                left: -400,
+              },
+            }),
+            new Paragraph({
+              text: "Some more header text",
+              indent: {
+                left: -600,
+              },
             }),
           ],
         }),
-        CourrierAdresse('test Adresse')
-      ],
+      },
+      footers: {
+        default: new Footer({
+          children: [
+            new Paragraph({
+              text: "Footer text",
+              indent: {
+                left: -400,
+              },
+            }),
+          ],
+        }),
+      },
+      children: [new Paragraph("Hello World")],
     },
   ],
 });
