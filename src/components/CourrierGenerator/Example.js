@@ -9,44 +9,37 @@ const doc = new Document({
       properties: {
         page: {
           margin: {
-            header: convertMillimetersToTwip(50),
-            footer: convertMillimetersToTwip(30),
-            left:convertMillimetersToTwip(5),
-            right: convertMillimetersToTwip(5),
+            top: convertMillimetersToTwip(38),
+            bottom: convertMillimetersToTwip(42.5),
+            left:convertMillimetersToTwip(50),
+            right: convertMillimetersToTwip(25),
           },
         },
       },
-      headers: {
-        default: new Header({
-          children: [
-            new Paragraph({
-              text: "Header text",
-              indent: {
-                left: -400,
-              },
-            }),
-            new Paragraph({
-              text: "Some more header text",
-              indent: {
-                left: -600,
-              },
-            }),
-          ],
-        }),
-      },
-      footers: {
-        default: new Footer({
-          children: [
-            new Paragraph({
-              text: "Footer text",
-              indent: {
-                left: -400,
-              },
-            }),
-          ],
-        }),
-      },
-      children: [new Paragraph("Hello World")],
+    children: [
+      new Paragraph({
+        indent: {left: convertMillimetersToTwip(62.4)},
+        children: [
+          new TextRun({
+            text: 'DIRECTION DU LOGEMENT ET DE L\'HABITAT',
+            bold: true,
+            font: 'Calibri',
+            size: 20,
+          })
+        ]
+      }),
+      new Paragraph({
+        indent: {left: convertMillimetersToTwip(62.4)},
+        children: [
+          new TextRun({
+            text: 'Sous-direction de l\'habitat',
+            font: 'Calibri',
+            size: 20,
+          })
+        ]
+      }),
+    ]  
+    
     },
   ],
 });
