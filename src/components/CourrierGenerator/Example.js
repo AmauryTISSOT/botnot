@@ -7,13 +7,27 @@ import EmptySpacing from "./CourrierComponent/EmptySpacing";
 import FollowedBy from "./CourrierComponent/FollowedBy";
 import ClerkMail from "./CourrierComponent/ClerckMail";
 import CourrierObjet from "./CourrierComponent/CourrierObjet";
+import DHLBody from "./CourrierBody/DLH";
 
 const doc = new Document({
+  styles: {
+    paragraphStyles: [
+      {
+        id: "classic",
+        name: "Classic",
+        basedOn: "Normal",
+        next: "Normal",
+        run: {
+          size: 22,
+          font: "Calibri",
+        },
+      },
+    ],
+  },
   sections: [
     {
       properties: MiseEnPage(38, 42.5, 50, 25),
       children: [
-
         CourrierAdresse(
           "Direction du logement et de l'habitat \n 66 Bis Rue du Président Wilson \n 92300 LEVALOIS PERRET"
         ),
@@ -22,19 +36,23 @@ const doc = new Document({
         EmptySpacing(),
         new Paragraph({
           indent: { left: -convertMillimetersToTwip(20) },
+          style: "classic",
           children: [
             new TextRun({
               text: "Dossier suivi par :",
-              font: "Calibri",
-              size: 22,
+              // font: "Calibri",
+              // size: 22,
             }),
           ],
         }),
         FollowedBy("Amaury Tissot"),
         ClerkMail("email@paris.notaires.fr"),
+        EmptySpacing(),
+        EmptySpacing(),
         CourrierObjet("TEST OBJET"),
         EmptySpacing(),
         EmptySpacing(),
+        DHLBody(),
       ],
     },
   ],
