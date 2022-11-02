@@ -1,4 +1,15 @@
-import { Document, Paragraph, TextRun, Header, Footer, Spacing } from "docx";
+import {
+  Document,
+  Paragraph,
+  TextRun,
+  Header,
+  Footer,
+  Spacing,
+  AlignmentType,
+  Tab,
+  LevelFormat,
+  convertInchesToTwip,
+} from "docx";
 import CourrierAdresse from "./CourrierComponent/CourrierAdresse";
 import CourrierDate from "./CourrierComponent/CourrierDate";
 import { convertMillimetersToTwip } from "docx";
@@ -7,9 +18,32 @@ import EmptySpacing from "./CourrierComponent/EmptySpacing";
 import FollowedBy from "./CourrierComponent/FollowedBy";
 import ClerkMail from "./CourrierComponent/ClerckMail";
 import CourrierObjet from "./CourrierComponent/CourrierObjet";
-import DHLBody from "./CourrierBody/DLH";
 
 const doc = new Document({
+  numbering: {
+    config: [
+      {
+        reference: "my-unique-bullet-points",
+        levels: [
+          {
+            level: 0,
+            format: LevelFormat.BULLET,
+            text: "\u2022",
+            alignment: AlignmentType.LEFT,
+            style: {
+              paragraph: {
+                indent: {
+                  left: convertInchesToTwip(0.5),
+                  hanging: convertInchesToTwip(0.25),
+                },
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+
   styles: {
     paragraphStyles: [
       {
@@ -20,6 +54,9 @@ const doc = new Document({
         run: {
           size: 22,
           font: "Calibri",
+        },
+        paragraph: {
+          alignment: AlignmentType.JUSTIFIED,
         },
       },
     ],
@@ -52,7 +89,54 @@ const doc = new Document({
         CourrierObjet("TEST OBJET"),
         EmptySpacing(),
         EmptySpacing(),
-        DHLBody(),
+
+        new Paragraph({
+          style: "classic",
+          children: [
+            new TextRun({
+              children: [new Tab(), "Madame, Monsieur,"],
+            }),
+          ],
+        }),
+        EmptySpacing(),
+
+        new Paragraph({
+          style: "classic",
+          children: [
+            new TextRun({
+              children: [
+                new Tab(),
+                "Je me permets de venir vers vous dans le cadre du dossier visé en référence, portant sur un immeuble situé à PARIS (XXXXX).",
+              ],
+            }),
+          ],
+        }),
+        EmptySpacing(),
+
+        new Paragraph({
+          style: "classic",
+          children: [
+            new TextRun({
+              children: [
+                new Tab(),
+                "Aussi, je vous saurais-je gré de bien vouloir me confirmer par retour de courrier les dipositions relatives à l'immeuble concernant :",
+              ],
+            }),
+          ],
+        }),
+        new Paragraph({
+          style: "classic",
+          numbering: {
+            reference: "my-unique-bullet-points",
+            level: 0,
+          },
+          children: [
+            new TextRun({
+              text: "INSALUBRITE",
+              bold: true,
+            }),
+          ],
+        }),
       ],
     },
   ],
