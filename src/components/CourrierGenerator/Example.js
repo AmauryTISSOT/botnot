@@ -124,6 +124,8 @@ const doc = new Document({
             }),
           ],
         }),
+        EmptySpacing(),
+
         new Paragraph({
           style: "classic",
           numbering: {
@@ -132,10 +134,113 @@ const doc = new Document({
           },
           children: [
             new TextRun({
-              text: "INSALUBRITE",
+              text: "INSALUBRITE : ",
               bold: true,
             }),
+            new TextRun({
+              text: "Si l'immeuble fait l'objet de mesures d'insalubrité prises en application des articles 1331-22 et suivants du Code de la santé publique.",
+            }),
           ],
+        }),
+        new Paragraph({
+          style: "classic",
+          numbering: {
+            reference: "my-unique-bullet-points",
+            level: 0,
+          },
+          children: [
+            new TextRun({
+              text: "PERIL & INSECURITE : ",
+              bold: true,
+            }),
+            new TextRun({
+              text: "Si l'immeuble fait l'objet d'arrêtés municipaux pris en application des articles L.511-1 à L511-7, R511-1 à R511-12, L129-1 à L129-7, R129-1 à R129-9 du Code de la construction et de l'habitation.",
+            }),
+          ],
+        }),
+        new Paragraph({
+          style: "classic",
+          numbering: {
+            reference: "my-unique-bullet-points",
+            level: 0,
+          },
+          children: [
+            new TextRun({
+              text: "EXPOSITION AU PLOMB & LUTTE CONTRE LE SATURNISME : ",
+              bold: true,
+            }),
+            new TextRun({
+              text: "Si l'immeuble fait l'objet de mesures de protection contre l'exposition au plomb.",
+            }),
+          ],
+        }),
+        new Paragraph({
+          style: "classic",
+          numbering: {
+            reference: "my-unique-bullet-points",
+            level: 0,
+          },
+          children: [
+            new TextRun({
+              text: "LUTTE CONTRE LES TERMITES : ",
+              bold: true,
+            }),
+            new TextRun({
+              text: "Si l'immeuble est situé dans une zone contaminée par les termites ou susceptible de l'être en application des dispositions du Code de la Construction et de l'Habitation.",
+            }),
+          ],
+        }),
+        new Paragraph({
+          style: "classic",
+          numbering: {
+            reference: "my-unique-bullet-points",
+            level: 0,
+          },
+          children: [
+            new TextRun({
+              text: "ASSAINISSEMENT : ",
+              bold: true,
+            }),
+            new TextRun({
+              text: "Si l'immeuble est raccordé au système d'assainissement de la ville de Paris",
+            }),
+          ],
+        }),
+        new Paragraph({
+          style: "classic",
+          numbering: {
+            reference: "my-unique-bullet-points",
+            level: 0,
+          },
+          children: [
+            new TextRun({
+              text: "RAVALEMENT : ",
+              bold: true,
+            }),
+            new TextRun({
+              text: "Si l'immeuble fait l'objet d'arrêtés municipaux pris en mesure de ravalement en application des articles 132-1 et suivants du Code de la Construction et de l'Habitation.",
+            }),
+          ],
+        }),
+        EmptySpacing(),
+
+        new Paragraph({
+          style: "classic",
+          children: [
+            new TextRun({
+              children: [
+                new Tab(),
+                "Vous remerciant par avance de l’attention bienveillante que vous porterez à ma demande, je vous prie d'agréer, Madame, Monsieur, mes salutations distinguées.",
+              ],
+            }),
+          ],
+        }),
+        EmptySpacing(),
+
+        new Paragraph({
+          style: "classic",
+          indent: { left: convertMillimetersToTwip(62.4) },
+          text: "Maître XXXXXXX",
         }),
       ],
     },
