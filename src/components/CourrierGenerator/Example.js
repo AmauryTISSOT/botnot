@@ -9,6 +9,7 @@ import {
   Tab,
   LevelFormat,
   convertInchesToTwip,
+  ImageRun,
 } from "docx";
 import CourrierAdresse from "./CourrierComponent/CourrierAdresse";
 import CourrierDate from "./CourrierComponent/CourrierDate";
@@ -18,6 +19,7 @@ import EmptySpacing from "./CourrierComponent/EmptySpacing";
 import FollowedBy from "./CourrierComponent/FollowedBy";
 import ClerkMail from "./CourrierComponent/ClerckMail";
 import CourrierObjet from "./CourrierComponent/CourrierObjet";
+import * as fs from "fs";
 
 const doc = new Document({
   numbering: {
@@ -241,6 +243,15 @@ const doc = new Document({
           style: "classic",
           indent: { left: convertMillimetersToTwip(62.4) },
           text: "Maître XXXXXXX",
+        }),
+        // FS library doesn't work with react
+        //TODO: find alternative
+        new ImageRun({
+          data: fs.readFileSync("./signature.png"),
+          transformation: {
+            width: 100,
+            height: 100,
+          },
         }),
       ],
     },
