@@ -253,12 +253,14 @@ const doc = new Document({
         }),
 
         new Paragraph({
+          indent: { left: convertMillimetersToTwip(62.4) },
+
           children: [
             new ImageRun({
               data: blobImage(),
               transformation: {
-                width: 400,
-                height: 400,
+                width: 300,
+                height: 150,
               },
             }),
           ],
