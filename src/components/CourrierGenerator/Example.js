@@ -19,7 +19,14 @@ import EmptySpacing from "./CourrierComponent/EmptySpacing";
 import FollowedBy from "./CourrierComponent/FollowedBy";
 import ClerkMail from "./CourrierComponent/ClerckMail";
 import CourrierObjet from "./CourrierComponent/CourrierObjet";
-import * as fs from "fs";
+import signatureImg from "./GenerateDocs/signature.png"
+
+
+const blobImage = async () => {
+  const blob = await fetch(signatureImg
+  ).then((r) => r.blob());
+  return blob;
+};
 
 const doc = new Document({
   numbering: {
@@ -244,14 +251,17 @@ const doc = new Document({
           indent: { left: convertMillimetersToTwip(62.4) },
           text: "Maître XXXXXXX",
         }),
-        // FS library doesn't work with react
-        //TODO: find alternative
-        new ImageRun({
-          data: fs.readFileSync("./signature.png"),
-          transformation: {
-            width: 100,
-            height: 100,
-          },
+
+        new Paragraph({
+          children: [
+            new ImageRun({
+              data: blobImage(),
+              transformation: {
+                width: 400,
+                height: 400,
+              },
+            }),
+          ],
         }),
       ],
     },
