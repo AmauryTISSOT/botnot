@@ -10,6 +10,8 @@ import {
   LevelFormat,
   convertInchesToTwip,
   ImageRun,
+  HorizontalPositionRelativeFrom,
+  VerticalPositionRelativeFrom,
 } from "docx";
 import CourrierAdresse from "./CourrierComponent/CourrierAdresse";
 import CourrierDate from "./CourrierComponent/CourrierDate";
@@ -19,12 +21,12 @@ import EmptySpacing from "./CourrierComponent/EmptySpacing";
 import FollowedBy from "./CourrierComponent/FollowedBy";
 import ClerkMail from "./CourrierComponent/ClerckMail";
 import CourrierObjet from "./CourrierComponent/CourrierObjet";
-import signatureImg from "./GenerateDocs/signature.png"
+import SignatureImg from "./Images/signature.png";
+import HeaderImg from "./Images/Header.png";
+import FooterImg from "./Images/Footer.png";
 
-
-const blobImage = async () => {
-  const blob = await fetch(signatureImg
-  ).then((r) => r.blob());
+const blobImage = async (ImagePath) => {
+  const blob = await fetch(ImagePath).then((r) => r.blob());
   return blob;
 };
 
@@ -73,7 +75,64 @@ const doc = new Document({
   sections: [
     {
       properties: MiseEnPage(38, 42.5, 50, 25),
+      headers: {
+        first: new Header({
+          children: [
+            new Paragraph({
+              children: [
+                new ImageRun({
+                  data: blobImage(HeaderImg),
+                  // need to find the wrigth scale
+                  transformation: {
+                    width: 800,
+                    height: 220,
+                  },
+                  floating: {
+                    horizontalPosition: {
+                      offset: 0,
+                    },
+                    verticalPosition: {
+                      offset: 0,
+                    },
+                  },
+                }),
+              ],
+            }),
+          ],
+        }),
+      },
+      footers: {
+        first: new Footer({
+          children: [
+            new Paragraph({
+              children: [
+                new ImageRun({
+                  data: blobImage(FooterImg),
+                  // need to find the wrigth scale
+                  transformation: {
+                    width: 800,
+                    height: 158,
+                  },
+                  floating: {
+                    horizontalPosition: {
+                      offset: 0,
+                    },
+                    verticalPosition: {
+                      offset: 9180000,
+                    },
+                  },
+                }),
+              ],
+            }),
+          ],
+        }),
+      },
       children: [
+        EmptySpacing(),
+        EmptySpacing(),
+        EmptySpacing(),
+        EmptySpacing(),
+
         CourrierAdresse(
           "Direction du logement et de l'habitat \n 66 Bis Rue du Président Wilson \n 92300 LEVALOIS PERRET"
         ),
@@ -257,7 +316,7 @@ const doc = new Document({
 
           children: [
             new ImageRun({
-              data: blobImage(),
+              data: blobImage(SignatureImg),
               transformation: {
                 width: 300,
                 height: 150,
