@@ -2,6 +2,7 @@ import { convertMillimetersToTwip } from "docx";
 
 const MiseEnPage = (top, bottom, left, right) => {
   return {
+    titlePage: true,
     page: {
       margin: {
         top: convertMillimetersToTwip(top),
