@@ -78,14 +78,14 @@ const doc = new Document({
       headers: {
         first: new Header({
           children: [
+            // Header image
             new Paragraph({
               children: [
                 new ImageRun({
                   data: blobImage(HeaderImg),
-                  // need to find the wrigth scale
                   transformation: {
                     width: 800,
-                    height: 220,
+                    height: 234,
                   },
                   floating: {
                     horizontalPosition: {
@@ -104,14 +104,15 @@ const doc = new Document({
       footers: {
         first: new Footer({
           children: [
+            // Footer image
             new Paragraph({
               children: [
                 new ImageRun({
                   data: blobImage(FooterImg),
-                  // need to find the wrigth scale
+                  // need to find the wright scale
                   transformation: {
                     width: 800,
-                    height: 158,
+                    height: 143,
                   },
                   floating: {
                     horizontalPosition: {
