@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#images
+/home/amaury/repos/botnot/src/components/CourrierGenerator/Images/Footer.png
+/home/amaury/repos/botnot/src/components/CourrierGenerator/Images/Header.png
+/home/amaury/repos/botnot/src/components/CourrierGenerator/Images/signature.png
