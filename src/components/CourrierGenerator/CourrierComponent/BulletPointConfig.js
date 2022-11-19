@@ -1,4 +1,4 @@
-import { LevelFormat, convertInchesToTwip } from "docx";
+import { LevelFormat, convertInchesToTwip, AlignmentType } from "docx";
 
 const BulletPointConfig = () => {
   return {
