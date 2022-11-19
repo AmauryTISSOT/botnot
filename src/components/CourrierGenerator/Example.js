@@ -24,6 +24,7 @@ import CourrierObjet from "./CourrierComponent/CourrierObjet";
 import SignatureImg from "./Images/signature.png";
 import HeaderImg from "./Images/Header.png";
 import FooterImg from "./Images/Footer.png";
+import CourrierBody from "./CourrierComponent/CourrierBody/CourrierBody";
 
 const blobImage = async (ImagePath) => {
   const blob = await fetch(ImagePath).then((r) => r.blob());
@@ -129,17 +130,14 @@ const doc = new Document({
         }),
       },
       children: [
-        EmptySpacing(),
-        EmptySpacing(),
-        EmptySpacing(),
-        EmptySpacing(),
+        ...EmptySpacing(4),
 
         CourrierAdresse(
           "Direction du logement et de l'habitat \n 66 Bis Rue du Président Wilson \n 92300 LEVALOIS PERRET"
         ),
-        EmptySpacing(),
+        ...EmptySpacing(),
         CourrierDate(),
-        EmptySpacing(),
+        ...EmptySpacing(),
         new Paragraph({
           indent: { left: -convertMillimetersToTwip(20) },
           style: "classic",
@@ -153,11 +151,18 @@ const doc = new Document({
         }),
         FollowedBy("Amaury Tissot"),
         ClerkMail("email@paris.notaires.fr"),
-        EmptySpacing(),
-        EmptySpacing(),
+        ...EmptySpacing(2),
         CourrierObjet("TEST OBJET"),
-        EmptySpacing(),
-        EmptySpacing(),
+        ...EmptySpacing(2),
+
+        ...CourrierBody([
+          { text: "AZE", lineBreak: true },
+          { text: "Ceci est en italic", italic: true, lineBreak: true },
+          { text: "Ceci est underline", underline: true, lineBreak: true},
+          { text: "Ceci est en bold", bold: true, lineBreak: true},
+          { text: "Ceci est en bold, underline, et italic", bold: true, underline: true, italic: true, lineBreak: true},
+
+        ]),
 
         new Paragraph({
           style: "classic",
@@ -167,7 +172,7 @@ const doc = new Document({
             }),
           ],
         }),
-        EmptySpacing(),
+        ...EmptySpacing(),
 
         new Paragraph({
           style: "classic",
@@ -177,10 +182,11 @@ const doc = new Document({
                 new Tab(),
                 "Je me permets de venir vers vous dans le cadre du dossier visé en référence, portant sur un immeuble situé à PARIS (XXXXX).",
               ],
+              italics: true,
             }),
           ],
         }),
-        EmptySpacing(),
+        ...EmptySpacing(),
 
         new Paragraph({
           style: "classic",
@@ -193,7 +199,7 @@ const doc = new Document({
             }),
           ],
         }),
-        EmptySpacing(),
+        ...EmptySpacing(),
 
         new Paragraph({
           style: "classic",
@@ -291,7 +297,7 @@ const doc = new Document({
             }),
           ],
         }),
-        EmptySpacing(),
+        ...EmptySpacing(),
 
         new Paragraph({
           style: "classic",
@@ -304,7 +310,7 @@ const doc = new Document({
             }),
           ],
         }),
-        EmptySpacing(),
+        ...EmptySpacing(),
 
         new Paragraph({
           style: "classic",
