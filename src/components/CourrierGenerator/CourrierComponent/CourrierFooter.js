@@ -1,4 +1,4 @@
-import BlobImage from "src/utils/KeyExists/BlobImage.js";
+import BlobImage from "/home/amaury/repos/botnot/src/utils/KeyExists/BlobImage.js"
 import FooterImg from "../Images/Footer.png";
 import { Footer, Paragraph, ImageRun } from "docx";
 

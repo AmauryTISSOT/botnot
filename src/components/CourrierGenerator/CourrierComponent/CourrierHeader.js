@@ -1,4 +1,4 @@
-import BlobImage from "src/utils/KeyExists/BlobImage.js";
+import BlobImage from "/home/amaury/repos/botnot/src/utils/KeyExists/BlobImage.js"
 import HeaderImg from "../Images/Header.png";
 import { Header, Paragraph, ImageRun } from "docx";
 
@@ -31,4 +31,4 @@ const CourrierHeader = () => {
       };
 };
 
-export default CourrierHeader();
+export default CourrierHeader;
