@@ -62,16 +62,17 @@ const CourrierBody = (dataArray) => {
           underline: underlineKey(element),
           italics: italicKey(element),
         }),
+        new TextRun(element.textRun === undefined ? {} : element.textRun)
       ],
     });
   };
 
   dataArray.forEach((element) => {
     returnArray.push(pushedParagraph(element));
-    if (keyExists(element, 'lineBreak')) {
-        if (element.lineBreak === true) {
-            returnArray.push(...EmptySpacing())
-        };
+    if (keyExists(element, "lineBreak")) {
+      if (element.lineBreak === true) {
+        returnArray.push(...EmptySpacing());
+      }
     }
   });
 
