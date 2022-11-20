@@ -10,6 +10,7 @@ import {
 
 import CourrierBoilerplate from "./CourrierComponent/CourrierBoilerplate";
 import CourrierTable from "./CourrierComponent/CourrierTable";
+import DTH from "./CourrierComponent/CourrierData/CourrierData"
 
 const mockData = [
 
@@ -26,21 +27,21 @@ const mockData = [
 const table = CourrierTable(mockData);
 
 const doc = new Document(
-  // CourrierBoilerplate(
-  //   "adresse",
-  //   "nom du clerc",
-  //   "mail du clerc",
-  //   "objet du courrier",
-  //   "XXXXX",
-  //   [{ text: "text du body" }]
-  // )
-  {
-    sections: [
-      {
-        children: [table],
-      },
-    ],
-  }
+  CourrierBoilerplate(
+    "adresse",
+    "nom du clerc",
+    "mail du clerc",
+    "objet du courrier",
+    "XXXXX",
+    DTH,
+  )
+  // {
+  //   sections: [
+  //     {
+  //       children: [table],
+  //     },
+  //   ],
+  // }
 );
 
 export default doc;
