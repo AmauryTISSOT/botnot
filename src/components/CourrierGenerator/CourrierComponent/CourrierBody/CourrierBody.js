@@ -1,9 +1,10 @@
 import { Paragraph, TextRun, Tab, convertMillimetersToTwip } from "docx";
+import CourrierTable from "../CourrierTable";
 import EmptySpacing from "../EmptySpacing";
 import keyExists from "/home/amaury/repos/botnot/src/utils/KeyExists/KeysExists.js";
 
 // Function argument should be an array
-const CourrierBody = (dataArray) => {
+const CourrierBody = (courrierData, clientData) => {
   const returnArray = [];
 
   const indentKey = (element) => {
@@ -62,16 +63,25 @@ const CourrierBody = (dataArray) => {
           underline: underlineKey(element),
           italics: italicKey(element),
         }),
-        new TextRun(element.textRun === undefined ? {} : element.textRun)
+        new TextRun(element.textRun === undefined ? {} : element.textRun),
       ],
     });
   };
 
-  dataArray.forEach((element) => {
-    returnArray.push(pushedParagraph(element));
-    if (keyExists(element, "lineBreak")) {
-      if (element.lineBreak === true) {
-        returnArray.push(...EmptySpacing());
+  courrierData.forEach((element) => {
+    if (element.text === "tableauCadastre") {
+      returnArray.push(CourrierTable(clientData));
+      if (keyExists(element, "lineBreak")) {
+        if (element.lineBreak === true) {
+          returnArray.push(...EmptySpacing());
+        }
+      }
+    } else {
+      returnArray.push(pushedParagraph(element));
+      if (keyExists(element, "lineBreak")) {
+        if (element.lineBreak === true) {
+          returnArray.push(...EmptySpacing());
+        }
       }
     }
   });
