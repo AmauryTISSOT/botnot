@@ -5,6 +5,7 @@ import {
   Paragraph,
   ShadingType,
   TextRun,
+  AlignmentType,
 } from "docx";
 import keyExists from "../../../utils/KeyExists/KeysExists";
 
@@ -22,7 +23,6 @@ import keyExists from "../../../utils/KeyExists/KeysExists";
 
 const CourrierTable = (arrayData) => {
   //TODO: surface total
-  //TODO: table indent
 
   //handle arrayData error
   if (!Array.isArray(arrayData)) {
@@ -189,6 +189,7 @@ const CourrierTable = (arrayData) => {
   };
 
   return new Table({
+    alignment: AlignmentType.CENTER,
     columnWidths: prefixColumnWidths(arrayData), 
     rows: rowsArray,
   });
