@@ -27,7 +27,8 @@ const CourrierBoilerplate = (
   clerkMail,
   courrierObject,
   notaryName,
-  bodyObject
+  bodyObject,
+  clientObject
 ) => {
   return {
     numbering: BulletPointConfig(),
@@ -58,7 +59,7 @@ const CourrierBoilerplate = (
 
           ...EmptySpacing(),
 
-          ...CourrierBody(bodyObject),
+          ...CourrierBody(bodyObject ,clientObject),
 
           ...CourrierSignature(notaryName),
         ],
