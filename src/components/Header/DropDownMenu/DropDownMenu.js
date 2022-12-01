@@ -34,6 +34,9 @@ const DropDownMenu = (props) => {
           <DropDownItem setActiveMenu={setActiveMenu} goToMenu="menu2">
             Annuaire
           </DropDownItem>
+          <DropDownItem>
+            <Link to="/outils/courrierGenerator">Génerateur de courrier</Link>
+          </DropDownItem>
         </div>
       </CSSTransition>
 
@@ -49,7 +52,9 @@ const DropDownMenu = (props) => {
             Retour
           </DropDownItem>
           <DropDownItem>
-            <Link to="/outils/customerquiz">Questionnaire client</Link>
+            <Link className="menuLink" to="/outils/customerquiz">
+              Questionnaire client
+            </Link>
           </DropDownItem>
           <DropDownItem>
             <Link to="/outils/venteAppartement">Vente appartement</Link>
