@@ -2,9 +2,9 @@ import React from "react";
 import { Packer } from "docx";
 import { saveAs } from "file-saver";
 import doc from "../Example"
+import CourrierForm from "../CourrierComponent/CourrierForm/CourrierForm";
 
 const GenerateDocs = () => {
-
 
   const generate = () => {
     Packer.toBlob(doc).then((blob) => {
@@ -16,6 +16,7 @@ const GenerateDocs = () => {
 
   return (
     <>
+      <CourrierForm/>
       <button onClick={generate}>Générer</button>
     </>
   );
