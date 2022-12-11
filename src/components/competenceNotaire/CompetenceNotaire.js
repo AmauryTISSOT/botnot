@@ -2,12 +2,11 @@ import React, { useState } from "react";
 
 const CompetenceNotaire = () => {
   const [competenceState, setCompetenceState] = useState({
-    departementNotaire: '',
-    departementBien: '',
-    notaireAcquereur: '',
+    departementNotaire: undefined,
+    departementBien: undefined,
+    notaireAcquereur: undefined,
   });
 
-  //FIXME: doesn't work need to make a test
   const competenceLogic = () => {
     const departementLimitropheParis = ["75", "92", "93", "94"];
 
@@ -16,19 +15,19 @@ const CompetenceNotaire = () => {
       return arr.indexOf(str) !== -1;
     };
 
-      if (
-        stringInArray(
-          competenceState.departementBien,
-          departementLimitropheParis
-        )
-      ) {
-        if (
-          stringInArray(
-            competenceState.departementNotaire,
-            departementLimitropheParis
-          )
-        ) {
-          if (competenceState.notaireAcquereur === true) {
+    const { departementNotaire, departementBien, notaireAcquereur } =
+      competenceState;
+
+    // console.log(typeof notaireAcquereur);
+
+    if (
+      typeof departementNotaire === "string" &&
+      typeof departementBien === "string" &&
+      typeof notaireAcquereur === "string"
+    ) {
+      if (stringInArray(departementBien, departementLimitropheParis)) {
+        if (stringInArray(departementNotaire, departementLimitropheParis)) {
+          if (notaireAcquereur === "true") {
             return (
               <div>
                 Nous tenons la plume et le notaire participant constitue le
@@ -43,7 +42,7 @@ const CompetenceNotaire = () => {
             );
         } else return <div>Nous constituons et tenons la plume</div>;
       } else {
-        if (competenceState.notaireAcquereur === true) {
+        if (notaireAcquereur === "true") {
           return (
             <div>
               Vérifier où est situé le notaire vendeur. Par défaut, la
@@ -53,10 +52,12 @@ const CompetenceNotaire = () => {
         } else
           return <div>Le notaire acquéreur constitue et tient la plume</div>;
       }
+    }
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+    console.log(typeof value, value);
     setCompetenceState((prevState) => {
       return {
         ...prevState,
