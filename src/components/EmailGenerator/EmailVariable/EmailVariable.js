@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CopyPasteElement from "../CopyPasteElement/CopyPasteElement"
+import CopyPasteElement from "../CopyPasteElement/CopyPasteElement";
 
 const EmailVariable = () => {
   const [inputState, setInputState] = useState("");
@@ -17,7 +17,7 @@ const EmailVariable = () => {
 
   return (
     <>
-      <label>Dépôt de garantie</label>
+      <label htmlFor="garantie">Dépôt de garantie</label>
       <input
         type="text"
         data-testid="depot"
@@ -25,7 +25,7 @@ const EmailVariable = () => {
         onChange={onFillHandler}
         id="garantie"
       />
-      <label>Provision sur frais</label>
+      <label htmlFor="provision">Provision sur frais</label>
       <input
         type="text"
         data-testid="provision"
@@ -33,7 +33,25 @@ const EmailVariable = () => {
         onChange={onFillHandler}
         id="provision"
       />
-      <CopyPasteElement content={depotGarantie}/>
+      <label htmlFor="pret">Condition suspensive de prêt ?</label>
+      <select id="pret" data-testid="pret" onChange={onFillHandler}>
+        <option value="">--Sélectionner une option--</option>
+        <option value="oui" data-testid="pretOui">Oui</option>
+        <option value="non" data-testid="pretNon">Non</option>
+      </select>
+      <label htmlFor="sru">Délai de rétractation à purger ?</label>
+      <select id="sru" data-testid="sru" onChange={onFillHandler}>
+        <option value="">--Sélectionner une option--</option>
+        <option value="oui" data-testid="sruOui">Oui</option>
+        <option value="non" data-testid="sruNon">Non</option>
+      </select>
+      <label htmlFor="instrumentaire">Sommes nous notaire instrumentaire ?</label>
+      <select id="instrumentaire" data-testid="instrumentaire" onChange={onFillHandler}>
+        <option value="">--Sélectionner une option--</option>
+        <option value="oui" data-testid="instrumentaireOui">Oui</option>
+        <option value="non" data-testid="instrumentaireNon">Non</option>
+      </select>
+      <CopyPasteElement content={depotGarantie} />
     </>
   );
 };
