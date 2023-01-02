@@ -1,18 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
+import EmailVariable from "../EmailVariable/EmailVariable";
 
-const EmailSelect = ({emailList}) => {
+const EmailSelect = ({ emailList }) => {
+  const [emailSelected, setEmailSelected] = useState("");
+  const [questionClicked, setQuestionClicked] = useState(false);
 
-  return (
-    <>
-      <li>
-        {emailList.map(email => (
-          <a href="test" key={email.toString()}>
-            {email}
-          </a>
+  const clickHandler = (event) => {
+    setEmailSelected(event.target.id);
+    setQuestionClicked(true);
+  };
+
+  const questionSelector = () => {
+    return (
+      <>
+        <h1>Sélectionner un modèle de mail</h1>
+
+        {Object.values(emailList).map((email, number) => (
+          <React.Fragment key={email.type.toString()}>
+            <h2>{email.type}</h2>
+            <li>
+              {email.query.map((email1, number1) => (
+                <div
+                  key={number1}
+                  id={email1.value}
+                  data-testid="question-element"
+                  onClick={clickHandler}
+                >
+                  {email1.question}
+                </div>
+              ))}
+            </li>
+          </React.Fragment>
         ))}
-      </li>
-    </>
-  );
+      </>
+    );
+  };
+
+  return <>{questionClicked ? <EmailVariable /> : questionSelector()}</>;
 };
 
 export default EmailSelect;
