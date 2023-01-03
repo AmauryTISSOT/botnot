@@ -1,12 +1,12 @@
 import React from "react";
-import { fireEvent, render, screen, createEvent } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import EmailVariable from "./EmailVariable";
 import userEvent from "@testing-library/user-event";
 
 describe("EmailVariable unit testing", () => {
   test("should render correctly", () => {
-    render(<EmailVariable />);
+    render(<EmailVariable emailValue={"garantie"} />);
     const depotTestId = screen.getByTestId(/depot/i);
     expect(depotTestId).toBeInTheDocument();
 
@@ -24,7 +24,7 @@ describe("EmailVariable unit testing", () => {
   });
 
   test("input should work correctly", () => {
-    render(<EmailVariable />);
+    render(<EmailVariable emailValue={"garantie"} />);
 
     const depotInput = screen.getByPlaceholderText("0,00 €");
     fireEvent.change(depotInput, { target: { value: "10000" } });
