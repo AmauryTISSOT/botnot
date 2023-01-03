@@ -36,7 +36,15 @@ const EmailSelect = ({ emailList }) => {
     );
   };
 
-  return <>{questionClicked ? <EmailVariable /> : questionSelector()}</>;
+  return (
+    <>
+      {questionClicked ? (
+        <EmailVariable emailValue={emailSelected} />
+      ) : (
+        questionSelector()
+      )}
+    </>
+  );
 };
 
 export default EmailSelect;
