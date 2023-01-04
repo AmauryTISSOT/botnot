@@ -70,6 +70,14 @@ const EmailVariable = (props) => {
               Non
             </option>
           </select>
+
+          <label>
+            test
+            <input type="radio" id="html" data-testid ="test" />
+            <label for="html">oui</label>
+            <input type="radio" id="css" data-testid ="test" />
+            <label for="css">non</label>
+          </label>
         </>
       );
     } else
