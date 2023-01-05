@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CopyPasteElement from "../CopyPasteElement/CopyPasteElement";
+import EmailData from "../EmailData";
 
 const EmailVariable = (props) => {
   const [inputState, setInputState] = useState("");
@@ -12,8 +13,25 @@ const EmailVariable = (props) => {
     }));
   };
 
+  // function to parse template literal
+  // args : expression : string / valueObj : object with key - value for each literal template in expression
+  const stringTemplateParser = (expression, valueObj) => {
+    const templateMatcher = /{{\s?([^{}\s]*)\s?}}/g;
+    let text = expression.replace(
+      templateMatcher,
+      (substring, value, index) => {
+        value = valueObj[value];
+        return value;
+      }
+    );
+    return text;
+  };
+
+
+  //TODO: create all html input
+
   // function who return html if boolean = true
-  //return email string if boolean = false
+  // return email string if boolean = false
   const depotGarantieMail = (boolean) => {
     if (boolean) {
       return (
@@ -73,10 +91,10 @@ const EmailVariable = (props) => {
 
           <label>
             test
-            <input type="radio" id="html" data-testid ="test" />
-            <label for="html">oui</label>
-            <input type="radio" id="css" data-testid ="test" />
-            <label for="css">non</label>
+            <input type="radio" id="oui" data-testid="test" name="radio1" />
+            <label htmlFor="html">oui</label>
+            <input type="radio" id="non" data-testid="test" name="radio1"/>
+            <label htmlFor="css">non</label>
           </label>
         </>
       );
