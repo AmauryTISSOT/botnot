@@ -27,8 +27,52 @@ const EmailVariable = (props) => {
     return text;
   };
 
+  const getEmailData = (emailDataObject, emailSelected) => {
+    emailDataObject[emailSelected].input.forEach((element) => {
+      //TODO: add switch
+    });
+  };
 
   //TODO: create all html input
+
+  // function who return textInput html
+  const textInput = (id, label, placeholder) => {
+    return (
+      <>
+        <label htmlFor={id}>{label}</label>
+        <input
+          type="text"
+          id={id}
+          data-testid={`test-${id}`}
+          placeholder={placeholder}
+          onChange={onFillHandler}
+        />
+      </>
+    );
+  };
+
+  //function who return radioInput html
+  const radioInput = (id, label, value) => {
+    return (
+      <>
+        <label>
+          {label}
+          {value.map((element, key) => (
+            <div key={key}>
+              <input
+                type="radio"
+                id={id}
+                data-testid={`test-${id}-${element}`}
+                name={id}
+                value={element}
+              />
+              <label htmlFor={id}>{element}</label>
+            </div>
+          ))}
+        </label>
+      </>
+    );
+  };
 
   // function who return html if boolean = true
   // return email string if boolean = false
@@ -36,21 +80,6 @@ const EmailVariable = (props) => {
     if (boolean) {
       return (
         <>
-          <label htmlFor="garantie">Dépôt de garantie</label>
-          <input
-            type="text"
-            data-testid="depot"
-            placeholder="0,00 €"
-            onChange={onFillHandler}
-            id="garantie"
-          />
-          <label htmlFor="provision">Provision sur frais</label>
-          <input
-            type="text"
-            data-testid="provision"
-            placeholder="500,00 €"
-            onChange={onFillHandler}
-            id="provision"
           />
           <label htmlFor="pret">Condition suspensive de prêt ?</label>
           <select id="pret" data-testid="pret" onChange={onFillHandler}>
@@ -88,14 +117,6 @@ const EmailVariable = (props) => {
               Non
             </option>
           </select>
-
-          <label>
-            test
-            <input type="radio" id="oui" data-testid="test" name="radio1" />
-            <label htmlFor="html">oui</label>
-            <input type="radio" id="non" data-testid="test" name="radio1"/>
-            <label htmlFor="css">non</label>
-          </label>
         </>
       );
     } else
