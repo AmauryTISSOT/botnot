@@ -74,6 +74,27 @@ const EmailVariable = (props) => {
     );
   };
 
+  // function who return selectInput html
+  const selectInput = (id, label, value) => {
+    return (
+      <>
+        <label htmlFor={id}>{label}</label>
+        <select id={id} data-testid={`test-${id}`} onChange={onFillHandler}>
+          <option value="">--Sélectionner une option--</option>
+          {value.map((element, key) => (
+            <option
+              data-testid={`test-${id}-${element}`}
+              value={element}
+              key={key}
+            >
+              {element}
+            </option>
+          ))}
+        </select>
+      </>
+    );
+  };
+
   // function who return html if boolean = true
   // return email string if boolean = false
   const depotGarantieMail = (boolean) => {
@@ -104,19 +125,6 @@ const EmailVariable = (props) => {
           <label htmlFor="instrumentaire">
             Sommes nous notaire instrumentaire ?
           </label>
-          <select
-            id="instrumentaire"
-            data-testid="instrumentaire"
-            onChange={onFillHandler}
-          >
-            <option value="">--Sélectionner une option--</option>
-            <option value="oui" data-testid="instrumentaireOui">
-              Oui
-            </option>
-            <option value="non" data-testid="instrumentaireNon">
-              Non
-            </option>
-          </select>
         </>
       );
     } else
