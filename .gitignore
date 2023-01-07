@@ -26,3 +26,4 @@ yarn-error.log*
 src/components/CourrierGenerator/Images/Header.png
 src/components/CourrierGenerator/Images/Footer.png
 src/components/CourrierGenerator/Images/signature.png
+.vscode/launch.json
