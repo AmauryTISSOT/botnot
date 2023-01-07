@@ -11,13 +11,13 @@ describe("EmailVariable unit testing", () => {
     const textInputElement = screen.getByTestId("test-test1");
     expect(textInputElement).toBeInTheDocument();
 
-    const placeholderElement = screen.getByPlaceholderText("0,00 €")
+    const placeholderElement = screen.getByPlaceholderText("0,00 €");
     expect(placeholderElement).toBeInTheDocument();
 
-    const radioInputElement = screen.getByTestId("test-test3-oui");
+    const radioInputElement = screen.getByTestId("test-test2-oui");
     expect(radioInputElement).toBeInTheDocument();
 
-    const selectInputElement = screen.getByTestId("test-test4-option one")
+    const selectInputElement = screen.getByTestId("test-test3-option one");
     expect(selectInputElement).toBeInTheDocument();
   });
 
@@ -28,12 +28,17 @@ describe("EmailVariable unit testing", () => {
     fireEvent.change(textInputElement, { target: { value: "10000" } });
     expect(textInputElement.value).toBe("10000");
 
-    const radioInputElement = screen.getByTestId("test-test3-oui")
+    const radioInputElement = screen.getByTestId("test-test2-oui");
     fireEvent.click(radioInputElement);
     expect(radioInputElement).toBeChecked();
 
-    const selectInputElement = screen.getByTestId("test-test4");
+    const selectInputElement = screen.getByTestId("test-test3");
     userEvent.selectOptions(selectInputElement, "option one");
-    expect(screen.getByTestId("test-test4-option one").selected).toBe(true);
+    expect(screen.getByTestId("test-test3-option one").selected).toBe(true);
+
+    const copyEmailElement = screen.getByText(
+      "This is a test. The variable 1 is 10000. The variable 2 is oui. The variable 3 is option one"
+    );
+    expect(copyEmailElement).toBeInTheDocument();
   });
 });
