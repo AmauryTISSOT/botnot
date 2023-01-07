@@ -9,7 +9,7 @@ const EmailVariable = (props) => {
   useEffect(() => {
     const dataValue = EmailData[props.emailValue].mailString;
     setContentState(stringTemplateParser(dataValue, inputState));
-  }, [inputState]);
+  }, [inputState, props.emailValue]);
 
   // function who send input data to state
   const onFillHandler = (event) => {
@@ -111,7 +111,7 @@ const EmailVariable = (props) => {
         }
       })}
 
-      {<CopyPasteElement content={contentState} />}
+      <CopyPasteElement content={contentState} />
     </>
   );
 };
