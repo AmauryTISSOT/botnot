@@ -9,13 +9,13 @@ const EmailData = {
       },
       {
         type: "radio",
-        id: "test3",
-        label: "testing label-3",
+        id: "test2",
+        label: "testing label-2",
         value: ["oui", "non"],
       },
       {
         type: "select",
-        id: "test4",
+        id: "test3",
         label: "testing label-3",
         value: ["option one", "option two"],
       },
