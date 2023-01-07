@@ -66,7 +66,7 @@ describe("EmailSelect unit testing", () => {
   });
 });
 
-describe("EmailSelect intergration testing", () => {
+describe("EmailSelect integration testing", () => {
   test("clicking on a question should load EmailSelect component", () => {
     const testData = [
       {
