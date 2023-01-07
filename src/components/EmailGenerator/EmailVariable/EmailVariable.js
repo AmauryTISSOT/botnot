@@ -27,18 +27,10 @@ const EmailVariable = (props) => {
     return text;
   };
 
-  const getEmailData = (emailDataObject, emailSelected) => {
-    emailDataObject[emailSelected].input.forEach((element) => {
-      //TODO: add switch
-    });
-  };
-
-  //TODO: create all html input
-
   // function who return textInput html
   const textInput = (id, label, placeholder) => {
     return (
-      <>
+      <div key={id}>
         <label htmlFor={id}>{label}</label>
         <input
           type="text"
@@ -47,14 +39,14 @@ const EmailVariable = (props) => {
           placeholder={placeholder}
           onChange={onFillHandler}
         />
-      </>
+      </div>
     );
   };
 
   //function who return radioInput html
   const radioInput = (id, label, value) => {
     return (
-      <>
+      <div key={id}>
         <label>
           {label}
           {value.map((element, key) => (
@@ -70,14 +62,14 @@ const EmailVariable = (props) => {
             </div>
           ))}
         </label>
-      </>
+      </div>
     );
   };
 
   // function who return selectInput html
   const selectInput = (id, label, value) => {
     return (
-      <>
+      <div key={id}>
         <label htmlFor={id}>{label}</label>
         <select id={id} data-testid={`test-${id}`} onChange={onFillHandler}>
           <option value="">--Sélectionner une option--</option>
@@ -91,66 +83,27 @@ const EmailVariable = (props) => {
             </option>
           ))}
         </select>
-      </>
+      </div>
     );
   };
 
-  // function who return html if boolean = true
-  // return email string if boolean = false
-  const depotGarantieMail = (boolean) => {
-    if (boolean) {
-      return (
-        <>
-          />
-          <label htmlFor="pret">Condition suspensive de prêt ?</label>
-          <select id="pret" data-testid="pret" onChange={onFillHandler}>
-            <option value="">--Sélectionner une option--</option>
-            <option value="oui" data-testid="pretOui">
-              Oui
-            </option>
-            <option value="non" data-testid="pretNon">
-              Non
-            </option>
-          </select>
-          <label htmlFor="sru">Délai de rétractation à purger ?</label>
-          <select id="sru" data-testid="sru" onChange={onFillHandler}>
-            <option value="">--Sélectionner une option--</option>
-            <option value="oui" data-testid="sruOui">
-              Oui
-            </option>
-            <option value="non" data-testid="sruNon">
-              Non
-            </option>
-          </select>
-          <label htmlFor="instrumentaire">
-            Sommes nous notaire instrumentaire ?
-          </label>
-        </>
-      );
-    } else
-      return `Bonjour, le montant du dépot de garantie
-    est de : ${inputState.garantie} et le montant de la provision
-    sur frais est de : ${inputState.provision}`;
-  };
 
-  //TODO: add comment + default value + error handling
-
-  const switchLogic = (key) => {
-    switch (key) {
-      case "garantie":
-        return (
-          <>
-            {depotGarantieMail(true)}
-            <CopyPasteElement content={depotGarantieMail(false)} />
-          </>
-        );
-
-      default:
-        return null;
-    }
-  };
-
-  return <>{switchLogic(props.emailValue)}</>;
+  return (
+    <>
+      {EmailData[props.emailValue].input.map((e) => {
+        switch (e.type) {
+          case "text":
+            return textInput(e.id, e.label, e.placeholder);
+          case "radio":
+            return radioInput(e.id, e.label, e.value);
+          case "select":
+            return selectInput(e.id, e.label, e.value);
+          default:
+            return <div>Error no data available</div>;
+        }
+      })}
+    </>
+  );
 };
 
 export default EmailVariable;
