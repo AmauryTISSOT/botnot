@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CopyPasteElement from "../CopyPasteElement/CopyPasteElement";
 import EmailData from "../EmailData";
 
 const EmailVariable = (props) => {
-  const [inputState, setInputState] = useState("");
+  const [inputState, setInputState] = useState(null);
+  const [contentState, setContentState] = useState(null);
+
+  useEffect(() => {
+    const dataValue = EmailData[props.emailValue].mailString;
+    setContentState(stringTemplateParser(dataValue, inputState));
+  }, [inputState]);
 
   // function who send input data to state
   const onFillHandler = (event) => {
@@ -16,15 +22,17 @@ const EmailVariable = (props) => {
   // function to parse template literal
   // args : expression : string / valueObj : object with key - value for each literal template in expression
   const stringTemplateParser = (expression, valueObj) => {
-    const templateMatcher = /{{\s?([^{}\s]*)\s?}}/g;
-    let text = expression.replace(
-      templateMatcher,
-      (substring, value, index) => {
-        value = valueObj[value];
-        return value;
-      }
-    );
-    return text;
+    if (valueObj != null) {
+      const templateMatcher = /{{\s?([^{}\s]*)\s?}}/g;
+      let text = expression.replace(
+        templateMatcher,
+        (substring, value, index) => {
+          value = valueObj[value];
+          return value;
+        }
+      );
+      return text;
+    }
   };
 
   // function who return textInput html
@@ -57,6 +65,7 @@ const EmailVariable = (props) => {
                 data-testid={`test-${id}-${element}`}
                 name={id}
                 value={element}
+                onChange={onFillHandler}
               />
               <label htmlFor={id}>{element}</label>
             </div>
@@ -87,7 +96,6 @@ const EmailVariable = (props) => {
     );
   };
 
-
   return (
     <>
       {EmailData[props.emailValue].input.map((e) => {
@@ -102,6 +110,8 @@ const EmailVariable = (props) => {
             return <div>Error no data available</div>;
         }
       })}
+
+      {<CopyPasteElement content={contentState} />}
     </>
   );
 };
