@@ -73,7 +73,7 @@ describe("EmailSelect intergration testing", () => {
         type: "Title1",
         query: [
           {
-            value: "garantie",
+            value: "test",
             question: "question1",
           },
         ],
