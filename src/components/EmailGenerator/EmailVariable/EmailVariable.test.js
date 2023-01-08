@@ -4,9 +4,36 @@ import "@testing-library/jest-dom";
 import EmailVariable from "./EmailVariable";
 import userEvent from "@testing-library/user-event";
 
+const mockData = {
+  test: {
+    input: [
+      {
+        type: "text",
+        id: "test1",
+        label: "testing label-1",
+        placeholder: "0,00 €",
+      },
+      {
+        type: "radio",
+        id: "test2",
+        label: "testing label-2",
+        value: ["oui", "non"],
+      },
+      {
+        type: "select",
+        id: "test3",
+        label: "testing label-3",
+        value: ["option one", "option two"],
+      },
+    ],
+    mailString:
+      "This is a test. The variable 1 is {{test1}}. The variable 2 is {{test2}}. The variable 3 is {{test3}} ",
+  },
+};
+
 describe("EmailVariable unit testing", () => {
   test("should render correctly", () => {
-    render(<EmailVariable emailValue={"test"} />);
+    render(<EmailVariable data={mockData} emailValue={"test"} />);
 
     const textInputElement = screen.getByTestId("test-test1");
     expect(textInputElement).toBeInTheDocument();
@@ -22,7 +49,7 @@ describe("EmailVariable unit testing", () => {
   });
 
   test("input should work correctly", () => {
-    render(<EmailVariable emailValue={"test"} />);
+    render(<EmailVariable data={mockData} emailValue={"test"} />);
 
     const textInputElement = screen.getByPlaceholderText("0,00 €");
     fireEvent.change(textInputElement, { target: { value: "10000" } });
