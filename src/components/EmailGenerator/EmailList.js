@@ -1,14 +1,10 @@
 const emailListData = [
   {
-    type: "test",
+    type: "Banque",
     query: [
       {
-        value: "test",
-        question: "question1",
-      },
-      {
-        value: "test",
-        question: "question2",
+        value: "deblocagePret",
+        question: "Demande de déblocage prêt à la banque",
       },
     ],
   },
