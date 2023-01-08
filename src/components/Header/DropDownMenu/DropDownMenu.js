@@ -37,6 +37,9 @@ const DropDownMenu = (props) => {
           <DropDownItem>
             <Link to="/outils/courrierGenerator">Génerateur de courrier</Link>
           </DropDownItem>
+          <DropDownItem>
+            <Link to="/outils/emailGenerator">Génerateur de mail</Link>
+          </DropDownItem>
         </div>
       </CSSTransition>
 
