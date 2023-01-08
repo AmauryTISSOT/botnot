@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from "react";
 import CopyPasteElement from "../CopyPasteElement/CopyPasteElement";
-import EmailData from "../EmailData";
 
 const EmailVariable = (props) => {
   const [inputState, setInputState] = useState(null);
   const [contentState, setContentState] = useState(null);
 
   useEffect(() => {
-    const dataValue = EmailData[props.emailValue].mailString;
+    const dataValue = props.data[props.emailValue].mailString;
+    if(dataValue === undefined) {console.log("ii")}
     setContentState(stringTemplateParser(dataValue, inputState));
-  }, [inputState, props.emailValue]);
+  }, [inputState, props.emailValue, props.data]);
+
+
 
   // function who send input data to state
   const onFillHandler = (event) => {
@@ -18,6 +20,7 @@ const EmailVariable = (props) => {
       [event.target.id]: event.target.value,
     }));
   };
+ 
 
   // function to parse template literal
   // args : expression : string / valueObj : object with key - value for each literal template in expression
@@ -33,6 +36,7 @@ const EmailVariable = (props) => {
       );
       return text;
     }
+    else return expression
   };
 
   // function who return textInput html
@@ -98,7 +102,7 @@ const EmailVariable = (props) => {
 
   return (
     <>
-      {EmailData[props.emailValue].input.map((e) => {
+      {props.data[props.emailValue].input.map((e) => {
         switch (e.type) {
           case "text":
             return textInput(e.id, e.label, e.placeholder);

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EmailVariable from "../EmailVariable/EmailVariable";
+import EmailData from "../EmailData";
 
 const EmailSelect = ({ emailList }) => {
   const [emailSelected, setEmailSelected] = useState("");
@@ -39,7 +40,7 @@ const EmailSelect = ({ emailList }) => {
   return (
     <>
       {questionClicked ? (
-        <EmailVariable emailValue={emailSelected} />
+        <EmailVariable emailValue={emailSelected} data={EmailData} />
       ) : (
         questionSelector()
       )}
