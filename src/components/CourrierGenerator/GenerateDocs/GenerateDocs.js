@@ -3,6 +3,7 @@ import { Packer } from "docx";
 import { saveAs } from "file-saver";
 import doc from "../Example"
 import CourrierForm from "../CourrierComponent/CourrierForm/CourrierForm";
+import CopyPasteElement from "../../EmailGenerator/CopyPasteElement/CopyPasteElement";
 
 const GenerateDocs = () => {
 
@@ -16,7 +17,8 @@ const GenerateDocs = () => {
 
   return (
     <>
-      <CourrierForm/>
+      {/* <CourrierForm/> */}
+      {/* <CopyPasteElement content={'test123aze'}/> */}
       <button onClick={generate}>Générer</button>
     </>
   );

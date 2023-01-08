@@ -10,8 +10,7 @@ import {
 
 import CourrierBoilerplate from "./CourrierComponent/CourrierBoilerplate";
 import CourrierTable from "./CourrierComponent/CourrierTable";
-import DTH from "./CourrierComponent/CourrierData/CourrierData"
-
+import { demandeCU, DTH } from "./CourrierComponent/CourrierData/CourrierData";
 const mockData = [
 
   {
@@ -33,7 +32,8 @@ const doc = new Document(
     "mail du clerc",
     "objet du courrier",
     "XXXXX",
-    DTH,
+    demandeCU,
+    mockData
   )
   // {
   //   sections: [
