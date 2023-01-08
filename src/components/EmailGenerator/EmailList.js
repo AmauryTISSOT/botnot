@@ -16,7 +16,17 @@ const emailListData = [
         question: "Demande de prêt état daté",
       },
     ],
-  }
+  },
+  {
+    type: "Vente",
+    query: [
+      {
+        value: "envoiDecompteAcquereur",
+        question: "Envoi décompte acquéreur - déblocage des fonds",
+      },
+    ],
+  },
+
 ];
 
 export default emailListData;
