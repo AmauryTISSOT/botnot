@@ -4,10 +4,19 @@ const emailListData = [
     query: [
       {
         value: "deblocagePret",
-        question: "Demande de déblocage prêt à la banque",
+        question: "Demande de déblocage de prêt",
       },
     ],
   },
+  {
+    type: "Syndic",
+    query: [
+      {
+        value: "demandePretEtatDate",
+        question: "Demande de prêt état daté",
+      },
+    ],
+  }
 ];
 
 export default emailListData;
