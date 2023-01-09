@@ -7,11 +7,8 @@ const EmailVariable = (props) => {
 
   useEffect(() => {
     const dataValue = props.data[props.emailValue].mailString;
-    if(dataValue === undefined) {console.log("ii")}
     setContentState(stringTemplateParser(dataValue, inputState));
   }, [inputState, props.emailValue, props.data]);
-
-
 
   // function who send input data to state
   const onFillHandler = (event) => {
@@ -20,23 +17,45 @@ const EmailVariable = (props) => {
       [event.target.id]: event.target.value,
     }));
   };
- 
 
   // function to parse template literal
   // args : expression : string / valueObj : object with key - value for each literal template in expression
   const stringTemplateParser = (expression, valueObj) => {
-    if (valueObj != null) {
-      const templateMatcher = /{{\s?([^{}\s]*)\s?}}/g;
-      let text = expression.replace(
-        templateMatcher,
-        (substring, value, index) => {
-          value = valueObj[value];
-          return value;
-        }
-      );
-      return text;
+    if (valueObj == null) {
+      return expression.replace(/{{\s?([^{}\s]*)\s?}}/g, "");
     }
-    else return expression
+
+    // const regexValueBetween$$ = /\$([^\$]*)\$/g;
+    // const valuesBetween$$ = expression
+    // .match(regexValueBetween$$)
+    // .map((match) => match.substring(1, match.length - 1));
+    // console.log(valuesBetween$$);
+
+    // const regexValueAfter$ = /\$([^\$\}]*)\}\}/g;
+    // const valuesAfter$ = expression
+    //   .match(regexValueAfter$)
+    //   .map((match) => match.substring(1, match.length - 2));
+    // console.log(valuesAfter$);
+
+    // if (regexValueBetween$$.test(expression)) {
+
+    // }
+
+    // console.log(regexValue.test(expression));
+    // console.log(expression.match(regexValue));
+
+    // if (regexValue.test(expression)) {
+    //   console.log("value found");
+    // }
+
+    // /{{\$\s*(.*?)\s*\$}}/g  to get "value" in the following string : {{$value$}}
+    // /{{\$\s*(.*?)\s*\$/g to get "value" in the following string : {{$value$abcd}}
+    // /\$([^\$\}]*)\}\}/g to get "abcd" in the following string : {{$value$abcd}}
+
+    return expression.replace(
+      /{{\s?([^{}\s]*)\s?}}/g,
+      (substring, value) => valueObj[value] || ""
+    );
   };
 
   // function who return textInput html
@@ -56,22 +75,22 @@ const EmailVariable = (props) => {
   };
 
   //function who return radioInput html
-  const radioInput = (id, label, value) => {
+  const radioInput = (id, label, valueObj) => {
     return (
       <div key={id}>
         <label>
           {label}
-          {value.map((element, key) => (
+          {valueObj.map((element, key) => (
             <div key={key}>
               <input
                 type="radio"
                 id={id}
-                data-testid={`test-${id}-${element}`}
+                data-testid={`test-${id}-${element.subLabel}`}
                 name={id}
-                value={element}
+                value={element.value}
                 onChange={onFillHandler}
               />
-              <label htmlFor={id}>{element}</label>
+              <label htmlFor={id}>{element.subLabel}</label>
             </div>
           ))}
         </label>
@@ -107,7 +126,7 @@ const EmailVariable = (props) => {
           case "text":
             return textInput(e.id, e.label, e.placeholder);
           case "radio":
-            return radioInput(e.id, e.label, e.value);
+            return radioInput(e.id, e.label, e.valueObj);
           case "select":
             return selectInput(e.id, e.label, e.value);
           default:
