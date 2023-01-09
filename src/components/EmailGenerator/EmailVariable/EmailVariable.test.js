@@ -17,7 +17,16 @@ const mockData = {
         type: "radio",
         id: "test2",
         label: "testing label-2",
-        value: ["oui", "non"],
+        valueObj: [
+          {
+            subLabel: "oui",
+            value: "yes",
+          },
+          {
+            subLabel: "non",
+            value: "no",
+          },
+        ],
       },
       {
         type: "select",
@@ -64,7 +73,7 @@ describe("EmailVariable unit testing", () => {
     expect(screen.getByTestId("test-test3-option one").selected).toBe(true);
 
     const copyEmailElement = screen.getByText(
-      "This is a test. The variable 1 is 10000. The variable 2 is oui. The variable 3 is option one"
+      "This is a test. The variable 1 is 10000. The variable 2 is yes. The variable 3 is option one"
     );
     expect(copyEmailElement).toBeInTheDocument();
   });

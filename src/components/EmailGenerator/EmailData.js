@@ -11,7 +11,16 @@ const EmailData = {
         type: "radio",
         id: "test2",
         label: "testing label-2",
-        value: ["oui", "non"],
+        valueObj: [
+          {
+            subLabel: "oui",
+            value: "yes",
+          },
+          {
+            subLabel: "non",
+            value: "no",
+          },
+        ],
       },
       {
         type: "select",
@@ -92,8 +101,9 @@ const EmailData = {
         placeholder: "315.000,00", //TODO: html input for price (with 0,00 € format)
       },
     ],
-    mailString: "Bonjour,\n\n Je vous confirme le rendez-vous pour la signature de la vente citée en référence au {{date}} à {{hour}} en l'office notarial.\n\n Je vous prie de bien vouloir trouver ci-joint le bilan financier de votre acquisition.\n\n Aussi je vous remercie en conséquence de bien vouloir faire établir par votre banque un virement d'un montant de {{price}} euros à porter au crédit de mon compte au minimum deux jours avant la date de signature.\n J'attire votre attention sur le fait que l’envoi d’un virement, lorsqu’il ne résulte pas d'un prêt bancaire, doit être accompagné d’une attestation de provenance de fonds établie par la banque émettrice du virement.\n Je vous invite à vous rapprocher rapidement de votre établissement bancaire car il lui est nécessaire d'avoir un certain délai pour procéder à ce mode de paiement.\n Le mode de règlement par virement nous est imposé par l'article 37 de la loi numéro 2011-331 du 28 Mars 2011, à l'exclusion de tout autre mode de paiement.\n\n Enfin, je vous remercie de bien vouloir, pour le rendez-vous envisagé de signature, vous munir des documents suivants :\n - une pièce d’identité en cours de validité,\n - un relevé d’identité bancaire (RIB),\n - un carnet de chèque / carte bancaire pour régler les éventuels proratas.\n\n En vous remerciant,\n\n Sincères salutations"
-  }
+    mailString:
+      "Bonjour,\n\n Je vous confirme le rendez-vous pour la signature de la vente citée en référence au {{date}} à {{hour}} en l'office notarial.\n\n Je vous prie de bien vouloir trouver ci-joint le bilan financier de votre acquisition.\n\n Aussi je vous remercie en conséquence de bien vouloir faire établir par votre banque un virement d'un montant de {{price}} euros à porter au crédit de mon compte au minimum deux jours avant la date de signature.\n J'attire votre attention sur le fait que l’envoi d’un virement, lorsqu’il ne résulte pas d'un prêt bancaire, doit être accompagné d’une attestation de provenance de fonds établie par la banque émettrice du virement.\n Je vous invite à vous rapprocher rapidement de votre établissement bancaire car il lui est nécessaire d'avoir un certain délai pour procéder à ce mode de paiement.\n Le mode de règlement par virement nous est imposé par l'article 37 de la loi numéro 2011-331 du 28 Mars 2011, à l'exclusion de tout autre mode de paiement.\n\n Enfin, je vous remercie de bien vouloir, pour le rendez-vous envisagé de signature, vous munir des documents suivants :\n - une pièce d’identité en cours de validité,\n - un relevé d’identité bancaire (RIB),\n - un carnet de chèque / carte bancaire pour régler les éventuels proratas.\n\n En vous remerciant,\n\n Sincères salutations",
+  },
 };
 
 export default EmailData;
