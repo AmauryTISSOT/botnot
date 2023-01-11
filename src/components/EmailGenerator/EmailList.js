@@ -24,9 +24,12 @@ const emailListData = [
         value: "envoiDecompteAcquereur",
         question: "Envoi décompte acquéreur - déblocage des fonds",
       },
+      {
+        value: "suiteSignaturePuv",
+        question: "Suite signature PUV - information",
+      },
     ],
   },
-
 ];
 
 export default emailListData;
