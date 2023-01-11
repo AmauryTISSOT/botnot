@@ -24,34 +24,6 @@ const EmailVariable = (props) => {
     if (valueObj == null) {
       return expression.replace(/{{\s?([^{}\s]*)\s?}}/g, "");
     }
-
-    // const regexValueBetween$$ = /\$([^\$]*)\$/g;
-    // const valuesBetween$$ = expression
-    // .match(regexValueBetween$$)
-    // .map((match) => match.substring(1, match.length - 1));
-    // console.log(valuesBetween$$);
-
-    // const regexValueAfter$ = /\$([^\$\}]*)\}\}/g;
-    // const valuesAfter$ = expression
-    //   .match(regexValueAfter$)
-    //   .map((match) => match.substring(1, match.length - 2));
-    // console.log(valuesAfter$);
-
-    // if (regexValueBetween$$.test(expression)) {
-
-    // }
-
-    // console.log(regexValue.test(expression));
-    // console.log(expression.match(regexValue));
-
-    // if (regexValue.test(expression)) {
-    //   console.log("value found");
-    // }
-
-    // /{{\$\s*(.*?)\s*\$}}/g  to get "value" in the following string : {{$value$}}
-    // /{{\$\s*(.*?)\s*\$/g to get "value" in the following string : {{$value$abcd}}
-    // /\$([^\$\}]*)\}\}/g to get "abcd" in the following string : {{$value$abcd}}
-
     return expression.replace(
       /{{\s?([^{}\s]*)\s?}}/g,
       (substring, value) => valueObj[value] || ""
