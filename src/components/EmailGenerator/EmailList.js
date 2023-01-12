@@ -28,6 +28,10 @@ const emailListData = [
         value: "suiteSignaturePuv",
         question: "Suite signature PUV - information",
       },
+      {
+        value: "notificationSRU",
+        question: "Notification SRU",
+      },
     ],
   },
 ];
