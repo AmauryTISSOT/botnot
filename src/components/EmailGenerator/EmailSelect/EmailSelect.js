@@ -17,7 +17,7 @@ const EmailSelect = ({ emailList }) => {
         <h1>Sélectionner un modèle de mail</h1>
 
         {Object.values(emailList).map((email, number) => (
-          <React.Fragment key={email.type.toString()}>
+          <div key={email.type.toString()}>
             <h2>{email.type}</h2>
             <ul>
               {email.query.map((email1, number1) => (
@@ -31,7 +31,7 @@ const EmailSelect = ({ emailList }) => {
                 </li>
               ))}
             </ul>
-          </React.Fragment>
+          </div>
         ))}
       </>
     );
