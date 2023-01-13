@@ -209,6 +209,11 @@ const EmailData = {
     mailString:
       "Vos refs: {{reference}}\n\nBonjour,\n\n Je suis en charge de la vente d’un bien sur lequel des travaux ont été réalisés par votre entreprise au cours de l’année {{annee}}, et dont vous trouverez la facture ci-jointe.\n\n Afin de me permettre de compléter mon dossier, je vous remercie de bien vouloir me faire passer l’attestation d’assurance responsabilité décennale couvrant la période de réalisation desdits travaux.\n\n Vous remerciant par avance de votre diligence,\n Et restant à votre disposition,\n\n Sincères salutations",
   },
+  soldeCompte: {
+    input: [],
+    mailString:
+      "Bonjour, \n\n Je reviens vers vous dans le cadre du dossier que nous avions traité ensemble à l’étude.\n\n A l’occasion de ma clôture comptable, nous nous sommes aperçu que votre compte présentait un solde créditeur.\n\n Afin de vous restituer ce solde, j'ai besoin d'obtenir vos coordonnées bancaires.\n\n Compte tenu du nombre important de fraudes recensées depuis ces derniers mois, vous allez recevoir un mail de notre plateforme sécurisée d'échange de relevé d'identité bancaire (RIB).\n\n Vous remerciant par avance de votre diligence, et de votre compréhension.\n Et restant à votre disposition,\n\n Sincères salutations",
+  },
 };
 
 export default EmailData;

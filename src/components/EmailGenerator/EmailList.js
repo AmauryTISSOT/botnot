@@ -27,6 +27,15 @@ const emailListData = [
     ],
   },
   {
+    type: "Comptabilité",
+    query: [
+      {
+        value: "soldeCompte",
+        question: "Demande de RIB pour solde de compte",
+      },
+    ],
+  },
+  {
     type: "Vente",
     query: [
       {
