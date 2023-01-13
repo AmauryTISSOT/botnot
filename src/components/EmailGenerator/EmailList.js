@@ -18,6 +18,15 @@ const emailListData = [
     ],
   },
   {
+    type: "Divers",
+    query: [
+      {
+        value: "digicode",
+        question: "Envoi information digicode",
+      },
+    ],
+  },
+  {
     type: "Vente",
     query: [
       {
@@ -31,6 +40,10 @@ const emailListData = [
       {
         value: "notificationSRU",
         question: "Notification SRU",
+      },
+      {
+        value: "attestationTravaux",
+        question: "Travaux : demande d'attestation d'assurance décennale",
       },
     ],
   },

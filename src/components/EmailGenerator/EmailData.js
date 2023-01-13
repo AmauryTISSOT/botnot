@@ -167,6 +167,48 @@ const EmailData = {
     mailString:
       "Bonjour,\n\n Suite à la signature de la promesse de vente à votre profit intervenue le {{dateSignature}}, vous bénéficiez des dispositions de l’article L 271-1 du Code de la construction et de l’habitation qui vous accordent un délai de rétractation.\n\n A cet effet et conformément à votre accord, je vous notifie par lettre recommandée électronique avec accusé de réception la copie de la promesse de vente et de ses annexes.\n\n Pour répondre aux exigences des dispositions de l'article L 721-2 du Code de la construction et de l'habitation, je vous prie de bien vouloir trouver ci-joint : \n·	Le règlement de copropriété et l'état descriptif de division ainsi que tous leurs modificatifs éventuels publiés. \n·	Les procès-verbaux des assemblées générales des trois dernières années. \n·	Les informations financières suivantes : \n\t-	Le montant des charges courantes du budget prévisionnel et des charges hors budget prévisionnel payées par le vendeur sur les deux exercices précédant la vente. \n\t-	Les sommes susceptibles d'être dues au syndicat des copropriétaires par l'acquéreur. \n\t-	L'état global des impayés de charges au sein du syndicat et de la dette envers les fournisseurs. \n\t-	La quote-part du fonds de travaux attachée au lot principal vendu et le montant de la dernière cotisation au fonds versée par le vendeur au titre de son lot. \n·	Le carnet d'entretien de l'ENSEMBLE IMMOBILIER, \n·	La fiche synthétique de la copropriété, \n·	L’attestation d’immatriculation de la copropriété. \n\nDans un délai de dix jours à compter du lendemain de la première présentation de la présente lettre, vous pourrez exercer la faculté de rétractation, et ce par lettre recommandée avec accusé de réception envoyée à mon étude. \nA cet égard, il est rappelé qu’en vertu de l’article 642 du Code de procédure civile, le délai expirant un samedi, un dimanche, un jour férié ou chômé est prorogé jusqu’au premier jour ouvrable suivant. \nLes conséquences pourront être, selon votre choix, les suivantes : \n•	si vous entendez exercer cette faculté de rétractation dans le délai et la forme sus-indiqués, le compromis sera nul et non avenu et toute somme versée le cas échéant dans le cadre du compromis à un professionnel dépositaire des fonds devra vous être restituée dans un délai de vingt et un jours à compter du lendemain de la réception de cette rétractation ; \n•	si vous n’entendez pas exercer cette faculté de rétractation dans le délai sus-indiqué, le compromis produira son plein et entier effet. \n\nEtant rappelé que : \n•	en cas de pluralité d’acquéreurs, la rétractation d’un seul emportera automatiquement rétractation de tous à la convention ; \n•	toute rétractation devra être pure et simple sans condition ni réserve. \n\nVous en souhaitant bonne réception, \nEt restant à votre disposition pour tous renseignements complémentaires, \n\nSincères salutations",
   },
+  digicode: {
+    input: [
+      {
+        type: "text",
+        id: "dateSignature",
+        label: "Date du rendez-vous de signature",
+        placeholder: "ex : 18 août 2023",
+      },
+    ],
+    mailString:
+      "Bonjour,\n\n Je reviens vers vous dans le cadre du dossier cité en objet pour vous confirmer le rendez-vous de signature le {{dateSignature}}.\n Nos locaux sont situés 32 rue Etienne Marcel à PARIS 2ème arrondissement.\n\n Pour information, le digicode pour l’ouverture de la 1ère porte est : 1960 et pour la seconde porte : 1984.\n\n L’étude est située au 3ème étage par l’ascenseur et 4ème par les escaliers.\n\n Restant à votre écoute,\n\n Sincères salutations",
+  },
+  notificationSRU: {
+    input: [
+      {
+        type: "text",
+        id: "dateSignature",
+        label: "Date du rendez-vous de signature",
+        placeholder: "ex : 18 août 2023",
+      },
+    ],
+    mailString:
+      "Bonjour,\n\n Suite à la signature de la promesse de vente à votre profit intervenue le {{dateSignature}}, vous bénéficiez des dispositions de l’article L 271-1 du Code de la construction et de l’habitation qui vous accordent un délai de rétractation.\n\n A cet effet et conformément à votre accord, je vous notifie par lettre recommandée électronique avec accusé de réception la copie de la promesse de vente et de ses annexes.\n\n Pour répondre aux exigences des dispositions de l'article L 721-2 du Code de la construction et de l'habitation, je vous prie de bien vouloir trouver ci-joint : \n·	Le règlement de copropriété et l'état descriptif de division ainsi que tous leurs modificatifs éventuels publiés. \n·	Les procès-verbaux des assemblées générales des trois dernières années. \n·	Les informations financières suivantes : \n\t-	Le montant des charges courantes du budget prévisionnel et des charges hors budget prévisionnel payées par le vendeur sur les deux exercices précédant la vente. \n\t-	Les sommes susceptibles d'être dues au syndicat des copropriétaires par l'acquéreur. \n\t-	L'état global des impayés de charges au sein du syndicat et de la dette envers les fournisseurs. \n\t-	La quote-part du fonds de travaux attachée au lot principal vendu et le montant de la dernière cotisation au fonds versée par le vendeur au titre de son lot. \n·	Le carnet d'entretien de l'ENSEMBLE IMMOBILIER, \n·	La fiche synthétique de la copropriété, \n·	L’attestation d’immatriculation de la copropriété. \n\nDans un délai de dix jours à compter du lendemain de la première présentation de la présente lettre, vous pourrez exercer la faculté de rétractation, et ce par lettre recommandée avec accusé de réception envoyée à mon étude. \nA cet égard, il est rappelé qu’en vertu de l’article 642 du Code de procédure civile, le délai expirant un samedi, un dimanche, un jour férié ou chômé est prorogé jusqu’au premier jour ouvrable suivant. \nLes conséquences pourront être, selon votre choix, les suivantes : \n•	si vous entendez exercer cette faculté de rétractation dans le délai et la forme sus-indiqués, le compromis sera nul et non avenu et toute somme versée le cas échéant dans le cadre du compromis à un professionnel dépositaire des fonds devra vous être restituée dans un délai de vingt et un jours à compter du lendemain de la réception de cette rétractation ; \n•	si vous n’entendez pas exercer cette faculté de rétractation dans le délai sus-indiqué, le compromis produira son plein et entier effet. \n\nEtant rappelé que : \n•	en cas de pluralité d’acquéreurs, la rétractation d’un seul emportera automatiquement rétractation de tous à la convention ; \n•	toute rétractation devra être pure et simple sans condition ni réserve. \n\nVous en souhaitant bonne réception, \nEt restant à votre disposition pour tous renseignements complémentaires, \n\nSincères salutations",
+  },
+  attestationTravaux: {
+    input: [
+      {
+        type: "text",
+        id: "reference",
+        label: "Référence de la facture des travaux",
+        placeholder: "ex : facture n°9128",
+      },
+      {
+        type: "text",
+        id: "annee",
+        label: "Année de réalisation des travaux",
+        placeholder: "ex : 2023",
+      },
+    ],
+    mailString:
+      "Vos refs: {{reference}}\n\nBonjour,\n\n Je suis en charge de la vente d’un bien sur lequel des travaux ont été réalisés par votre entreprise au cours de l’année {{annee}}, et dont vous trouverez la facture ci-jointe.\n\n Afin de me permettre de compléter mon dossier, je vous remercie de bien vouloir me faire passer l’attestation d’assurance responsabilité décennale couvrant la période de réalisation desdits travaux.\n\n Vous remerciant par avance de votre diligence,\n Et restant à votre disposition,\n\n Sincères salutations",
+  },
 };
 
 export default EmailData;
