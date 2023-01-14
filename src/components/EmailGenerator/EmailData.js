@@ -285,6 +285,114 @@ const EmailData = {
     mailString:
       "Bonjour,\n\nTout d'abord, je tiens à vous remercier pour votre confiance et j’espère que nos services vous ont apporté une totale satisfaction.\n\nComme convenu, vous trouverez ci-joint :\n*  l'acte qui vient d'être signé, \n{{attestation}}{{decompte}}{{prorata}}{{google}}\n\n{{RIB}}Me tenant à votre entière disposition pour tout renseignement,\n\nSincères salutations",
   },
+  copieActe: {
+    input: [
+      {
+        type: "text",
+        id: "lots",
+        label: "Indiquer les numéros des lots vendus",
+        placeholder: "ex : 15, 18 et 35",
+      },
+      {
+        type: "text",
+        id: "adresse",
+        label: "Indiquer l'adresse du bien",
+        placeholder: "ex : 35 rue de la Liberté - 75000 PARIS",
+      },
+      {
+        type: "text",
+        id: "notaire",
+        label: "Indiquer le nom du notaire ayant reçu l'acte",
+        placeholder: "ex : Laurent DUPONT",
+      },
+      {
+        type: "radio",
+        id: "successeur",
+        label: "L'acte demandé a-t-il été reçu par le prédécesseur ?",
+        valueObj: [
+          {
+            subLabel: "oui",
+            value: "votre prédécesseur,",
+          },
+          {
+            subLabel: "non",
+            value: "",
+          },
+        ],
+      },
+      {
+        type: "text",
+        id: "type",
+        label: "Indiquer le type d'acte",
+        placeholder: "ex : vente",
+      },
+      {
+        type: "text",
+        id: "dateActe",
+        label: "Indiquer la date de l'acte",
+        placeholder: "ex : 30 août 1974",
+      },
+      {
+        type: "text",
+        id: "publicite",
+        label: "Indiquer les références de publication",
+        placeholder: "ex : VANVES 1, le 30 août...",
+      },  
+    ],
+    mailString:
+      "Mon Cher Maître,\n\nJe viens vers vous dans le cadre de la vente des lots {{lots}}, sur un immeuble sis à {{adresse}}, dont j’ai la charge.\n\nMaître {{notaire}}, {{successeur}} avait reçu un acte contenant {{type}} en date du {{dateActe}}, publié au Service de la Publicité Foncière de {{publicite}}.\n\nJe vous remercie de bien vouloir me faire passer, par retour de courriel, la copie dudit acte.\n\nVous remerciant par avance de votre diligence,\n\nBien sûr, je reste à votre disposition pour le règlement de tous frais de copie,\n\nJe vous prie de me croire,\n\nVotre bien dévoué",
+  },
+  copiePlan: {
+    input: [
+      {
+        type: "text",
+        id: "lots",
+        label: "Indiquer les numéros des lots vendus",
+        placeholder: "ex : 15, 18 et 35",
+      },
+      {
+        type: "text",
+        id: "adresse",
+        label: "Indiquer l'adresse du bien",
+        placeholder: "ex : 35 rue de la Liberté - 75000 PARIS",
+      },
+      {
+        type: "text",
+        id: "notaire",
+        label: "Indiquer le nom du notaire ayant reçu l'acte",
+        placeholder: "ex : Laurent DUPONT",
+      },
+      {
+        type: "radio",
+        id: "successeur",
+        label: "L'acte demandé a-t-il été reçu par le prédécesseur ?",
+        valueObj: [
+          {
+            subLabel: "oui",
+            value: "votre prédécesseur,",
+          },
+          {
+            subLabel: "non",
+            value: "",
+          },
+        ],
+      },
+      {
+        type: "text",
+        id: "dateActe",
+        label: "Indiquer la date de l'acte",
+        placeholder: "ex : 30 août 1974",
+      },
+      {
+        type: "text",
+        id: "publicite",
+        label: "Indiquer les références de publication",
+        placeholder: "ex : VANVES 1, le 30 août...",
+      },  
+    ],
+    mailString:
+      "Mon Cher Maître,\n\nJe viens vers vous dans le cadre de la vente des lots {{lots}}, sur un immeuble sis à {{adresse}}, dont j’ai la charge.\n\nMaître {{notaire}},{{successeur}}avait reçu l’Etat descriptif de division – Règlement de copropriété concernant cet immeuble, suivant acte en date du {{dateActe}}, publié au Service de la Publicité Foncière de {{publicite}}. Aussi, je vous remercie de bien vouloir me faire passer par retour de courriel les plans des lots annexés audit règlement\n\nVous remerciant par avance de votre diligence,\n\nBien sûr, je reste à votre disposition pour le règlement de tous frais de copie,\n\nJe vous prie de me croire,\n\nVotre bien dévoué",
+  },
 };
 
 export default EmailData;

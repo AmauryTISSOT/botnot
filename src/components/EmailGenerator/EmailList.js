@@ -28,6 +28,14 @@ const emailListData = [
         value: "copieActeSuiteSignature",
         question: "Envoi copie d'acte suite à signature",
       },
+      {
+        value: "copieActe",
+        question: "Demande copie d'acte",
+      },
+      {
+        value: "copiePlan",
+        question: "Demande copie plans",
+      },
     ],
   },
   {
