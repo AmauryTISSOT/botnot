@@ -24,6 +24,10 @@ const emailListData = [
         value: "digicode",
         question: "Envoi information digicode",
       },
+      {
+        value: "copieActeSuiteSignature",
+        question: "Envoi copie d'acte suite à signature",
+      },
     ],
   },
   {
