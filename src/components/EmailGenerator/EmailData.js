@@ -393,6 +393,24 @@ const EmailData = {
     mailString:
       "Mon Cher Maître,\n\nJe viens vers vous dans le cadre de la vente des lots {{lots}}, sur un immeuble sis à {{adresse}}, dont j’ai la charge.\n\nMaître {{notaire}},{{successeur}}avait reçu l’Etat descriptif de division – Règlement de copropriété concernant cet immeuble, suivant acte en date du {{dateActe}}, publié au Service de la Publicité Foncière de {{publicite}}. Aussi, je vous remercie de bien vouloir me faire passer par retour de courriel les plans des lots annexés audit règlement\n\nVous remerciant par avance de votre diligence,\n\nBien sûr, je reste à votre disposition pour le règlement de tous frais de copie,\n\nJe vous prie de me croire,\n\nVotre bien dévoué",
   },
+  demandeTestament: {
+    input: [
+      {
+        type: "text",
+        id: "nomDefunt",
+        label: "Indiquer le nom du défunt",
+        placeholder: "ex : Mme Marie DUPONT",
+      },
+      {
+        type: "text",
+        id: "dateFCDDV",
+        label: "Indiquer le nom du défunt",
+        placeholder: "ex : 13 janvier 1999",
+      },
+    ],
+    mailString:
+      "Mon Cher Maître,\n\nJe viens vers vous dans le cadre de la succession de {{nomDefunt}}, dont j’ai la charge.\n\nA la consultation du FCDDV, dont vous trouverez copie ci-jointe, il apparait une inscription concernant un acte reçu par votre office en date du {{dateFCDDV}}.\nJe vous remercie de bien vouloir m’indiquer de quel acte il s’agit, et le cas échéant, de bien vouloir procéder à son dépôt ou enregistrement, après m’en avoir préalablement fait passer copie.\n\nBien sûr, je reste à votre disposition pour tout règlement des frais subséquents.\n\nVous remerciant par avance de votre diligence,\nEt restant à votre disposition,\n\nBien cordialement,\nVotre bien dévoué",
+  },
 };
 
 export default EmailData;

@@ -68,6 +68,15 @@ const emailListData = [
       },
     ],
   },
+  {
+    type: "Succession",
+    query: [
+      {
+        value: "demandeTestament",
+        question: "Demande testament / DEE",
+      },
+    ],
+  },
 ];
 
 export default emailListData;
