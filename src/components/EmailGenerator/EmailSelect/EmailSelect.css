@@ -1,0 +1,30 @@
+.question-list {
+  padding: 20px;
+  font-size: 16px;
+  text-align: center;
+  border: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+}
+
+.question-container {
+  display: grid;
+  column-gap: 50px;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 10px;
+  gap: 35px;
+}
+
+.email-link:hover{
+    cursor: pointer;
+    background-color: lightgray;
+    color: black;
+}
+
+.question-link-list {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    gap: 8px;
+}

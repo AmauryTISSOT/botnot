@@ -1,0 +1,31 @@
+.copypaste-container {
+    position: relative;
+    background-color: #202020;
+    margin: 50px 50px 50px 50px;
+    padding: 34px 16px 32px 32px;
+    width: 85%;
+    text-align: left;
+    font-size: 85%;
+    tab-size: 2;
+    min-height: 1em;
+    white-space: pre;
+    max-width: 100%;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.copypaste-container:hover {
+    overflow-x: scroll;
+}
+
+.copypaste-button {
+    position: absolute;
+    top: 15px;
+    right: 7px;
+}
+
+.copypaste-button:hover {
+    cursor: pointer;
+    background-color: rgb(62, 62, 70);
+    color: white;
+}
