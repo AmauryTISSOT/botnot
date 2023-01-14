@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CopyPasteElement from "../CopyPasteElement/CopyPasteElement";
+import "./EmailVariable.css";
 
 const EmailVariable = (props) => {
   const [inputState, setInputState] = useState(null);
@@ -33,7 +34,7 @@ const EmailVariable = (props) => {
   // function who return textInput html
   const textInput = (id, label, placeholder) => {
     return (
-      <div key={id}>
+      <div key={id} className="input-text-container">
         <label htmlFor={id}>{label}</label>
         <input
           type="text"
@@ -49,9 +50,9 @@ const EmailVariable = (props) => {
   //function who return radioInput html
   const radioInput = (id, label, valueObj) => {
     return (
-      <div key={id}>
-        <label>
-          {label}
+      <label key={id} className="input-radio-container">
+        {label}
+        <div className="input-radio-button">
           {valueObj.map((element, key) => (
             <div key={key}>
               <input
@@ -65,15 +66,15 @@ const EmailVariable = (props) => {
               <label htmlFor={id}>{element.subLabel}</label>
             </div>
           ))}
-        </label>
-      </div>
+        </div>
+      </label>
     );
   };
 
   // function who return selectInput html
   const selectInput = (id, label, value) => {
     return (
-      <div key={id}>
+      <div key={id} className="input-select-container">
         <label htmlFor={id}>{label}</label>
         <select id={id} data-testid={`test-${id}`} onChange={onFillHandler}>
           <option value="">--Sélectionner une option--</option>
@@ -93,20 +94,26 @@ const EmailVariable = (props) => {
 
   return (
     <>
-      {props.data[props.emailValue].input.map((e) => {
-        switch (e.type) {
-          case "text":
-            return textInput(e.id, e.label, e.placeholder);
-          case "radio":
-            return radioInput(e.id, e.label, e.valueObj);
-          case "select":
-            return selectInput(e.id, e.label, e.value);
-          default:
-            return <div>Error no data available</div>;
-        }
-      })}
-
-      <CopyPasteElement content={contentState} />
+    {console.log(props.data[props.emailValue].input.length)}
+      <div className="email-generator-container">
+        {props.data[props.emailValue].input.length !== 0 && (
+          <div className="form-container">
+            {props.data[props.emailValue].input.map((e) => {
+              switch (e.type) {
+                case "text":
+                  return textInput(e.id, e.label, e.placeholder);
+                case "radio":
+                  return radioInput(e.id, e.label, e.valueObj);
+                case "select":
+                  return selectInput(e.id, e.label, e.value);
+                default:
+                  return <div>Error no data available</div>;
+              }
+            })}
+          </div>
+        )}
+        <CopyPasteElement content={contentState} />
+      </div>
     </>
   );
 };

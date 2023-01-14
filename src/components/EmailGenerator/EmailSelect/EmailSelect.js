@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import EmailVariable from "../EmailVariable/EmailVariable";
 import EmailData from "../EmailData";
+import "./EmailSelect.css";
 
 const EmailSelect = ({ emailList }) => {
   const [emailSelected, setEmailSelected] = useState("");
@@ -15,24 +16,26 @@ const EmailSelect = ({ emailList }) => {
     return (
       <>
         <h1>Sélectionner un modèle de mail</h1>
-
-        {Object.values(emailList).map((email, number) => (
-          <div key={email.type.toString()}>
-            <h2>{email.type}</h2>
-            <ul>
-              {email.query.map((email1, number1) => (
-                <li
-                  key={number1}
-                  id={email1.value}
-                  data-testid="question-element"
-                  onClick={clickHandler}
-                >
-                  {email1.question}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <div className="question-container">
+          {Object.values(emailList).map((email, number) => (
+            <div className="question-list" key={email.type.toString()}>
+              <h2>{email.type}</h2>
+              <ul className="question-link-list">
+                {email.query.map((email1, number1) => (
+                  <li
+                    key={number1}
+                    id={email1.value}
+                    data-testid="question-element"
+                    onClick={clickHandler}
+                    className="email-link"
+                  >
+                    {email1.question}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </>
     );
   };
