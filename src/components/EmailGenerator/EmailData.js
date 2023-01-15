@@ -78,7 +78,7 @@ const EmailData = {
       },
     ],
     mailString:
-      "- Nom du vendeur : {{vendeurName}}\n- Immeuble : {{adresse}}\n- N° de(s) lot(s) : {{numeroLot}}\n- Nom de l’acquéreur : {{acquereurName}}\n- Date du compromis : {{date}}\n\nBonjour,\n\nJe me permets de venir vers vous concernant une vente dans la copropriété située {{adresse}}.\n\nEn l’espèce, {{vendeurName}} vend(ent) à {{acquereurName}}, le(s) lot(s) : {{numeroLot}}.\n\nUn rendez-vous de signature de l’avant contrat est fixé pour le {{date}}.\n\nVous voudrez bien me faire parvenir les documents suivants pour cette date :\n•	les procès-verbaux des assemblées générales des trois dernières années,\n•	le montant des charges du budget prévisionnel et des charges hors budget prévisionnel dues par le vendeur sur les deux exercices précédant la vente,\n•	les sommes pouvant rester dues par le vendeur au syndicat des copropriétaires et les sommes qui seront dues au syndicat par l'acquéreur,\n•	l'état global des impayés des charges au sein du syndicat,\n•	la quote-part du fonds de travaux attachée au lot principal vendu,\n•	le carnet d'entretien de l'immeuble,\n•	le diagnostic technique global,\n•	la fiche synthétique technique copropriété,\n•	la copie du règlement de copropriété et l'état descriptif de division ainsi que tous leurs modificatifs éventuels publiés.\n\nVous remerciant par avance,\n\nDans l’attente,\n\nSincères salutations",
+      "- Nom du vendeur : {{vendeurName}}\n- Immeuble : {{adresse}}\n- N° de(s) lot(s) : {{numeroLot}}\n- Nom de l’acquéreur : {{acquereurName}}\n- Date du compromis : {{date}}\n\nBonjour,\n\nJe me permets de venir vers vous concernant une vente dans la copropriété située {{adresse}}.\n\nEn l’espèce, {{vendeurName}} vend(ent) à {{acquereurName}}, le(s) lot(s) : {{numeroLot}}.\n\nUn rendez-vous de signature de l’avant contrat est fixé pour le {{date}}.\n\nVous voudrez bien me faire parvenir les documents suivants pour cette date :\n•	les procès-verbaux des assemblées générales des trois dernières années,\n•	le montant des charges du budget prévisionnel et des charges hors budget prévisionnel dues par le vendeur sur les deux exercices précédant la vente,\n•	les sommes pouvant rester dues par le vendeur au syndicat des copropriétaires et les sommes qui seront dues au syndicat par l'acquéreur,\n•	l'état global des impayés des charges au sein du syndicat,\n•	la quote-part du fonds de travaux attachée au lot principal vendu,\n•	le carnet d'entretien de l'immeuble,\n•	le diagnostic technique global,\n•	la fiche synthétique technique copropriété,\n•	la copie du règlement de copropriété et l'état descriptif de division ainsi que tous leurs modificatifs éventuels publiés.\n\nPour le cas où l’un des éléments ci-dessus n’aurait pas été établi, vous voudrez bien m’en faire la confirmation par retour de mail.\n\nEnfin, pour le cas où des procédures seraient en cours sur la copropriété, je vous remercie par avance de bien vouloir m’en indiquer la teneur et le stade d’avancement.\n\nVous remerciant par avance,\n\nDans l’attente,\n\nSincères salutations",
   },
   envoiDecompteAcquereur: {
     input: [
@@ -465,6 +465,33 @@ const EmailData = {
     input: [],
     mailString:
       "Bonjour,\n\nJe reviens vers vous suite à votre mail dans le cadre du dossier ci-dessus cité en objet. Malheureusement, le secret professionnel couvrant notre profession ne nous permet pas de communiquer ce type de document et d’information, sauf demande expresse et écrite émanant du client lui-même.\n\nAussi, je vous encourage à vous rapprocher de ce-dernier / cette-dernière, de manière à ce qu’il / qu’elle nous renouvelle cette demande directement.\n\nVous remerciant par avance de votre compréhension,\nEt restant à votre disposition,\n\nSincères salutations",
+  },
+  relanceSyndic: {
+    input: [
+      {
+        type: "text",
+        id: "date",
+        label: "Indiquer la date du précédent mail",
+        placeholder: "ex : 12 avril 2011",
+      },
+      {
+        type: "select",
+        id: "type",
+        label: "Selectioner le type d'acte :",
+        value: [
+          "promesse",
+          "vente",
+        ],
+      },
+      {
+        type: "text",
+        id: "dateVente",
+        label: "Indiquer la date de signature",
+        placeholder: "ex : 30 avril 2011",
+      },
+    ],
+    mailString:
+      "Bonjour,\n\nJe viens vers vous suite à mon mail en date du {{date}}, resté sans réponse à ce jour.\n\nLa {{type}} devant intervenir le {{dateVente}}, je vous remercie de bien vouloir y apporter une réponse rapide.\n\nEn vous remerciant pour votre aide,\n\nSincères salutations",
   },
 };
 

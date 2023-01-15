@@ -15,6 +15,10 @@ const emailListData = [
         value: "demandePretEtatDate",
         question: "Demande de prêt état daté",
       },
+      {
+        value: "relanceSyndic",
+        question: "Relance syndic",
+      },
     ],
   },
   {
