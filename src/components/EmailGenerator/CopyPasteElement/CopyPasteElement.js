@@ -1,15 +1,24 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import "./CopyPasteElement.css"
+import "./CopyPasteElement.css";
 
 const CopyPasteElement = ({ content }) => {
+  const [copyIsClicked, setCopyIsClicked] = useState(false);
+
+  const onCopy = useCallback(() => {
+    setCopyIsClicked(true);
+  }, []);
+
   return (
-    <div className="copypaste-container">
-      <CopyToClipboard text={content}>
-        <button className="copypaste-button">Copy</button>
-      </CopyToClipboard>
-      <pre>{content}</pre>
-    </div>
+    <>
+      <div className="copypaste-container">
+        <CopyToClipboard text={content} onCopy={onCopy}>
+          <button className="copypaste-button">Copy</button>
+        </CopyToClipboard>
+        <pre>{content}</pre>
+      </div>
+      {copyIsClicked && <div>Copied to clipboard</div>}
+    </>
   );
 };
 
