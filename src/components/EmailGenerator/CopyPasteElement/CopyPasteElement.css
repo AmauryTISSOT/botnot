@@ -49,3 +49,17 @@
     from {opacity: 1;}
     to {opacity: 0;}
 }
+
+.retour-button {
+    position: absolute;
+    left: 100px;
+    top: 90px;
+    padding: 6px 12px;
+    font-weight: bold;
+}
+
+.retour-button:hover {
+    cursor: pointer;
+    background-color: rgb(62, 62, 70);
+    color: white;
+}

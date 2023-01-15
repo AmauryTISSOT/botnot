@@ -20,6 +20,12 @@ const CopyPasteElement = ({ content }) => {
       {copyIsClicked && (
         <div className="copy-to-clip-board-button">Copied to clipboard</div>
       )}
+      <button
+        className="retour-button"
+        onClick={() => window.location.reload()}
+      >
+        Retour
+      </button>
     </>
   );
 };
