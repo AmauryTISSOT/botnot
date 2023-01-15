@@ -70,6 +70,10 @@ const emailListData = [
         value: "attestationTravaux",
         question: "Travaux : demande d'attestation d'assurance décennale",
       },
+      {
+        value: "DHL",
+        question: "DHL PARIS : demande d'information",
+      },
     ],
   },
   {

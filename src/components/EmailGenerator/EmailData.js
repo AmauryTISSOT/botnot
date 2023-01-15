@@ -337,7 +337,7 @@ const EmailData = {
         id: "publicite",
         label: "Indiquer les références de publication",
         placeholder: "ex : VANVES 1, le 30 août...",
-      },  
+      },
     ],
     mailString:
       "Mon Cher Maître,\n\nJe viens vers vous dans le cadre de la vente des lots {{lots}}, sur un immeuble sis à {{adresse}}, dont j’ai la charge.\n\nMaître {{notaire}}, {{successeur}} avait reçu un acte contenant {{type}} en date du {{dateActe}}, publié au Service de la Publicité Foncière de {{publicite}}.\n\nJe vous remercie de bien vouloir me faire passer, par retour de courriel, la copie dudit acte.\n\nVous remerciant par avance de votre diligence,\n\nBien sûr, je reste à votre disposition pour le règlement de tous frais de copie,\n\nJe vous prie de me croire,\n\nVotre bien dévoué",
@@ -388,7 +388,7 @@ const EmailData = {
         id: "publicite",
         label: "Indiquer les références de publication",
         placeholder: "ex : VANVES 1, le 30 août...",
-      },  
+      },
     ],
     mailString:
       "Mon Cher Maître,\n\nJe viens vers vous dans le cadre de la vente des lots {{lots}}, sur un immeuble sis à {{adresse}}, dont j’ai la charge.\n\nMaître {{notaire}},{{successeur}}avait reçu l’Etat descriptif de division – Règlement de copropriété concernant cet immeuble, suivant acte en date du {{dateActe}}, publié au Service de la Publicité Foncière de {{publicite}}. Aussi, je vous remercie de bien vouloir me faire passer par retour de courriel les plans des lots annexés audit règlement\n\nVous remerciant par avance de votre diligence,\n\nBien sûr, je reste à votre disposition pour le règlement de tous frais de copie,\n\nJe vous prie de me croire,\n\nVotre bien dévoué",
@@ -415,6 +415,51 @@ const EmailData = {
     input: [],
     mailString:
       "Bonjour,\n\nJe reviens vers vous dans le cadre de l'affaire citée en objet.\nComme convenu, vous trouverez en pièce jointe une procuration à me retourner après avoir apposé vos initiales en bas de la chaque page, complété le lieu et la date et signé en dernière page.\n\nJ’attire votre attention sur le fait que vous devrez faire certifier votre signature soit par un Notaire, soit par le Maire ou l'Officier d'Etat Civil de votre commune, cette formalité étant obligatoire.\nPour cela, vous compléterez la procuration comme indiqué ci-dessus, devant cette personne.\n\nDans un premier temps, je vous remercie de bien vouloir me faire parvenir la procuration directement par courriel, puis de me faire parvenir l'original par voie postale ?\n\nVous remerciant par avance de votre diligence,\nEt restant à votre disposition pour toute information complémentaire,\n\nSincères salutations",
+  },
+  DHL: {
+    input: [
+      {
+        type: "select",
+        id: "arrondissement",
+        label: "Selectioner l'arrondissement",
+        value: [
+          "75001",
+          "75002",
+          "75003",
+          "75004",
+          "75005",
+          "75006",
+          "75007",
+          "75008",
+          "75009",
+          "75010",
+          "75011",
+          "75012",
+          "75013",
+          "75014",
+          "75015",
+          "75016",
+          "75017",
+          "75018",
+          "75019",
+          "75020",
+        ],
+      },
+      {
+        type: "text",
+        id: "rue",
+        label: "Indiquer le nom de la rue",
+        placeholder: "ex : 30 rue de la Mairie",
+      },
+      {
+        type: "text",
+        id: "cadastre",
+        label: "Indiquer les références cadastrales",
+        placeholder: "ex : CZ 50",
+      },
+    ],
+    mailString:
+      "Madame, Monsieur,\n\nJe me permets de venir vers vous dans le cadre du dossier de vente cité en objet, portant sur un immeuble sis à PARIS ({{arrondissement}}), {{rue}}, et figurant au cadastre sous le numéro {{cadastre}}.\n\nAussi, vous saurais-je gré de bien vouloir me confirmer par retour de courrier les dispositions relatives à l’immeuble concernant :\n• INSALUBRITE: Si l’immeuble fait l’objet de mesures d’insalubrité prises en application des articles 1331-22 et suivants du Code de la Santé Publique ;\n•	PERIL & INSECURITE: Si l’immeuble fait l’objet d’arrêtés municipaux pris en application des articles L511-1 à L511-7, R511-1 à R511-12, L129-1 à L129-7, et R129-1 à 129-9 du Code de la Construction et de l’Habitation ;\n•	EXPOSITION AU PLOMB & LUTTE CONTRE LE SATURNISME: Si l’immeuble fait l’objet de mesures de protection contre l’exposition au plomb ;\n•	LUTTE CONTRE LES TERMITES: Si l’immeuble est situé dans une zone contaminée par les termites ou susceptible de l’être en application des dispositions du Code de la Construction et de l’Habitation ;\n•	ASSAINISSEMENT: Si l’immeuble est raccordé au système d’assainissement de la ville de Paris ;\n•	RAVALEMENT: Si l’immeuble fait l’objet d’arrêtés municipaux pris en mesure de ravalement en application des articles 132-1 et suivants du Code de la Construction et de l’Habitation.\n\nVous remerciant par avance de votre diligence,\nEt restant à votre disposition, Bien cordialement,\n\nSincères salutations,",
   },
 };
 
