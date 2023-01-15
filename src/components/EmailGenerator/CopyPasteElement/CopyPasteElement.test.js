@@ -6,8 +6,8 @@ import CopyPasteElement from "./CopyPasteElement";
 describe("CopyPasteElement unit testing", () => {
   test("should render correctly", () => {
     render(<CopyPasteElement />);
-    const preElement = screen.getByRole("generic");
-    expect(preElement).toBeInTheDocument();
+    const preElement = screen.getByTestId("pre");
+    expect(preElement).toBeInTheDocument()
   });
   test("should render props correctly", () => {
     render(<CopyPasteElement content={"test"} />);
@@ -16,7 +16,7 @@ describe("CopyPasteElement unit testing", () => {
   });
   test("copy button should render correctly", () => {
     render(<CopyPasteElement />);
-    const buttonElement = screen.getByRole("button");
+    const buttonElement = screen.getByText("Copy");
     expect(buttonElement).toBeInTheDocument();
   });
 

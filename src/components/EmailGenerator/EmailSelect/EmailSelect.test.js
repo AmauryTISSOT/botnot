@@ -51,7 +51,7 @@ describe("EmailSelect unit testing", () => {
     expect(titleElement).toHaveLength(2);
 
     const listElement = screen.getAllByRole("listitem");
-    expect(listElement).toHaveLength(2);
+    expect(listElement).toHaveLength(4);
 
     const questionElement = screen.getAllByTestId("question-element");
     expect(questionElement).toHaveLength(4);

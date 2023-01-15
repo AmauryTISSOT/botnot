@@ -52,7 +52,7 @@ const OrganismeApi = ({ state }) => {
       })
       .then((response) => response.json())
       .then((apiData) => {
-        console.log("request succeeded with JSON response", apiData);
+        // console.log("request succeeded with JSON response", apiData);
         setInternalState((prev) => ({
           ...prev,
           [organisme]: apiData,
