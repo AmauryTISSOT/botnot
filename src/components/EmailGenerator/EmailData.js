@@ -461,6 +461,11 @@ const EmailData = {
     mailString:
       "Madame, Monsieur,\n\nJe me permets de venir vers vous dans le cadre du dossier de vente cité en objet, portant sur un immeuble sis à PARIS ({{arrondissement}}), {{rue}}, et figurant au cadastre sous le numéro {{cadastre}}.\n\nAussi, vous saurais-je gré de bien vouloir me confirmer par retour de courrier les dispositions relatives à l’immeuble concernant :\n• INSALUBRITE: Si l’immeuble fait l’objet de mesures d’insalubrité prises en application des articles 1331-22 et suivants du Code de la Santé Publique ;\n•	PERIL & INSECURITE: Si l’immeuble fait l’objet d’arrêtés municipaux pris en application des articles L511-1 à L511-7, R511-1 à R511-12, L129-1 à L129-7, et R129-1 à 129-9 du Code de la Construction et de l’Habitation ;\n•	EXPOSITION AU PLOMB & LUTTE CONTRE LE SATURNISME: Si l’immeuble fait l’objet de mesures de protection contre l’exposition au plomb ;\n•	LUTTE CONTRE LES TERMITES: Si l’immeuble est situé dans une zone contaminée par les termites ou susceptible de l’être en application des dispositions du Code de la Construction et de l’Habitation ;\n•	ASSAINISSEMENT: Si l’immeuble est raccordé au système d’assainissement de la ville de Paris ;\n•	RAVALEMENT: Si l’immeuble fait l’objet d’arrêtés municipaux pris en mesure de ravalement en application des articles 132-1 et suivants du Code de la Construction et de l’Habitation.\n\nVous remerciant par avance de votre diligence,\nEt restant à votre disposition, Bien cordialement,\n\nSincères salutations,",
   },
+  secret: {
+    input: [],
+    mailString:
+      "Bonjour,\n\nJe reviens vers vous suite à votre mail dans le cadre du dossier ci-dessus cité en objet. Malheureusement, le secret professionnel couvrant notre profession ne nous permet pas de communiquer ce type de document et d’information, sauf demande expresse et écrite émanant du client lui-même.\n\nAussi, je vous encourage à vous rapprocher de ce-dernier / cette-dernière, de manière à ce qu’il / qu’elle nous renouvelle cette demande directement.\n\nVous remerciant par avance de votre compréhension,\nEt restant à votre disposition,\n\nSincères salutations",
+  },
 };
 
 export default EmailData;

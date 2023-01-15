@@ -40,6 +40,10 @@ const emailListData = [
         value: "procuration",
         question: "Envoi procuration",
       },
+      {
+        value: "secret",
+        question: "Réponse secret professionnel",
+      },
     ],
   },
   {
