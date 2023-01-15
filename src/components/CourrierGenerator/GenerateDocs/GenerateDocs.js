@@ -5,7 +5,7 @@ import doc from "../Example"
 import CourrierForm from "../CourrierComponent/CourrierForm/CourrierForm";
 import CopyPasteElement from "../../EmailGenerator/CopyPasteElement/CopyPasteElement";
 
-const GenerateDocs = () => {
+const GenerateDocs = (props) => {
 
   const generate = () => {
     Packer.toBlob(doc).then((blob) => {
@@ -19,6 +19,7 @@ const GenerateDocs = () => {
     <>
       {/* <CourrierForm/> */}
       {/* <CopyPasteElement content={'test123aze'}/> */}
+      <h1>{props.value}</h1>
       <button onClick={generate}>Générer</button>
     </>
   );
