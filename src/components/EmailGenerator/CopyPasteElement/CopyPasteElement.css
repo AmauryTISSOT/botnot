@@ -29,3 +29,23 @@
     background-color: rgb(62, 62, 70);
     color: white;
 }
+
+.copy-to-clip-board-button {
+    background-color: rgb(47, 47, 47);
+    color: white;
+    position: fixed;
+    bottom: 40px;
+    z-index: 100000;
+    border-radius: 3px;
+    padding: 6px 12px;
+    box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px;
+    animation-name: vanish;
+    animation-delay: 2s;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes vanish {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}

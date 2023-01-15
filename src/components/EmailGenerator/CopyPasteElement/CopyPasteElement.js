@@ -17,7 +17,9 @@ const CopyPasteElement = ({ content }) => {
         </CopyToClipboard>
         <pre>{content}</pre>
       </div>
-      {copyIsClicked && <div>Copied to clipboard</div>}
+      {copyIsClicked && (
+        <div className="copy-to-clip-board-button">Copied to clipboard</div>
+      )}
     </>
   );
 };
