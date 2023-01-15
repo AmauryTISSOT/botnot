@@ -94,7 +94,6 @@ const EmailVariable = (props) => {
 
   return (
     <>
-    {console.log(props.data[props.emailValue].input.length)}
       <div className="email-generator-container">
         {props.data[props.emailValue].input.length !== 0 && (
           <div className="form-container">
