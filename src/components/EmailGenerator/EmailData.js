@@ -411,6 +411,11 @@ const EmailData = {
     mailString:
       "Mon Cher Maître,\n\nJe viens vers vous dans le cadre de la succession de {{nomDefunt}}, dont j’ai la charge.\n\nA la consultation du FCDDV, dont vous trouverez copie ci-jointe, il apparait une inscription concernant un acte reçu par votre office en date du {{dateFCDDV}}.\nJe vous remercie de bien vouloir m’indiquer de quel acte il s’agit, et le cas échéant, de bien vouloir procéder à son dépôt ou enregistrement, après m’en avoir préalablement fait passer copie.\n\nBien sûr, je reste à votre disposition pour tout règlement des frais subséquents.\n\nVous remerciant par avance de votre diligence,\nEt restant à votre disposition,\n\nBien cordialement,\nVotre bien dévoué",
   },
+  procuration: {
+    input: [],
+    mailString:
+      "Bonjour,\n\nJe reviens vers vous dans le cadre de l'affaire citée en objet.\nComme convenu, vous trouverez en pièce jointe une procuration à me retourner après avoir apposé vos initiales en bas de la chaque page, complété le lieu et la date et signé en dernière page.\n\nJ’attire votre attention sur le fait que vous devrez faire certifier votre signature soit par un Notaire, soit par le Maire ou l'Officier d'Etat Civil de votre commune, cette formalité étant obligatoire.\nPour cela, vous compléterez la procuration comme indiqué ci-dessus, devant cette personne.\n\nDans un premier temps, je vous remercie de bien vouloir me faire parvenir la procuration directement par courriel, puis de me faire parvenir l'original par voie postale ?\n\nVous remerciant par avance de votre diligence,\nEt restant à votre disposition pour toute information complémentaire,\n\nSincères salutations",
+  },
 };
 
 export default EmailData;

@@ -36,6 +36,10 @@ const emailListData = [
         value: "copiePlan",
         question: "Demande copie plans",
       },
+      {
+        value: "procuration",
+        question: "Envoi procuration",
+      },
     ],
   },
   {
