@@ -67,6 +67,10 @@ const emailListData = [
         question: "Envoi décompte acquéreur - déblocage des fonds",
       },
       {
+        value: "relanceDeblocageFonds",
+        question: "Relance déblocage des fonds",
+      },
+      {
         value: "suiteSignaturePuv",
         question: "Suite signature PUV - information",
       },

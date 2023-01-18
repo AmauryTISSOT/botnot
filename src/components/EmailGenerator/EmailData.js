@@ -493,6 +493,24 @@ const EmailData = {
     mailString:
       "Bonjour,\n\nJe viens vers vous suite à mon mail en date du {{date}}, resté sans réponse à ce jour.\n\nLa {{type}} devant intervenir le {{dateVente}}, je vous remercie de bien vouloir y apporter une réponse rapide.\n\nEn vous remerciant pour votre aide,\n\nSincères salutations",
   },
+  relanceDeblocageFonds: {
+    input: [
+      {
+        type: "text",
+        id: "date",
+        label: "Indiquer le jour du rendez-vous",
+        placeholder: "ex : 12 avril 2011",
+      },
+      {
+        type: "text",
+        id: "heure",
+        label: "Indiquer l'heure du rendez-vous",
+        placeholder: "ex : 11h30",
+      },
+    ],
+    mailString:
+    "Bonjour,\n\nJe reviens vers vous dans le cadre du dossier visé en objet, dont le rendez-vous est prévu le {{date}} à {{heure}}.\n\nJe reste dans l'attente de réception des fonds et vous remercie de bien vouloir me confirmer que le nécessaire a bien été fait auprès de votre banque.\n\nJe me permets de vous rappeler que la réception de l'intégralité de ces fonds est indispensable au maintien du rendez-vous de signature, qui, à défaut, devra être reporté\n\nN'oubliez pas de venir munis de :\n-	votre carte d'identité,\n-	votre RIB signé,\n-	votre carnet de chèque de manière à régler les différents proratas,\n-	votre attestation d'assurance incendie.\n\nJe reste à votre disposition pour toute information complémentaire\n\nSincères salutations",
+  },
 };
 
 export default EmailData;
