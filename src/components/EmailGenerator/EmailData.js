@@ -511,6 +511,12 @@ const EmailData = {
     mailString:
     "Bonjour,\n\nJe reviens vers vous dans le cadre du dossier visé en objet, dont le rendez-vous est prévu le {{date}} à {{heure}}.\n\nJe reste dans l'attente de réception des fonds et vous remercie de bien vouloir me confirmer que le nécessaire a bien été fait auprès de votre banque.\n\nJe me permets de vous rappeler que la réception de l'intégralité de ces fonds est indispensable au maintien du rendez-vous de signature, qui, à défaut, devra être reporté\n\nN'oubliez pas de venir munis de :\n-	votre carte d'identité,\n-	votre RIB signé,\n-	votre carnet de chèque de manière à régler les différents proratas,\n-	votre attestation d'assurance incendie.\n\nJe reste à votre disposition pour toute information complémentaire\n\nSincères salutations",
   },
+  matriceCadastrale: {
+    input: [
+    ],
+    mailString:
+    "Madame,\n\nMonsieur,\n\nJe viens vers vous en ma qualité de notaire en charge de la vente ci-dessus citée en objet.\n\nJe vous remercie de bien vouloir me délivrer un extrait de matrice cadastrale conformément à la demande ci-jointe.\n\nVous remerciant par avance de votre diligence,\n\nEt restant à votre disposition pour tous renseignements complémentaires,\n\nSincères salutations",
+  },
 };
 
 export default EmailData;
