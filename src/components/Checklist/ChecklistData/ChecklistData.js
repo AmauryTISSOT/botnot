@@ -100,8 +100,8 @@ const checkListData = {
       checked: false,
     },
     { id: 15, text: "Envoyer le courrier", checked: false },
-    { id: 16, text: "", checked: false },
   ],
+  // { id: 16, text: "", checked: false },
 };
 
 export default checkListData;
