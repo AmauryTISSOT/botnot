@@ -1,0 +1,24 @@
+
+.checklist-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.checklist-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.checkbox {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+}
+
+.checklist-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
