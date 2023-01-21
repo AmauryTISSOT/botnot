@@ -40,6 +40,9 @@ const DropDownMenu = (props) => {
           <DropDownItem>
             <Link to="/outils/emailGenerator">Génerateur de mail</Link>
           </DropDownItem>
+          <DropDownItem>
+            <Link to="/outils/checklistGenerator">Génerateur de checklist</Link>
+          </DropDownItem>
         </div>
       </CSSTransition>
 
