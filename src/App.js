@@ -8,8 +8,10 @@ import CustomerQuiz from "./components/checkboxComponents/CustomerQuiz/CustomerQ
 import Outils from "./pages/Outils/Outils";
 import VenteAppartement from "./components/checkboxComponents/VenteAppartement/VenteAppartement";
 import EmailGenerator from "./components/EmailGenerator/EmailGenerator";
-import GenerateDocs from "./components/CourrierGenerator/GenerateDocs/GenerateDocs"
+import GenerateDocs from "./components/CourrierGenerator/GenerateDocs/GenerateDocs";
 import CourrierGenerator from "./components/CourrierGenerator/CourrierGenerator";
+import ChecklistSelect from "./components/Checklist/ChecklistSelect/ChecklistSelect";
+import ChecklistListData from "./components/Checklist/ChecklistData/ChecklistListData";
 
 function App() {
   return (
@@ -21,9 +23,10 @@ function App() {
         <Route path="outils" element={<Outils />}>
           <Route path="annuaire" element={<Annuaire />} />
           <Route path="customerquiz" element={<CustomerQuiz />} />
-          <Route path="venteAppartement" element={<VenteAppartement/>}/>
-          <Route path="courrierGenerator" element={<CourrierGenerator/>}/>
-          <Route path="emailGenerator" element={<EmailGenerator/>}/>
+          <Route path="venteAppartement" element={<VenteAppartement />} />
+          <Route path="courrierGenerator" element={<CourrierGenerator />} />
+          <Route path="emailGenerator" element={<EmailGenerator />} />
+          <Route path="checklistGenerator" element={<ChecklistSelect checklistList={ChecklistListData} />} />
         </Route>
       </Routes>
     </div>
