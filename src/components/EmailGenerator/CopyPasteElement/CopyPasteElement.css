@@ -1,6 +1,6 @@
 .copypaste-container {
     position: relative;
-    background-color: #202020;
+    background-color: var(--background-color);
     margin: 50px 50px 50px 50px;
     padding: 34px 16px 32px 32px;
     width: 85%;
@@ -12,6 +12,8 @@
     max-width: 100%;
     word-break: break-all;
     overflow: hidden;
+    border: 2px solid var(--font-color);
+    border-radius: 5px;
 }
 
 .copypaste-container:hover {
@@ -35,7 +37,7 @@
     color: white;
     position: fixed;
     bottom: 40px;
-    z-index: 100000;
+    z-index: 10000;
     border-radius: 3px;
     padding: 6px 12px;
     box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px;

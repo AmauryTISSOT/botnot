@@ -1,8 +1,8 @@
 .customerquizsummary-container {
-  border: 2px solid white;
+  border: 2px solid var(--background-color);
   margin: 50px 100px;
-  background-color: white;
-  color: black;
+  background-color: var(--background-color);
+  color: var(--font-color)
 }
 
 .customerquizsummary-dossier {
