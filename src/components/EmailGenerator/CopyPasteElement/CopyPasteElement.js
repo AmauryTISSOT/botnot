@@ -7,6 +7,9 @@ const CopyPasteElement = ({ content }) => {
 
   const onCopy = useCallback(() => {
     setCopyIsClicked(true);
+    setTimeout(() => {
+      setCopyIsClicked(false);
+    }, 5000);
   }, []);
 
   return (
