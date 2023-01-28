@@ -7,11 +7,11 @@ import Annuaire from "./components/Annuaire/Annuaire";
 import CustomerQuiz from "./components/checkboxComponents/CustomerQuiz/CustomerQuiz";
 import Outils from "./pages/Outils/Outils";
 import VenteAppartement from "./components/checkboxComponents/VenteAppartement/VenteAppartement";
-import EmailGenerator from "./components/EmailGenerator/EmailGenerator";
-import GenerateDocs from "./components/CourrierGenerator/GenerateDocs/GenerateDocs";
 import CourrierGenerator from "./components/CourrierGenerator/CourrierGenerator";
 import ChecklistSelect from "./components/Checklist/ChecklistSelect/ChecklistSelect";
 import ChecklistListData from "./components/Checklist/ChecklistData/ChecklistListData";
+import EmailDisplay from "./components/EmailGenerator/EmailDisplay/EmailDisplay";
+import EmailSelect from "./components/EmailGenerator/EmailSelect/EmailSelect";
 
 function App() {
   return (
@@ -25,7 +25,8 @@ function App() {
           <Route path="customerquiz" element={<CustomerQuiz />} />
           <Route path="venteAppartement" element={<VenteAppartement />} />
           <Route path="courrierGenerator" element={<CourrierGenerator />} />
-          <Route path="emailGenerator" element={<EmailGenerator />} />
+          <Route path="emailGenerator" element={<EmailSelect/>}/>
+          <Route path="emailGenerator/:emailId" element={<EmailDisplay/>}/>
           <Route path="checklistGenerator" element={<ChecklistSelect checklistList={ChecklistListData} />} />
         </Route>
       </Routes>
