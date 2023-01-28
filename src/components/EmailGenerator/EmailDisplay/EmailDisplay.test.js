@@ -54,6 +54,8 @@ describe("EmailDisplay unit testing", () => {
       </MemoryRouter>
     );
 
+    //FIXME: working on test
+
     const textInputElement = screen.getByTestId("test-test1");
     expect(textInputElement).toBeInTheDocument();
 
