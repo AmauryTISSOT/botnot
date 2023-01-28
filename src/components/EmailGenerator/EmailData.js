@@ -519,4 +519,4 @@ const EmailData = {
   },
 };
 
-export default EmailData;
+export {EmailData};
