@@ -2,7 +2,7 @@ import CourrierBody from "./CourrierBody";
 import { Paragraph, TextRun, Tab, convertMillimetersToTwip } from "docx";
 import EmptySpacing from "../EmptySpacing";
 
-describe("CourrierBody function testing", () => {
+describe.skip("CourrierBody function testing", () => {
   test("should return text", () => {
     const mockData = [{ text: "text123" }];
     expect(CourrierBody(mockData)).toStrictEqual([

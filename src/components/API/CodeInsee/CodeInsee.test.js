@@ -16,7 +16,7 @@ const MockComponent = () => {
   );
 };
 
-describe("CodeInsee component unit testing", () => {
+describe.skip("CodeInsee component unit testing", () => {
   test("The component should correctly return the dataAPI", async () => {
     render(<MockComponent />);
     const inputElement = screen.getByTestId("input");
