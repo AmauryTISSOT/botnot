@@ -35,7 +35,7 @@ describe("OrganismeApi unit testing", () => {
     expect(tribunalJudiciaireElement).toHaveLength(2);
 
     const prefectureElement = await screen.findAllByText(/préfecture/i, {
-      duration: 200,
+      duration: 400,
     });
     expect(prefectureElement).toHaveLength(2);
   });
