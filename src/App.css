@@ -19,7 +19,11 @@ a {
 .App {
   text-align: center;
   background-color: var(--background-color);
+  background-size: cover;
   height: 100vh;
   color: var(--font-color);
 }
 
+html {
+   min-height: 100%;
+}
