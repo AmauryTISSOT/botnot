@@ -69,7 +69,7 @@ const AutoCompleteAdresse = ({setState}) => {
       })
       .then((response) => response.json())
       .then((apiData) => {
-        console.log("request succeeded with JSON response", apiData);
+        // console.log("request succeeded with JSON response", apiData);
         apiData.features.forEach((item) => {
           setData((oldArray) => [...oldArray, item]);
         });
