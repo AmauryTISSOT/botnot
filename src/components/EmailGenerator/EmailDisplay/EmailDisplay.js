@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import CopyPasteElement from "../CopyPasteElement/CopyPasteElement";
-import {EmailData as data} from "../EmailData";
+import { EmailData as data } from "../EmailData";
 import "./EmailDisplay.css";
+import NoMatch from "../../../pages/NoMatch/NoMatch";
 
 const EmailDisplay = () => {
   const [inputState, setInputState] = useState(null);
   const [contentState, setContentState] = useState(null);
 
-  const {emailId} = useParams()
-  console.log("EmailID", emailId)
+  const { emailId } = useParams();
 
   useEffect(() => {
-  const dataValue = data[emailId].mailString;
-    setContentState(stringTemplateParser(dataValue, inputState));
+    try {
+      const dataValue = data[emailId].mailString;
+      setContentState(stringTemplateParser(dataValue, inputState));
+    } catch (error) {
+      console.warn(error.message);
+    }
   }, [inputState, emailId]);
 
   // function who send input data to state
@@ -97,29 +101,35 @@ const EmailDisplay = () => {
     );
   };
 
-  return (
-    <>
-      <div className="email-generator-container">
-        {data[emailId].input.length !== 0 && (
-          <div className="form-container">
-            {data[emailId].input.map((e) => {
-              switch (e.type) {
-                case "text":
-                  return textInput(e.id, e.label, e.placeholder);
-                case "radio":
-                  return radioInput(e.id, e.label, e.valueObj);
-                case "select":
-                  return selectInput(e.id, e.label, e.value);
-                default:
-                  return <div>Error no data available</div>;
-              }
-            })}
-          </div>
-        )}
-        <CopyPasteElement content={contentState} />
-      </div>
-    </>
-  );
+  try {
+    return (
+      <>
+        <div className="email-generator-container">
+          {data[emailId].input.length !== 0 && (
+            <div className="form-container">
+              {data[emailId].input.map((e) => {
+                switch (e.type) {
+                  case "text":
+                    return textInput(e.id, e.label, e.placeholder);
+                  case "radio":
+                    return radioInput(e.id, e.label, e.valueObj);
+                  case "select":
+                    return selectInput(e.id, e.label, e.value);
+                  default:
+                    return <div>Error no data available</div>;
+                }
+              })}
+            </div>
+          )}
+          <CopyPasteElement content={contentState} />
+        </div>
+      </>
+    );
+  } catch (error) {
+    return (
+        <NoMatch />
+    );
+  }
 };
 
 export default EmailDisplay;
