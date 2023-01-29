@@ -1,0 +1,17 @@
+.backtohome {
+    color: blue;
+}
+
+.backtohome:hover{
+    text-decoration: underline;
+}
+
+.backgroundNoMatch {
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: black;
+}
