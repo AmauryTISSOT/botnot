@@ -5,56 +5,15 @@ import EmailDisplay from "./EmailDisplay";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter, Route, Routes } from "react-router";
 
-// const mockData = {
-//   test: {
-//     input: [
-//       {
-//         type: "text",
-//         id: "test1",
-//         label: "testing label-1",
-//         placeholder: "0,00 €",
-//       },
-//       {
-//         type: "radio",
-//         id: "test2",
-//         label: "testing label-2",
-//         valueObj: [
-//           {
-//             subLabel: "oui",
-//             value: "yes",
-//           },
-//           {
-//             subLabel: "non",
-//             value: "no",
-//           },
-//         ],
-//       },
-//       {
-//         type: "select",
-//         id: "test3",
-//         label: "testing label-3",
-//         value: ["option one", "option two"],
-//       },
-//     ],
-//     mailString:
-//       "This is a test. The variable 1 is {{test1}}. The variable 2 is {{test2}}. The variable 3 is {{test3}} ",
-//   },
-// };
-
 describe("EmailDisplay unit testing", () => {
   test("should render correctly", () => {
-
     render(
-      <MemoryRouter initialEntries={[]}>
+      <MemoryRouter initialEntries={["/emailGenerator/test"]}>
         <Routes>
-          <Route path="emailGenerator/:emailID">
-            <EmailDisplay/>
-          </Route>
+          <Route path="/emailGenerator/:emailId" element={<EmailDisplay />} />
         </Routes>
       </MemoryRouter>
     );
-
-    //FIXME: working on test
 
     const textInputElement = screen.getByTestId("test-test1");
     expect(textInputElement).toBeInTheDocument();
@@ -69,9 +28,14 @@ describe("EmailDisplay unit testing", () => {
     expect(selectInputElement).toBeInTheDocument();
   });
 
-  test.skip("input should work correctly", () => {
-    render(<EmailDisplay/>)
-    
+  test("input should work correctly", () => {
+    render(
+      <MemoryRouter initialEntries={["/emailGenerator/test"]}>
+        <Routes>
+          <Route path="/emailGenerator/:emailId" element={<EmailDisplay />} />
+        </Routes>
+      </MemoryRouter>
+    );
 
     const textInputElement = screen.getByPlaceholderText("0,00 €");
     fireEvent.change(textInputElement, { target: { value: "10000" } });
@@ -89,5 +53,18 @@ describe("EmailDisplay unit testing", () => {
       "This is a test. The variable 1 is 10000. The variable 2 is yes. The variable 3 is option one"
     );
     expect(copyEmailElement).toBeInTheDocument();
+  });
+
+  test("should handle error correctly", () => {
+    render(
+      <MemoryRouter initialEntries={["/emailGenerator/123"]}>
+        <Routes>
+          <Route path="/emailGenerator/:emailId" element={<EmailDisplay />} />
+        </Routes>
+      </MemoryRouter>
+    );
+
+    const error404 = screen.getByText(/error 404/i);
+    expect(error404).toBeInTheDocument();
   });
 });
