@@ -109,6 +109,7 @@ const checkListData = {
     { id: 1, text: "Noter les références cadastrales figurant dans le titre de propriété", checked: false },
     { id: 2, text: "Noter les références cadastrales figurant dans le modèle 1", checked: false },
     { id: 3, text: "Effectuer une demande d'hypothécaire sur l'ensemble des parcelles notées", checked: false },
+    { id: 4, text: "Si le bien est situé en copropriété, effectuer une demande sur l’assise sans les lots, + une demande sur l’assise aves les lots, idem si lot volume", checked: false },
   ],
   decompte : [
     { id: 1, text: "Vérifier la date du rendez-vous", checked: false },
