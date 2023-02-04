@@ -47,7 +47,11 @@ const checklistList = [
       {
         value: "formaPret",
         question: "Formalités postérieure acte de prêt",
-      }
+      },
+      {
+        value: "clauseEtude",
+        question: "Clauses étude à pointer",
+      },
     ]
   }
 ];

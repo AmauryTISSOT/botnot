@@ -296,6 +296,19 @@ const checkListData = {
       checked: false,
     },
   ],
+  clauseEtude : [
+    { id: 1, text: "Désignation de l’immeuble \ déclaration des parties concernant la désignation", checked: false },
+    { id: 2, text: "Plans des lots", checked: false },
+    { id: 3, text: "Etat du bien", checked: false },
+    { id: 4, text: "Modification salle d’eau \ cuisine", checked: false },
+    { id: 5, text: "Sanibroyeur", checked: false },
+    { id: 6, text: "Assainissement", checked: false },
+    { id: 7, text: "Entretien annuel chaudière", checked: false },
+    { id: 8, text: "Entretien conduit cheminée", checked: false },
+    { id: 9, text: "Bien destiné à la location", checked: false },
+    { id: 10, text: "Situation des parcelles voisines", checked: false },
+    { id: 11, text: "Sinistre pendant la durée de la promesse", checked: false },
+  ],
   // { id: 1, text: "", checked: false },
 };
 
