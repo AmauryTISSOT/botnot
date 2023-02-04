@@ -150,6 +150,18 @@ const checkListData = {
     { id: 10, text: "Vérifier la date d'obtention du prêt", checked: false },
     { id: 11, text: "Vérifier la date de signature", checked: false },
     { id: 12, text: "Vérifier si notaire en concours", checked: false },
+  ],
+  formaVente : [
+    { id: 1, text: "Signer l'acte informatiquement", checked: false },
+    { id: 2, text: "Générer répertoire informatique", checked: false },
+    { id: 3, text: "Générer la fiche perval (envoyer)", checked: false },
+    { id: 4, text: "Transmettre les virements internes", checked: false },
+    { id: 5, text: "Transmettre les virements externes", checked: false },
+    { id: 6, text: "Envoyer une copie AAE de l'acte aux parties par mail", checked: false },
+    { id: 7, text: "Vérifier que la pré-taxe a été établie", checked: false },
+    { id: 8, text: "Si vente en copropriété : notification art 20 + art 6", checked: false },
+    { id: 9, text: "Pochette minute papier", checked: false },
+    { id: 10, text: "Scanner le RIB des clients signés", checked: false },
   ]
   // { id: 1, text: "", checked: false },
 };

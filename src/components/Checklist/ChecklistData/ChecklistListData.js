@@ -39,6 +39,10 @@ const checklistList = [
       {
         value: "analyseCompromisAgence",
         question: "Analyse d'un compromis d'agence",
+      },
+      {
+        value: "formaVente",
+        question: "Formalités postérieure acte de vente",
       }
     ]
   }
