@@ -44,6 +44,10 @@ const checklistList = [
         value: "formaVente",
         question: "Formalités postérieure acte de vente",
       }
+      {
+        value: "formaPret",
+        question: "Formalités postérieure acte de prêt",
+      }
     ]
   }
 ];
