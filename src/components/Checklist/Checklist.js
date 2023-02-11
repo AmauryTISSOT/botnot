@@ -28,11 +28,15 @@ const Checklist = () => {
               <input
                 className="checkbox"
                 type="checkbox"
-                onClick={() => handleCheckboxClick(item.id)}
+                checked={item.checked}
+                onClick={() => handleCheckboxClick(item.id)
+                }
               />
+              {console.log( item.id, item.checked)}
               <label
                 data-testid={item.id}
                 style={{ textDecoration: item.checked ? "line-through" : "none" }}
+                onClick={() => handleCheckboxClick(item.id)}
               >
                 {item.text}
               </label>
