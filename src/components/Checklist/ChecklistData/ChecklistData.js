@@ -309,6 +309,16 @@ const checkListData = {
     { id: 10, text: "Situation des parcelles voisines", checked: false },
     { id: 11, text: "Sinistre pendant la durée de la promesse", checked: false },
   ],
+  minute: [
+    { id: 1, text: "Choisir la pochette minute pour l'année en cours (2023 = bleue", checked: false },
+    { id: 2, text: "Indiquer les initiales du clerc en charge du dossier", checked: false },
+    { id: 3, text: "Indiquer le nom du notaire participant", checked: false },
+    { id: 4, text: "Indiquer si le notaire participant est présent ou non", checked: false },
+    { id: 5, text: "Indiquer le nom du dossier (ex: vente entre M. DUPONT et Mme PAUL", checked: false },
+    { id: 6, text: "Indiquer les numéros des comptes comptables", checked: false },
+    { id: 7, text: "Cocher le lieu de l'étude", checked: false },
+    { id: 8, text: "Ranger le dossier dans l'armoire", checked: false },
+  ]
   // { id: 1, text: "", checked: false },
 };
 

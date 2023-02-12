@@ -27,6 +27,10 @@ const checklistList = [
         value: "decompte",
         question: "Décompte",
       },
+      {
+        value: "minute",
+        question: "Pochette Minute",
+      },
     ],
   },
   {
