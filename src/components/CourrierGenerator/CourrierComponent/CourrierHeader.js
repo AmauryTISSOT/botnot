@@ -1,4 +1,4 @@
-import BlobImage from "/home/amaury/repos/botnot/src/utils/KeyExists/BlobImage.js"
+import BlobImage from "/home/amaury/repos/botnot/src/utils/BlobImage.js"
 import HeaderImg from "../Images/Header.png";
 import { Header, Paragraph, ImageRun } from "docx";
 

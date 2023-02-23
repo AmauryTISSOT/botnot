@@ -1,6 +1,6 @@
 import { Paragraph, convertMillimetersToTwip, ImageRun } from "docx";
 import SignatureImg from "../Images/signature.png";
-import BlobImage from "/home/amaury/repos/botnot/src/utils/KeyExists/BlobImage.js"
+import BlobImage from "/home/amaury/repos/botnot/src/utils/BlobImage.js"
 
 const CourrierSignature = (notaryName) => {
   return [
