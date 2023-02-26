@@ -4,12 +4,12 @@ describe('EtatCivilParser unit testing', () => {
     test('should return correct data with celibataire', () => {
         const test = EtatCivilParser("Madame Danielle Marie Jeanne DUPONT, Directrice d'usine, demeurant à PARIS (75001) 1 rue inconnue. Née à BOURG-ARGENTAL (42220), le 4 septembre 1900. Célibataire. Non liée par un pacte civil de solidarité. De nationalité française. Non résident au sens de la réglementation fiscale.")
 
-        expect(test).toBe({
+        expect(test).toStrictEqual({
             sex: 'female',
             name: ['Danielle', 'Marie', 'Jeanne'],
             birthName : 'DUPONT',
             surname: NaN,
-            job: "Directice d'usine",
+            job: "Directrice d'usine",
             address: "1 rue inconnue",
             town: 'PARIS',
             postalCode: '75001',
