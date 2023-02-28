@@ -104,9 +104,27 @@ const EtatCivilParser = (data) => {
   const PlaceOfBirthPostalCode = /\(([^)]+)\)/g.exec(sentences[1])[1];
 
   const Single = () => {
-    return data.includes("Célibataire")
+    return data.includes("Célibataire");
+  };
+
+  const Pacs = () => {
+    return !data.includes(
+      "Non liée par un pacte civil de solidarité" ||
+        "Non lié par un pacte civil de solidarité"
+    );
+  };
+
+  const Married = () => {
+    return data.includes("Mariés")
   }
 
+  const Divorced = () => {
+    return data.includes("Divorcée" || "Divorcé");
+  };
+
+  const Widow = () => {
+    return data.includes("Veuve" || "Veuf")
+  }
 
   //TODO: nationality
   console.log(data);
@@ -124,10 +142,10 @@ const EtatCivilParser = (data) => {
     placeOfBirthPostalCode: PlaceOfBirthPostalCode,
     dateOfBirth: DateOfBirth,
     single: Single(),
-    pacs: false,
-    married: false,
-    divorced: false,
-    widow: false,
+    pacs: Pacs(),
+    married: Married(),
+    divorced: Divorced(),
+    widow: Widow(),
     nationality: "française",
   };
 };
