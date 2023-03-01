@@ -108,26 +108,31 @@ const EtatCivilParser = (data) => {
   };
 
   const Pacs = () => {
-    return !data.includes(
-      "Non liée par un pacte civil de solidarité" ||
-        "Non lié par un pacte civil de solidarité"
-    );
+    const conditions = [
+      "Non liée par un pacte civil de solidarité",
+      "Non lié par un pacte civil de solidarité"
+    ];
+
+    return !conditions.some((element) => data.includes(element));
   };
 
   const Married = () => {
-    return data.includes("Mariés")
-  }
+    return data.includes("Mariés");
+  };
 
   const Divorced = () => {
-    return data.includes("Divorcée" || "Divorcé");
+    const conditions = ["Divorcée", "Divorcé"];
+    return conditions.some((element) => data.includes(element));
   };
 
   const Widow = () => {
-    return data.includes("Veuve" || "Veuf")
-  }
+    return data.includes("Veuve" || "Veuf");
+  };
 
-  //TODO: nationality
-  console.log(data);
+  const Nationality = () => {
+    const index = sentences.findIndex((str) => /De nationalité/i.test(str));
+    return sentences[index].split(" ")[3];
+  };
 
   return {
     sex: Sex(),
@@ -146,7 +151,7 @@ const EtatCivilParser = (data) => {
     married: Married(),
     divorced: Divorced(),
     widow: Widow(),
-    nationality: "française",
+    nationality: Nationality(),
   };
 };
 
