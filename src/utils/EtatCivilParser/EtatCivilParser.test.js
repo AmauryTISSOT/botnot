@@ -25,10 +25,12 @@ describe('EtatCivilParser unit testing', () => {
         })
         
     })
-    test.skip('should return correct data with mariré', () => {
+    test('should return correct data with marié', () => {
+        const test = EtatCivilParser("Monsieur Daniel Roland Michel DUPONT, retraité, et Madame Catherine Bernadette Françoise PATRICK, retraitée, demeurant ensemble à PARIS 12ÈME ARRONDISSEMENT (75012) 15 rue Inconnue. Monsieur est né à TOURS (37000) le 27 juillet 1900, Madame est née à BLOIS (41000) le 28 avril 2000. Mariés à la mairie de TOURS (37000) le 29 janvier 2000 sous le régime de la communauté d’acquêts à défaut de contrat de mariage préalable. Ce régime matrimonial n'a pas fait l'objet de modification. Monsieur est de nationalité française. Madame est de nationalité française. Résidents au sens de la réglementation fiscale.")
 
     })
     test.skip('should return correct data with pacs', () => {
+        const test = EtatCivilParser("Monsieur Guillaume Louis Marie DUPONT, courtier , demeurant à PARIS 13ÈME ARRONDISSEMENT (75013) 66 rue inconnue. Né à PARIS 12ÈME ARRONDISSEMENT (75012) le 21 juin 2000. Célibataire. De nationalité française. Résident au sens de la réglementation fiscale. Et Madame Laure Chantal Jeanne Alberte PATRICK, directrice de programme immobilier, demeurant à PARIS 13ÈME ARRONDISSEMENT (75013) 1 rue inconnue . Née à PARIS 14ÈME ARRONDISSEMENT (75014) le 26 septembre 2009. Célibataire. De nationalité française. Résidente au sens de la réglementation fiscale. Ayant conclu entre eux un pacte civil de solidarité sous le régime de la séparation de biens, le 29 novembre 1900, enregistré  de PARIS 13ÈME ARRONDISSEMENT le 29 novembre 1900. Contrat non modifié depuis lors.")
     
     })
     test('should return correct data with divorcé', () => {
