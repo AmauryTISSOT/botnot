@@ -126,4 +126,9 @@ describe("EtatCivilParser unit testing", () => {
       nationality: "française",
     });
   });
+  test("should handle error input", () => {
+    expect(() => {
+      EtatCivilParser("error input");
+    }).toThrowError("Error input");
+  });
 });
