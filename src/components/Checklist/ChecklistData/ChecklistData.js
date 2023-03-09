@@ -213,7 +213,27 @@ const checkListData = {
     { id: 17, text: "Créer la fiche PERVAL", checked: false },
     {
       id: 18,
-      text: 'Ranger le dossier dans la pile "En attente "',
+      text: 'Ranger le dossier dans la pile "En attente"',
+      checked: false,
+    },
+    {
+      id: 19,
+      text: "Rajouter une alerte outlook dans les 10 jours pour versement du dépôt de garantie",
+      checked: false,
+    },
+    {
+      id: 20,
+      text: "Créer les comptes en comptablités (compte primaire pour l'acquéreur, secondaire pour le vendeur",
+      checked: false,
+    },
+    {
+      id: 21,
+      text: "Vérifier qui ouvre le dossier : le cas échéant créer une alerte dans les 15 jours",
+      checked: false,
+    },
+    {
+      id: 22,
+      text: "Créer une pochette minute pour la promesse de vente",
       checked: false,
     },
   ],
@@ -296,8 +316,12 @@ const checkListData = {
       checked: false,
     },
   ],
-  clauseEtude : [
-    { id: 1, text: "Désignation de l’immeuble / déclaration des parties concernant la désignation", checked: false },
+  clauseEtude: [
+    {
+      id: 1,
+      text: "Désignation de l’immeuble / déclaration des parties concernant la désignation",
+      checked: false,
+    },
     { id: 2, text: "Plans des lots", checked: false },
     { id: 3, text: "Etat du bien", checked: false },
     { id: 4, text: "Modification salle d’eau / cuisine", checked: false },
@@ -307,20 +331,48 @@ const checkListData = {
     { id: 8, text: "Entretien conduit cheminée", checked: false },
     { id: 9, text: "Bien destiné à la location", checked: false },
     { id: 10, text: "Situation des parcelles voisines", checked: false },
-    { id: 11, text: "Sinistre pendant la durée de la promesse", checked: false },
+    {
+      id: 11,
+      text: "Sinistre pendant la durée de la promesse",
+      checked: false,
+    },
   ],
   minute: [
-    { id: 1, text: "Choisir la pochette minute pour l'année en cours (2023 = bleue)", checked: false },
-    { id: 9, text: "Indiquer le numéro de dossier informatique", checked: false },
-    { id: 2, text: "Indiquer les initiales du clerc en charge du dossier", checked: false },
+    {
+      id: 1,
+      text: "Choisir la pochette minute pour l'année en cours (2023 = bleue)",
+      checked: false,
+    },
+    {
+      id: 9,
+      text: "Indiquer le numéro de dossier informatique",
+      checked: false,
+    },
+    {
+      id: 2,
+      text: "Indiquer les initiales du clerc en charge du dossier",
+      checked: false,
+    },
     { id: 3, text: "Indiquer le nom du notaire participant", checked: false },
-    { id: 4, text: "Indiquer si le notaire participant est présent ou non", checked: false },
+    {
+      id: 4,
+      text: "Indiquer si le notaire participant est présent ou non",
+      checked: false,
+    },
     { id: 10, text: "Indiquer la date de signature de l'acte", checked: false },
-    { id: 5, text: "Indiquer le nom du dossier (ex: vente entre M. DUPONT et Mme PAUL)", checked: false },
-    { id: 6, text: "Indiquer les numéros des comptes comptables", checked: false },
+    {
+      id: 5,
+      text: "Indiquer le nom du dossier (ex: vente entre M. DUPONT et Mme PAUL)",
+      checked: false,
+    },
+    {
+      id: 6,
+      text: "Indiquer les numéros des comptes comptables",
+      checked: false,
+    },
     { id: 7, text: "Cocher le lieu de l'étude", checked: false },
     { id: 8, text: "Ranger le dossier dans l'armoire", checked: false },
-  ]
+  ],
   // { id: 1, text: "", checked: false },
 };
 
