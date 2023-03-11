@@ -373,6 +373,12 @@ const checkListData = {
     { id: 7, text: "Cocher le lieu de l'étude", checked: false },
     { id: 8, text: "Ranger le dossier dans l'armoire", checked: false },
   ],
+  fixationRdvVente: [
+    { id: 1, text: "Vérifier que la notification SRU a été purgée", checked: false },
+    { id: 2, text: "Vérifier l'absence de droit de préemption urbain ou que la DIA a été purgée", checked: false },
+    { id: 3, text: "Vérifier l'absence de garantie hypothécaire ou accord de remboursement anticipé obtenu", checked: false },
+    { id: 4, text: "Relancer le syndic pour l'obtention de l'état daté et du certificat art 20-II : date de signature - 48h", checked: false },
+  ]
   // { id: 1, text: "", checked: false },
 };
 

@@ -45,6 +45,10 @@ const checklistList = [
         question: "Analyse d'un compromis d'agence",
       },
       {
+        value: "fixationRdvVente",
+        question: "Fixation rendez-vous acte de vente",
+      },
+      {
         value: "formaVente",
         question: "Formalités postérieure acte de vente",
       },
