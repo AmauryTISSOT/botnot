@@ -56,6 +56,10 @@ const emailListData = [
         value: "matriceCadastrale",
         question: "Demande de matrice cadastrale",
       },
+      {
+        value: "projet",
+        question: "Envoi projet d'acte",
+      },
     ],
   },
   {

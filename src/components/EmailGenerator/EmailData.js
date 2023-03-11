@@ -561,6 +561,39 @@ const EmailData = {
     mailString:
       "Je vous confirme le rendez-vous en visioconférence fixé le {{date}}, à {{heure}}.\n\n- Si vous êtes déjà abonné à la visioconférence ADNOV :\n\t- A l'heure du rendez-vous, démarrez votre équipement de visioconférence\n\t- Composez le numéro: {{reunion}}{{reunion1}}\n\t- Lancez l’appel\n\n- Si vous n’êtes pas équipé d'un système de visioconférence ADNOV :\n\t- cliquez sur le lien suivant pour rejoindre la réunion : https://call.lifesizecloud.com/{{reunion}}{{reunion1}}\n\t- Saisissez votre nom\n\t- Cliquez sur 'Rejoindre'\n\t- Cliquez sur 'Joindre'\n\nVous pouvez également à partir d'un téléphone, composer le 09 70 73 55 53 (service et appel gratuits), puis une fois en communication saisissez le numéro  14821777 suivi de #.\n\nBien cordialement,\n\nVotre bien dévoué,",
   },
+  projet : {
+    input : [
+      {
+        type: "text",
+        id: "date",
+        label: "Indiquer le jour du rendez-vous",
+        placeholder: "ex : 12 avril 2011",
+      },
+      {
+        type: "text",
+        id: "heure",
+        label: "Indiquer l'heure du rendez-vous",
+        placeholder: "ex : 11h30",
+      },
+      {
+        type: "radio",
+        id: "vente",
+        label: "Projet d'acte de vente ?",
+        valueObj: [
+          {
+            subLabel: "oui",
+            value: " de vente",
+          },
+          {
+            subLabel: "non",
+            value: "",
+          },
+        ],
+      },
+    ],
+    mailString :
+    "Bonjour,\n\nEn prévision du rendez-vous du {{date}}, à {{heure}}, je vous prie de trouver ci-joint un projet d'acte{{vente}} sur lequel vous voudrez bien me faire part de vos observations.\nCertains éléments sont en attente de confirmation ou de complément, d’où le surlignage en jaune.\n\nRestant à votre écoute,\n\nSincères salutations"
+  }
 };
 
 export { EmailData };
