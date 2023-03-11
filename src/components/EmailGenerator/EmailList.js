@@ -29,6 +29,10 @@ const emailListData = [
         question: "Envoi information digicode",
       },
       {
+        value: "visio",
+        question: "Visioconférence",
+      },
+      {
         value: "copieActeSuiteSignature",
         question: "Envoi copie d'acte suite à signature",
       },
@@ -86,10 +90,6 @@ const emailListData = [
         value: "attestationTravaux",
         question: "Travaux : demande d'attestation d'assurance décennale",
       },
-      {
-        value: "DHL",
-        question: "DHL PARIS : demande d'information",
-      },
     ],
   },
   {
@@ -98,6 +98,15 @@ const emailListData = [
       {
         value: "demandeTestament",
         question: "Demande testament / DEE",
+      },
+    ],
+  },
+  {
+    type: "Urbanisme",
+    query: [
+      {
+        value: "DHL",
+        question: "DHL PARIS : demande d'information",
       },
     ],
   },

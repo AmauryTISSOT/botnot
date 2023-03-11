@@ -459,7 +459,7 @@ const EmailData = {
       },
     ],
     mailString:
-      "Madame, Monsieur,\n\nJe me permets de venir vers vous dans le cadre du dossier de vente cité en objet, portant sur un immeuble sis à PARIS ({{arrondissement}}), {{rue}}, et figurant au cadastre sous le numéro {{cadastre}}.\n\nAussi, vous saurais-je gré de bien vouloir me confirmer par retour de courrier les dispositions relatives à l’immeuble concernant :\n• INSALUBRITE: Si l’immeuble fait l’objet de mesures d’insalubrité prises en application des articles 1331-22 et suivants du Code de la Santé Publique ;\n•	PERIL & INSECURITE: Si l’immeuble fait l’objet d’arrêtés municipaux pris en application des articles L511-1 à L511-7, R511-1 à R511-12, L129-1 à L129-7, et R129-1 à 129-9 du Code de la Construction et de l’Habitation ;\n•	EXPOSITION AU PLOMB & LUTTE CONTRE LE SATURNISME: Si l’immeuble fait l’objet de mesures de protection contre l’exposition au plomb ;\n•	LUTTE CONTRE LES TERMITES: Si l’immeuble est situé dans une zone contaminée par les termites ou susceptible de l’être en application des dispositions du Code de la Construction et de l’Habitation ;\n•	ASSAINISSEMENT: Si l’immeuble est raccordé au système d’assainissement de la ville de Paris ;\n•	RAVALEMENT: Si l’immeuble fait l’objet d’arrêtés municipaux pris en mesure de ravalement en application des articles 132-1 et suivants du Code de la Construction et de l’Habitation.\n\nVous remerciant par avance de votre diligence,\nEt restant à votre disposition, Bien cordialement,\n\nSincères salutations,",
+      "DLH-STH-Notaires@paris.fr\n\nMadame, Monsieur,\n\nJe me permets de venir vers vous dans le cadre du dossier de vente cité en objet, portant sur un immeuble sis à PARIS ({{arrondissement}}), {{rue}}, et figurant au cadastre sous le numéro {{cadastre}}.\n\nAussi, vous saurais-je gré de bien vouloir me confirmer par retour de courrier les dispositions relatives à l’immeuble concernant :\n• INSALUBRITE: Si l’immeuble fait l’objet de mesures d’insalubrité prises en application des articles 1331-22 et suivants du Code de la Santé Publique ;\n•	PERIL & INSECURITE: Si l’immeuble fait l’objet d’arrêtés municipaux pris en application des articles L511-1 à L511-7, R511-1 à R511-12, L129-1 à L129-7, et R129-1 à 129-9 du Code de la Construction et de l’Habitation ;\n•	EXPOSITION AU PLOMB & LUTTE CONTRE LE SATURNISME: Si l’immeuble fait l’objet de mesures de protection contre l’exposition au plomb ;\n•	LUTTE CONTRE LES TERMITES: Si l’immeuble est situé dans une zone contaminée par les termites ou susceptible de l’être en application des dispositions du Code de la Construction et de l’Habitation ;\n•	ASSAINISSEMENT: Si l’immeuble est raccordé au système d’assainissement de la ville de Paris ;\n•	RAVALEMENT: Si l’immeuble fait l’objet d’arrêtés municipaux pris en mesure de ravalement en application des articles 132-1 et suivants du Code de la Construction et de l’Habitation.\n\nVous remerciant par avance de votre diligence,\nEt restant à votre disposition, Bien cordialement,\n\nSincères salutations,",
   },
   secret: {
     input: [],
@@ -478,10 +478,7 @@ const EmailData = {
         type: "select",
         id: "type",
         label: "Selectioner le type d'acte :",
-        value: [
-          "promesse",
-          "vente",
-        ],
+        value: ["promesse", "vente"],
       },
       {
         type: "text",
@@ -509,14 +506,61 @@ const EmailData = {
       },
     ],
     mailString:
-    "Bonjour,\n\nJe reviens vers vous dans le cadre du dossier visé en objet, dont le rendez-vous est prévu le {{date}} à {{heure}}.\n\nJe reste dans l'attente de réception des fonds et vous remercie de bien vouloir me confirmer que le nécessaire a bien été fait auprès de votre banque.\n\nJe me permets de vous rappeler que la réception de l'intégralité de ces fonds est indispensable au maintien du rendez-vous de signature, qui, à défaut, devra être reporté\n\nN'oubliez pas de venir munis de :\n-	votre carte d'identité,\n-	votre RIB signé,\n-	votre carnet de chèque de manière à régler les différents proratas,\n-	votre attestation d'assurance incendie.\n\nJe reste à votre disposition pour toute information complémentaire\n\nSincères salutations",
+      "Bonjour,\n\nJe reviens vers vous dans le cadre du dossier visé en objet, dont le rendez-vous est prévu le {{date}} à {{heure}}.\n\nJe reste dans l'attente de réception des fonds et vous remercie de bien vouloir me confirmer que le nécessaire a bien été fait auprès de votre banque.\n\nJe me permets de vous rappeler que la réception de l'intégralité de ces fonds est indispensable au maintien du rendez-vous de signature, qui, à défaut, devra être reporté\n\nN'oubliez pas de venir munis de :\n-	votre carte d'identité,\n-	votre RIB signé,\n-	votre carnet de chèque de manière à régler les différents proratas,\n-	votre attestation d'assurance incendie.\n\nJe reste à votre disposition pour toute information complémentaire\n\nSincères salutations",
   },
   matriceCadastrale: {
+    input: [],
+    mailString:
+      "Madame,\n\nMonsieur,\n\nJe viens vers vous en ma qualité de notaire en charge de la vente ci-dessus citée en objet.\n\nJe vous remercie de bien vouloir me délivrer un extrait de matrice cadastrale conformément à la demande ci-jointe.\n\nVous remerciant par avance de votre diligence,\n\nEt restant à votre disposition pour tous renseignements complémentaires,\n\nSincères salutations",
+  },
+  visio: {
     input: [
+      {
+        type: "text",
+        id: "date",
+        label: "Indiquer le jour du rendez-vous",
+        placeholder: "ex : 12 avril 2011",
+      },
+      {
+        type: "text",
+        id: "heure",
+        label: "Indiquer l'heure du rendez-vous",
+        placeholder: "ex : 11h30",
+      },
+      {
+        type: "radio",
+        id: "reunion",
+        label: "Salle de réunion TMS",
+        valueObj: [
+          {
+            subLabel: "oui",
+            value: "14649670",
+          },
+          {
+            subLabel: "non",
+            value: "",
+          },
+        ],
+      },
+      {
+        type: "radio",
+        id: "reunion1",
+        label: "Salle de réunion JBI",
+        valueObj: [
+          {
+            subLabel: "oui",
+            value: "4808467",
+          },
+          {
+            subLabel: "non",
+            value: "no",
+          },
+        ],
+      },
     ],
     mailString:
-    "Madame,\n\nMonsieur,\n\nJe viens vers vous en ma qualité de notaire en charge de la vente ci-dessus citée en objet.\n\nJe vous remercie de bien vouloir me délivrer un extrait de matrice cadastrale conformément à la demande ci-jointe.\n\nVous remerciant par avance de votre diligence,\n\nEt restant à votre disposition pour tous renseignements complémentaires,\n\nSincères salutations",
+      "Je vous confirme le rendez-vous en visioconférence fixé le {{date}}, à {{heure}}.\n\n- Si vous êtes déjà abonné à la visioconférence ADNOV :\n\t- A l'heure du rendez-vous, démarrez votre équipement de visioconférence\n\t- Composez le numéro: {{reunion}}{{reunion1}}\n\t- Lancez l’appel\n\n- Si vous n’êtes pas équipé d'un système de visioconférence ADNOV :\n\t- cliquez sur le lien suivant pour rejoindre la réunion : https://call.lifesizecloud.com/{{reunion}}{{reunion1}}\n\t- Saisissez votre nom\n\t- Cliquez sur 'Rejoindre'\n\t- Cliquez sur 'Joindre'\n\nVous pouvez également à partir d'un téléphone, composer le 09 70 73 55 53 (service et appel gratuits), puis une fois en communication saisissez le numéro  14821777 suivi de #.\n\nBien cordialement,\n\nVotre bien dévoué,",
   },
 };
 
-export {EmailData};
+export { EmailData };
