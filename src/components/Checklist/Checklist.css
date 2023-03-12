@@ -22,3 +22,15 @@
     justify-content: center;
     align-items: center;
 }
+
+.checklist-reset {
+    width: min-content;
+    height: min-content;
+    margin-top: 30px;
+}
+
+.checklist-reset:hover {
+    cursor: pointer;
+    background-color: rgb(62, 62, 70);
+    color: white;
+}
