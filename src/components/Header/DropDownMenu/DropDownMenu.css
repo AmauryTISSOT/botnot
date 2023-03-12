@@ -13,16 +13,19 @@
 
 .menu {
   width: 100%;
+  /* z-index: 1; */
+  /* position: relative; */
 }
 
 .menu-item {
+  position: relative;
   height: 50px;
   display: flex;
   align-items: center;
   border-radius: 8px;
   transition: background 500ms;
   padding: 0.5rem;
-  z-index: 2;
+  /* z-index: 1; */
 }
 
 .menu-item > a {
