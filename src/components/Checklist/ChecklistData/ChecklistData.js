@@ -236,6 +236,11 @@ const checkListData = {
       text: "Créer une pochette minute pour la promesse de vente",
       checked: false,
     },
+    {
+      id: 23,
+      text: "Si vente sur Paris : demande DHL",
+      checked: false,
+    },
   ],
   analyseCompromisAgence: [
     { id: 1, text: "Vérifier le prix de vente", checked: false },
