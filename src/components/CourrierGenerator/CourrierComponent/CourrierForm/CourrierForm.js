@@ -1,21 +1,95 @@
 import React, { useState } from "react";
+import EtatCivilParser from "/home/amaury/repos/botnot/src/utils/EtatCivilParser/EtatCivilParser.js";
+import CadastreParser from "/home/amaury/repos/botnot/src/utils/CadastrePaser/CadastreParser.js";
 
 const CourrierForm = () => {
-  const [courrierInput, setCourrierInput] = useState("");
+  const [inputs, setInputs] = useState("");
+  const [submited, setSubmited] = useState({
+    etatCivil: false,
+    bienImmo: false,
+  });
+  const [etatCivil, setEtatCivil] = useState("");
+  const [bienImmo, setBienImmo] = useState("");
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setCourrierInput(event.target.value);
+  // Function to update state when input fields change
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs((values) => ({ ...values, [name]: value }));
   };
 
+  // Function to handle form submissions
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const name = event.target.name;
+    setSubmited((values) => ({ ...values, [name]: true }));
+    if (name === "etatCivil") {
+      setEtatCivil(EtatCivilParser(inputs.etatCivil)); // Parsing the input value using EtatCivilParser and updating the state
+    }
+    if (name === "bienImmo") {
+      setBienImmo(CadastreParser(inputs.bienImmo)); // Parsing the input value using CadastreParser and updating the state
+    }
+    console.log("input:", inputs);
+    console.log("cadastre", bienImmo);
+  };
+  //TODO: handle error
+  // Function to render the etatCivil object
+  const renderEtatCivil = () => {
+    return (
+      <div>
+        <li>Nom : {etatCivil.birthName}</li>
+        <li>Prénom : {etatCivil.name[1]}</li>
+        <li>Date de naissance: {etatCivil.dateOfBirth}</li>
+        <li>Lieu de naissance: {etatCivil.placeOfBirth}</li>
+      </div>
+    );
+  };
+
+  // Function to render the bienImmo array
+  const renderBienImmo = () => (
+    <div>
+      {bienImmo.map(({ section, numero, lieudit, surface }, index) => (
+        <li key={index}>
+          Section : {section} Numéro : {numero} Lieudit : {lieudit} Surface :{" "}
+          {surface}
+        </li>
+      ))}
+    </div>
+  );
+
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Etat-civil du vendeur : <i>(copier-coller le paragraphe)</i>
-        <input type="text" name="name" />
-      </label>
-      <button value="Submit">Submit</button>
-    </form>
+    <div>
+      <div>
+        <form onSubmit={handleSubmit} name="etatCivil">
+          <label>
+            ETAT-CIVIL
+            <input
+              type="text"
+              name="etatCivil"
+              placeholder="copier-coller le paragraphe état-civil du vendeur"
+              value={inputs.etatCivil || ""}
+              onChange={handleChange}
+            />
+          </label>
+          <button value="Submit">Submit</button>
+        </form>
+        <form onSubmit={handleSubmit} name="bienImmo">
+          <label>
+            BIEN IMMOBILIER
+            <input
+              type="text"
+              name="bienImmo"
+              placeholder="copier-coller le paragraphe désignation du bien"
+              value={inputs.bienImmo || ""}
+              onChange={handleChange}
+            />
+          </label>
+          <button value="Submit">Submit</button>
+        </form>
+      </div>
+      {submited.etatCivil && renderEtatCivil()}
+      {submited.bienImmo && renderBienImmo()}
+    </div>
   );
 };
 
