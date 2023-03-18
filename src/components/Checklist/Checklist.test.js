@@ -2,7 +2,6 @@ import React from "react";
 import { fireEvent, render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Checklist from "./Checklist";
-import ChecklistData from "./ChecklistData/ChecklistData";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 
 describe("Checklist unit testing", () => {
