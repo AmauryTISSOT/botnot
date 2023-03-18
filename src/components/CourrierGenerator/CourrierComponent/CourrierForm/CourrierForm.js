@@ -24,25 +24,35 @@ const CourrierForm = () => {
     const name = event.target.name;
     setSubmited((values) => ({ ...values, [name]: true }));
     if (name === "etatCivil") {
-      setEtatCivil(EtatCivilParser(inputs.etatCivil)); // Parsing the input value using EtatCivilParser and updating the state
+      try {
+        setEtatCivil(EtatCivilParser(inputs.etatCivil)); // Parsing the input value using EtatCivilParser and updating the state
+      } catch (error) {
+        if (error instanceof SyntaxError || TypeError) {
+          setEtatCivil("error");
+        } else {
+          throw error;
+        }
+      }
     }
     if (name === "bienImmo") {
       setBienImmo(CadastreParser(inputs.bienImmo)); // Parsing the input value using CadastreParser and updating the state
     }
-    console.log("input:", inputs);
-    console.log("cadastre", bienImmo);
   };
-  //TODO: handle error
+  
   // Function to render the etatCivil object
   const renderEtatCivil = () => {
-    return (
-      <div>
-        <li>Nom : {etatCivil.birthName}</li>
-        <li>Prénom : {etatCivil.name[1]}</li>
-        <li>Date de naissance: {etatCivil.dateOfBirth}</li>
-        <li>Lieu de naissance: {etatCivil.placeOfBirth}</li>
-      </div>
-    );
+    if (etatCivil === "error") {
+      return <div>Erreur d'input</div>;
+    } else {
+      return (
+        <div>
+          <li>Nom : {etatCivil.birthName}</li>
+          <li>Prénom : {etatCivil.name[1]}</li>
+          <li>Date de naissance: {etatCivil.dateOfBirth}</li>
+          <li>Lieu de naissance: {etatCivil.placeOfBirth}</li>
+        </div>
+      );
+    }
   };
 
   // Function to render the bienImmo array
