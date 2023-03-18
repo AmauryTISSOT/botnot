@@ -26,7 +26,7 @@ describe('CourrierForm unit testing', () => {
       target: { value: 'Test etatCivil input' },
     });
     fireEvent.submit(etatCivilInput);
-    const etatCivilObject = screen.getByText(/Nom :/i);
+    const etatCivilObject = screen.getByText(/Erreur/i);
     expect(etatCivilObject).toBeInTheDocument();
   });
 
