@@ -35,10 +35,16 @@ const CourrierForm = () => {
       }
     }
     if (name === "bienImmo") {
-      setBienImmo(CadastreParser(inputs.bienImmo)); // Parsing the input value using CadastreParser and updating the state
+      try {
+        setBienImmo(CadastreParser(inputs.bienImmo)); // Parsing the input value using CadastreParser and updating the state
+      } catch (error) {
+        if (error instanceof SyntaxError || TypeError) {
+          setBienImmo("error");
+        }
+      }
     }
   };
-  
+
   // Function to render the etatCivil object
   const renderEtatCivil = () => {
     if (etatCivil === "error") {
@@ -56,16 +62,22 @@ const CourrierForm = () => {
   };
 
   // Function to render the bienImmo array
-  const renderBienImmo = () => (
-    <div>
-      {bienImmo.map(({ section, numero, lieudit, surface }, index) => (
-        <li key={index}>
-          Section : {section} Numéro : {numero} Lieudit : {lieudit} Surface :{" "}
-          {surface}
-        </li>
-      ))}
-    </div>
-  );
+  const renderBienImmo = () => {
+    if (bienImmo === "error") {
+      return <div>Erreur d'input</div>;
+    } else {
+      return (
+        <div>
+          {bienImmo.map(({ section, numero, lieudit, surface }, index) => (
+            <li key={index}>
+              Section : {section} Numéro : {numero} Lieudit : {lieudit} Surface
+              : {surface}
+            </li>
+          ))}
+        </div>
+      );
+    }
+  };
 
   return (
     <div>

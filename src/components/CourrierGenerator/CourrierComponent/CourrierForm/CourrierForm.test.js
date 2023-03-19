@@ -37,7 +37,7 @@ describe('CourrierForm unit testing', () => {
       target: { value: 'Test bienImmo input' },
     });
     fireEvent.submit(bienImmoInput);
-    const bienImmoArray = screen.getByText(/Section :/i);
+    const bienImmoArray = screen.getByText(/Erreur/i);
     expect(bienImmoArray).toBeInTheDocument();
   });
 });
