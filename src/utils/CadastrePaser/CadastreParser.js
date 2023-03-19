@@ -7,7 +7,7 @@ const CadastreParser = (data) => {
   }
 
   const extractAddress = () => {
-    const regex = /à\s(.*?)Figurant/; // find the text beetween "à" and "Figurant"
+    const regex = /à\s(.*?)Figurant/; // find the text between "à" and "Figurant"
     const match = data.match(regex);
     const rawAddress = match[1].replace(".", "").trim();
     const postalCode = rawAddress.match(/\b\d{5}\b/)[0]; // find the postal code
@@ -25,17 +25,19 @@ const CadastreParser = (data) => {
     };
   };
 
-
   const cleanArray = () => {
-    // Remove tab
-    const dataArray = data.replace(/\t/g, " ").split(" ");
-    // Select data between "surface" and "extrait"
-    const surfaceIndex = dataArray.findIndex((str) => /surface/i.test(str));
-    const extraitIndex = dataArray.findIndex((str) => /extrait/i.test(str));
-    // Handle if "extrait" don't exist
-    return extraitIndex === -1
-      ? dataArray.slice(surfaceIndex + 1)
-      : dataArray.slice(surfaceIndex + 1, extraitIndex - 1);
+    // select data between "Surface" and "Les lots" || "Un extrait" and remove tab THEN return a array
+    if (!data.includes("extrait")) {
+      return data
+        .match(/Surface(.*?)Les lots de copropriété/)[1]
+        .replace(/\t/g, " ")
+        .split(" ");
+    } else {
+      return data
+        .match(/Surface(.*?)Un extrait/)[1]
+        .replace(/\t/g, " ")
+        .split(" ");
+    }
   };
 
   /** Remove white space at end and beginning of the string
