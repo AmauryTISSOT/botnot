@@ -77,7 +77,8 @@ const CourrierForm = () => {
     } else {
       return (
         <div>
-          {bienImmo.map(({ section, numero, lieudit, surface }, index) => (
+          <p>Adresse : {bienImmo.address.rawAddress}</p>
+          {bienImmo.cadastre.map(({ section, numero, lieudit, surface }, index) => (
             <li key={index}>
               Section : {section} Numéro : {numero} Lieudit : {lieudit} Surface
               : {surface}
