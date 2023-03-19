@@ -26,7 +26,7 @@ describe("CadastreParser unit testing", () => {
   });
   test("should return the right value with multiple line data", () => {
     const testData = CadastreParser(
-      "Dans un ensemble immobilier situé à MEUDON (HAUTS-DE-SEINE) 92360 16 Avenue de Celle. Figurant ainsi au cadastre : Section	N°	Lieudit	Surface AR 43 AV MAL DE LATTRE DE TASSIGNY 00 ha 27 a 80 ca AR	44	AV MAL DE LATTRE DE TASSIGNY	00 ha 11 a 15 ca AR	46	AV MAL DE LATTRE DE TASSIGNY	00 ha 02 a 00 ca AR	190	RUE DE L'AVENIR	05 ha 18 a 09 ca"
+      "DESIGNATION Dans un ensemble immobilier situé à MEUDON (HAUTS-DE-SEINE) 92360 16 Avenue de Celle.       Figurant ainsi au cadastre : Section	N°	Lieudit	Surface AR	43	AV MAL DE LATTRE DE TASSIGNY	00 ha 27 a 80 ca AR	44	AV MAL DE LATTRE DE TASSIGNY	00 ha 11 a 15 ca AR	46	AV MAL DE LATTRE DE TASSIGNY	00 ha 02 a 00 ca AR	190	RUE DE L'AVENIR	05 ha 18 a 09 ca     Les lots de copropriété suivants : Lot numéro quatre mille cinq cent quatre-vingt-sept  (4587)   Une cave numéro 88 au sous-sol du bâtiment H 1.  Et les un /cent mille quatre cent cinquante-troisième (1 /100453 ème) des parties communes générales.      Lot numéro quatre mille sept cent vingt-trois  (4723)  Un appartement de 7 pièces, situé dans le bâtiment H 1 au 4ème étage.  Et les deux cent quatorze /cent mille quatre cent cinquante-troisièmes (214 /100453 èmes) des parties communes générales.      Tel que le BIEN existe, avec tous droits y attachés, sans aucune exception ni réserve."
     );
     expect(testData).toStrictEqual({
       address: {
