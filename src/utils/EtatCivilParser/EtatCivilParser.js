@@ -177,7 +177,6 @@ const EtatCivilParser = (data) => {
       nationality: Nationality(),
     };
   } catch (error) {
-    console.warn(error.message);
     throw new SyntaxError("Error input");
   }
 };
