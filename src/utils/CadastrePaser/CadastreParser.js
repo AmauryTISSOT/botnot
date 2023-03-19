@@ -2,6 +2,10 @@ const CadastreParser = (data) => {
   const prefixeExist = data.includes("préfixe");
   //TODO: Add prefixe logic
 
+  if (!data.includes("Section")) {
+    throw SyntaxError
+  };
+
   const cleanArray = () => {
     // Remove tab
     const dataArray = data.replace(/\t/g, " ").split(" ");
