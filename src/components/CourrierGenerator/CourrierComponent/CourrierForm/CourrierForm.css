@@ -1,5 +1,4 @@
 .courrier-form {
-    border: 2px solid green;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,11 +13,9 @@
     justify-content: space-between;
     width: 80vw;
     flex-direction: row;
-    border: 2px solid blue;
 }
 
 .input-form {
-    border: 2px solid red;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,4 +43,39 @@
 .input-field {
     width: 37vw;
     height: 80px;
+}
+
+.main-form-render {
+    display: flex;
+    align-items:flex-start;
+    justify-content: space-between;
+    width: 80vw;
+    flex-direction: row;
+}
+
+.main-form-render li {
+    list-style: none;
+}
+
+.etatCivil-render {
+    width: 37vw;
+    margin: 5px;
+    padding-top: 16px;
+    text-align: left;
+}
+
+.bienImmo-render {
+    width: 37vw;
+    margin: 5px;
+}
+
+.bienImmo-render td {
+    font-size: smaller;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+table {
+    width: 100%;
 }
