@@ -60,11 +60,14 @@ const CourrierForm = () => {
       return <div>Erreur d'input</div>;
     } else {
       return (
-        <div>
-          <li>Nom : {etatCivil.birthName}</li>
-          <li>Prénom : {etatCivil.name[1]}</li>
-          <li>Date de naissance: {etatCivil.dateOfBirth}</li>
-          <li>Lieu de naissance: {etatCivil.placeOfBirth}</li>
+        <div className="etatCivil-render">
+          <li><b>Nom : </b>{etatCivil.birthName}</li>
+          <li><b>Prénom : </b> {etatCivil.name[1]}</li>
+          <li><b>Date de naissance : </b> {etatCivil.dateOfBirth}</li>
+          <li>
+            <b>Lieu de naissance : </b>{etatCivil.placeOfBirth} (
+            {etatCivil.placeOfBirthPostalCode})
+          </li>
         </div>
       );
     }
@@ -76,14 +79,28 @@ const CourrierForm = () => {
       return <div>Erreur d'input</div>;
     } else {
       return (
-        <div>
-          <p>Adresse : {bienImmo.address.rawAddress}</p>
-          {bienImmo.cadastre.map(({ section, numero, lieudit, surface }, index) => (
-            <li key={index}>
-              Section : {section} Numéro : {numero} Lieudit : {lieudit} Surface
-              : {surface}
-            </li>
-          ))}
+        <div className="bienImmo-render">
+         <p><b>Adresse : </b>{bienImmo.address.rawAddress}</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Section</th>
+                <th>Numéro</th>
+                <th>Lieudit</th>
+                <th>Surface</th>
+              </tr>
+            </thead>
+            <tbody>
+              {bienImmo.cadastre.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.section}</td>
+                  <td>{item.numero}</td>
+                  <td>{item.lieudit}</td>
+                  <td>{item.surface}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       );
     }
@@ -123,7 +140,7 @@ const CourrierForm = () => {
           </button>
         </form>
       </div>
-      <div>
+      <div className="main-form-render">
         {submited.etatCivil && renderEtatCivil()}
         {submited.bienImmo && renderBienImmo()}
       </div>
