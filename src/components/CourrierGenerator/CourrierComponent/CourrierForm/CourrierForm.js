@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import EtatCivilParser from "/home/amaury/repos/botnot/src/utils/EtatCivilParser/EtatCivilParser.js";
 import CadastreParser from "/home/amaury/repos/botnot/src/utils/CadastrePaser/CadastreParser.js";
+import "./CourrierForm.css";
 
 const CourrierForm = () => {
   const [inputs, setInputs] = useState("");
   const [submited, setSubmited] = useState({
     etatCivil: false,
     bienImmo: false,
+  });
+  const [submitButtonDisable, setSubmitButtonDisable] = useState({
+    etatCivil: true,
+    bienImmo: true,
   });
   const [etatCivil, setEtatCivil] = useState("");
   const [bienImmo, setBienImmo] = useState("");
@@ -16,6 +21,10 @@ const CourrierForm = () => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
+    setSubmitButtonDisable((values) => ({
+      ...values,
+      [name]: value.trim() === "",
+    })); //disable submit button if the input field is empty
   };
 
   // Function to handle form submissions
@@ -80,37 +89,43 @@ const CourrierForm = () => {
   };
 
   return (
-    <div>
-      <div>
-        <form onSubmit={handleSubmit} name="etatCivil">
-          <label>
-            ETAT-CIVIL
-            <input
-              type="text"
-              name="etatCivil"
-              placeholder="copier-coller le paragraphe état-civil du vendeur"
-              value={inputs.etatCivil || ""}
-              onChange={handleChange}
-            />
-          </label>
-          <button value="Submit">Submit</button>
+    <div className="courrier-form">
+      <div className="main-form">
+        <form onSubmit={handleSubmit} name="etatCivil" className="input-form">
+          <label htmlFor="etatCivil">ETAT-CIVIL</label>
+          <input
+            type="text"
+            id="etatCivil"
+            name="etatCivil"
+            placeholder="copier-coller le paragraphe état-civil du vendeur"
+            value={inputs.etatCivil || ""}
+            onChange={handleChange}
+            className="input-field"
+          />
+          <button value="Submit" disabled={submitButtonDisable.etatCivil}>
+            Submit
+          </button>
         </form>
-        <form onSubmit={handleSubmit} name="bienImmo">
-          <label>
-            BIEN IMMOBILIER
-            <input
-              type="text"
-              name="bienImmo"
-              placeholder="copier-coller le paragraphe désignation du bien"
-              value={inputs.bienImmo || ""}
-              onChange={handleChange}
-            />
-          </label>
-          <button value="Submit">Submit</button>
+        <form onSubmit={handleSubmit} name="bienImmo" className="input-form">
+          <label htmlFor="bienImmo">BIEN IMMOBILIER</label>
+          <input
+            type="text"
+            name="bienImmo"
+            id="bienImmo"
+            placeholder="copier-coller le paragraphe désignation du bien"
+            value={inputs.bienImmo || ""}
+            onChange={handleChange}
+            className="input-field"
+          />
+          <button value="Submit" disabled={submitButtonDisable.bienImmo}>
+            Submit
+          </button>
         </form>
       </div>
-      {submited.etatCivil && renderEtatCivil()}
-      {submited.bienImmo && renderBienImmo()}
+      <div>
+        {submited.etatCivil && renderEtatCivil()}
+        {submited.bienImmo && renderBienImmo()}
+      </div>
     </div>
   );
 };
