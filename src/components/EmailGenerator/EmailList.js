@@ -110,7 +110,7 @@ const emailListData = [
     query: [
       {
         value: "DHL",
-        question: "DHL PARIS : demande d'information",
+        question: "DLH PARIS : demande d'information",
       },
     ],
   },
