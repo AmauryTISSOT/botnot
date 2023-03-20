@@ -1,4 +1,4 @@
-const DTH = [
+const DLH = [
   {
     text: "Madame, Monsieur,",
     lineBreak: true,
@@ -297,7 +297,7 @@ const certificatHygiene = [
 ];
 
 export {
-  DTH,
+  DLH,
   demandeCU,
   certificatHygiene,
   certificatNumerotage,
