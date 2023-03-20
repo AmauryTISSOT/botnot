@@ -1,14 +1,34 @@
 const courrierListData = [
   {
-    type: "Title1",
+    type: "Urbanisme",
     query: [
       {
-        value: "value1",
-        question: "courrier1",
+        value: "DLH",
+        question: "Demande d'information Direction du Logement et de l'Habitat (DLH) - PARIS",
       },
       {
-        value: "value2",
-        question: "courrier2",
+        value: "demandeCU",
+        question: "Demande de certificat d'urbanisme (CU)",
+      },
+      {
+        value: "demandeDia",
+        question: "Demande de Déclaration d'Intention d'Aliéner (DIA)",
+      },
+      {
+        value: "arretePeril",
+        question: "Demande d'arrêté de péril",
+      },
+      {
+        value: "arreteAlignement",
+        question: "Demande d'arrêté d'alignement",
+      },
+      {
+        value: "certificatNumerotage",
+        question: "Demande de certificat de numérotage",
+      },
+      {
+        value: "certificatHygiene",
+        question: "Demande de certificat de d'hygiène",
       },
     ],
   },
