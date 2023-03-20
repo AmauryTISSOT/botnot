@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import EtatCivilParser from "/home/amaury/repos/botnot/src/utils/EtatCivilParser/EtatCivilParser.js";
 import CadastreParser from "/home/amaury/repos/botnot/src/utils/CadastrePaser/CadastreParser.js";
 import "./CourrierForm.css";
+import CourrierSelect from "../CourrierSelect/CourrierSelect";
 
 const CourrierForm = () => {
   const [inputs, setInputs] = useState("");
@@ -144,6 +145,7 @@ const CourrierForm = () => {
         {submited.etatCivil && renderEtatCivil()}
         {submited.bienImmo && renderBienImmo()}
       </div>
+        {submited.etatCivil && submited.bienImmo && <CourrierSelect/>}
     </div>
   );
 };
