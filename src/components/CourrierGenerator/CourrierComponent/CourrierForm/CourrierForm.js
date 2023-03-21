@@ -62,12 +62,19 @@ const CourrierForm = () => {
     } else {
       return (
         <div className="etatCivil-render">
-          <li><b>Nom : </b>{etatCivil.birthName}</li>
-          <li><b>Prénom : </b> {etatCivil.name[1]}</li>
-          <li><b>Date de naissance : </b> {etatCivil.dateOfBirth}</li>
           <li>
-            <b>Lieu de naissance : </b>{etatCivil.placeOfBirth} (
-            {etatCivil.placeOfBirthPostalCode})
+            <b>Nom : </b>
+            {etatCivil.birthName}
+          </li>
+          <li>
+            <b>Prénom : </b> {etatCivil.name[1]}
+          </li>
+          <li>
+            <b>Date de naissance : </b> {etatCivil.dateOfBirth}
+          </li>
+          <li>
+            <b>Lieu de naissance : </b>
+            {etatCivil.placeOfBirth} ({etatCivil.placeOfBirthPostalCode})
           </li>
         </div>
       );
@@ -81,7 +88,10 @@ const CourrierForm = () => {
     } else {
       return (
         <div className="bienImmo-render">
-         <p><b>Adresse : </b>{bienImmo.address.rawAddress}</p>
+          <p>
+            <b>Adresse : </b>
+            {bienImmo.address.rawAddress}
+          </p>
           <table>
             <thead>
               <tr>
@@ -145,7 +155,9 @@ const CourrierForm = () => {
         {submited.etatCivil && renderEtatCivil()}
         {submited.bienImmo && renderBienImmo()}
       </div>
-        {submited.etatCivil && submited.bienImmo && <CourrierSelect/>}
+      {submited.etatCivil && submited.bienImmo && (
+        <CourrierSelect etatCivil={etatCivil} bienImmo={bienImmo} />
+      )}
     </div>
   );
 };
