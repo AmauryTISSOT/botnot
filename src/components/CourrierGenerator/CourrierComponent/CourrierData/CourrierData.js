@@ -296,12 +296,14 @@ const certificatHygiene = [
   },
 ];
 
-export {
+
+const courrierDataObject = {
   DLH,
   demandeCU,
   certificatHygiene,
-  certificatNumerotage,
   arreteAlignement,
   arretePeril,
   demandeDia,
-};
+}
+
+export default courrierDataObject;
