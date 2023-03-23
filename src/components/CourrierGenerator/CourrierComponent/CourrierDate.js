@@ -2,36 +2,35 @@ import { Paragraph, TextRun } from "docx";
 import { convertMillimetersToTwip } from "docx";
 
 const CourrierDate = () => {
-  // French Month Array
-  const frenchMonth = [
-    "NaN",
-    "janvier",
-    "février",
-    "mars",
-    "avril",
-    "mai",
-    "juin",
-    "juillet",
-    "aout",
-    "septembre",
-    "octobre",
-    "novembre",
-    "décembre",
-  ];
-
-  const today = new Date();
-  const day = String(today.getDate()).padStart(2, "0");
-  const month = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-  const year = today.getFullYear();
-
   // return a string with the current french date
+  const getDateFormatted = () => {
+    const months = [
+      "janvier",
+      "février",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "août",
+      "septembre",
+      "octobre",
+      "novembre",
+      "décembre",
+    ];
+    const today = new Date();
+    const day = today.getDate();
+    const month = months[today.getMonth()];
+    const year = today.getFullYear();
+    return `${day} ${month} ${year}`;
+  };
 
   return new Paragraph({
     indent: { left: convertMillimetersToTwip(62.4) },
-    style: 'classic',
+    style: "classic",
     children: [
       new TextRun({
-        text: `Paris, ${day} ${frenchMonth[month]} ${year}`, // The place should be a variable
+        text: "Paris, le " + getDateFormatted(), // The place should be a variable
       }),
     ],
   });
