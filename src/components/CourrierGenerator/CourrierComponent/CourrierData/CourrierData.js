@@ -304,6 +304,7 @@ const courrierDataObject = {
   arreteAlignement,
   arretePeril,
   demandeDia,
+  certificatNumerotage
 }
 
 export default courrierDataObject;
