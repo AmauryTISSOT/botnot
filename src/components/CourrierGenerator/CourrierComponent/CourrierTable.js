@@ -184,8 +184,8 @@ const CourrierTable = (arrayData) => {
   // change the width of columns if prefixe exist
   const prefixColumnWidths = (element) => {
     if (keyExists(element[0], "prefixe")) {
-      return [900, 900, 700, 2000, 1400];
-    } else return [900, 700, 2000, 1400];
+      return [900, 900, 700, 2000, 1600];
+    } else return [900, 700, 2000, 1600];
   };
 
   return new Table({
