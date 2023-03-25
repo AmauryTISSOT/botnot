@@ -7,10 +7,8 @@ import {
   TextRun,
   AlignmentType,
 } from "docx";
-import keyExists from "../../../utils/KeyExists/KeysExists";
 
-
-// arraDate example : 
+// arraDate example :
 // [
 //     {
 //       // prefixe: "001",
@@ -29,9 +27,19 @@ const CourrierTable = (arrayData) => {
     throw console.error("array Data is not an array !");
   }
 
+  // return false if prefixe : NaN
+  function isPrefixeNaN(obj) {
+    for (let i = 0; i < obj.length; i++) {
+      if (isNaN(obj[i].prefixe)) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   // check if prefixe keys exist in arrayDate
   const prefixeKeysTitle = (element) => {
-    if (keyExists(element, "prefixe")) {
+    if (isPrefixeNaN(element)) {
       return new TableCell({
         children: [
           new Paragraph({
@@ -58,7 +66,6 @@ const CourrierTable = (arrayData) => {
     new TableRow({
       children: [
         prefixeKeysTitle(arrayData),
-
         new TableCell({
           children: [
             new Paragraph({
@@ -137,7 +144,7 @@ const CourrierTable = (arrayData) => {
 
   // generate newColumns | arguments = string
   const newColumns = (element) => {
-    if (keyExists(element, "prefixe")) {
+    if (isPrefixeNaN(arrayData)) {
       return new TableRow({
         children: [
           new TableCell({
@@ -157,7 +164,7 @@ const CourrierTable = (arrayData) => {
           }),
         ],
       });
-    } else
+    } else {
       return new TableRow({
         children: [
           new TableCell({
@@ -174,6 +181,7 @@ const CourrierTable = (arrayData) => {
           }),
         ],
       });
+    }
   };
 
   // main function loop
@@ -183,14 +191,14 @@ const CourrierTable = (arrayData) => {
 
   // change the width of columns if prefixe exist
   const prefixColumnWidths = (element) => {
-    if (keyExists(element[0], "prefixe")) {
-      return [900, 900, 700, 2000, 1600];
-    } else return [900, 700, 2000, 1600];
+    if (isPrefixeNaN(element)) {
+      return [900, 900, 600, 2500, 1600];
+    } else return [900, 600, 2500, 1600];
   };
 
   return new Table({
     alignment: AlignmentType.CENTER,
-    columnWidths: prefixColumnWidths(arrayData), 
+    columnWidths: prefixColumnWidths(arrayData),
     rows: rowsArray,
   });
 };
