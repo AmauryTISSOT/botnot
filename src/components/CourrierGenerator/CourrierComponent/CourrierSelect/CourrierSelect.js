@@ -1,17 +1,18 @@
 import { useState } from "react";
 import courrierListData from "../CourrierData/CourrierListData";
 import GenerateDocs from "../../GenerateDocs/GenerateDocs";
+import courrierDataObject from "../CourrierData/CourrierData";
 
-const CourrierSelect = ({etatCivil, bienImmo}) => {
-// TODO: create a download folder with the selected queries
+const CourrierSelect = ({ etatCivil, bienImmo }) => {
+  // TODO: create a download folder with the selected queries
 
-const [selectedQueries, setSelectedQueries] = useState([]);
+  const [selectedQueries, setSelectedQueries] = useState([]);
 
   const handleCheckboxChange = (event) => {
     const queryValue = event.target.value;
     setSelectedQueries((prevSelectedQueries) => {
-      if (prevSelectedQueries.includes(queryValue)) {  
-        return prevSelectedQueries.filter((value) => value !== queryValue);// If the selected query is already in the 'selectedQueries' array, remove it
+      if (prevSelectedQueries.includes(queryValue)) {
+        return prevSelectedQueries.filter((value) => value !== queryValue); // If the selected query is already in the 'selectedQueries' array, remove it
       } else {
         return [...prevSelectedQueries, queryValue];
       }
@@ -19,15 +20,18 @@ const [selectedQueries, setSelectedQueries] = useState([]);
   };
 
   const handleGenerateClick = () => {
-    console.log('Selected queries:', selectedQueries);
-    // GenerateDocs(
-    //   "Adresse Postale",
-    //   selectedQueries[0],
-    //   bienImmo.cadastre
-    // );
-    //TODO: revoir l'object "clientObject" dans GenerateDocs
-    console.log("bienImmo", bienImmo.cadastre)
-    console.log("etatCivil", etatCivil)
+    console.log("Selected queries:", selectedQueries);
+    console.log("bienImmo", bienImmo)
+    selectedQueries.forEach((element) => {
+      GenerateDocs(
+        "Adresse Postale", //TODO: API pour récupérer l'adresse de la mairie
+        element,
+        courrierDataObject[element],
+        bienImmo
+      );
+    });
+
+    console.log("etatCivil", etatCivil);
   };
 
   return (
@@ -53,7 +57,7 @@ const [selectedQueries, setSelectedQueries] = useState([]);
         </div>
       ))}
       <button onClick={handleGenerateClick}>Générer</button>
-    </div>  
+    </div>
   );
 };
 
