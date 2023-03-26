@@ -70,7 +70,7 @@ const CourrierBody = (courrierData, clientData) => {
 
   courrierData.forEach((element) => {
     if (element.text === "tableauCadastre") {
-      returnArray.push(CourrierTable(clientData));
+      returnArray.push(CourrierTable(clientData.cadastre));
       if (keyExists(element, "lineBreak")) {
         if (element.lineBreak === true) {
           returnArray.push(...EmptySpacing());
