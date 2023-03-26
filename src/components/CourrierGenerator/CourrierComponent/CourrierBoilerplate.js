@@ -41,7 +41,7 @@ const CourrierBoilerplate = async(
         children: [
           ...EmptySpacing(4),
 
-          ...await CourrierAdresse(postalType, clientObject), //variable
+          ...await CourrierAdresse(postalType, clientObject, courrierObject), //variable
 
           ...EmptySpacing(),
 

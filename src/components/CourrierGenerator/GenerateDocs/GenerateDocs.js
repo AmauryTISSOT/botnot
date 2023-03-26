@@ -47,7 +47,7 @@ const GenerateDocs = async (
       postalType,
       clerkName,
       clerkEmail,
-      getCourrierObject(courrierValue),
+      courrierValue,
       notaryName,
       courrierSelected,
       clientObject //TODO: should handle other data ex: etat civil
