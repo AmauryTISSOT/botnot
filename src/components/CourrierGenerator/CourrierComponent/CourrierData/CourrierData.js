@@ -5,9 +5,10 @@ const DLH = [
     tab: true,
   },
   {
-    text: "Je me permets de venir vers vous dans le cadre du dossier de vente cité en référence, portant sur un immeuble sis à PARIS (XX), XXXXXX.",
+    text: "Je me permets de venir vers vous dans le cadre du dossier de vente cité en référence, portant sur un immeuble sis à : ",
     lineBreak: true,
     tab: true,
+    textRun: "adresseBien"
   },
   {
     text: "Aussi, vous saurais-je gré de bien vouloir me confirmer par retour de courrier les dispositions relatives à l’immeuble concernant :",
