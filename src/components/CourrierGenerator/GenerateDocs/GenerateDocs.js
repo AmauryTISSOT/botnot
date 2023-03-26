@@ -4,8 +4,8 @@ import { Document } from "docx";
 import CourrierBoilerplate from "../CourrierComponent/CourrierBoilerplate";
 import courrierListData from "../CourrierComponent/CourrierData/CourrierListData";
 
-const GenerateDocs = (
-  postalAddress = "à compléter",
+const GenerateDocs = async (
+  postalType = "à compléter",
   courrierValue = "",
   courrierSelected = "",
   clientObject = ""
@@ -34,27 +34,23 @@ const GenerateDocs = (
   const findIndexWithAddress = (array) => {
     for (let i = 0; i < array.length; i++) {
       if (array[i].textRun === "adresseBien") {
-        console.log("i:", i);
-        console.log("array i", array[i]);
-        console.log("clientObject", clientObject)
-        array[i].textRun = clientObject.address.rawAddress
+        array[i].textRun = clientObject.address.rawAddress;
       }
     }
   };
 
   console.log("courrierSelected:", courrierSelected);
   findIndexWithAddress(courrierSelected);
-
   // generate docx files
   const doc = new Document(
-    CourrierBoilerplate(
-      postalAddress,
+   await CourrierBoilerplate(
+      postalType,
       clerkName,
       clerkEmail,
       getCourrierObject(courrierValue),
       notaryName,
       courrierSelected,
-      clientObject.cadastre  //TODO: passer le .cadastre au niveau inférieur + voir pour handle d'autres data ex: etat civil
+      clientObject //TODO: should handle other data ex: etat civil
     )
   );
 

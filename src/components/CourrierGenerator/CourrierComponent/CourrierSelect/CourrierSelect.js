@@ -21,10 +21,10 @@ const CourrierSelect = ({ etatCivil, bienImmo }) => {
 
   const handleGenerateClick = () => {
     console.log("Selected queries:", selectedQueries);
-    console.log("bienImmo", bienImmo)
+    console.log("bienImmo", bienImmo);
     selectedQueries.forEach((element) => {
       GenerateDocs(
-        "Adresse Postale", //TODO: API pour récupérer l'adresse de la mairie
+        "mairie",
         element,
         courrierDataObject[element],
         bienImmo

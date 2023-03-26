@@ -21,8 +21,8 @@ import CourrierBody from "./CourrierBody/CourrierBody";
 // bodyObject: array
 
 // return an object
-const CourrierBoilerplate = (
-  postalAddress,
+const CourrierBoilerplate = async(
+  postalType,
   clerkName,
   clerkMail,
   courrierObject,
@@ -41,7 +41,7 @@ const CourrierBoilerplate = (
         children: [
           ...EmptySpacing(4),
 
-          CourrierAdresse(postalAddress), //variable
+          ...await CourrierAdresse(postalType, clientObject), //variable
 
           ...EmptySpacing(),
 
