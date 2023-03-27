@@ -37,16 +37,26 @@ const checklistList = [
     type: "Vente",
     query: [
       {
-        value: "formapuv",
-        question: "Formalités suite à la signature de la promesse de vente",
-      },
-      {
         value: "analyseCompromisAgence",
         question: "Analyse d'un compromis d'agence",
       },
       {
         value: "fixationRdvVente",
         question: "Fixation rendez-vous acte de vente",
+      },
+
+      {
+        value: "clauseEtude",
+        question: "Clauses étude à pointer",
+      },
+    ],
+  },
+  {
+    type: "Formalités postérieures",
+    query: [
+      {
+        value: "formapuv",
+        question: "Formalités postérieure promesse de vente (PUV)",
       },
       {
         value: "formaVente",
@@ -56,12 +66,25 @@ const checklistList = [
         value: "formaPret",
         question: "Formalités postérieure acte de prêt",
       },
+    ],
+  },
+  {
+    type: "Formalités postérieures",
+    query: [
       {
-        value: "clauseEtude",
-        question: "Clauses étude à pointer",
+        value: "formaAntPuv",
+        question: "Formalités antérieures promesse de vente (PUV)"
+      },
+      {
+        value: "formaAntVente",
+        question: "Formalités antérieures promesse acte de vente"
+      },
+      {
+        value: "formaAntPret",
+        question: "Formalités antérieures acte de prêt"
       },
     ]
-  }
+  },
 ];
 
 export default checklistList;
