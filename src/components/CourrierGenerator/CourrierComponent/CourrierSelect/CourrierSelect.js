@@ -27,7 +27,8 @@ const CourrierSelect = ({ etatCivil, bienImmo }) => {
         "mairie",
         element,
         courrierDataObject[element],
-        bienImmo
+        bienImmo,
+        etatCivil
       );
     });
 

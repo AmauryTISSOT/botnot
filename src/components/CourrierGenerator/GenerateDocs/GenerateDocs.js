@@ -8,7 +8,8 @@ const GenerateDocs = async (
   postalType = "à compléter",
   courrierValue = "",
   courrierSelected = "",
-  clientObject = ""
+  bienImmo = "",
+  etatCivil = ""
 ) => {
   const courrierConstant = {
     clerkName: "Amaury TISSOT",
@@ -34,23 +35,38 @@ const GenerateDocs = async (
   const findIndexWithAddress = (array) => {
     for (let i = 0; i < array.length; i++) {
       if (array[i].textRun === "adresseBien") {
-        array[i].textRun = clientObject.address.rawAddress;
+        array[i].textRun = bienImmo.address.rawAddress;
+      }
+    }
+  };
+
+  const findIndexWithNomVendeur = (array) => {
+    let vendeurSex = "M.";
+    if (etatCivil.sex === "female") {
+      vendeurSex = "Mme";
+    }
+    let nomVendeurString = `${vendeurSex} ${etatCivil.name[0]} ${etatCivil.birthName}`;
+    for (let i = 0; i < array.length; i++) {
+      if (array[i].textRun === "nomVendeur") {
+        array[i].textRun = nomVendeurString;
       }
     }
   };
 
   console.log("courrierSelected:", courrierSelected);
   findIndexWithAddress(courrierSelected);
+  findIndexWithNomVendeur(courrierSelected);
+
   // generate docx files
   const doc = new Document(
-   await CourrierBoilerplate(
+    await CourrierBoilerplate(
       postalType,
       clerkName,
       clerkEmail,
       courrierValue,
       notaryName,
       courrierSelected,
-      clientObject //TODO: should handle other data ex: etat civil
+      bienImmo //TODO: should handle other data ex: etat civil
     )
   );
 

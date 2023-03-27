@@ -27,8 +27,8 @@ const CourrierBoilerplate = async(
   clerkMail,
   courrierObject,
   notaryName,
-  bodyObject,
-  clientObject
+  courrierSelected,
+  bienImmoData,
 ) => {
   return {
     numbering: BulletPointConfig(),
@@ -41,7 +41,7 @@ const CourrierBoilerplate = async(
         children: [
           ...EmptySpacing(4),
 
-          ...await CourrierAdresse(postalType, clientObject, courrierObject), //variable
+          ...await CourrierAdresse(postalType, bienImmoData, courrierObject), //variable
 
           ...EmptySpacing(),
 
@@ -59,7 +59,7 @@ const CourrierBoilerplate = async(
 
           ...EmptySpacing(),
 
-          ...CourrierBody(bodyObject ,clientObject),
+          ...CourrierBody(courrierSelected ,bienImmoData),
 
           ...CourrierSignature(notaryName),
         ],
