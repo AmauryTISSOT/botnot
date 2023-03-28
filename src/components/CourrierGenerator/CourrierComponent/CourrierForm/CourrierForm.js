@@ -33,6 +33,7 @@ const CourrierForm = () => {
     event.preventDefault();
     const name = event.target.name;
     setSubmited((values) => ({ ...values, [name]: true }));
+    console.log(inputs)
     if (name === "etatCivil") {
       try {
         setEtatCivil(EtatCivilParser(inputs.etatCivil)); // Parsing the input value using EtatCivilParser and updating the state
@@ -67,7 +68,7 @@ const CourrierForm = () => {
             {etatCivil.birthName}
           </li>
           <li>
-            <b>Prénom : </b> {etatCivil.name[1]}
+            <b>Prénom : </b> {etatCivil.name[0]}
           </li>
           <li>
             <b>Date de naissance : </b> {etatCivil.dateOfBirth}
