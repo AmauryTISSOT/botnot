@@ -69,11 +69,11 @@ describe("CadastreParser unit testing", () => {
   });
   test("should return the right value with terrain data", () => {
     const testData = CadastreParser(
-      "IDENTIFICATION DU BIEN DESIGNATION A PEYRE (LANDES) 40700 Lieu-dit PERE, Sur la parcelle 38 présence d'une vieille grange en ruine, effondrée, La majorité de la toiture et du plancher est écroulée. Il n'est pas possible de pénétrer en raison du risque manifeste d'effondrement des derniers éléments . Figurant ainsi au cadastre : Section	N°	Lieudit	Surface D	38	PERE	00 ha 01 a 56 ca Tel que le BIEN existe, avec tous droits y attachés, sans aucune exception ni réserve."
+      "IDENTIFICATION DU BIEN DESIGNATION A PEYRE (LANDES) 40700, Lieu-dit PERE, Sur la parcelle 38 présence d'une vieille grange en ruine, effondrée, La majorité de la toiture et du plancher est écroulée. Il n'est pas possible de pénétrer en raison du risque manifeste d'effondrement des derniers éléments . Figurant ainsi au cadastre : Section	N°	Lieudit	Surface D	38	PERE	00 ha 01 a 56 ca Tel que le BIEN existe, avec tous droits y attachés, sans aucune exception ni réserve."
     );
     expect(testData).toStrictEqual({
       address: {
-        rawAddress: "PEYRE (LANDES) 40700 Lieu-dit PERE",
+        rawAddress: "PEYRE (LANDES) 40700, Lieu-dit PERE",
         townName: "PEYRE",
         postalCode: "40700",
         streetName: "Lieu-dit PERE",
@@ -91,7 +91,7 @@ describe("CadastreParser unit testing", () => {
   });
   test("should return the right value with house data", () => {
     const testData = CadastreParser(
-      "DESIGNATION A HUELGOAT (FINISTÈRE) 29690, 7 Route de Berrien, Une maison à usage d'habitation. Figurant ainsi au cadastre : Section	N°	Lieudit	Surface AC	336	ROUTE DE BERRIEN	00 ha 06 a 31 ca AC	337	ROUTE DE BERRIEN	00 ha 04 a 35 ca AC	338	ROUTE DE BERRIEN	00 ha 16 a 43 ca AC	342	ROUTE DE BERRIEN	00 ha 09 a 41 ca Total surface : 00 ha 36 a 50 ca Tel que le BIEN existe, avec tous droits y attachés, sans aucune exception ni réserve.IDENTIFICATION DU BIEN DESIGNATION A PEYRE (LANDES) 40700 Lieu-dit PERE, Sur la parcelle 38 présence d'une vieille grange en ruine, effondrée, La majorité de la toiture et du plancher est écroulée. Il n'est pas possible de pénétrer en raison du risque manifeste d'effondrement des derniers éléments . Figurant ainsi au cadastre : Section	N°	Lieudit	Surface D	38	PERE	00 ha 01 a 56 ca Tel que le BIEN existe, avec tous droits y attachés, sans aucune exception ni réserve."
+      "DESIGNATION A HUELGOAT (FINISTÈRE) 29690, 7 Route de Berrien, Une maison à usage d'habitation. Figurant ainsi au cadastre : Section	N°	Lieudit	Surface AC	336	ROUTE DE BERRIEN	00 ha 06 a 31 ca AC	337	ROUTE DE BERRIEN	00 ha 04 a 35 ca AC	338	ROUTE DE BERRIEN	00 ha 16 a 43 ca AC	342	ROUTE DE BERRIEN	00 ha 09 a 41 ca Total surface : 00 ha 36 a 50 ca Tel que le BIEN existe, avec tous droits y attachés, sans aucune exception ni réserve."
     );
     expect(testData).toStrictEqual({
       address: {
@@ -128,6 +128,28 @@ describe("CadastreParser unit testing", () => {
           numero: "342",
           lieudit: "ROUTE DE BERRIEN",
           surface: "00 ha 09 a 41 ca",
+        },
+      ],
+    });
+  });
+  test("should return the right value with copropriété data", () => {
+    const testData = CadastreParser(
+      "Dans un ensemble immobilier situé à MONTPELLIER (HÉRAULT) 34000 19 Quai des Tanneurs. Figurant ainsi au cadastre : Section	N°	Lieudit	Surface BZ	603	19 Quai des Tanneurs	00 ha 19 a 93 ca"
+    );
+    expect(testData).toStrictEqual({
+      address: {
+        rawAddress: "MONTPELLIER (HÉRAULT) 34000 19 Quai des Tanneurs",
+        townName: "MONTPELLIER",
+        postalCode: "34000",
+        streetName: "19 Quai des Tanneurs",
+      },
+      cadastre: [
+        {
+          prefixe: NaN,
+          section: "BZ",
+          numero: "603",
+          lieudit: "19 Quai des Tanneurs",
+          surface: "00 ha 19 a 93 ca",
         },
       ],
     });
