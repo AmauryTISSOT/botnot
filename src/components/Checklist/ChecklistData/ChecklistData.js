@@ -522,6 +522,7 @@ const checkListData = {
     { id: 10, text: "Télé@ctes : Vérifier le modèle 1 : numéro de lots / tantièmes", checked: false },
     { id: 11, text: "Télé@ctes : Vérifier EHF : effet-relatif", checked: false },
     { id: 12, text: "Télé@ctes : Vérifier EHF : RCP/EDD", checked: false },
+    { id: 123, text: "Si plus-value, établir la déclaration de plus-value démartérialisée", checked: false },
     { id: 13, text: "Vérifier AAE", checked: false },
     { id: 14, text: "Vérifier le nom des signataires dans le projet AAE (mandataires)", checked: false },
     { id: 141, text: "Envoyer le projet d'acte aux parties", checked: false },
