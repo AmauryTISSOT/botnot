@@ -70,6 +70,7 @@ const GenerateDocs = async (
     )
   );
 
+  //FIXME: convert into pdf file or find a way to open with Microsoft word
   Packer.toBlob(doc).then((blob) => {
     console.log(blob);
     saveAs(blob, `${getCourrierObject(courrierValue)}.docx`);
