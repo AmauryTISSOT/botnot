@@ -69,7 +69,7 @@ const checklistList = [
     ],
   },
   {
-    type: "Formalités postérieures",
+    type: "Formalités antérieures",
     query: [
       {
         value: "formaAntPuv",
