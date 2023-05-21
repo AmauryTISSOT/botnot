@@ -533,6 +533,24 @@ const checkListData = {
     { id: 16, text: "Pointer la réception des fonds", checked: false },
     { id: 16, text: "Envoyer le mail digicode aux parties", checked: false },
   ],
+  soldeCompte :[
+    { id: 1, text: "FRAIS DOSSIER CONFRERE : si note non présente dans minute lors de la taxe, relancer clerc et mettre message dans compte", checked: false },
+    { id: 2, text: "CONCOURS : Vérifier si le ccrs a bien été proposé et payé au confrère", checked: false },
+    { id: 3, text: "CESSION ANTERIORITE : Normalement message sur minute avec post-it si doute demander aux formalités (VEFA AVEC PRET)", checked: false },
+    { id: 4, text: "VERIFICATION COMPTE DE TOUTES LES PARTIES A L’ACTE : dans les ventes vérification si compte vendeur soldé, si solde créditeur voir le clerc et voir pour faire solde", checked: false },
+    { id: 5, text: "VERIFICATION SI LE CLIENT N’A PAS UN OU DES SOLDES DEBITEUR", checked: false },
+    { id: 7, text: "MENTION SUR MINUTE : lors du traitement du solde s’il manque le RIB, frais dossier ou autre mettre mention S/R", checked: false },
+    { id: 8, text: "DOSSIER COMPLEXE : si on ne solde pas le dossier et qu’on fait remonter le solde à faire au clerc mettre un message avec la date dans le compte", checked: false },
+  ],
+  taxeVente: [
+   { id: 1, text: "Montant du prix (attention si charge augmentative du prix)", checked: false }, 
+   { id: 2, text: "Vérifier si bien en copropriété ou non", checked: false }, 
+   { id: 3, text: "Vérifier si le bien est loué", checked: false }, 
+   { id: 4, text: "Vérifier si plus-value immobilière", checked: false }, 
+   { id: 5, text: "Vérifier si confrère en participation (attention si notaire de banque)", checked: false }, 
+   { id: 6, text: "Vérifier le nombre de pages", checked: false }, 
+   { id: 7, text: "Vérifier si soumis au forfait", checked: false }, 
+  ]
   // { id: 1, text: "", checked: false },
 };
 

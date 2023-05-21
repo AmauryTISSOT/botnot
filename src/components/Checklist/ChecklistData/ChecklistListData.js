@@ -85,6 +85,19 @@ const checklistList = [
       },
     ]
   },
+  {
+    type: "Comptabilité",
+    query: [
+      {
+        value: "soldeCompte",
+        question: "Solde de compte"
+      },
+      {
+        value: "taxeVente",
+        question: "Taxe d'une vente"
+      }
+    ]
+  }
 ];
 
 export default checklistList;
