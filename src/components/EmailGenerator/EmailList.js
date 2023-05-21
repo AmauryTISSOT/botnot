@@ -111,6 +111,10 @@ const emailListData = [
       {
         value: "DHL",
         question: "DLH PARIS : demande d'information",
+      },      
+      {
+        value: "infoDPU",
+        question: "Demande d'information DPU",
       },
     ],
   },

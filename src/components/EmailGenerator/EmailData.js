@@ -593,6 +593,11 @@ const EmailData = {
     ],
     mailString :
     "Bonjour,\n\nEn prévision du rendez-vous du {{date}}, à {{heure}}, je vous prie de trouver ci-joint un projet d'acte{{vente}} sur lequel vous voudrez bien me faire part de vos observations.\nCertains éléments sont en attente de confirmation ou de complément, d’où le surlignage en jaune.\n\nRestant à votre écoute,\n\nSincères salutations"
+  },
+  infoDPU: {
+    input: [],
+    mailString : 
+    "Monsieur le Maire,\n\nL’étude est chargée d’une vente sur votre commune.\nJe vous remercie de m’indiquer si vous avez instauré un droit de préemption urbain renforcé.\n\nEn vous remerciant pour votre aide,\n\nVotre bien dévoué"
   }
 };
 
