@@ -561,8 +561,8 @@ const EmailData = {
     mailString:
       "Je vous confirme le rendez-vous en visioconférence fixé le {{date}}, à {{heure}}.\n\n- Si vous êtes déjà abonné à la visioconférence ADNOV :\n\t- A l'heure du rendez-vous, démarrez votre équipement de visioconférence\n\t- Composez le numéro: {{reunion}}{{reunion1}}\n\t- Lancez l’appel\n\n- Si vous n’êtes pas équipé d'un système de visioconférence ADNOV :\n\t- cliquez sur le lien suivant pour rejoindre la réunion : https://call.lifesizecloud.com/{{reunion}}{{reunion1}}\n\t- Saisissez votre nom\n\t- Cliquez sur 'Rejoindre'\n\t- Cliquez sur 'Joindre'\n\nVous pouvez également à partir d'un téléphone, composer le 09 70 73 55 53 (service et appel gratuits), puis une fois en communication saisissez le numéro  14821777 suivi de #.\n\nBien cordialement,\n\nVotre bien dévoué,",
   },
-  projet : {
-    input : [
+  projet: {
+    input: [
       {
         type: "text",
         id: "date",
@@ -591,14 +591,32 @@ const EmailData = {
         ],
       },
     ],
-    mailString :
-    "Bonjour,\n\nEn prévision du rendez-vous du {{date}}, à {{heure}}, je vous prie de trouver ci-joint un projet d'acte{{vente}} sur lequel vous voudrez bien me faire part de vos observations.\nCertains éléments sont en attente de confirmation ou de complément, d’où le surlignage en jaune.\n\nRestant à votre écoute,\n\nSincères salutations"
+    mailString:
+      "Bonjour,\n\nEn prévision du rendez-vous du {{date}}, à {{heure}}, je vous prie de trouver ci-joint un projet d'acte{{vente}} sur lequel vous voudrez bien me faire part de vos observations.\nCertains éléments sont en attente de confirmation ou de complément, d’où le surlignage en jaune.\n\nRestant à votre écoute,\n\nSincères salutations",
   },
   infoDPU: {
     input: [],
-    mailString : 
-    "Monsieur le Maire,\n\nL’étude est chargée d’une vente sur votre commune.\nJe vous remercie de m’indiquer si vous avez instauré un droit de préemption urbain renforcé.\n\nEn vous remerciant pour votre aide,\n\nVotre bien dévoué"
+    mailString:
+      "Monsieur le Maire,\n\nL’étude est chargée d’une vente sur votre commune.\nJe vous remercie de m’indiquer si vous avez instauré un droit de préemption urbain renforcé.\n\nEn vous remerciant pour votre aide,\n\nVotre bien dévoué",
+  },
+  modifEDDPieceSyndic: {
+    input: [
+      {
+        type: "text",
+        id: "nomCopro",
+        label: "Indiquer l'adresse de la copropriété",
+        placeholder: "ex : 12 rue Saint-Louis à PARIS (75000)",
+      },
+    ],
+    mailString:
+      "Bonjour,\n\nJe viens vers vous dans le cadre du dossier de modificatif à l'état descriptif de division concernant la copropriété sis {{nomCopro}}.\n\nAfin de compléter le dossier, je vous remercie de m’adresser :\n- la copie du procès-verbal d’assemblée approuvant le modificatif,\n- l’attestation de non-recours à l’assemblée générale approuvant le modificatif,\n- la copie du procès-verbal de nomination de votre syndic,\n- l’attestation de non-recours à l’assemblée générale de nomination de votre syndic,\n- la copie du règlement de copropriété et l'état descriptif de division ainsi que tous leurs modificatifs éventuels publiés, \n- un mail ou courrier confirmant de l’absence de données comptables sur le lot créé par prélèvement sur les parties communes,\n- un mail ou courrier confirmant que l’acquéreur est déjà copropriétaire au sein de la copropriété et qu’il n’a pas fait l’objet d'une mise en demeure de payer du syndic restée infructueuse depuis plus de quarante-cinq jours,\n- la fiche synthétique de la copropriété,\n- l’attestation d’immatriculation de la copropriété,\n- les diagnostics techniques parties communes (plomb, amiante, termites, etc.) ou un mail confirmant l’absence de diagnostics,\n- le diagnostic technique global (DTG) ou un mail confirmant l’absence de DTG.\n\nDans l'attente de vous lire,\n\nSincères salutations",
+  },
+  modifEDDDemandeGeometre: {
+    input:[],
+    mailString: 
+    "Bonjour,\n\nL’étude a été mandatée pour procéder à la publication de votre projet modificatif à l’état descriptif de division ci-joint.\n\nA ce titre, pouvez-vous m’adresser ce document au format WORD ?\n\nEn vous remerciant pour votre aide,\n\nSincères salutations"
   }
+  
 };
 
 export { EmailData };

@@ -118,6 +118,19 @@ const emailListData = [
       },
     ],
   },
+  {
+  type: "Modifcatif EDD",
+  query: [
+    {
+      value: "modifEDDPieceSyndic",
+      question: "Demande des pièces au syndic"
+    },
+    {
+      value: "modifEDDDemandeGeometre",
+      question: "Demande du modificatif WORD au géomètre"
+    }
+  ]
+  }
 ];
 
 export default emailListData;
