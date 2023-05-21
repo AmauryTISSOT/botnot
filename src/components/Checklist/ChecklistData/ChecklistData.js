@@ -238,7 +238,7 @@ const checkListData = {
     },
     {
       id: 21,
-      text: "Vérifier qui ouvre le dossier (ATTENION ETAT-CIVIL DE NOS CLIENTS) : le cas échéant créer une alerte dans les 15 jours",
+      text: "Vérifier qui ouvre le dossier (ATTENTION ETAT-CIVIL DE NOS CLIENTS) : le cas échéant créer une alerte dans les 15 jours",
       checked: false,
     },
     {
@@ -266,11 +266,8 @@ const checkListData = {
       text: "Créer une pochette minute pour la promesse de vente",
       checked: false,
     },
-    {
-      id: 27,
-      text: "Archiver la pochette minute",
-      checked: false,
-    },
+    { id: 27, text: "Imprimer la fiche signature, et l'inclure dans la pochette minute papier", checked: false },
+    { id: 28, text: "Classer la pochette minute", checked: false },
   ],
   analyseCompromisAgence: [
     { id: 1, text: "Vérifier le prix de vente", checked: false },
@@ -329,6 +326,10 @@ const checkListData = {
     },
     { id: 9, text: "Pochette minute papier", checked: false },
     { id: 10, text: "Scanner le RIB des clients signés", checked: false },
+    { id: 11, text: "Vérifier si mainlevée à effectuer: si oui, placer le dossier dans la pile mainlevée, créer une note sur le compte vendeur dans le logiciel de comptabilité", checked: false },
+
+    { id: 12, text: "Imprimer la fiche signature, et l'inclure dans la pochette minute papier", checked: false },
+    { id: 13, text: "Classer la pochette minute", checked: false },
   ],
   formaPret: [
     { id: 1, text: "Signer l'acte informatiquement", checked: false },
@@ -350,6 +351,8 @@ const checkListData = {
       text: "Vérifier info assurance copropriété au dossier",
       checked: false,
     },
+    { id: 8, text: "Imprimer la fiche signature, et l'inclure dans la pochette minute papier", checked: false },
+    { id: 9, text: "Classer la pochette minute", checked: false },
   ],
   clauseEtude: [
     {
