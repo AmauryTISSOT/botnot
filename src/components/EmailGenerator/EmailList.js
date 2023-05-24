@@ -106,7 +106,7 @@ const emailListData = [
     ],
   },
   {
-    type: "Urbanisme",
+    type: "Urbanisme / construction",
     query: [
       {
         value: "DHL",
@@ -115,6 +115,10 @@ const emailListData = [
       {
         value: "infoDPU",
         question: "Demande d'information DPU",
+      },
+      {
+        value: "assDecennale",
+        question: "Demande d'assurance décennale",
       },
     ],
   },

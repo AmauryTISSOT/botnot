@@ -615,6 +615,18 @@ const EmailData = {
     input:[],
     mailString: 
     "Bonjour,\n\nL’étude a été mandatée pour procéder à la publication de votre projet modificatif à l’état descriptif de division ci-joint.\n\nA ce titre, pouvez-vous m’adresser ce document au format WORD ?\n\nEn vous remerciant pour votre aide,\n\nSincères salutations"
+  },
+  assDecennale : {
+    input: [
+      {
+        type: "text",
+        id: "years",
+        label: "Indiquer l'année de réalisation des travaux",
+        placeholder: "2018",
+      },
+ ],
+    mailString:
+    "Madame, Monsieur,\n\nJe suis en charge de la vente d’un bien sur lequel des travaux ont été réalisés par votre entreprise au cours de l’année {{years}}, et dont vous trouverez la facture ci-jointe.\nAfin de me permettre de compléter mon dossier, je vous remercie de bien vouloir me faire passer l’attestation d’assurance responsabilité décennale couvrant la période de réalisation desdits travaux.\n\nVous remerciant par avance de votre diligence,\nEt restant à votre disposition,\nBien cordialement,\nVotre bien dévoué,"
   }
   
 };
