@@ -433,6 +433,16 @@ const checkListData = {
       checked: false,
     },
     {
+      id: 412,
+      text: "Vérifier si le diagnostic termites parties privatives est périmé",
+      checked: false,
+    },
+    {
+      id: 413,
+      text: "Vérifier si l'ERP est périmé",
+      checked: false,
+    },
+    {
       id: 5,
       text: "Vérifier si le vendeur doit fournir des documents (ex: factures, décenalle, etc)",
       checked: false,
