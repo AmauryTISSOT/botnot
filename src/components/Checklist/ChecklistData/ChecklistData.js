@@ -443,6 +443,11 @@ const checkListData = {
       checked: false,
     },
     {
+      id: 414,
+      text: "Vérifier si nous sommes en possession des actes de naissance / mariage des parties",
+      checked: false,
+    },
+    {
       id: 5,
       text: "Vérifier si le vendeur doit fournir des documents (ex: factures, décenalle, etc)",
       checked: false,
