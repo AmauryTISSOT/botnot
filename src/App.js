@@ -1,4 +1,3 @@
-import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
@@ -12,10 +11,14 @@ import EmailDisplay from "./components/EmailGenerator/EmailDisplay/EmailDisplay"
 import EmailSelect from "./components/EmailGenerator/EmailSelect/EmailSelect";
 import Checklist from "./components/Checklist/Checklist";
 import CourrierForm from "./components/CourrierGenerator/CourrierComponent/CourrierForm/CourrierForm";
+import "./index.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="bg-indigo-500">
+          <h1 className="bg-indigo-500">
+      Hello world!
+    </h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
