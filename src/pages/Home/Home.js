@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="flex">
     <SideBar/>
-      <main className="w-full h-screen text-9xl text-center">Home Page</main>
+      <main className="w-full h-screen text-xl flex justify-center">Home Page</main>
     </div>
   );
 };
