@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import NoMatch from "../../pages/NoMatch/NoMatch";
-import "./Checklist.css";
 import checkListData from "./ChecklistData/ChecklistData";
 
 const Checklist = () => {
@@ -34,13 +33,13 @@ const Checklist = () => {
 
   try {
     return (
-      <>
-        <div className="checklist-wrap">
-          <ul className="checklist-container">
+      <div className="w-screen h-screen flex flex-col items-center">
+        <div className="flex justify-center mt-10">
+          <ul className="flex flex-col items-start">
             {checklistItems.map((item) => (
-              <li key={item.id} className="checklist-list">
+              <li key={item.id} className="flex items-center justify-center">
                 <input
-                  className="checkbox"
+                  className="w-4 h-4 mr-2"
                   type="checkbox"
                   checked={item.checked}
                   onChange={() => handleCheckboxClick(item.id)}
@@ -58,10 +57,10 @@ const Checklist = () => {
             ))}
           </ul>
         </div>
-        <button className="checklist-reset" onClick={resetChecklist}>
+        <button className="mt-10 middle none center mr-4 rounded-lg bg-blue-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" onClick={resetChecklist}>
           Reset
         </button>
-      </>
+      </div>
     );
   } catch (error) {
     console.warn(error.message);
