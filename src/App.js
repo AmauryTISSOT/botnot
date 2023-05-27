@@ -15,25 +15,27 @@ import "./index.css";
 
 function App() {
   return (
-    <div className="bg-indigo-500">
-          <h1 className="bg-indigo-500">
-      Hello world!
-    </h1>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="*" element={<NoMatch />} />
-        <Route path="outils" element={<Outils />}>
-          <Route path="annuaire" element={<Annuaire />} />
-          <Route path="customerquiz" element={<CustomerQuiz />} />
-          <Route path="venteAppartement" element={<VenteAppartement />} />
-          <Route path="courrierGenerator" element={<CourrierForm/>} />
-          <Route path="emailGenerator" element={<EmailSelect/>}/>
-          <Route path="emailGenerator/:emailId" element={<EmailDisplay/>}/>
-          <Route path="checklistGenerator" element={<ChecklistSelect/>} />
-          <Route path="checklistGenerator/:checkListId" element={<Checklist/>} />
-        </Route>
-      </Routes>
+    <div className=""> 
+      <div className="antialiased text-slate-900 bg-white dark:bg-slate-900 dark:text-slate-400">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="*" element={<NoMatch />} />
+          <Route path="outils" element={<Outils />}>
+            <Route path="annuaire" element={<Annuaire />} />
+            <Route path="customerquiz" element={<CustomerQuiz />} />
+            <Route path="venteAppartement" element={<VenteAppartement />} />
+            <Route path="courrierGenerator" element={<CourrierForm />} />
+            <Route path="emailGenerator" element={<EmailSelect />} />
+            <Route path="emailGenerator/:emailId" element={<EmailDisplay />} />
+            <Route path="checklistGenerator" element={<ChecklistSelect />} />
+            <Route
+              path="checklistGenerator/:checkListId"
+              element={<Checklist />}
+            />
+          </Route>
+        </Routes>
+      </div>
     </div>
   );
 }
