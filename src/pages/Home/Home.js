@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "../../components/Header/Header";
+import SideBar from "../../components/SideBar/SideBar.js"
 
 const Home = () => {
   return (
-    <>
-      <Header />
-      <div>Home Page</div>
-    </>
+    <div className="flex">
+    <SideBar/>
+      <main className="w-full h-screen text-9xl text-center">Home Page</main>
+    </div>
   );
 };
 
