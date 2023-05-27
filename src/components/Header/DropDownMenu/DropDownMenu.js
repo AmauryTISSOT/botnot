@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import DropDownItem from "../DropDownItem/DropDownItem";
-import "./DropDownMenu.css";
 
 const DropDownMenu = (props) => {
   const [activeMenu, setActiveMenu] = useState("main");

@@ -1,5 +1,4 @@
 import React from "react";
-import "./Header.css";
 import NavBar from "./NavBar/NavBar";
 import NavItem from "./NavItem/NavItem";
 import DropDownMenu from "./DropDownMenu/DropDownMenu";
