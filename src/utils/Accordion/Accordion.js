@@ -64,7 +64,7 @@ const Accordion = ({ dataObject, rootPath }) => {
                 className={`h-${isActive[title] ? "full" : 0} px-4 ${
                   isActive[title] && "py-4"
                 }
-                text-sm leading-normal block overflow-hidden transition-height duration-300 ease-in-out hover:bg-blue-300 max-h-12 flex justify-center flex-col`}
+                text-sm leading-normal overflow-hidden transition-height duration-300 ease-in-out hover:bg-blue-300 max-h-12 flex justify-center flex-col`}
                 to={`${rootPath}${path}`}
               >
                 {name}

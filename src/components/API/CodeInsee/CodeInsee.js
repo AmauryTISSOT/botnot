@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./CodeInsee.css";
 
 const CodeInsee = ({ setState }) => {
   const [listeCommune, setListeCommune] = useState();
@@ -50,20 +49,21 @@ const CodeInsee = ({ setState }) => {
   //TODO: form validation with CSS
 
   return (
-    <div className="codeinsee-container">
-      <form className="codeinsee-form">
+    <div className="w-full flex items-start justify-center flex-col px-1 py-1">
+      <form className="w-full flex items-center justify-between gap-2 py-1">
         <label>Code postal : </label>
         <input
           type="number"
           required
           data-testid="input"
+          className="w-20 bg-slate-100 border-1 rounded text-end"
           id="postcode"
           onChange={onFillHandler}
         />
       </form>
-      <div className="codeinsee-form">
+      <div className="w-full flex items-center justify-between gap-2 py-1">
         <label>Commune : </label>
-        <select onClick={handleChange}>
+        <select onClick={handleChange} className="bg-slate-100">
           <option value="">--Selectionner une commune--</option>
           {matchResponse &&
             listeCommune[0].map((item, keys) => (

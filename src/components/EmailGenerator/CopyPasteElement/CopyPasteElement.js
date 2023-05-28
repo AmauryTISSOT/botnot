@@ -14,14 +14,14 @@ const CopyPasteElement = ({ content }) => {
 
   return (
     <>
-      <div className="copypaste-container">
+      <div className="bg-slate-100 rounded py-7 px-4 mx-32 my-12 text-left text-xs flex flex-col" >
         <CopyToClipboard text={content} onCopy={onCopy}>
-          <button className="copypaste-button">Copy</button>
+          <button className="min-w-min min-h-min self-end bg-slate-200 border-solid border border-slate-400 rounded px-2 py-1 hover:bg-slate-500 hover:text-white">Copier</button>
         </CopyToClipboard>
-        <pre data-testid="pre">{content}</pre>
+        <pre data-testid="pre" className="overflow-auto max-w-6xl">{content}</pre>
       </div>
       {copyIsClicked && (
-        <div className="copy-to-clip-board-button">Copied to clipboard</div>
+        <div className="copy-to-clip-board-button">Ajouté au presse-papiers</div>
       )}
     </>
   );

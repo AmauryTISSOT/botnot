@@ -4,7 +4,7 @@ import SideBar from "../../components/SideBar/SideBar";
 
 const Outils = () => {
   return (
-    <div data-testid="outils" className="flex">
+    <div data-testid="outils" className="w-full h-full flex">
       <SideBar />
       <Outlet />
     </div>

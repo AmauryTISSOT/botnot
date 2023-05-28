@@ -69,6 +69,8 @@ const OrganismeApi = ({ state }) => {
     }
   };
 
+  //TODO: tailwind css + new interface
+
   const displayStateObject = () => {
     return (
       <div >

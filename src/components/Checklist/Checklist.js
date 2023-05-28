@@ -33,7 +33,7 @@ const Checklist = () => {
 
   try {
     return (
-      <div className="w-screen h-screen flex flex-col items-center">
+      <div className="flex flex-col items-center w-full h-full overflow-auto">
         <div className="flex justify-center mt-10">
           <ul className="flex flex-col items-start">
             {checklistItems.map((item) => (
