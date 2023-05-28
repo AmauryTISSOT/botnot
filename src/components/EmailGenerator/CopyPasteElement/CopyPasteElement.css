@@ -1,40 +1,4 @@
-.copypaste-container {
-    background-color: var(--background-color);
-    margin: 50px 50px 50px 50px;
-    padding: 30px 16px 30px 30px;
-    width: 85%;
-    text-align: left;
-    font-size: 85%;
-    tab-size: 2;
-    min-height: 1em;
-    white-space: pre;
-    max-width: 100%;
-    word-break: break-all;
-    overflow: hidden;
-    border: 2px solid var(--font-color);
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-}
-/* 
-.copypaste-container:hover {
-    overflow-x: scroll;
-} */
-
-.copypaste-button {
-    top: 15px;
-    right: 7px;
-    width: min-content;
-    height: min-content;
-    align-self: flex-end;
-}
-
-.copypaste-button:hover {
-    cursor: pointer;
-    background-color: rgb(62, 62, 70);
-    color: white;
-}
-
+/* Animation not supported by tailwind DON'T DELETE */
 .copy-to-clip-board-button {
     background-color: rgb(47, 47, 47);
     color: white;
@@ -53,18 +17,4 @@
 @keyframes vanish {
     from {opacity: 1;}
     to {opacity: 0;}
-}
-
-.retour-button {
-    position: absolute;
-    left: 100px;
-    top: 90px;
-    padding: 6px 12px;
-    font-weight: bold;
-}
-
-.retour-button:hover {
-    cursor: pointer;
-    background-color: rgb(62, 62, 70);
-    color: white;
 }
