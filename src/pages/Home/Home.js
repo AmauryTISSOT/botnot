@@ -15,7 +15,7 @@ const Home = () => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <rect width="48" height="48" fill="white" fill-opacity="0.01" />
+              <rect width="48" height="48" fill="white" fillOpacity="0.01" />
               <rect
                 x="9"
                 y="18"
@@ -24,7 +24,7 @@ const Home = () => {
                 rx="2"
                 fill="#2F88FF"
                 stroke="#000000"
-                stroke-width="4"
+                strokeWidth="4"
               />
               <circle cx="17" cy="26" r="2" fill="white" />
               <circle cx="31" cy="26" r="2" fill="white" />
@@ -35,25 +35,25 @@ const Home = () => {
               <path
                 d="M24 10V18"
                 stroke="#000000"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M4 26V34"
                 stroke="#000000"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
               <path
                 d="M44 26V34"
                 stroke="#000000"
-                stroke-width="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
-              <circle cx="24" cy="8" r="2" stroke="#000000" stroke-width="4" />
+              <circle cx="24" cy="8" r="2" stroke="#000000" strokeWidth="4" />
             </svg>
           </span>
           <h1 className="mx-auto max-w-4xl font-sans text-5xl font-semibold tracking-tight text-slate-900 sm:text-8xl pt-10">BotNot</h1>
