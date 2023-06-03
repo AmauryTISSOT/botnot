@@ -128,56 +128,58 @@ const SideBar = () => {
     <nav className="w-32 w-min-32 bg-slate-50 dark:bg-slate-800  h-screen flex flex-col items-center pt-5 pb-5 gap-2 drop-shadow-md flex-shrink-0 top-0 left-0 overflow-x-hidden sticky">
       <Link to="/" className="font-semibold w-full flex flex-col items-center">
         <span className="flex gap-1">
-           <svg
-              width="20"
-              height="20"
-              viewBox="0 0 48 48"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="48" height="48" fill="white" fillOpacity="0.01" />
-              <rect
-                x="9"
-                y="18"
-                width="30"
-                height="24"
-                rx="2"
-                fill="#2F88FF"
-                stroke="#000000"
-                strokeWidth="4"
-              />
-              <circle cx="17" cy="26" r="2" fill="white" />
-              <circle cx="31" cy="26" r="2" fill="white" />
-              <path
-                d="M20 32C18.8954 32 18 32.8954 18 34C18 35.1046 18.8954 36 20 36V32ZM28 36C29.1046 36 30 35.1046 30 34C30 32.8954 29.1046 32 28 32V36ZM20 36H28V32H20V36Z"
-                fill="white"
-              />
-              <path
-                d="M24 10V18"
-                stroke="#000000"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M4 26V34"
-                stroke="#000000"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <path
-                d="M44 26V34"
-                stroke="#000000"
-                strokeWidth="4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <circle cx="24" cy="8" r="2" stroke="#000000" strokeWidth="4" />
-            </svg>
-        BotNot 
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 48 48"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="48" height="48" fill="white" fillOpacity="0.01" />
+            <rect
+              x="9"
+              y="18"
+              width="30"
+              height="24"
+              rx="2"
+              fill="#2F88FF"
+              stroke="#000000"
+              strokeWidth="4"
+            />
+            <circle cx="17" cy="26" r="2" fill="white" />
+            <circle cx="31" cy="26" r="2" fill="white" />
+            <path
+              d="M20 32C18.8954 32 18 32.8954 18 34C18 35.1046 18.8954 36 20 36V32ZM28 36C29.1046 36 30 35.1046 30 34C30 32.8954 29.1046 32 28 32V36ZM20 36H28V32H20V36Z"
+              fill="white"
+            />
+            <path
+              d="M24 10V18"
+              stroke="#000000"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M4 26V34"
+              stroke="#000000"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M44 26V34"
+              stroke="#000000"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <circle cx="24" cy="8" r="2" stroke="#000000" strokeWidth="4" />
+          </svg>
+          BotNot
         </span>
-        <i className="text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 dark:highlight-white/5">Beta</i>
+        <i className="text-xs leading-5 font-semibold bg-slate-400/10 rounded-full py-1 px-3 flex items-center space-x-2 dark:highlight-white/5">
+          Beta
+        </i>
       </Link>
       <ul className="w-full flex flex-col items-center">
         {sideBarMenuData.map((item, index) => (
