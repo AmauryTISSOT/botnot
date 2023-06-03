@@ -192,6 +192,10 @@ const checklistList = [
         path: "taxeVente",
         name: "Taxe d'une vente",
       },
+      {
+        path: "demandeSoldeDebiteur",
+        name: "Demande solde débiteur",
+      },
     ],
   },
 ];

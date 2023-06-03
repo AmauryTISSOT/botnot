@@ -136,7 +136,11 @@ const emailListData = [
     content: [
       {
         path: "soldeCompte",
-        name: "Demande de RIB pour solde de compte",
+        name: "Demande de RIB pour solde de compte créditeur",
+      },
+      {
+        path: "crediteurCompte",
+        name: "Demande de paiement solde débiteur",
       },
     ],
   },

@@ -612,11 +612,11 @@ const EmailData = {
       "Bonjour,\n\nJe viens vers vous dans le cadre du dossier de modificatif à l'état descriptif de division concernant la copropriété sis {{nomCopro}}.\n\nAfin de compléter le dossier, je vous remercie de m’adresser :\n- la copie du procès-verbal d’assemblée approuvant le modificatif,\n- l’attestation de non-recours à l’assemblée générale approuvant le modificatif,\n- la copie du procès-verbal de nomination de votre syndic,\n- l’attestation de non-recours à l’assemblée générale de nomination de votre syndic,\n- la copie du règlement de copropriété et l'état descriptif de division ainsi que tous leurs modificatifs éventuels publiés, \n- un mail ou courrier confirmant de l’absence de données comptables sur le lot créé par prélèvement sur les parties communes,\n- un mail ou courrier confirmant que l’acquéreur est déjà copropriétaire au sein de la copropriété et qu’il n’a pas fait l’objet d'une mise en demeure de payer du syndic restée infructueuse depuis plus de quarante-cinq jours,\n- la fiche synthétique de la copropriété,\n- l’attestation d’immatriculation de la copropriété,\n- les diagnostics techniques parties communes (plomb, amiante, termites, etc.) ou un mail confirmant l’absence de diagnostics,\n- le diagnostic technique global (DTG) ou un mail confirmant l’absence de DTG.\n\nDans l'attente de vous lire,\n\nSincères salutations",
   },
   modifEDDDemandeGeometre: {
-    input:[],
-    mailString: 
-    "Bonjour,\n\nL’étude a été mandatée pour procéder à la publication de votre projet modificatif à l’état descriptif de division ci-joint.\n\nA ce titre, pouvez-vous m’adresser ce document au format WORD ?\n\nEn vous remerciant pour votre aide,\n\nSincères salutations"
+    input: [],
+    mailString:
+      "Bonjour,\n\nL’étude a été mandatée pour procéder à la publication de votre projet modificatif à l’état descriptif de division ci-joint.\n\nA ce titre, pouvez-vous m’adresser ce document au format WORD ?\n\nEn vous remerciant pour votre aide,\n\nSincères salutations",
   },
-  assDecennale : {
+  assDecennale: {
     input: [
       {
         type: "text",
@@ -624,11 +624,22 @@ const EmailData = {
         label: "Indiquer l'année de réalisation des travaux",
         placeholder: "2018",
       },
- ],
+    ],
     mailString:
-    "Madame, Monsieur,\n\nJe suis en charge de la vente d’un bien sur lequel des travaux ont été réalisés par votre entreprise au cours de l’année {{years}}, et dont vous trouverez la facture ci-jointe.\nAfin de me permettre de compléter mon dossier, je vous remercie de bien vouloir me faire passer l’attestation d’assurance responsabilité décennale couvrant la période de réalisation desdits travaux.\n\nVous remerciant par avance de votre diligence,\nEt restant à votre disposition,\nBien cordialement,\nVotre bien dévoué,"
-  }
-  
+      "Madame, Monsieur,\n\nJe suis en charge de la vente d’un bien sur lequel des travaux ont été réalisés par votre entreprise au cours de l’année {{years}}, et dont vous trouverez la facture ci-jointe.\nAfin de me permettre de compléter mon dossier, je vous remercie de bien vouloir me faire passer l’attestation d’assurance responsabilité décennale couvrant la période de réalisation desdits travaux.\n\nVous remerciant par avance de votre diligence,\nEt restant à votre disposition,\nBien cordialement,\nVotre bien dévoué,",
+  },
+  crediteurCompte: {
+    input: [
+      {
+        type: "text",
+        id: "variable",
+        label: "Indiquer le montant du compte débiteur",
+        placeholder: "35,76€",
+      },
+    ],
+    mailString:
+      "Bonjour,\n\nJe reviens vers vous dans le cadre du dossier que nous avions traité ensemble à l’étude.\n\nA l’occasion de ma clôture comptable, nous nous sommes aperçus que votre compte présentait un solde débiteur d’un montant de {{variable}}, tel que vous pourrez le constater sur votre relevé de compte ci-joint.\nAussi, et afin de me permettre de clore votre dossier, je vous remercie de bien vouloir me faire parvenir ladite somme par tout moyen à votre convenance (RIB ci-joint).\n\nComte tenu du nombre important de fraudes recensées depuis ces derniers mois, j’attire votre attention sur le fait que seul le compte de Caisse des Dépôts et Consignation est habilité à recevoir vos virements.\n\nVous remerciant par avance de votre diligence, et de votre compréhension.\n\nEt restant à votre disposition,\n\nBien cordialement,\n\nVotre bien dévoué,",
+  },
 };
 
 export { EmailData };
