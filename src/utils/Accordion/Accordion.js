@@ -31,6 +31,7 @@ const Accordion = ({ dataObject, rootPath }) => {
             <div
               className="flex items-center justify-between gap-2"
               key={index}
+              data-testid="accordion-title"
             >
               <span>{svg}</span>
               {title}
@@ -61,7 +62,7 @@ const Accordion = ({ dataObject, rootPath }) => {
                 key={contentIndex}
                 id={path}
                 data-testid="question-element"
-                className={`h-${isActive[title] ? "full" : 0} px-4 ${
+                className={`${isActive[title] ? "h-full" : "h-0"} px-4 ${
                   isActive[title] && "py-4"
                 }
                 text-sm leading-normal overflow-hidden transition-height duration-300 ease-in-out hover:bg-blue-300 max-h-12 flex justify-center flex-col`}
