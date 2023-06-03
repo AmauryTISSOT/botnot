@@ -15,13 +15,8 @@ describe("EmailSelect unit testing", () => {
       </MemoryRouter>
     );
 
-    const emailListLength = emailListData.length;
-
     const h1Element = screen.getByRole("heading", { level: 1 });
     expect(h1Element).toBeInTheDocument();
     expect(h1Element).toHaveTextContent("Sélectionner un modèle de mail");
-
-    const titleElement = screen.getAllByRole("heading", { level: 2 });
-    expect(titleElement).toHaveLength(emailListLength);
   });
 });

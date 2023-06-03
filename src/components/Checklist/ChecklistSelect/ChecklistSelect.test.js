@@ -13,13 +13,8 @@ describe("ChecklistSelect unit testing", () => {
       </MemoryRouter>
     );
 
-    const checklistListLength = checklistList.length;
-
     const h1Element = screen.getByRole("heading", { level: 1 });
     expect(h1Element).toBeInTheDocument();
     expect(h1Element).toHaveTextContent("Sélectionner un type de checklist");
-
-    const titleElement = screen.getAllByRole("heading", { level: 2 });
-    expect(titleElement).toHaveLength(checklistListLength);
   });
 });

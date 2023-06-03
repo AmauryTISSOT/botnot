@@ -9,7 +9,13 @@ const About = () => {
         <h1 className="text-3xl my-4 font-bold underline">A propos</h1>
         <p>Réalisé par Amaury Tissot</p>
         <p>Application à usage strictement personnel</p>
-        <a href="https://github.com/AmauryTISSOT" target={"_blank"} rel="noreferrer" className="my-4 hover:animate-spin animate-pulse">
+        <a
+          href="https://github.com/AmauryTISSOT"
+          target={"_blank"}
+          rel="noreferrer"
+          className="my-4 hover:animate-spin animate-pulse"
+          data-testid="github-link"
+        >
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
