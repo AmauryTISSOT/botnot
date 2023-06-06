@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import CopyPasteElement from "../CopyPasteElement/CopyPasteElement";
-import { EmailData as data } from "../EmailData";
+import { EmailData as data } from "../Constant/EmailData";
 import NoMatch from "../../../pages/NoMatch/NoMatch";
 
 const EmailDisplay = () => {
@@ -59,19 +59,20 @@ const EmailDisplay = () => {
   //function who return radioInput html
   const radioInput = (id, label, valueObj) => {
     return (
-      <label key={id} className="w-full flex items-center justify-between gap-2 py-3">
+      <label
+        key={id}
+        className="w-full flex items-center justify-between gap-2 py-3"
+      >
         {label}
         <div className="flex gap-2 items-center justify-center">
           {valueObj.map((element, key) => (
-            <div key={key} 
-            className="flex gap-1 items-center justify-between"
-            >
+            <div key={key} className="flex gap-1 items-center justify-between">
               <input
-              id={id}
-              data-testid={`test-${id}-${element.subLabel}`}
-              name={id}
-              value={element.value}
-              onChange={onFillHandler}
+                id={id}
+                data-testid={`test-${id}-${element.subLabel}`}
+                name={id}
+                value={element.value}
+                onChange={onFillHandler}
                 type="radio"
                 className="w-3.5 h-3.5"
               />
@@ -88,7 +89,12 @@ const EmailDisplay = () => {
     return (
       <div key={id} className="w-full flex gap-2 items-center justify-between">
         <label htmlFor={id}>{label}</label>
-        <select id={id} data-testid={`test-${id}`} onChange={onFillHandler} className="px-3 py-2 border rounded border-solid border-blue-300 my-2 hover:bg-slate-300">
+        <select
+          id={id}
+          data-testid={`test-${id}`}
+          onChange={onFillHandler}
+          className="px-3 py-2 border rounded border-solid border-blue-300 my-2 hover:bg-slate-300"
+        >
           <option value="">--Sélectionner une option--</option>
           {value.map((element, key) => (
             <option
@@ -129,9 +135,7 @@ const EmailDisplay = () => {
       </div>
     );
   } catch (error) {
-    return (
-        <NoMatch />
-    );
+    return <NoMatch />;
   }
 };
 
