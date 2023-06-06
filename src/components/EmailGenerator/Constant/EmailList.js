@@ -82,10 +82,6 @@ const emailListData = [
         name: "Envoi information digicode",
       },
       {
-        path: "visio",
-        name: "Visioconférence",
-      },
-      {
         path: "copieActeSuiteSignature",
         name: "Envoi copie d'acte suite à signature",
       },
