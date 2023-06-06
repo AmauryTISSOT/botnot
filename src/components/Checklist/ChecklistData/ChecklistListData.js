@@ -157,7 +157,7 @@ const checklistList = [
       },
       {
         path: "formaAntVente",
-        name: "Formalités antérieures promesse acte de vente",
+        name: "Formalités antérieures acte de vente",
       },
       {
         path: "formaAntPret",
