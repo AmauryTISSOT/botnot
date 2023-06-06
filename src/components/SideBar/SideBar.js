@@ -5,7 +5,7 @@ const SideBar = () => {
   const sideBarMenuData = [
     {
       menuName: "Accueil",
-      path: "/",
+      path: "/botnot",
       svg: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +126,10 @@ const SideBar = () => {
 
   return (
     <nav className="w-32 w-min-32 bg-slate-50 dark:bg-slate-800  h-screen flex flex-col items-center pt-5 pb-5 gap-2 drop-shadow-md flex-shrink-0 top-0 left-0 overflow-x-hidden sticky">
-      <Link to="/" className="font-semibold w-full flex flex-col items-center">
+      <Link
+        to="/botnot"
+        className="font-semibold w-full flex flex-col items-center"
+      >
         <span className="flex gap-1">
           <svg
             width="20"

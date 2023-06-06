@@ -15,10 +15,10 @@ import "./index.css";
 
 function App() {
   return (
-    <div className=""> 
+    <div className="">
       <div className="antialiased text-slate-900 bg-white dark:bg-slate-900 dark:text-slate-400">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/botnot" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="*" element={<NoMatch />} />
           <Route path="outils" element={<Outils />}>
