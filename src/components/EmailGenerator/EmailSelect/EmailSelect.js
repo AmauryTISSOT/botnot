@@ -1,4 +1,4 @@
-import emailListData from "../EmailList";
+import emailListData from "../Constant/EmailList";
 import Accordion from "../../../utils/Accordion/Accordion";
 
 const EmailSelect = () => {

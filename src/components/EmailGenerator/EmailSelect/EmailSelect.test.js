@@ -3,7 +3,6 @@ import { render, screen, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import EmailSelect from "./EmailSelect";
 import { MemoryRouter } from "react-router-dom";
-import emailListData from "../EmailList";
 
 beforeAll(cleanup);
 
