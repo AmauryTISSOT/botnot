@@ -10,7 +10,7 @@ const About = () => {
         <p>Réalisé par Amaury Tissot</p>
         <p>Application à usage strictement personnel</p>
         <a
-          href="https://github.com/AmauryTISSOT"
+          href="https://github.com/AmauryTISSOT/botnot"
           target={"_blank"}
           rel="noreferrer"
           className="my-4 hover:animate-spin animate-pulse"
