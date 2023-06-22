@@ -177,7 +177,7 @@ const EmailData = {
       },
     ],
     mailString:
-      "Bonjour,\n\nJe reviens vers vous dans le cadre du dossier cité en objet pour vous confirmer le rendez-vous de signature le {{dateSignature}}.\nNos locaux sont situés 32 rue Etienne Marcel à PARIS 2ème arrondissement.\n\nPour information, le digicode pour l’ouverture de la 1ère porte est : 3210 et pour la seconde porte : 1984.\n\nL’étude est située au 3ème étage par l’ascenseur et au 4ème par les escaliers.\n\nRestant à votre écoute,\n\nSincères salutations",
+      "Bonjour,\n\nJe reviens vers vous dans le cadre du dossier cité en objet pour vous confirmer le rendez-vous de signature le {{dateSignature}}.\nNos locaux sont situés 32 rue Etienne Marcel à PARIS 2ème arrondissement.\n\nPour information, le digicode pour l’ouverture de la 1ère porte est : 3202 et pour la seconde porte : 0232.\n\nL’étude est située au 3ème étage par l’ascenseur et au 4ème par les escaliers.\n\nRestant à votre écoute,\n\nSincères salutations",
   },
   attestationTravaux: {
     input: [
